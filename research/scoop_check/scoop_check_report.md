@@ -13,7 +13,7 @@ Justification: no retrieved or recalled paper combines all four axes. The mechan
 2. cite stacking (Wolpert, Breiman, Super Learner) and regression kriging as the mechanism's ancestors;
 3. claim novelty only for the novelty-damped local OOF correction in composition space evaluated honestly on Matbench.
 
-One unresolved risk is "Machine learning-driven property prediction for materials in data-scarcity scenarios: Ensemble of experts approach" (Miccio, Comput. Mater. Sci. 2025), which could not be read.
+Resolved risk (update 2026-10-18): "Machine learning-driven property prediction for materials in data-scarcity scenarios: Ensemble of experts approach" (Miccio, Comput. Mater. Sci. 2025) was first unreadable (paywall). The owner then supplied the PDF and it was read. It is transfer learning from neural experts pre-trained on related polymer properties (SMILES inputs), with no stacking, OOF residuals, local correction or Matbench, so it is Level 4 — Low Overlap. It does not change the verdict, but it should be cited in related work (same target journal).
 
 ## 3. Decomposed claim
 
@@ -1640,7 +1640,7 @@ One unresolved risk is "Machine learning-driven property prediction for material
   - Axes matching: 1 -> **Level 4 — Low Overlap** (three axes differ)
 - **Prior work E** (Chang et al., mixture of experts): 1 axis -> Level 4 — Low Overlap
 - **Prior work F** (Zhao et al., HEA stacking): 1 axis -> Level 4 — Low Overlap
-- **Prior work G** (Miccio, ensemble of experts, not read): title-only 2 -> provisional Level 3 — Medium Overlap
+- **Prior work G** (Miccio, ensemble of experts, Comput. Mater. Sci. 2025; read after the owner supplied the PDF): pre-trained neural experts on related polymer properties from SMILES (transfer learning); at most 1 axis (partial framing) -> Level 4 — Low Overlap
 - Recalled classics (Wolpert; Breiman; Super Learner; regression kriging): each matches only on mechanism (one component) -> Level 4 — Low Overlap
 
 Worst case (minimum level): **Level 3 — Medium Overlap**.

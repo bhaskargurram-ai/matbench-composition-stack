@@ -1,0 +1,6 @@
+== design v3 matbench_glass n_fold0_train=4544 cfg=None
+    expert lgbm_all: 8.9s, OOF score 0.9280
+    expert rf_all: 20.3s, OOF score 0.9335
+    expert et_all: 17.6s, OOF score 0.9330
+    expert svc_frac: 11.5s, OOF score 0.8610
+    expert svc_magpie: 10.8s, OOF score 0.8824

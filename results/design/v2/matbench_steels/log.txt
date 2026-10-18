@@ -1,0 +1,42 @@
+== design v2 matbench_steels n_fold0_train=249 cfg=None
+    expert lgbm_all: 1.0s, OOF score 113.6464
+    expert rf_all: 2.1s, OOF score 120.9353
+    expert et_all: 1.6s, OOF score 104.4867
+    expert krr_frac: 1.5s, OOF score 196.1426
+    expert krr_magpie: 0.4s, OOF score 166.2649
+    expert mlp_all: 5.0s, OOF score 137.5359
+  pseudo-fold 0 (13s): best_single=84.7731, mean_ensemble=116.2145, stack=84.7734, stack_local=94.1451, stack_local_magpie=87.9411, stack_local_frac=94.1451, single_local=94.1450
+    weights={'lgbm_all': 0.0, 'rf_all': 0.0, 'et_all': 1.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 5, 'hmult': 4.0, 'kappa': 0.5, 'alpha': 1.0}
+    expert lgbm_all: 1.1s, OOF score 94.2557
+    expert rf_all: 2.4s, OOF score 107.1069
+    expert et_all: 1.8s, OOF score 83.5015
+    expert krr_frac: 0.4s, OOF score 195.3791
+    expert krr_magpie: 0.3s, OOF score 175.8328
+    expert mlp_all: 6.0s, OOF score 116.9333
+  pseudo-fold 1 (13s): best_single=105.5981, mean_ensemble=146.7224, stack=106.8833, stack_local=96.3545, stack_local_magpie=104.2349, stack_local_frac=96.3545, single_local=96.9986
+    weights={'lgbm_all': 0.0, 'rf_all': 0.0, 'et_all': 0.932, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.068} sel={'space': 'frac', 'k': 20, 'hmult': 4.0, 'kappa': 0.5, 'alpha': 0.75}
+    expert lgbm_all: 1.1s, OOF score 108.9291
+    expert rf_all: 2.3s, OOF score 112.9980
+    expert et_all: 1.7s, OOF score 98.3574
+    expert krr_frac: 0.4s, OOF score 199.9706
+    expert krr_magpie: 0.3s, OOF score 113.1263
+    expert mlp_all: 7.1s, OOF score 130.2624
+  pseudo-fold 2 (14s): best_single=68.4708, mean_ensemble=94.5905, stack=66.5846, stack_local=72.3350, stack_local_magpie=84.7489, stack_local_frac=72.3350, single_local=78.0591
+    weights={'lgbm_all': 0.0, 'rf_all': 0.0, 'et_all': 0.858, 'krr_frac': 0.0, 'krr_magpie': 0.142, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 20, 'hmult': 4.0, 'kappa': 0.1, 'alpha': 0.75}
+    expert lgbm_all: 1.0s, OOF score 99.9486
+    expert rf_all: 2.1s, OOF score 113.1574
+    expert et_all: 1.7s, OOF score 91.8053
+    expert krr_frac: 0.4s, OOF score 201.2932
+    expert krr_magpie: 0.4s, OOF score 141.1479
+    expert mlp_all: 5.8s, OOF score 119.9773
+  pseudo-fold 3 (12s): best_single=79.0456, mean_ensemble=89.2042, stack=77.8792, stack_local=71.9286, stack_local_magpie=80.2128, stack_local_frac=71.9286, single_local=70.6711
+    weights={'lgbm_all': 0.069, 'rf_all': 0.0, 'et_all': 0.808, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.122} sel={'space': 'frac', 'k': 20, 'hmult': 4.0, 'kappa': 0.0, 'alpha': 0.75}
+    expert lgbm_all: 1.0s, OOF score 95.9648
+    expert rf_all: 2.2s, OOF score 108.4160
+    expert et_all: 1.7s, OOF score 89.7173
+    expert krr_frac: 0.4s, OOF score 193.2375
+    expert krr_magpie: 0.3s, OOF score 179.0000
+    expert mlp_all: 5.6s, OOF score 108.1069
+  pseudo-fold 4 (12s): best_single=89.6368, mean_ensemble=130.8564, stack=98.2427, stack_local=92.2016, stack_local_magpie=100.6085, stack_local_frac=92.2016, single_local=85.1746
+    weights={'lgbm_all': 0.131, 'rf_all': 0.0, 'et_all': 0.619, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.25} sel={'space': 'frac', 'k': 40, 'hmult': 4.0, 'kappa': 0.1, 'alpha': 0.75}
+  MEAN: single:lgbm_all=93.1734, single:rf_all=103.0270, single:et_all=85.5049, single:krr_frac=198.7725, single:krr_magpie=159.8475, single:mlp_all=122.6363, best_single=85.5049, mean_ensemble=115.5176, stack=86.8727, stack_local=85.3929, stack_local_magpie=91.5492, stack_local_frac=85.3929, single_local=85.0097

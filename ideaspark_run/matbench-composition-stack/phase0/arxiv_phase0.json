@@ -1,0 +1,913 @@
+[
+ {
+  "title": "Resilience of the physicochemical properties of graphene-based materials for applications in harsh radiation environments",
+  "title_norm": "resilience of the physicochemical properties of graphene based materials for app",
+  "abstract": "The development of radiation-tolerant materials capable of maintaining structural, electrical, and thermal stability in extreme, radiation-rich environments remains a critical challenge in materials science. In this work, the effects of 60 MeV 35Cl ion irradiation on highly oriented pyrolytic graphite (HOPG) and multilayer reduced graphene oxide (ML-rGO) were investigated. The samples were exposed to fluences of 5.11 x 10^9 and 1.3 x 10^10 ions/cm^2 and characterized by X-ray diffraction (XRD), Raman spectroscopy, scanning electron microscopy (SEM), atomic force microscopy (AFM), and electrical transport measurements. The results show that the irradiation response is strongly influenced by the initial structural organization of the material. In HOPG, ion exposure leads to a progressive loss of crystalline order, evidenced by XRD peak broadening and an increase in the Raman ID/IG ratio, accompanied by a reduction in electrical transport performance. In contrast, ML-rGO exhibits distinct behavior at higher fluences, suggesting partial structural reorganization. The appearance of more defined graphitic features in XRD and Raman analyses, along with changes in surface morphology and electrical response, suggests the formation of more ordered sp2 domains. These findings indicate that irradiation effects vary with the initial degree of order, providing useful insights for selecting carbon-based materials for devices operating under severe radiation conditions.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Marcilei A. Guazzelli",
+   "Saulo G. Alberton",
+   "Nemitala Added",
+   "Vitor A. P. Aguiar",
+   "Koiti Araki",
+   "Luis H. Avanzi",
+   "Francesco Cappuzzello",
+   "Manuela Cavallaro",
+   "Eliane F. Chinaglia",
+   "Marcia T. Escote",
+   "Fabio F. Ferreira",
+   "Mauro Giovannini",
+   "Renato F. Jardim",
+   "Sueli H. Masunaga",
+   "Nilberto H. Medina",
+   "Marcelo Nakamura",
+   "José R. B. Oliveira",
+   "Roberto B. B. Santos",
+   "Alexis C. Villas-Bôas"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.26311v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.26311v1",
+  "published_iso": "2026-05-25T20:05:21Z",
+  "from_query": [
+   "composition-based materials property prediction",
+   "stacked ensemble Magpie descriptors meta-learner materials",
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Magpie: Real-Time World Renderer for Interactive Games",
+  "title_norm": "magpie real time world renderer for interactive games",
+  "abstract": "Modern game development relies heavily on conventional graphics pipelines. High-quality visual content requires modeling, material authoring, animation, lighting, effects, and runtime optimization, making asset production expensive and extending the development cycle of game prototypes. Recently, video foundation models are beginning to change film and video production, but games differ from linear media, they require not only continuous and realistic imagery, but also stable and reproducible gameplay rules, object states, and interaction outcomes. We present Magpie, a real-time generative world-rendering system for interactive games. Magpie separates gameplay execution from visual generation. Designers define scenes and rules in a game engine. At runtime, the Game Engine resolves player actions and maintains world state, while an independent Render Server generates visual output from white-box frames produced by the engine. Magpie provides a system-level implementation path for applying generative models to real-time game rendering. It preserves gameplay designability and reproducibility, and reduces the dependence of early game prototypes on complete visual assets.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Xiaoyu Zhan",
+   "Xinyu Wang",
+   "Xiaohong Zhang",
+   "Huanjie Zhu",
+   "Tengjiao Sun",
+   "Pengcheng Fang",
+   "Jiaxing Yu",
+   "Yanwen Guo",
+   "Dongjie Fu"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2608.27168v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2608.27168v1",
+  "published_iso": "2026-08-27T14:21:49Z",
+  "from_query": [
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "L-FAME: Longitudinal Focused Attention Meditation EEG Dataset and Benchmark",
+  "title_norm": "l fame longitudinal focused attention meditation eeg dataset and benchmark",
+  "abstract": "We introduce a novel Longitudinal Focused Attention Meditation Electroencephalography (L-FAME) dataset and an accompanying benchmark, designed to foster research into the neural effects of various meditation practices and the evolution of these effects over a six-week training period. The dataset contains EEG recordings and psychological assessments from 74 healthy college participants, collected at two distinct time points: pre-intervention and post-intervention. Participants were randomly assigned to one of three distinct meditation groups: two mantra-based techniques (SA-TA-NA-MA and Hare Krishna) and one Breath Focus practice. Leveraging this unique longitudinal and comparative dataset, we propose a benchmark suite comprising three distinct classification tasks: (1) cognitive state decoding to distinguish between resting and meditation states, (2) fine-grained classification of the specific meditation techniques, and (3) cross-session adaptation to evaluate model generalization across the longitudinal time gap. We provide comprehensive baseline results for these tasks utilizing a range of classical machine learning algorithms and deep learning architectures. The complete dataset, preprocessing pipelines, and benchmark evaluation code will be publicly released, offering a valuable resource and a standardized framework for the development and comparison of new analytical methods in computational meditation research and EEG-based machine learning. The dataset is available at https://huggingface.co/datasets/L-FAME-Dataset-Benchmark/L-FAME",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Angqi Li",
+   "Ab Basit Rafi Syed",
+   "Hamzeh Alzweri",
+   "Taosheng Liu",
+   "Barry H. Cohen",
+   "Saiprasad Ravishankar"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.22893v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.22893v1",
+  "published_iso": "2026-05-21T14:09:50Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Recursive Gaussian Processes and the Bayesian Brain",
+  "title_norm": "recursive gaussian processes and the bayesian brain",
+  "abstract": "Predictive coding offers a powerful framework for cortical computation, yet scalable implementations that respect both Bayesian exactness and neurobiological constraints remain scarce. We bridge this gap by formally connecting predictive coding to Recursive Gaussian Processes (RGPs). RGPs employ a single Gaussian process \\( g(t, \\cdot) \\) indexed by layer index and input value, preventing the representational collapse of standard deep Gaussian processes while allowing learnable cross-layer dependence via \\( r_{1g} \\). We demonstrate that RGPs intrinsically implement hierarchical Bayesian inference, uncertainty propagation, and precision-weighted prediction error. Critically, we map RGP components---the shared GP, spike-and-slab variable selection, and MCMC dynamics---onto the canonical cortical microcircuit, providing a neurobiological substrate for these computations. Drawing on the free energy principle, we show that RGP inference minimizes variational free energy, formally linking Bayesian mechanics to neuronal dynamics. Our synthesis positions RGPs as both a principled computational tool and a candidate model for the brain's predictive machinery, generating testable predictions for laminar-specific dynamics and spectral asymmetries between feedforward and feedback processing.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Moumita Das",
+   "Dipanjan Ray",
+   "Sourabh Bhattacharya"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2608.00503v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2608.00503v1",
+  "published_iso": "2026-08-01T07:53:51Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Large language model-enabled automated data extraction for concrete materials informatics",
+  "title_norm": "large language model enabled automated data extraction for concrete materials in",
+  "abstract": "The promise of data-driven materials discovery remains constrained by the scarcity of large, high-quality, and accessible experimental datasets. Here, we introduce a generalizable large language model (LLM)-powered pipeline for automated extraction and structuring of materials data from unstructured scientific literature, using concrete materials as a representative and particularly challenging example. The pipeline exhibits robust performance across a broad range of LLMs and achieves an $F_1$ score of up to 0.98 for diverse composition--process--property attributes. Within one hour, it extracts nearly 9,000 high-quality records with over 100 attributes from a corpus screened from more than 27,000 publications, enabling the construction of the largest open laboratory database for blended cement concrete. Machine learning analyses underscore the importance of large, diverse, and information-rich datasets for enhancing both in-distribution accuracy and out-of-distribution generalization to unseen materials. The proposed pipeline is readily adaptable to other materials domains and accelerates the development of scalable data infrastructures for materials informatics.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Zhanzhao Li",
+   "Kengran Yang",
+   "Qiyao He",
+   "Kai Gong"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2604.22938v3",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2604.22938v3",
+  "published_iso": "2026-04-24T18:24:19Z",
+  "from_query": [
+   "composition-based materials property prediction",
+   "Gaussian process residual correction composition descriptors materials",
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "Agentic Design of Compositional Descriptors via Autoresearch for Materials Science Applications",
+  "title_norm": "agentic design of compositional descriptors via autoresearch for materials scien",
+  "abstract": "Autoresearch offers a flexible paradigm for automating scientific tasks, in which an AI agent proposes, implements, evaluates, and refines candidate solutions against a quantitative objective. Here, we use composition-based materials-property prediction to test whether such agents can perform a task beyond model selection and hyperparameter optimization: the design of input descriptors. We introduce Automat, an autoresearch framework where a coding agent based on a large language model generates composition-only descriptors for chemical compounds and evaluates them using a random forest workflow. The agent is restricted to information derivable from chemical formulas and iteratively proposes, implements, and tests chemically motivated descriptor strategies. We apply Automat, with OpenAI Codex using GPT-5.5 as the coding agent, to the prediction of experimental band gaps in inorganic materials and Curie temperatures in ferromagnetic compounds. In both tasks, Automat improves over fractional-composition, Magpie, and combined fractional-composition/Magpie baselines, while producing descriptor families that are chemically interpretable. These results provide a demonstration that autoresearch agents can generate competitive, task-specific materials descriptors without manual feature engineering during the run. They also reveal current limitations, including descriptor redundancy, sensitivity to greedy feature expansion, and the need for explicit complexity control, descriptor pruning, and more sophisticated search strategies.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Matteo Cobelli",
+   "Stefano Sanvito"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.14671v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.14671v1",
+  "published_iso": "2026-05-14T10:30:17Z",
+  "from_query": [
+   "stacked ensemble Magpie descriptors meta-learner materials",
+   "Gaussian process residual correction composition descriptors materials",
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "FOCUS: Benchmarking Retinal Model Generalization from Foundation Vision Encoders to Multimodal LLMs",
+  "title_norm": "focus benchmarking retinal model generalization from foundation vision encoders ",
+  "abstract": "Progress in AI-based retinal image analysis has advanced with foundation models, yet evaluating their reliability remains challenging. Performance reported on a single dataset does not capture how models behave under dataset shift, across clinical definitions, or for different patient subgroups. This limitation is particularly critical in medical imaging analysis, where robustness, calibration, and fairness are essential for safe deployment. We introduce FOCUS (Foundation Ophthalmic Cross-Dataset Understanding under Shift), a cross-dataset benchmark for evaluating retinal fundus models that considers vision-only encoder models (VM), vision-language dual-encoder models (VLM), and multimodal large language models (MLLM). FOCUS harmonizes binary diabetic retinopathy, referable diabetic retinopathy, and glaucomatous optic neuropathy tasks across ten public datasets spanning diverse geographies, acquisition conditions, and label protocols. The benchmark evaluates models through a unified analysis layer that measures ranking performance, calibration, subgroup disparities, and image-quality robustness. We present a large-scale evaluation covering 532 base configurations and 228 MLLM configurations adapted through supervised fine-tuning with low-rank adaptation (LoRA). Results show that no model family consistently dominates across tasks and datasets: general VM encoders achieve the strongest average ranking performance, medical MLLMs are competitive but variable, and dual encoder VLMs benefit substantially from lightweight adaptation. Fine-tuning improves in-domain performance but exhibits heterogeneous transfer to external datasets, particularly in calibration. These findings demonstrate that retinal model evaluation is inherently multidimensional. FOCUS provides a practical framework and public benchmark to assess generalization, reliability, and robustness beyond single-dataset leaderboards",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "David Restrepo",
+   "Chenwei Wu",
+   "Luis Filipe Nakayama",
+   "Miguel L. Martins",
+   "Stergios Christodoulidis",
+   "Maria Vakalopoulou",
+   "Enzo Ferrante"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.33158v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.33158v1",
+  "published_iso": "2026-09-27T03:31:39Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Physics Aware Representation Learning on Electronic Charge Density for Materials Property Prediction",
+  "title_norm": "physics aware representation learning on electronic charge density for materials",
+  "abstract": "The fundamental quantity governing the mechanical and thermodynamic properties of a crystalline solid is its electronic charge density. Yet, its direct use for the rapid prediction of materials properties remains challenging due to its high dimensionality. Here, we present a physics-informed deep learning framework that directly predicts mechanical and thermodynamic properties from the three-dimensional electronic charge density derived from density functional theory (DFT). The proposed approach first utilizes a three-dimensional convolutional autoencoder for unsupervised dimensionality reduction, compressing a high-resolution charge-density grid (128 x 128 x 128) into a compact latent representation (16 x 16 x 16 x 16) while preserving physically meaningful features, as confirmed by negligible reconstruction errors across diverse crystal systems. The compressed latent-space representation of charge density is then used by two different regression models for property prediction: Light Gradient Boosting Machine (LightGBM) and Attention-based 3D Convolutional Neural Networks (Att CNN), and their performance is compared. Combining composition-based descriptors (Material Agnostic Platform for Informatics and Exploration or MAGPIE) with electronic charge density data further improves the model accuracy. Using a dataset of about 6059 inorganic compounds spanning multiple crystal symmetries, the models achieve strong predictive performance for bulk modulus K (R2 = 0.94), Young's modulus E (R2 = 0.88), shear modulus G (R2 = 0.87), formation energy Eform (R2 = 0.96), and Debye temperature Θ (R2 = 0.89). This work establishes electronic charge density as a transferable, physics-grounded descriptor for materials property prediction, requiring ~ 1/25 the computational resources of full-fledged DFT calculations.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Kammampati Sai Kumar",
+   "Albert Linda",
+   "Shubham Kumar Maurya",
+   "Somnath Bhowmick"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.07227v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.07227v1",
+  "published_iso": "2026-05-08T04:26:05Z",
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "OpenWhistle: A Large-Scale Longitudinal Dataset and Benchmark of Bottlenose Dolphin Vocalizations",
+  "title_norm": "openwhistle a large scale longitudinal dataset and benchmark of bottlenose dolph",
+  "abstract": "Recent advances in bioacoustics have been driven by large-scale corpora and standardized benchmarks, yet existing resources are overwhelmingly bird-centric and shallow per species, limiting their use for studying the structure of a single species' communication system. This gap is particularly acute for cetaceans: despite bottlenose dolphins (Tursiops truncatus) being a compelling case of complex vocal communication among non-human mammals, existing dolphin datasets are small, fragmented, and largely closed. We introduce OpenWhistle, the largest publicly available dataset of dolphin vocalizations. It comprises approximately 180,000 whistles (114 hours) recorded over five years from a stable pod of five individuals in a semi-natural environment, paired with a curated subset of 8,354 expert-annotated whistles and reproducible evaluation protocols for whistle-type detection and classification. We further release the full processing pipeline for whistle detection, segmentation, and categorization. To demonstrate its utility, we pretrain a Wav2Vec2.0 model adapted to dolphin acoustics on the OpenWhistle corpus and show that it learns effective representations, outperforming general-purpose bioacoustic models such as AVES and BioLingual on both tasks while leaving meaningful headroom for future work. By releasing the dataset, pipeline, and evaluation protocol, we provide the first open dolphin whistle dataset tailored for training self-supervised models, laying the groundwork for advancing dolphin communication research and developing models that capture fine-grained acoustic structure within species.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Faadil Mustun",
+   "Chiara Semenzin",
+   "Roberto Dessi",
+   "Pablo Robin Guerrero",
+   "Pierre Orhan",
+   "Alexis Emanuelli",
+   "Emanuele Rossi",
+   "Yair Lakretz",
+   "Gonzalo de Polavieja",
+   "German Sumbre"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.34839v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.34839v1",
+  "published_iso": "2026-09-28T10:37:20Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Predicting Physical and Physical-Chemical Properties of Molecular-Based Materials Using Computational Neural Networks",
+  "title_norm": "predicting physical and physical chemical properties of molecular based material",
+  "abstract": "A computational scheme, which utilizes neural networks, was developed to predict properties of molecular-based materials from chemical structures. The method uses a set of simple algorithms to encode the structure and composition of organic molecules directly into numerical vectors, which is used as input for neural networks. Backpropagation type neural networks are then used to correlate these numeric inputs with a set of desired properties. Calculated results for a series of hydrocarbons, hydrofluorocarbons, and crown ethers demonstrate average accuracies of 0.2-8.1% with maximum deviations of 16-20% for a broad range of thermodynamic, physical, and physical-chemical characteristics (heat capacity, enthalpy, heat of evaporation, boiling point, density, refractive index, stability constants, etc.). In addition, a number of physical and mechanical properties were estimated for polymeric materials and compared with regression analysis. Based on the neural network capabilities of formulating accurate quantitative structure property relationships, a technique called computational synthesis is suggested for performing materials design.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Andrei A. Gakh",
+   "Bobby G. Sumpter",
+   "Donald W. Noid"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2606.09560v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2606.09560v1",
+  "published_iso": "2026-06-08T14:35:25Z",
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "Scientific Code Search at Scale: A Multi-Domain Dataset and Benchmark",
+  "title_norm": "scientific code search at scale a multi domain dataset and benchmark",
+  "abstract": "Scientists increasingly rely on open-source tools to support their research workflows, yet discovering relevant software among over 600 million GitHub repositories remains challenging. Existing code search benchmarks focus on general software engineering tasks and fail to capture the domain-specific vocabulary and needs of scientific computing. We present a curated corpus of 5,264 high-quality, domain-classified scientific repositories spanning five NASA Science Mission Directorate divisions -- Earth Science, Astrophysics, Planetary Science, Heliophysics, and Biological & Physical Sciences -- enriched with cleaned READMEs, extracted topics, and additional context from crawled links. Building on this corpus, we introduce two novel information retrieval benchmarks: (1) a repository search benchmark with 219 expert-curated queries designed by domain scientists, and (2) a large-scale code snippet retrieval benchmark containing 117,950 code snippets and 119,720 queries across seven programming languages. Baseline evaluations on repository search reveal significant performance variation across scientific domains. Code snippet retrieval proves equally challenging, with substantial variation driven by differing documentation practices, coding standards, and programming language conventions across scientific communities. All datasets and benchmarks are publicly released on HuggingFace to support research on scientific tool discovery.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Nishan Pantha",
+   "Pranath Reddy Kumbam",
+   "Sajil Awale",
+   "Pushwitha Krishnappa",
+   "Muthukumaran Ramasubramanian",
+   "Nidhi Jha",
+   "Emily Foshee",
+   "Ankur Kumar",
+   "Rachel Slank",
+   "Ashkbiz Danehkar",
+   "Rahul Ramachandran"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2607.05443v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2607.05443v1",
+  "published_iso": "2026-07-03T19:30:06Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Fine-Tuned Machine-Learned Interatomic Potentials for Structural and Vibrational Properties of Twisted 2D Materials",
+  "title_norm": "fine tuned machine learned interatomic potentials for structural and vibrational",
+  "abstract": "Twisted van der Waals bilayers form moiré superlattices whose structural and vibrational properties are highly sensitive to variations in local stacking registry and the degree of atomic reconstruction, yet accurate atomistic modeling of these systems at the DFT level remains computationally prohibitive at small twist angles. We investigate machine-learned interatomic potentials for moiré systems, using twisted bilayer graphene, \\textit{h}-BN, and MoS$_2$ as representative materials spanning a broad spectrum of mechanical compliance and atomic reconstruction behavior. We show that fine-tuning universal atomistic foundation models is essential to achieve DFT accuracy for layered materials, as broadly trained foundation models prove insufficient for resolving the subtle interlayer energetics that govern atomic reconstruction. Through local strain tensor analysis and the phonon band unfolding technique, our fine-tuned MACE model reveals a consistent reconstruction-induced strain landscape in all three materials, with extended low-energy stacking domains separated by narrow soliton lines where deformation concentrates. The system progressively optimizes the local stacking registry within each domain, giving rise to a spatially structured deformation field whose amplitude scales with the mechanical compliance of the material and can be further tuned by external perturbation. The obtained results of both atomic reconstructed structures and moiré phonon spectra present a good agreement with the reported experiments, thereby demonstrating the accuracy and efficiency of our methodology in modeling of these large scale nanomaterials.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Viet-Anh Tran",
+   "Viet-Hung Nguyen",
+   "Wei Chen",
+   "Gian-Marco Rignanese",
+   "Jean-Christophe Charlier"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2606.22234v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2606.22234v1",
+  "published_iso": "2026-06-20T21:29:02Z",
+  "from_query": [
+   "composition-based materials property prediction",
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "CORE-STACK+: Meta-Learning for Deep Stacked Generalization",
+  "title_norm": "core stack meta learning for deep stacked generalization",
+  "abstract": "Stacking heterogeneous vision backbones (CNNs, ViTs, and hybrids) is the de facto recipe for accuracy, calibration, and robustness, yet two coupled pathologies limit its returns. Prediction-space multicollinearity ill-conditions the meta-learner's Gram matrix, inflating weight variance and producing brittle solutions on a thin manifold. Calibration collapse compounds constituent miscalibration through naive linear stacking, so adding more models can hurt expected calibration error (ECE). Existing remedies, ridge regularization, greedy selection, model soups, and SWAG address at most one of these issues, and none jointly target conditioning and calibration in heterogeneous prediction pools. We introduce CORE-STACK+, a preconditioning pipeline with four components: (i) a kernelized redundancy filter that removes non-linear inter-model dependencies invisible to Pearson correlation, using Centered Kernel Alignment (CKA) [23]; (ii) a $<15$K-parameter differentiable meta-feature gate that learns per-sample attention over ensemble statistics; (iii) a spectrum-adaptive Ridge penalty $lambda^{star}=lmax(Chat)/SNR(Chat)$ derived from a Marchenko-Pastur signal-noise decomposition, eliminating nested cross-validation; and (iv) a Laplace-approximate Bayesian blender replacing inverse-RMSE heuristics. We prove a PAC-Bayes excess-risk bound that, for the first time, jointly accounts for prediction-space redundancy and meta-learner capacity. Across six benchmarks, CORE-STACK+ delivers $+1.8\\%$ top-1 on ImageNet-1K, $-4.2$ mCE on ImageNet-C, $+0.9$ mIoU on ADE20K, and $+1.3$ AP on COCO, while reducing retained models by 35-57% and inference FLOPs by up to $41%$. ECE improves $2.1\\times$ over deep ensembles without post hoc temperature scaling.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Noor Islam S. Mohammad"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.26905v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.26905v1",
+  "published_iso": "2026-09-22T18:03:36Z",
+  "from_query": [
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "Industrial-Instruction: An End-to-End Framework for Building Instruction-Tuning and Benchmark Datasets from Industrial Technical Reports",
+  "title_norm": "industrial instruction an end to end framework for building instruction tuning a",
+  "abstract": "Industrial technical reports contain high-value knowledge for maintenance, troubleshooting, and product engineering, but their heterogeneous structure (dense prose, specifications, tables) makes them difficult to index and reason over with standard retrieval and QA pipelines, and no public instruction-tuning or benchmark datasets are built from such documents. We address this gap with Industrial-Instruction, contributing (i) two open QA datasets built from real industrial technical reports and (ii) the end-to-end pipeline that produces them. Using 906 public Panasonic documents (7,525 pages), we apply layout-aware extraction, build a semantic retrieval index, and synthesize multiple-choice QA grounded in retrieved evidence under five query-document relationships (irrelevant retrieval, single-/multi-document support, single-/multi-document answer). After filtering an initial 23.9k generated samples, each dataset provides approximately 13.6k QA pairs with source documents and a held-out benchmark split. Fine-tuning small open LLMs (under 10B parameters) improves Set-Match Accuracy from 28.5% to 42.0% and F1 from 46.6% to 63.5% on the Panasonic benchmark. We release two parallel versions built by the same pipeline: one generated with the open-weight Qwen3-30B-A3B-Instruct model and one with the closed, API-based Claude-Opus-4.6 model, enabling a direct comparison of open- versus frontier-model data generation. The Claude-Opus-4.6 dataset yields a cleaner raw corpus and larger fine-tuning gains, at roughly two orders of magnitude higher cost. MMLU evaluation shows models trained on the Claude-Opus-4.6 data retain essentially all general knowledge, versus a small but measurable forgetting effect for the Qwen-generated data. Together, these datasets and pipeline offer a practical, reproducible path toward scalable industrial benchmarks and training data from real-world documentation.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Parsa Bakhtiari",
+   "Hassan Bashiri",
+   "Alireza Khalilipour",
+   "Masoud Nasiripour",
+   "Moharram Challenger"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2608.22817v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2608.22817v1",
+  "published_iso": "2026-08-24T05:28:25Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Computing the entropy rate of a quantized stationary Gaussian process",
+  "title_norm": "computing the entropy rate of a quantized stationary gaussian process",
+  "abstract": "We consider a stationary Gaussian process observed after uniform quantization. The entropy rate of the resulting integer sequence is the fundamental limit on lossless compression of the quantized signal, but it has no closed form, and the classical high-resolution approximation breaks down whenever the spectral density is small or vanishing on part of the band, as happens routinely after smoothing or filtering. Here we present two methods for computing the rate. The first is an analytical approximation obtained by combining an exact dithering identity with the Kolmogorov-Szegő formula; the quantization noise power acts as a floor on the spectral density, so the rate remains finite where the classical formula fails. The second is a Monte Carlo estimate of the exact rate. Its minimum-phase spectral factor represents the process as a finite moving average of Gaussian innovations, making the quantized sequence a hidden Markov process whose optimal (fully adapted) particle filter is available in closed form; by the Shannon-McMillan-Breiman theorem the rate follows from the filter's log-likelihood on a single long sequence. In experiments across six process families, the approximation agrees with the estimate to within a few millibits per sample over most of the parameter range for quantization steps up to the signal standard deviation, including strongly filtered processes on which the classical formula fails; at the most strongly filtered points the discrepancy grows to a few percent of the rate, and for much coarser steps the estimator should be used. We also compare lossless coders against this limit. At a step of one quarter of the standard deviation, linear predictive coding followed by an entropy coder comes within 2 to 4 percent of the entropy rate and FLAC within 3 to 32 percent, whereas five general-purpose compressors on the raw samples remain 12 to 89 percent above it.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Jeremy Magland"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.18784v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.18784v1",
+  "published_iso": "2026-09-16T15:04:34Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Robust and Efficient AI Frameworks for Scalable Material Design and Property Prediction",
+  "title_norm": "robust and efficient ai frameworks for scalable material design and property pre",
+  "abstract": "This thesis develops robust and efficient AI frameworks for accelerating crystalline materials discovery by addressing both major stages of the materials-design pipeline: crystal property prediction and crystal structure generation. Motivated by the high computational cost of Density Functional Theory (DFT) and the limited availability of labeled materials data, the thesis explores graph representation learning, pretraining, multimodal learning, and generative modeling for scalable materials design.\n  For property prediction, the thesis first introduces CrysXPP, which learns transferable crystal representations through unsupervised graph autoencoding, reducing dependence on large property-labeled datasets. It then proposes CrysGNN, a large-scale self-supervised graph pretraining framework that captures atomic connectivity, chemical attributes, and global structural information and transfers this knowledge to downstream property predictors through knowledge distillation. CrysMMNet further enriches crystal representations by jointly modeling graph structure and textual descriptions, thereby incorporating both local chemical and global structural knowledge.\n  For crystal generation, the thesis introduces TGDMat, a text-guided joint diffusion framework that jointly models lattice parameters, atomic types, and atomic coordinates while incorporating textual structural knowledge during denoising. This enables the generation of more valid and stable periodic materials while also supporting conditional generation from natural-language descriptions.\n  Overall, the thesis establishes a unified AI-based framework for data-efficient property prediction and controllable crystal generation, demonstrating how graph learning, multimodal representations, and generative models can reduce computational cost and improve the scalability of materials",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Kishalay Das"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.17646v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.17646v1",
+  "published_iso": "2026-09-15T15:15:21Z",
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "Meta-Quantum Ensemble Framework for Robust Network Intrusion Detection",
+  "title_norm": "meta quantum ensemble framework for robust network intrusion detection",
+  "abstract": "Intrusion Detection Systems (IDSs) must maintain high detection sensitivity while operating under strict false-positive constraints, a challenge intensified by class imbalance and heterogeneous IoT traffic. This work investigates whether heterogeneous quantum learners can provide useful and non-redundant decision information for IDS tasks. We study Quantum Support Vector Machines (QSVMs) and Quantum Neural Networks (QNNs), which rely on different learning mechanisms and exhibit distinct prediction behaviors. To combine these models, we propose the System-Level Meta-Quantum Ensemble (MQE), a hybrid quantum-classical framework that fuses QSVM and QNN outputs using a Random Forest meta-learner. The meta-learner captures agreement and disagreement patterns between the quantum branches to improve prediction stability and detection performance. Experiments on TON IoT and CICIDS2017 show that MQE improves selected performance, low-FPR, and reliability metrics over several standalone quantum learners, with gains depending on the dataset, metric, and fusion representation. The results highlight meta-level fusion as a practical strategy for building more reliable QML-based IDS pipelines.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Ritvik Bhatnagar",
+   "Nouhaila Innan",
+   "Angel Arul Jothi J.",
+   "Muhammad Shafique"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.28879v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.28879v1",
+  "published_iso": "2026-05-26T08:44:54Z",
+  "from_query": [
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation",
+  "title_norm": "benchmark radar a living database and search engine for ai benchmarks and evalua",
+  "abstract": "Benchmark researchers and developers of large language models (LLMs) and other AI systems need to find relevant evaluations, locate their benchmark datasets and code, and understand the settings behind reported scores. We present Benchmark Radar, a living database and search engine for retrieval and discovery of AI benchmarks, covering LLM evaluation, agentic and tool-use benchmarks, coding, reasoning, safety, and domain-specific evaluations. The system combines daily discovery of benchmark papers, repositories, datasets, and releases with a searchable benchmark catalog, mentions in model cards and technical reports, and score histories. It retains source identities and citations so readers can inspect candidate benchmarks and their evaluation evidence. Daily discovery draws on 37 sources: 13 direct connectors and 24 first-party research and engineering feeds. The catalog contains 1,283 source records drawn from 4 benchmark catalogs and 12,916 numeric observations on 790 records. We describe collection and retrieval, audit the full catalog, and examine benchmark saturation, adoption trends, and the limits of score comparisons. A worked example walks through a complete prior-art search, showing how to query the catalog and inspect benchmark evidence when designing a new evaluation. We release the web dashboard with a benchmark leaderboard, a Pareto frontier view of score against measured use, saturation and trend views, daily feeds, downloadable evidence, a command-line interface (CLI) for offline queries, and reproducible analysis.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Koutian Wu",
+   "Junjie Zhou",
+   "Ergan Shang",
+   "Jiayu Wang",
+   "Pengqian Han",
+   "Junkai Wang",
+   "Wanghan Xu",
+   "Songyuanyi Lu",
+   "Lin Shi"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.11115v3",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.11115v3",
+  "published_iso": "2026-09-10T05:47:22Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "A literature-guided descriptor-based framework for filtering composition search spaces",
+  "title_norm": "a literature guided descriptor based framework for filtering composition search ",
+  "abstract": "Scientific literature contains latent knowledge about materials behavior, but much of this knowledge is expressed through words, contexts, and recurring associations rather than explicit design principles. This raises a central question: how can large-scale scientific corpora be used for practical problems in materials discovery? Here, we present a literature-guided descriptor-based filtering framework for reducing composition search spaces. For a given performance metric, the framework selects two descriptors from a filtered vocabulary in a literature-trained word embedding model and uses the selected descriptors to construct a Pareto-based filter for candidate compositions. Across the evaluated performance metrics and composition search spaces, the framework filters out an average of 74.27\\% of the candidate compositions, with an average best-value error of 1.93\\% relative to experimental measurements. Compared with expert-chosen and random descriptors, our performance metric-dependent descriptors provide a more controlled balance between retained fraction and best-value error. These results show that literature-derived embeddings can support intuitive and reproducible filters for narrowing candidate composition spaces while preserving high-performing compositions.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Lei Zhang",
+   "Markus Stricker"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.31650v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.31650v1",
+  "published_iso": "2026-09-14T07:37:57Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Property Prediction of Stacked Bilayer Materials: A Multimodal Learning Approach",
+  "title_norm": "property prediction of stacked bilayer materials a multimodal learning approach",
+  "abstract": "AI for materials science is a critical topic within AI for science, aiming to accelerate materials discovery and produce accurate property predictions. Bilayer 2D material stacking is essential for exploring new materials with novel functions and inherent phenomena, enabling the creation of new 2D bilayers for diverse real-world applications. Research on bilayer vdWs materials has made significant progress from experimental and computational perspectives. Various bilayer materials have been successfully synthe sized experimentally and the increasing utilization of high-throughput computing technology has con structed several computational two-dimensional materials databases. However, the use of AI to model bilayer stacking and predict new properties remains underexplored, necessitating further research studies. In this work, we propose a novel multimodal learning approach to study the interfaces between dissimilar materials that jointly enable new or multiple functions, and to predict new properties arising from the vertical integration (stacking) of different functional material layers under given configurations. Comprehensive experiments demonstrate the effectiveness and efficiency of our approach compared to baseline methods. Our code is available at https://github.com/AnVuong123/bimat ml.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "An Vuong",
+   "Minh-Hao Van",
+   "Chen Zhao",
+   "Xintao Wu"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2606.01012v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2606.01012v1",
+  "published_iso": "2026-05-31T05:04:03Z",
+  "from_query": [
+   "composition-based materials property prediction",
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "SHELF: A Synthetic Harness for Multi-Task Bibliographic Benchmarking",
+  "title_norm": "shelf a synthetic harness for multi task bibliographic benchmarking",
+  "abstract": "Libraries and archives manage large collections with limited staff and computing budgets, yet common benchmarks do not systematically test their bibliographic work. They need to know which methods work for their tasks and what those methods require to run. SHELF, the Synthetic Harness for Evaluating LLM Fitness, addresses this gap. It is a Python system that turns labelled taxonomies, writing specifications, and a generation budget into controlled benchmark data and evaluation tasks. This first release contains 62,899 model-written documents based on Library of Congress vocabularies, with tasks for classification, clustering, retrieval, pair classification, and instruction retrieval. We compare TF, TF-IDF, BM25, popular encoders, and, on subject classification only, zero-shot decoders; each method appears only on tasks that support it. Subject classification reaches 0.8887, while genre-form classification reaches only 0.2605, and several pair and clustering tasks remain near chance. Sparse methods remain competitive on classification, while TF-IDF is the fastest measured arm in the subject timing experiment. SHELF also varies bibliographic facets independently and can generate new, verifiably unseen documents after a model's training cutoff. Comparisons with LCSHBench and Project Gutenberg show that model rankings transfer more reliably than absolute scores, but SHELF scores do not estimate accuracy on production catalogue data. We release all source code and data under permissive licenses on GitHub and Hugging Face.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Michael J. Bommarito"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.03047v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.03047v1",
+  "published_iso": "2026-09-02T18:17:41Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Plastics and Composite Materials",
+  "title_norm": "plastics and composite materials",
+  "abstract": "Polymers and composite materials play an essential role in accelerator and detectors technology, with varying roles that range from electrical insulation and structural support to thermal management. This paper provides a general review of their key properties and classifications, including behaviour under demanding service conditions such as cryogenic operation and high radiation exposure. The paper addresses polymeric materials - their mechanical, thermal, and viscoelastic behaviour, and the effects of crystallinity and additives - alongside composite families, focusing on the characteristics of the matrix and the types of reinforcement. CERN case studies illustrate how both polymers and composites present opportunities and challenges in material selection. Examples include adhesives and structural composites for detectors, reinforced alloys for collimators, and insulation for Nb$_3$Sn superconducting magnets, all emphasising the need to optimise material properties and interfaces to ensure the long-term reliability of components in accelerator facilities.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Ana Teresa Perez Fontenla"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.13506v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.13506v1",
+  "published_iso": "2026-05-13T13:27:04Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "BDIP-Net: Dual-Interaction Graph Learning for Property Prediction of Bilayer Materials",
+  "title_norm": "bdip net dual interaction graph learning for property prediction of bilayer mate",
+  "abstract": "Stacked bilayer materials exhibit rich stacking-dependent properties driven by the interplay between strong intra-layer bonding and weak inter-layer van der Waals interactions. The computational discovery of such materials is challenging because accurate structure generation typically relies on expensive DFT-based optimization, while existing machine-learning models often fail to explicitly distinguish different interaction types during property prediction. To address these challenges, we propose a machine-learning framework for efficient construction and property prediction of stacked bilayer materials. The framework employs a MatterSim-D3-based structural optimization workflow to generate DFT-quality bilayer structures from monolayer building blocks and stacking configurations at substantially reduced computational cost. For property prediction, we introduce BDIP-Net (Bilayer Dual-Interaction Potential Network), a graph neural network that explicitly models intra-layer and inter-layer interactions through interaction-specific potential representations and adaptive message fusion. We evaluate the proposed framework on BiDB, HetDB, and SAMBA, encompassing homobilayers, heterobilayers, and twisted bilayer systems. Results show that the MatterSim-D3-based workflow closely reproduces DFT-PBE-D3 optimized structures, while BDIP-Net consistently outperforms existing graph neural network and potential-based approaches for bilayer property prediction.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "An Vuong",
+   "Chen Zhao",
+   "Jin Hu",
+   "Shui-Qing Yu",
+   "Xintao Wu"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2608.14640v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2608.14640v1",
+  "published_iso": "2026-07-28T20:11:30Z",
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "Stacked Ensemble Learning for Abdominal Aortic Aneurysm Segmentation in CT Angiography",
+  "title_norm": "stacked ensemble learning for abdominal aortic aneurysm segmentation in ct angio",
+  "abstract": "Abdominal aortic aneurysm (AAA) rupture risk assessment increasingly relies on patient-specific biomechanical computations, which require accurate three-dimensional aneurysm geometry from computed tomography angiography (CTA). Manual and semi-automated segmentation remain time-consuming and observer-dependent, limiting their use in large-scale clinical workflows. In this study, we developed a stacked ensemble framework for automated AAA seg-mentation from CTA images. We used 40 anonymised contrast-enhanced CTA scans from AAA patients and generated reference segmentations using the nnInteractive extension in 3D Slicer. We partitioned the dataset into 32 training cases and 8 held-out test cases. Three nnUNetv2 configurations, Default, DA5, and ResEncL, were trained as base learners, and their voxel-wise probability out-puts were combined using an L2-regularised logistic regression meta-model trained from out-of-sample cross-validation predictions. We evaluated segmentation performance using Dice Coefficient and Separation Distance, a mean boundary-to-boundary distance measure introduced in this study to quantify average surface agreement. On the held-out test set, the ensemble achieved the highest mean Dice Coefficient of 0.9752 and the lowest mean Separation Distance of 0.4598 mm, indicating improved volumetric overlap and average boundary agreement compared with the individual base learners. Overall, stacked ensemble learning provided small but meaningful improvements in AAA segmentation, particularly for boundary accuracy relevant to downstream patient-specific bio-mechanical computations.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Joshua Fry",
+   "Sajjad Arzemanzadeh",
+   "Saeideh Sekhavat",
+   "Mostafa Jamshidian",
+   "Adam Wittek",
+   "Michael Bertolacci",
+   "Elke R. Gizewski",
+   "Eva Gassner",
+   "Alexander Loizides",
+   "Maximillian Lutz",
+   "Florian K. Enzmann",
+   "Karol Miller"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2607.00633v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2607.00633v1",
+  "published_iso": "2026-07-01T08:45:30Z",
+  "from_query": [
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "Slice Regular Composition Operators on Quaternionic Fock Spaces via Matrix Realization",
+  "title_norm": "slice regular composition operators on quaternionic fock spaces via matrix reali",
+  "abstract": "We characterize the boundedness and compactness of slice regular composition operators between quaternionic Fock spaces for the full range \\(0<p,q<\\infty\\), without assuming that the composition symbol preserves a fixed complex slice. As applications of the same method, we also obtain corresponding criteria for weighted composition operators and for products of Volterra-type integral operators with slice regular composition operators. The main tool is a fixed-slice matrix realization of the regular product, which represents slice regular composition on a fixed complex slice through a holomorphic \\(2\\times 2\\) matrix functional calculus. This representation reveals a genuinely quaternionic rigidity phenomenon: boundedness imposes affine restrictions on the eigenvalue functions of the associated matrix symbol rather than on the original symbol itself. In particular, the original symbol need not be affine, and affine eigenvalue functions alone do not characterize boundedness.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Zhaopeng Lin",
+   "Yufeng Lu",
+   "Chao Zu"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2606.06182v2",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2606.06182v2",
+  "published_iso": "2026-06-04T13:54:49Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Agentic schema-guided extraction of materials process knowledge from scientific literature",
+  "title_norm": "agentic schema guided extraction of materials process knowledge from scientific ",
+  "abstract": "Materials literature contains detailed experimental knowledge, but procedures, chemical entities and measurements remain difficult to aggregate because they are reported in heterogeneous forms and depend on process-specific context. We present SciKGExtract, a schema-guided framework that combines large-language-model extraction with chemical normalization and agent-based evaluation and refinement before knowledge-graph integration. We evaluate the framework on 176 atomic-layer-deposition papers describing zinc oxide (ZnO) and indium--gallium--zinc oxide (IGZO), together with an expert-annotated full-schema subset. PubChem normalization improves exact-match extraction F1 for every tested model. For ZnO, the best F1 increases from 0.591 for direct normalized extraction to 0.805 with agentic refinement, whereas the best IGZO result is 0.344, revealing the greater difficulty of multicomponent supercycle processes. Evaluation against a deeply nested schema containing 65 experimental properties and 155 quantitative measurement nodes further exposes errors in process segmentation and numerical assignment. These results show that chemical canonicalization and targeted agentic verification provide complementary controls for converting complex materials literature into reusable, machine-actionable experimental knowledge.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Sameer Sadruddin",
+   "Jennifer D'Souza"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2610.06322v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2610.06322v1",
+  "published_iso": "2026-10-05T13:36:16Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Scale-Dependent Input Representation and Confidence Estimation for LLMs in Materials Property Prediction",
+  "title_norm": "scale dependent input representation and confidence estimation for llms in mater",
+  "abstract": "Large language models (LLMs) are increasingly applied to materials science. However, the relationship between prediction accuracy, input representation, and model scale remains unclear, and reliable methods for assessing prediction confidence have not yet been established. In this study, we fine-tune two Llama models of different scales (1B and 8B) using low-rank adaptation (LoRA) on an inorganic crystal structure dataset. We systematically evaluate five input representations, namely chemical composition, crystal summary, local environment description, full text description, and crystallographic information files (CIF), for formation energy and bandgap prediction. Our results show that the optimal input representation depends on model scale. The 1B model performs better with compact representations, whereas the 8B model maintains high accuracy even with longer natural-language descriptions and CIF inputs. Across both model scales, crystal summaries that include space-group information consistently outperform composition-only inputs, indicating that symmetry information serves as a robust and informative feature. We further analyze the relationship between prediction error and the mean negative log-likelihood (mean NLL) of tokens corresponding to predicted numerical values. While no clear correlation is observed in base models, fine-tuned models exhibit a consistent trend in which lower mean NLL corresponds to smaller prediction errors. This result suggests that mean NLL can serve as a practical confidence indicator without requiring additional training. These findings demonstrate that both input representation and model scale play critical roles in LLM-based materials property prediction, and that mean NLL provides an effective and computationally efficient measure of prediction confidence.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Shuichiro Ozawa",
+   "Izumi Takahara",
+   "Teruyasu Mizoguchi"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.03515v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.03515v1",
+  "published_iso": "2026-05-05T08:52:14Z",
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "Inverse Materials Design via Joint Generation of Crystal Structures and Local Electronic Descriptors",
+  "title_norm": "inverse materials design via joint generation of crystal structures and local el",
+  "abstract": "Inverse design of inorganic crystals, in which structures are generated to satisfy a target property while preserving diversity and physical plausibility, remains more demanding than ab initio generation, as property conditioning can degrade the structural quality that current generative models otherwise achieve. We propose a diffusion framework that jointly denoises crystal-structure variables and site-resolved local electronic descriptors through a shared score network. As representative descriptors, we adopt Bader charge and atomic density of states (atomic DOS). Under both band-gap and formation energy conditioned generation, the joint models achieved higher success rates than the structure-only baseline in most target conditions, while simultaneously increasing the fraction of generated structures that satisfy uniqueness, novelty, thermodynamic stability, and physical validity (VSUN criteria). A dummy-variable control confirms that these gains originate from the electronic content of the descriptors rather than from auxiliary site-wise variables. The generated Bader charges agree with DFT references with an MAE of 5.5e-2 e on stable structures, and the generated atomic DOS captures the coarse spectral profile of the DFT reference around the modal accuracy range, although finer details and accuracy vary with elemental species. These results establish local electronic descriptors as effective generative variables that serve two complementary roles: broadening the explored materials space through increased structural diversity, and mitigating the trade-off between property targeting and structural quality by guiding the structural trajectory toward electronically plausible configurations during joint denoising.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Ibuki Okuda",
+   "Izumi Takahara",
+   "Teruyasu Mizoguchi"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.01286v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.01286v1",
+  "published_iso": "2026-05-02T06:46:52Z",
+  "from_query": [
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "On the Robustness of Multilingual Text Embedding Rankings Across Learning Tasks, Languages, and Benchmark Datasets",
+  "title_norm": "on the robustness of multilingual text embedding rankings across learning tasks ",
+  "abstract": "Large-scale multilingual text embedding models play crucial role in both research and industry, yet their behavior in language-specific, multi-task settings remains insufficiently understood. Although benchmarking platforms such as MTEB report results across more than 250 languages, conclusions about model superiority often depend on implicit choices of dataset compositions and performance aggregation methods. To address this gap, we present a meta-study of multilingual model performance robustness in MTEB, applying a diverse set of multi-criteria decision-making ranking schemes and introducing two robustness indicators: dataset-composition robustness (sensitivity of rankings to changing dataset compositions) and ranking-scheme robustness (sensitivity to aggregation method change). They enable systematic sensitivity analysis of whether benchmarking conclusions remain stable under different evaluation designs. We conduct an in-depth analysis on five languages (English, French, German, Hindi, and Spanish) across nine tasks (e.g., classification, clustering, retrieval) and release results for approximately 230 additional languages. The task-specific analyses show that large-scale LLM-based models are often robust top performers, though not uniformly (e.g., in retrieval task), while task-agnostic results reveal that only a small subset of models remains consistently strong across tasks, ranking schemes, and data subsamples.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Ana Gjorgjevikj",
+   "Barbara Koroušić Seljak",
+   "Tome Eftimov"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.31142v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.31142v1",
+  "published_iso": "2026-05-29T10:50:22Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "A Residual Tree Gaussian Process Modeling Framework for High-Dimensional Data",
+  "title_norm": "a residual tree gaussian process modeling framework for high dimensional data",
+  "abstract": "With the advance of measurement technologies and increasing computing power, large spatial data with heterogeneous structures are often collected over high-dimensional domains. Existing Gaussian process (GP) models and computational strategies are often inadequate for analyzing such datasets in multi-dimensional domains. To address these challenges, we develop a Bayesian residual tree GP methodology called ResTGP for large spatial data with potentially heterogeneous structures in multi-dimensional domains. The key idea is to decompose a Gaussian process at a cascade of resolutions along a dyadic tree through iteratively computing predictive and residual processes so that the residual process on each tree node, both interior and leaf, becomes sufficient for the finer-level dependency within that node. This allows characterization of the underlying covariance structure in a flexible, multi-scale manner while achieving divide-and-conquer on the data domain, which leads to computational efficiency. To allow efficient tree inference, we introduce a computational strategy for Bayesian inference based on recursive message passing, which scales linearly with the sample size given the tree. This paper also proves posterior consistency of the model for estimating continuous functions in a nonparametric regression framework. Extensive numerical examples and the storm surge application confirm the advantages of the proposed method.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Pulong Ma",
+   "Li Ma"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2610.02893v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2610.02893v1",
+  "published_iso": "2026-10-02T06:37:04Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Stoichiometric cluster learning for few-shot property prediction of multi-ionic integrated energetic materials",
+  "title_norm": "stoichiometric cluster learning for few shot property prediction of multi ionic ",
+  "abstract": "Multi-ionic materials pose a distinct representational challenge in machine learning-driven materials design. Different from single-molecule or composition-based materials, their properties arise from how charged building blocks aggregate into specific assemblies. Here, we show how pretrained machine-learned interatomic potentials (MLIPs) can bypass full crystal-structure prediction and support pre-synthesis screening from stoichiometric ionic clusters using multi-ionic integrated explosives (MIXs) as a synthesis-facing example. This strategy combines a stoichiometric ionic-cluster representation, which represents each candidate material by a non-periodic, stoichiometry-preserved formula-unit cluster, with multi-task fine-tuning (MT-FT), which adapts a pretrained atomistic backbone while retaining the energy--force objective as physical regularization for the sparse detonation-velocity labels. With the pretrained backbone regularized by MT-FT, this surrogate provides a cross-validated screen across only 25 structurally curated perovskite-type energetic materials (PEMs) with experimentally derived Kamlet--Jacobs (K--J) detonation velocities. Representation probes show that the learned descriptors implicitly retain site-aware ionic organization, density information, and coarse packing compatibility, implying why non-periodic clusters can remain predictive before full crystal structures are known. The surrogate extends known PEMs chemistry to three newly synthesized ABX$_4$ materials with both unseen ABX$_4$ stoichiometry and an unseen ethylenediammonium B-site cation, yielding three-point concordance with K--J reference velocities and a mean absolute error (MAE) of 92~m$\\cdot$s$^{-1}$ without retraining. Together, these results establish stoichiometry-preserved cluster learning as a synthesis-facing screening strategy for data-scarce multi-ionic materials.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Ming-Yu Guo",
+   "Wei-Jia Zou",
+   "Yu Shang",
+   "Wei-Xiong Zhang"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2607.23208v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2607.23208v1",
+  "published_iso": "2026-07-25T14:00:55Z",
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "A Leakage-Free Stacked Ensemble Method for Multiclass Classification",
+  "title_norm": "a leakage free stacked ensemble method for multiclass classification",
+  "abstract": "Multiclass classification is a fundamental problem across a wide range of domains. It is still challenging due to possession of high inter-class similarity, class imbalance datasets, and variability in data distributions. Rule-based classifiers such as XGBoost often achieve stronger performance on structured features, but they are limited in capturing smooth functional relationships among variables. Similarly, neural network models can represent complex nonlinear interactions but frequently suffer from overfitting and generalization issues. To address these limitations, we propose LFS-FRAME, a Leakage-Free Stacked ensemble framework that integrates functional learning using Kolmogorov-Arnold Networks (KAN) and rule-based learning via XGBoost for robust multiclass classification.\n  The proposed framework constructs unbiased meta-features by employing a strict out-of-fold stacking strategy to ensure complete isolation between training and validation data hence preventing performance leakage. By learning over probabilistic outputs from heterogeneous base learners, the meta-classifier effectively exploits both global functional patterns and sharp decision boundaries present in the complex data. Experimental evaluations on multi-class datasets demonstrate that LFS-FRAME improves performance metrics, and overall accuracy is 89.85% in identifying major families and 81.74% in identifying sub-families relative to strong single-model baselines. These results highlight the effectiveness of leakage-free functional and rule-based stacking for reliable and generalizable multiclass classification.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "S. P. Sharmila",
+   "Aruna Tiwari"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2607.22081v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2607.22081v1",
+  "published_iso": "2026-07-24T08:26:40Z",
+  "from_query": [
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "Benchmarking on Tasks That Matter: Dataset Selection for Preserving Model Rankings",
+  "title_norm": "benchmarking on tasks that matter dataset selection for preserving model ranking",
+  "abstract": "Benchmarks of machine learning models often include many datasets, making evaluation expensive. For efficiency, it is preferable to perform evaluations on small, representative datasets instead. The selection of such subsets typically relies on heuristics and is rarely analyzed for the robustness of the resulting model rankings.\n  We introduce a framework to perform the task of selecting datasets subsets with an evaluation of how different selection strategies preserve the global model rankings. Our framework includes bootstrap aggregation, which provides valid confidence intervals, allowing a principled comparison of selection strategies. We consider clustering, design criteria (A/D-optimality), random baselines, and greedy farthest-first (FAFI). For the latter, we derive upper bounds on selection quality in terms of ranking errors as a function of the number of selected datasets.\n  Empirically, in time series classification (TSC, 112 datasets) and in a supplementary natural language processing benchmark derived from MTEB (57 tasks), several selection strategies improve rank preservation compared with random subsets, including simple FAFI. In contrast, in recommender systems (30 datasets), the improvement of strategies over random selection is small and typically statistically insignificant. For TSC, our best-performing strategy achieves a Spearman correlation of 0.95 with the full benchmark model rankings using only five selected datasets. Additional experiments indicate that the effectiveness of selection approaches depends on both the quality of dataset representations and the scale of the benchmarking regime.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Rostislav Gusev",
+   "Alexey Zaytsev"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2606.27997v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2606.27997v1",
+  "published_iso": "2026-06-26T11:50:22Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Gaussian-JEPA: Joint-Embedding Predictive Learning for 3D Gaussian Splats",
+  "title_norm": "gaussian jepa joint embedding predictive learning for 3d gaussian splats",
+  "abstract": "3D Gaussian Splatting (3DGS) represents 3D content with anisotropic primitives that jointly encode geometry and appearance. Fixed-budget encoders consume sampled observations of Gaussian assets, so the same object may be observed through different primitive realizations. Existing self-supervised methods mainly reconstruct masked Gaussian attributes, tying supervision to one sampled realization and requiring an input-space decoder. Latent prediction offers an alternative, but its application to Gaussian tokens requires targets that accommodate coupled attributes and heterogeneous spatial support. We introduce Gaussian-JEPA, which predicts representations of held-out Gaussian token blocks from visible context. An online encoder processes the context, while a shared exponential-moving-average encoder supplies stop-gradient features for multi-scale targets. Complementary target projections and feature-space grounding provide latent supervision without reconstructing Gaussian attributes. We evaluate the features under Gaussian resampling, partial observations, and renderable shape completion, together with transfer to part segmentation and object classification. Compared with matched reconstruction pretraining, Gaussian-JEPA is more consistent across resampled inputs, retains more instance information under partial observations, and provides stronger frozen features for Gaussian completion. These results support latent prediction as an effective objective for reusable 3D Gaussian representations. Code is on the project page (https://amazingren.github.io/Gaussian-JEPA/).",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Bin Ren",
+   "Qi Ma",
+   "Yue Li",
+   "Zongyan Han",
+   "Yidi Li",
+   "Yuqian Fu",
+   "Rao Muhammad Anwer",
+   "Theo Gevers",
+   "Fahad Shahbaz Khan",
+   "Salman Khan"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2608.15651v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2608.15651v1",
+  "published_iso": "2026-08-16T09:43:50Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Benchmarking World Models for Continual Learning on Compositional Tasks",
+  "title_norm": "benchmarking world models for continual learning on compositional tasks",
+  "abstract": "A desirable property of a world model is the ability to learn continually across tasks, adapting to new environments without forgetting what the agent has already learnt. In particular, the ability to retain and reuse knowledge obtained from prior experiences underpins an agent's ability to efficiently adapt to novel environments, as the dynamics of the physical world can often be described in recurring mechanisms. However, the world model's measure of adaptation entangles two abilities: the speed and capacity to learn unseen tasks, and the reuse of knowledge already acquired, since incoming tasks carry novel content alongside what recurs. In order to isolate knowledge reuse from prior experiences, we propose a compositional continual learning benchmark for world models in robot manipulation. Specifically, we design each task curriculum with compositional tasks that combine aspects of the tasks seen in the sequence. We further factorise this composition along the axes of action and perception to better understand how different input modalities bottleneck knowledge reuse. We evaluate state-of-the-art world models under canonical continual learning methods, alongside a modular world model whose dynamics backbone contains explicitly reusable components. Results show that modularity balances reuse against forgetting better than conventional methods, but none solve the problem fully, leaving clear room for continual world models built to reuse without forgetting. More details are available on our project website: https://object814.github.io/Compositional-Continual-Learning/.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Haoyu Zhou",
+   "Joe Watson",
+   "Anson Lei",
+   "Ingmar Posner"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.22055v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.22055v1",
+  "published_iso": "2026-09-18T17:46:28Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "PhysCoRe: Physics-Corrected Residual World Models for Material-Aware Deformable Dynamics",
+  "title_norm": "physcore physics corrected residual world models for material aware deformable d",
+  "abstract": "Predicting how deformable objects evolve under robotic manipulation is a longstanding challenge. Existing approaches typically rely on per-object optimization to fit material parameters, which can be slow and cannot generalize, while end-to-end learned alternatives extrapolate poorly and often violate basic physical structure. We present PhysCoRe, a physics-corrected residual world model that couples a differentiable Material Point Method (MPM) simulator with two feed-forward neural networks. A material refinement module, Material from Motion (MfM), infers per-particle elasticity from visual observations, grounding the simulator in object-specific physics. A residual correction module, Residual from Dynamics (RfD), learns the discrepancy and predicts corrections to the simulator's internal dynamics, absorbing systematic biases that the analytical model cannot capture. This design also supports online material identification on novel objects. MfM adapts from limited interactions, and its predictive uncertainty steers further exploration toward the regions where its estimate is least confident. Experiments on real deformable-object manipulation sequences show that PhysCoRe outperforms state-of-the-art baselines in prediction accuracy, and that its predicted confidence forms a reliable distribution across the object's geometry, providing a natural signal for future confidence-guided exploration.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Haocheng Yin",
+   "Shuohan Tao",
+   "Yongsheng Chen",
+   "Lu Gan"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2607.20653v3",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2607.20653v3",
+  "published_iso": "2026-07-22T18:25:57Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Particle-Based Conformal Prediction for Contact-Aware Uncertainty Calibration in Stratified Configuration Spaces",
+  "title_norm": "particle based conformal prediction for contact aware uncertainty calibration in",
+  "abstract": "Reliable uncertainty representation is essential for deploying autonomous systems that interact with their environment, as robots must reason about how uncertainty arising from both stochasticity and model mismatch is impacted by contacts with obstacles (e.g., when navigating through a cluttered environment or inserting a part into an assembly). We propose Calibrated Particle-sets for Trans-dimensional Uncertainty Representation (CaPTURe), a geometry-aware, conformal prediction-based algorithm that generates probabilistically valid prediction regions of the unknown future system configuration using particle-based models of arbitrary fidelity. While calibrated uncertainty predictions are essential for safe and efficient planning, analytical or learned motion models are often inaccurate - due to limited data, simplifying assumptions, unmodeled effects, etc. - which can lead to unsafe executions or task failure. Additionally, when a robot contacts an obstacle, the distribution of its future configurations can become multimodal or disjoint, or lie along manifolds of lower intrinsic dimension than the space of possible robot configurations. Our method uses a calibration dataset of system transitions to locally calibrate motion uncertainty estimates, constructing regions guaranteed to contain the future robot configuration at a user-set probability. Our calibration procedure captures how motion uncertainty varies between contact-rich and contactless motions, leading to sufficient coverage in both cases. We evaluate our method on two simulated planning tasks: controlling a marble around a labyrinth and performing tight-tolerance peg-in-hole insertion with a manipulator. Compared to relevant baselines, CaPTURe achieves the user-specified coverage requirement both in and out of contact and achieves up to a 30% absolute improvement in task success rate over the best baseline.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Luís Marques",
+   "Kristian Popov",
+   "Dmitry Berenson"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2608.09166v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2608.09166v1",
+  "published_iso": "2026-08-10T06:22:10Z",
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "Magnetoelastic coupling descriptor for high-throughput ab initio search of magnetocaloric materials",
+  "title_norm": "magnetoelastic coupling descriptor for high throughput ab initio search of magne",
+  "abstract": "We use Landau theory of phase transitions to design a magnetoelastic coupling descriptor that can identify magnetic materials on the brink of a first-order transition, where a strong magnetocaloric effect (MCE) can arise. The descriptor can be computed from electronic structure calculations and requires structural optimization in the paramagnetic state, which we model using special quasi-random collinear spin configurations. We first evaluate the descriptor for a set of known magnetocaloric materials and identify compounds in which the MCE is driven by magnetoelastic coupling. We then apply the descriptor in a high-throughput \\emph{ab initio} screening of magnetic L1$_2$ compounds. This search identifies the L1$_2$ cubic phases of Mn$_3$Ge and Mn$_3$Sb as materials with strong magnetoelastic coupling and potential for a large magnetocaloric response.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Debajit Chakraborty",
+   "Kirill D. Belashchenko",
+   "Aleksander L. Wysocki"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2608.11589v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2608.11589v1",
+  "published_iso": "2026-08-12T02:58:09Z",
+  "from_query": [
+   "stacked ensemble Magpie descriptors meta-learner materials"
+  ]
+ },
+ {
+  "title": "The Quantum Composition Paradox",
+  "title_norm": "the quantum composition paradox",
+  "abstract": "Quantum theory does not generally permit the probability laws obtained from individual unitary steps by the Born rule to be sewn into a consistent genealogy; we classify the exceptions and show that faithful composition can hold from an initial boundary yet fail after an internal restart. For finite-dimensional, composition-closed unitary families, universal composition holds exactly for unitary monomials, the phase-dressed permutations whose Born kernels realize reversible deterministic state machines. Prescribed sequences evade this obstruction. We classify all pairs of qubit unitary steps, give a necessary-and-sufficient criterion for pairs of qutrit unitary steps, and prove that a boundary-stable unitary sequence on a $d$-dimensional Hilbert space contains at most $d$ fully mixing steps, with equality in every prime dimension. We also construct arbitrarily long genuinely mixing sequences that compose from their initial boundary but fail after an internal restart, and a qutrit-controlled two-qubit realization with active interference. We define a Born--Chapman--Kolmogorov current that vanishes exactly when coherent and stepwise-checked endpoint laws agree, together with an associated measure of how many bits the endpoint reveals about the intermediate checking schedule. This state-machine connection provides a foundation for a quantum theory of music, in which unitary operations are notes and temporal boundaries are cues. Musical-transition prediction is proved PromiseBQP-complete, and the stepwise patterns that preserve a genealogy specify rules for rhythm, whereas the exceptional failure of that genealogy from an internal cue is the quantum music paradox.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Jacob Biamonte"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.11402v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.11402v1",
+  "published_iso": "2026-09-10T11:34:01Z",
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "Hubbard-$U$-corrected electron-phonon interactions in strongly correlated materials via the finite-displacement method",
+  "title_norm": "hubbard u corrected electron phonon interactions in strongly correlated material",
+  "abstract": "Although the density functional theory plus Hubbard $U$ correction method (DFT+$U$) is broadly used to study electronic structure of strongly correlated materials, the extension of this method to electron-phonon $g$ matrices has received limited attention. Here, we implement an algorithm that integrates DFT+$U$ method with the finite-displacement method for the calculations of phonons and electron-phonon $g$ matrices. The Hubbard $U$ corrections are applied not only to electronic and phonon structures, but, more importantly, also to electron-phonon $g$ matrices. We demonstrate our algorithm in two prototypical correlated materials: infinite-layer nickelates LaNiO$_2$ and ruthenium dioxide RuO$_2$. We find that: i) While the Hubbard $U$ corrections weakly increase the electron-phonon interaction of 20% hole-doped LaNiO$_2$, its total electron-phonon coupling remains small and is insufficient to account for the observed superconducting transition temperature of about 10-30 K. Our results contrast with the recent work showing that the full GW corrections yield an elevated electron-phonon coupling of 20% hole-doped LaNiO$_2$ five times larger than its DFT value. We attribute this discrepancy to the differences in the Fermi surface topology between DFT+$U$ and GW methods. ii) The inclusion of Hubbard $U$ corrections eliminates the imaginary phonon modes of RuO$_2$ under strain on the TiO$_2$ substrate and substantially reduces the electron-phonon coupling. Our results alleviate the discrepancy between the reported large theoretical electron-phonon coupling and the low superconducting transition temperature observed experimentally. Our work provides an algorithm that fully includes the Hubbard $U$ corrections on electron-phonon properties of correlated materials, and highlights the importance of Fermi surface shape and correlation effects on phonon spectrum and electron-phonon $g$ matrices.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Jiale Chen",
+   "Youyou Tu",
+   "Chengliang Xia",
+   "Jin Zhao",
+   "Hanghui Chen"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.20985v2",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.20985v2",
+  "published_iso": "2026-05-20T10:16:45Z",
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ }
+]

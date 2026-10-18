@@ -1,0 +1,17 @@
+== design v4 matbench_steels n_fold0_train=249 cfg={'lgbm_l1_expert': True, 'stack_loss': 'l1'}
+    expert lgbm_l1_all: 1.9s, OOF score 113.6464
+  pseudo-fold 0 (3s): best_single=84.7731, mean_ensemble=106.1454, stack=84.7731, stack_local=94.2223, stack_local_magpie=87.9350, stack_local_frac=94.2223, single_local=94.1450
+    weights={'lgbm_all': 0.0, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 1.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 5, 'hmult': 4.0, 'kappa': 0.5, 'alpha': 1.0}
+    expert lgbm_l1_all: 2.0s, OOF score 94.2557
+  pseudo-fold 1 (3s): best_single=105.5981, mean_ensemble=130.3229, stack=105.7460, stack_local=95.7974, stack_local_magpie=102.9189, stack_local_frac=95.7974, single_local=96.9986
+    weights={'lgbm_all': 0.0, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 0.985, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.015} sel={'space': 'frac', 'k': 20, 'hmult': 4.0, 'kappa': 0.1, 'alpha': 0.75}
+    expert lgbm_l1_all: 2.0s, OOF score 108.9291
+  pseudo-fold 2 (3s): best_single=68.4708, mean_ensemble=86.6697, stack=68.4708, stack_local=81.1151, stack_local_magpie=84.1328, stack_local_frac=81.1151, single_local=78.0591
+    weights={'lgbm_all': 0.0, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 1.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 40, 'hmult': 4.0, 'kappa': 0.5, 'alpha': 1.0}
+    expert lgbm_l1_all: 1.8s, OOF score 99.9486
+  pseudo-fold 3 (3s): best_single=79.0456, mean_ensemble=90.2553, stack=81.1235, stack_local=75.9367, stack_local_magpie=84.5984, stack_local_frac=75.9367, single_local=70.6711
+    weights={'lgbm_all': 0.0, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 0.804, 'krr_frac': 0.0, 'krr_magpie': 0.107, 'mlp_all': 0.088} sel={'space': 'frac', 'k': 20, 'hmult': 4.0, 'kappa': 0.0, 'alpha': 0.75}
+    expert lgbm_l1_all: 1.9s, OOF score 95.9648
+  pseudo-fold 4 (3s): best_single=89.6368, mean_ensemble=118.1920, stack=93.8135, stack_local=91.9360, stack_local_magpie=96.8739, stack_local_frac=91.9360, single_local=85.1746
+    weights={'lgbm_all': 0.0, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 0.836, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.164} sel={'space': 'frac', 'k': 40, 'hmult': 4.0, 'kappa': 0.5, 'alpha': 1.0}
+  MEAN: single:lgbm_all=93.1734, single:lgbm_l1_all=93.1734, single:rf_all=103.0270, single:et_all=85.5049, single:krr_frac=198.8629, single:krr_magpie=124.1946, single:mlp_all=122.6363, best_single=85.5049, mean_ensemble=106.3171, stack=86.7854, stack_local=87.8015, stack_local_magpie=91.2918, stack_local_frac=87.8015, single_local=85.0097

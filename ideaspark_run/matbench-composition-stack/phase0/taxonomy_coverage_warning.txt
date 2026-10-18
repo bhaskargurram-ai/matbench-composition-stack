@@ -1,0 +1,1 @@
+<!-- taxonomy_coverage_warning: 39 of 74 records (53%) are outside_taxonomy; query niche (composition-based property prediction and stacking) is weakly covered by the 15-pattern vocabulary. -->

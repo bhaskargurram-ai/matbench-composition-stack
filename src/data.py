@@ -62,8 +62,43 @@ def featurise(task_name: str, df: pd.DataFrame):
     return feats
 
 
+def featurise_extra(task_name: str, df: pd.DataFrame):
+    """Additional label-free matminer composition descriptors (MODNet-style breadth):
+    Stoichiometry, ValenceOrbital, IonProperty(fast), BandCenter, AtomicOrbitals (HOMO/LUMO)."""
+    out = CACHE / f"{task_name}_features_extra.pkl"
+    if out.exists():
+        return pd.read_pickle(out)
+    from pymatgen.core import Composition
+    from matminer.featurizers.composition import (Stoichiometry, ValenceOrbital, IonProperty,
+                                                  BandCenter, AtomicOrbitals)
+    warnings.filterwarnings("ignore")
+    comps = [Composition(c) for c in df["composition"]]
+    fz = [Stoichiometry(), ValenceOrbital(impute_nan=True), IonProperty(fast=True, impute_nan=True),
+          BandCenter(impute_nan=True), AtomicOrbitals()]
+    blocks, names = [], []
+    for f in fz:
+        vals = []
+        for c in comps:
+            try:
+                vals.append(f.featurize(c))
+            except Exception:
+                vals.append([np.nan] * len(f.feature_labels()))
+        blocks.append(np.array([[v if isinstance(v, (int, float, np.floating)) else np.nan for v in r] for r in vals], dtype=float))
+        names += [f"extra_{type(f).__name__}_{n}" for n in f.feature_labels()]
+    X = pd.DataFrame(np.hstack(blocks), index=df.index, columns=names)
+    X = X.loc[:, X.notna().any()]
+    X = X.fillna(X.median())  # label-free imputation of rare failures
+    X.to_pickle(out)
+    return X
+
+
 if __name__ == "__main__":
+    import sys
     for t in TASKS:
         df, folds = load_task_frames(t)
         f = featurise(t, df)
+        if "--extra" in sys.argv:
+            fe = featurise_extra(t, df)
+            print(t, "extra", fe.shape, flush=True)
         print(t, df.shape, [len(x["test"]) for x in folds], f.shape, int(f.isna().sum().sum()), df["target"].dtype, flush=True)
+

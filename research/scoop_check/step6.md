@@ -47,7 +47,7 @@ Timestamp: 2026-10-18T18:24:21-04:00
   - Axes matching: 1 -> **Level 4 — Low Overlap** (three axes differ)
 - **Prior work E** (Chang et al., mixture of experts): 1 axis -> Level 4 — Low Overlap
 - **Prior work F** (Zhao et al., HEA stacking): 1 axis -> Level 4 — Low Overlap
-- **Prior work G** (Miccio, ensemble of experts, not read): title-only 2 -> provisional Level 3 — Medium Overlap
+- **Prior work G** (Miccio, ensemble of experts, Comput. Mater. Sci. 2025; read after the owner supplied the PDF): pre-trained neural experts on related polymer properties from SMILES (transfer learning); at most 1 axis (partial framing) -> Level 4 — Low Overlap
 - Recalled classics (Wolpert; Breiman; Super Learner; regression kriging): each matches only on mechanism (one component) -> Level 4 — Low Overlap
 
 Worst case (minimum level): **Level 3 — Medium Overlap**.

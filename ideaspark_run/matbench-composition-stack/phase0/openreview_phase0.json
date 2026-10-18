@@ -1,0 +1,182 @@
+[
+ {
+  "title": "RealDrop: Predicting Realistic Impact Responses of Dropping",
+  "title_norm": "realdrop predicting realistic impact responses of dropping",
+  "abstract": "Single-image physical reconstruction aims to recover a 3D asset that not only matches appearance but also responds realistically to physical interactions. We focus on object dropping, a particularly revealing setting where impact can trigger diverse and coupled responses, including rebound, deformation, fracture, component motion, liquid release, and splash. However, existing physics-aware reconstruction methods often rely on deformation-dominated physical representations, causing materially complex objects to collapse to overly simple or physically incorrect impact behaviors. We present \\textbf{RealDrop}, a framework for predicting realistic dropping responses from a single image. RealDrop constructs part-aware physical assets and introduces a Stress-Responsive Particle System (SRPS) that supports appropriate solid responses from elastic rebound to spatially coherent fracture, together with an SPH-based formulation for liquid dynamics. These representations allow distinct physical behaviors to coexist and interact within heterogeneous objects. We further introduce \\textbf{PhysLab}, which turns physical-property inference from appearance-based prediction into consequence-driven verification by executing predicted properties through simulation and iteratively correcting those that produce physically inconsistent outcomes. Extensive experiments demonstrate that RealDrop produces substantially more realistic and expressive impact responses across diverse single-image inputs.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "8YPGiL1bUn",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=8YPGiL1bUn",
+  "published_iso": "",
+  "_score": 2,
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "Decoupling Time and Space in Controlled Differential Equations for Exact Interaction-Order Decomposition",
+  "title_norm": "decoupling time and space in controlled differential equations for exact interac",
+  "abstract": "Selective state-space models (SSMs) and linear controlled differential equations (LNCDEs) have emerged as effective approaches for long-sequence modeling. However, existing models face a trade-off: diagonal state transitions offer computational efficiency but struggle to capture cross-channel interactions, whereas dense transitions successfully capture these interactions at a computational cost that structured alternatives have since aimed to reduce. To address this, we propose the Tensor-Decoupled CDE (TD-CDE), an architecture that decouples temporal updating from spatial mixing. By restricting time evolution to diagonal, data-dependent decays, TD-CDE maintains efficient parallel scans. Cross-channel interactions are modeled along the depth dimension using Tensor Train (TT) decomposition, extracting high-order signature-type features without exponential parameter growth. Furthermore, the model employs gating via raw inputs, avoiding normalizations to preserve causality and exact, additive interpretability. Theoretically, we prove that models with commuting generators—including diagonal SSMs—realise only the shuffle subalgebra and cannot represent complex interactions like Lévy area at any width, and that TD-CDE's graded state decomposes predictions exactly by interaction order and feature words. Additionally, we formalize an order contract for selective discretisation. Empirically, TD-CDE captures cross-channel dynamics in path-dependent synthetic tasks that challenge existing models like Mamba. Evaluated on the UEA archive, TD-CDE achieves state-of-the-art accuracy with up to two orders of magnitude fewer parameters specifically on the datasets our order profiler flags as high-order, while showing no advantage on low-order ones—a separation predicted prior to training. Crucially, we demonstrate that a high-order discretisation scheme is essential for resolution invariance: TD-CDE preserves robust predictions and stable exact attributions even under severe sequence subsampling, where standard endpoint approximations fail.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "85Z2N9E3ZL",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=85Z2N9E3ZL",
+  "published_iso": "",
+  "_score": 3,
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "MA-SBI: Computable Ceilings Decide Which Misspecification Corrector to Fit",
+  "title_norm": "ma sbi computable ceilings decide which misspecification corrector to fit",
+  "abstract": "Simulation-based inference degrades when the simulator misspecifies the process that produced the real observations, and the existing repairs ask for data the practitioner rarely has, such as ground-truth parameters paired with real observations, a functional form for the noise, or a credible alternative prior. What practitioners often do have is a written record of the conditions under which each observation was collected, such as the instruction text given to participants or the policy bulletin in force that week. We show that the share of the simulator's error this side information can remove has a ceiling that is computable in advance from held-out residuals, without evaluating any posterior, and that a second ceiling says whether the correction also needs to see the observation. We introduce misspecification-aware simulation-based inference (MA-SBI), a family of observation-space correctors that the two ceilings select between, fitted in front of a frozen amortised posterior. In the Gaussian-linear model the conditional mean provably attains both ceilings, and the fitted correction is identically zero when the simulator is well specified, however the prior behaves. A second result separates the estimators by sample complexity, since the structured one pays for the rank of the embedded design where an unstructured one pays for the width of the encoder. Across four benchmarks and three physical datasets the ceilings are tight, with every arm landing between 0.99 and 1.0 of its own, so the number tells a practitioner what an estimator will achieve before one is fitted. On a wind-tunnel benchmark a corrector that uses no parameter labels matches a calibration-based method that uses them, and we report the negative results too, including an epidemiological dataset whose apparent coverage gain does not survive our pre-registered test.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "JZ00UUC6QI",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=JZ00UUC6QI",
+  "published_iso": "",
+  "_score": 4,
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Locating Memory In Predictive World Models: Interventional Diagnosis Beyond Probing",
+  "title_norm": "locating memory in predictive world models interventional diagnosis beyond probi",
+  "abstract": "Linear probing is the default instrument for asking what a learned representation encodes, but it cannot say how a model retains that information. We exhibit three world models — a stateless Joint Embedding Predictive Architecture (JEPA), a GRU and an LSTM — that reach identical probe accuracy (1.000) on the same delayed working-memory task while implementing mechanistically incompatible forms of memory. To separate them we introduce nested interventional diagnostics: stable retention (SR) asks whether information about a past causal event survives a latent rollout; an interventional causal separation test, with a 2x2 extension that toggles recurrent state, asks where the memory resides; and the causal-subspace Lyapunov factor lambda_v(t) asks how the predictor sustains it. Three findings follow. Memory locus is a property of the trained model rather than of the architecture class: GRU and LSTM seeds trained identically span from near-pure state-based to predominantly dynamical solutions, a spread invisible to probe accuracy. A stateless predictor sustains memory by selective subspace preservation: at a prediction horizon of K = 5 it contracts sampled latent distances on average (kappa ~ 0.36) while amplifying the causal direction 6.48x relative to a typical direction, a condition strictly weaker than the global norm preservation that unitary and orthogonal recurrent parameterisations enforce. And a controlled ablation that redistributes a trained encoder's causal weight across an orthonormal basis, holding predictor, task and training protocol fixed, drives stable retention from 0.458 to 0.107 and causal-subspace amplification from 14.2 to 4.3: encoder geometry causally gates whether dynamical memory is available at all.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "CdxFd9WDU6",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=CdxFd9WDU6",
+  "published_iso": "",
+  "_score": 2,
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "Garak-2: Selective Low-Rank Compression of a Korean Speech Foundation Model",
+  "title_norm": "garak 2 selective low rank compression of a korean speech foundation model",
+  "abstract": "I introduce Garak-2, an efficiency-oriented successor to Garak-1, a Korean speech recognition foundation model trained on multi-domain Korean speech. Garak-1 initializes its cache-aware FastConformer encoder from the March 2026 NVIDIA Nemotron Speech Streaming 0.6B checkpoint and replaces the original RNN-T decoder with a Token-and-Duration Transducer (TDT) decoder. Both the encoder and decoder are trained on Korean speech, with the decoder initialized from scratch. Starting from this Korean-trained Garak-1 checkpoint, Garak-2 targets the encoder, which dominates model parameters and CPU inference time. I apply rank-512 factorization to the feed-forward projection matrices in the middle 12 layers of the 24-layer encoder, preserving the original expansion width, nonlinearities, cache-aware attention and convolution modules, and TDT formulation. This reduces the parameter count from 622.0 million to 546.5 million, a 12.1% reduction (546.8 million with the small correction path of the evaluated model). To account for the effects of additional training, I compare the compressed model with an uncompressed Garak-1 baseline under matched continued-training budgets. Preliminary experiments across 19 Korean speech datasets show that a short period of continued training brings the compressed model's macro-averaged character error rate close to that of the equally trained baseline, with a small remaining deficit at matched training steps (+0.04 CER points) that varies with the checkpoint. The same analysis reveals dormant feed-forward modules in the middle layers: replacing 12 of them by weight-derived constants removes 16.2% of the parameters without any training, at a small accuracy cost (about 0.5% relative on a held-out set). CPU inference benchmarking at batch size eight with FP32 computation on eight cores shows a 16–18% reduction in total processing time. These initial findings suggest that selective encoder compression is a promising approach to reducing the size and inference cost of Garak-1 at a small cost in average recognition performance.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "F9nQI9fFUg",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=F9nQI9fFUg",
+  "published_iso": "",
+  "_score": 3,
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "PORTAL: A Physically Consistent Retrieval-Augmented Lifetime Model for Early Battery Life Prediction",
+  "title_norm": "portal a physically consistent retrieval augmented lifetime model for early batt",
+  "abstract": "Early battery cycle-life prediction aims to estimate a cell's final cycle life from only a small number of early charge cycles. Existing approaches are commonly developed for fixed early-cycle windows and evaluated within individual datasets or battery chemistries, limiting their applicability to heterogeneous battery populations and variable amounts of early-cycle data. We introduce PORTAL, a physical-prototype retrieval model for cycle-life prediction from variable-length early-cycle prefixes of voltage-current charge curves. PORTAL encodes each cycle using curve patches and a physical token derived from battery descriptors, including cathode, anode, temperature, cell format, and nominal capacity. A cycle-level Transformer encodes individual charge cycles, while a masked inter-cycle MLP aggregates the observed prefix. The model further retrieves learned feature prototypes from training batteries and applies a gated residual correction, without retrieving training-set lifetime labels.\nWe evaluate PORTAL over all prefix lengths from 1 to 50 cycles across five battery chemistry groups derived from Tongji, CALCE, and HUST, with each experiment repeated over 10 random seeds. In the all-chemistry mixed setting with 34 test cells, PORTAL achieves a prefix-averaged MAPE of 16.01%, compared with 31.34% for Informer and 48.05% for TimesNet. Notably, even when relying strictly on the first 10 cycles as input, the MAPE result of the trained model is already similar to using all 50 cycles as input, indicating a small number of early cycles can provide useful indication of final cycle life. These results indicate that explicit physical conditioning and feature-prototype retrieval improve early cycle-life prediction across heterogeneous battery populations.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "K6ncSmiEtt",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=K6ncSmiEtt",
+  "published_iso": "",
+  "_score": 3,
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Pharmacological Mechanism Reasoning with Collaborative LLM Agents for Molecular Property Prediction",
+  "title_norm": "pharmacological mechanism reasoning with collaborative llm agents for molecular ",
+  "abstract": "Molecular property prediction has advanced on the premise that properties follow from a sufficiently precise representation of structure. LLMs have extended this paradigm by aligning molecular and textual representations, retrieving analogous molecules, and learning step-wise reasoning over structure. In all of these, the property is still predicted directly from structure, without passing through the biological context in which it arises. A molecular property, however, is observed as the outcome of a molecule engaging targets in vivo and triggering downstream events, and a prediction that does not pass through that mechanism remains an extrapolation of structural similarity. We reformulate property prediction as mechanism-grounded evidence reasoning and propose PharmaLens, a multi-agent framework that realizes this formulation. For a given property, agents at the physicochemical, target-relation, and binding-structure levels establish the specified factors on the query molecule by tool-based measurement, and the resulting evidence is integrated over the relational logic. Across in vivo endpoints from TDC and organ-toxicity tasks from UniTox, PharmaLens achieves strong performance on both benchmarks, and it retains this margin on property cliffs, where structurally similar molecules carry opposite labels and label-trained predictors fall off most sharply. Its rationales are also consistently favored across all three evaluations. The source code is publicly\navailable at https://github.com/anonymousqwerty350/PharmLens.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "LjZFL5rcGA",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=LjZFL5rcGA",
+  "published_iso": "",
+  "_score": 2,
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ },
+ {
+  "title": "Not Order but Support: Curriculum Effects on Grokking Are a Transient-Support Phenomenon",
+  "title_norm": "not order but support curriculum effects on grokking are a transient support phe",
+  "abstract": "Grokking is when a network generalizes abruptly, long after it has already fit (memorized) its training set. It is sensitive to how the training data is presented—but “presentation” quietly bundles two different things, because a curriculum that shows hard examples first also shows them more often. We separate the two with a pair of controlled experiments. In the first, we fix the set of examples so that every example is seen equally often over the whole run, and vary only the order. Sorting by difficulty, in either direction, then prevents grokking outright on four of six small algorithmic tasks (validation accuracy stays at chance for the whole run even though the training set is fully memorized) and delays it 6–54× on the other two. So how often each example is seen is not what matters. In the second experiment, on two of the tasks, we go further and make every epoch (one full pass through the data) contain the whole difficulty range, so exposure is matched not just overall but at every epoch boundary, and again vary only the within-epoch order. The orders-of-magnitude delay then disappears: sorted and shuffled schedules reach the threshold within one evaluation interval. Thus, fine-grained order is not the primary lever either. The leading explanation is how long the optimizer is kept on a narrow, unrepresentative slice of the difficulty range. Curriculum effects on grokking are therefore a transient-support phenomenon; calling them ordering effects is imprecise. Two smaller results accompany this finding. First, a two-feature linear predictor built from early weight-matrix singular-value statistics forecasts the transition time $\\log t^\\star$ with fully nested cross-validated $R^2$ between 0.66 and 0.81, requires no validation signal from the target run, and generalizes to held-out curricula. Second, at transformer scale, a sharp grokking-like transition appears on 2WikiMultiHopQA and reproduces across an 8× range of model sizes, but is absent or gradual on three other datasets. Because those experiments use an uncontrolled growing-pool curriculum, we present them as a boundary map rather than causal evidence about ordering. We release all 505 training runs.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "gOepJXypgI",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=gOepJXypgI",
+  "published_iso": "",
+  "_score": 3,
+  "from_query": [
+   "Matbench composition tasks small experimental datasets benchmark"
+  ]
+ },
+ {
+  "title": "GA-NAR: Geometry-Adaptive Nonlinearity Allocation and Representation for Complex Physical Systems",
+  "title_norm": "ga nar geometry adaptive nonlinearity allocation and representation for complex ",
+  "abstract": "Many complex physical systems exhibit a recurring dominant nonlinear-response structure whose local intensity and dominant/complement allocation vary across operating conditions, while standard supervised surrogates typically apply a fixed pattern of nonlinear computation. We introduce GA-NAR (Geometry-Adaptive Nonlinearity Allocation and Representation), a backbone-compatible framework that adapts neural nonlinear computation to the structure of the physical parameter-to-solution map. GA-NAR comprises two coupled components: Nonlinear Response Geometry Decomposition (NRGD), which identifies a recurring Dominant Nonlinear-Response Subspace together with state-dependent response intensity and subspace allocation, and Geometry-Adaptive Nonlinear Representation (GANR), which uses this information to organize nonlinear computation across subspaces and network depth. Independent experiments on NRGD across five systems verify reliable recovery of the proposed response descriptors, while separate no-physics and shared-physics factorial experiments show that GANR achieves the lowest NRMSE on four of five auxiliary systems under both conditions. The complete GA-NAR framework reduces standardized test MSE in all 18 activation--system comparisons, with median reductions of 11.5\\%, 2.1\\%, and 2.8\\% on IEEE-118, Kuramoto-64, and nonlinear heat FEM, respectively, alongside larger activation-specific gains in several cases. Physical residuals also decrease for most tested activations, showing that the predictive gains generally extend to physical consistency. We will release codes at https://anonymous.4open.science/r/GA-NAR.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "pRmmj8CNc0",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=pRmmj8CNc0",
+  "published_iso": "",
+  "_score": 3,
+  "from_query": [
+   "Gaussian process residual correction composition descriptors materials"
+  ]
+ },
+ {
+  "title": "Towards Calibration for General Crammer-Singer Losses in Multi-Class Classification with Abstention",
+  "title_norm": "towards calibration for general crammer singer losses in multi class classificat",
+  "abstract": "The Crammer-Singer (CS) loss has been a standard multi-class extension of base binary surrogate losses. Despite its solid empirical performance, classical theory of loss functions proves that the CS loss is not classification-calibrated to the 0-1 loss, that is, the minimization of the surrogate risk of the CS loss does not necessarily lead to the minimization of the 0-1 risk. The pitfall of the CS loss is caused by low-confidence samples with their maximum class probability less than $1/2$. This observation leads to the following question: is the CS loss calibrated when there are no low-confidence input samples? To this end, we consider the CS loss under multi-class classification *with abstention*, and in particular, the predictor-rejector framework, where a learner trains a class predictor as well as a rejector to abstain from making predictions for low-confidence samples. Under this setup, we show that general CS losses can be calibrated, verifying our hypothesis that the CS loss can be safely used even theoretically if all input samples are sufficiently confident. Theoretically, our calibration proof is interesting on its own right because it is applicable to broader losses composed of binary ones; the CS loss under classification with abstention has been considered previously, but the calibration property has been known only for polyhedral losses. Experiments on different datasets empirically validate the effectiveness of our calibrated general CS losses.",
+  "year": 2027,
+  "venue": "ICLR.cc/2027/Conference",
+  "authors": [],
+  "citations": null,
+  "source": "openreview",
+  "source_id": "XCOAMO2G5o",
+  "doi": "",
+  "paper_url": "https://openreview.net/forum?id=XCOAMO2G5o",
+  "published_iso": "",
+  "_score": 2,
+  "from_query": [
+   "composition-based materials property prediction"
+  ]
+ }
+]

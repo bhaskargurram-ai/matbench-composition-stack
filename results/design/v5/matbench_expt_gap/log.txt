@@ -1,0 +1,3 @@
+== design v5 matbench_expt_gap n_fold0_train=3683 cfg={'lgbm_l1_expert': True, 'stack_loss': 'l1', 'extra_features': True}
+    expert lgbm_all: 17.0s, OOF score 0.3826
+    expert lgbm_l1_all: 23.9s, OOF score 0.3953

@@ -31,8 +31,13 @@ PDFs were fetched with `scripts/fetch_paper.sh` into `papers/` (git-ignored, not
 - Fetched: nature.com PDF. Mechanism: a gating network over frozen pretrained (CGCNN) feature extractors; 19 regression tasks; random 70/15/15 splits (Methods). Structure-based; no OOF residual correction.
 - Refined overlap: framing partial, mechanism partial (combining experts), insight differ, domain partial -> 1 axis.
 
-### [31] Miccio, Ensemble of experts (Comput. Mater. Sci. 258, 2025)
-- Fetch FAILED: Elsevier paywall; no OA copy (OpenAlex oa_url = None). OpenAlex, Semantic Scholar and Crossref carry no abstract, and the institutional repository pages carry metadata only. Firecrawl was unavailable (credits exhausted). NOT read. Kept at the title-only triage score of 2. The owner must check it with library access before submission, because it is in the target journal.
+### [31] Miccio, Ensemble of experts (Comput. Mater. Sci. 258, 2025, doi:10.1016/j.commatsci.2025.114092)
+- First fetch FAILED (Elsevier paywall; no OA copy; no abstract in any index; Firecrawl out of credits). The owner later supplied the PDF (`papers/Miccio2025_CMS_ensemble_of_experts.pdf`, git-ignored). Text extracted with pymupdf; abstract, introduction and Sec. 2.3 read (update 2026-10-18).
+- Problem framing (verified): data-scarce prediction of polymer/molecular glass transition temperature (Tg), Tg of binary mixtures, and the Flory-Huggins chi of polymer-solvent systems.
+- Core mechanism (verified): "an ensemble of experts (EE) approach ... using expert models previously trained on datasets of different, but physically meaningful properties" (abstract). Neural experts are pre-trained on related properties (e.g. logP) from tokenized SMILES, and their learned representations/outputs feed a model for the data-scarce target, compared against standard ANNs (Sec. 2.3). This is transfer learning; the text contains no stacking, OOF/cross-fitting, residual correction, kriging, nearest-neighbour correction or Matbench (keyword counts: stack 0, out-of-fold 0, residual 0, kriging 0, Matbench 0).
+- Key insight (verified): knowledge from physically related property models compensates for scarce target data.
+- Application domain (verified): polymers and molecular glass formers (SMILES); not inorganic compositions.
+- Refined overlap: framing partial (data scarcity), mechanism differ, insight differ, domain differ -> 0 axes (Level 5); counted conservatively as at most 1 axis -> **Level 4 — Low Overlap**. Risk resolved. Cite it in related work (same journal; "ensemble of experts" under data scarcity), and do not use the phrase "ensemble of experts" for our method without distinguishing it.
 
 ### [17] Zhao et al., Interpretable stacking for HEA properties (Front. Mater. 2025)
 - Fetched: frontiersin PDF. Mechanism: RF/GB/XGBoost base learners, an SVR meta-learner, k-fold OOF predictions for the meta-learner, and SHAP; a single HEA dataset with a random split. No local correction and no benchmark folds.
