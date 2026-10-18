@@ -10,3 +10,4 @@ data/cache/
 *.out
 *.blg
 *.synctex.gz
+logs/
