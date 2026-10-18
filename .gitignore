@@ -11,3 +11,4 @@ data/cache/
 *.blg
 *.synctex.gz
 logs/
+papers/

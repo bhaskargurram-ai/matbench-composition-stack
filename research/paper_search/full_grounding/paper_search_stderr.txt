@@ -1,0 +1,134 @@
+[dblp] Error on query 'Matbench composition property prediction machine learning': Expecting value: line 1 column 1 (char 0)
+[dblp] Error on query 'MODNet materials property prediction small datasets': Expecting value: line 1 column 1 (char 0)
+[dblp] Error on query 'CrabNet compositionally restricted attention network': Expecting value: line 1 column 1 (char 0)
+[dblp] HTTP 429; retrying in 60s (attempt 2/4)
+[dblp] Error on query 'Roost representation learning stoichiometry': Expecting value: line 1 column 1 (char 0)
+[dblp] Error on query 'stacking ensemble materials property prediction composition': Expecting value: line 1 column 1 (char 0)
+[dblp] Error on query 'residual kriging local correction machine learning materials': Expecting value: line 1 column 1 (char 0)
+[dblp] HTTP 429; retrying in 60s (attempt 2/4)
+[dblp] Error on query 'Darwin interpretable materials property prediction': Expecting value: line 1 column 1 (char 0)
+
+Getting V1 Notes:   0%|          | 0/3792 [00:00<?, ?it/s]
+Getting V1 Notes:  26%|██▋       | 1000/3792 [00:00<00:01, 2487.80it/s]
+Getting V1 Notes:  53%|█████▎    | 1999/3792 [00:00<00:00, 2633.80it/s]
+Getting V1 Notes:  79%|███████▉  | 2998/3792 [00:01<00:00, 2768.85it/s]
+Getting V1 Notes: 100%|█████████▉| 3788/3792 [00:01<00:00, 3131.75it/s]
+
+Getting V2 Notes:   0%|          | 0/2260 [00:00<?, ?it/s]
+Getting V2 Notes:  44%|████▍     | 1000/2260 [00:00<00:00, 2053.92it/s]
+Getting V2 Notes:  88%|████████▊ | 1999/2260 [00:00<00:00, 3397.70it/s]
+Getting V2 Notes: 100%|█████████▉| 2257/2260 [00:00<00:00, 3143.59it/s]
+
+Getting V2 Notes:   0%|          | 0/3703 [00:00<?, ?it/s]
+Getting V2 Notes:  27%|██▋       | 1000/3703 [00:00<00:01, 2427.70it/s]
+Getting V2 Notes:  54%|█████▍    | 1999/3703 [00:00<00:00, 2806.19it/s]
+Getting V2 Notes:  81%|████████  | 2998/3703 [00:01<00:00, 3114.78it/s]
+Getting V2 Notes: 100%|█████████▉| 3699/3703 [00:01<00:00, 3393.96it/s]
+
+Getting V2 Notes:   0%|          | 0/5351 [00:00<?, ?it/s]
+Getting V2 Notes:  19%|█▊        | 1000/5351 [00:00<00:01, 3518.84it/s]
+Getting V2 Notes:  37%|███▋      | 1999/5351 [00:00<00:01, 3195.70it/s]
+Getting V2 Notes:  56%|█████▌    | 2998/5351 [00:01<00:00, 2464.54it/s]
+Getting V2 Notes:  75%|███████▍  | 3997/5351 [00:01<00:00, 2624.78it/s]
+Getting V2 Notes:  93%|█████████▎| 4996/5351 [00:01<00:00, 3128.91it/s]
+Getting V2 Notes: 100%|█████████▉| 5345/5351 [00:01<00:00, 3034.07it/s]
+
+Getting V2 Notes:   0%|          | 0/3218 [00:00<?, ?it/s]
+Getting V2 Notes:  31%|███       | 1000/3218 [00:00<00:00, 3092.44it/s]
+Getting V2 Notes:  62%|██████▏   | 1999/3218 [00:00<00:00, 2242.06it/s]
+Getting V2 Notes:  93%|█████████▎| 2998/3218 [00:00<00:00, 3330.82it/s]
+Getting V2 Notes: 100%|█████████▉| 3214/3218 [00:01<00:00, 3056.52it/s]
+
+Getting V2 Notes:   0%|          | 0/4035 [00:00<?, ?it/s]
+Getting V2 Notes:  25%|██▍       | 1000/4035 [00:00<00:00, 3353.52it/s]
+Getting V2 Notes:  50%|████▉     | 1999/4035 [00:00<00:00, 3735.99it/s]
+Getting V2 Notes:  74%|███████▍  | 2998/4035 [00:00<00:00, 3952.40it/s]
+Getting V2 Notes: 100%|█████████▉| 4030/4035 [00:00<00:00, 4196.31it/s]
+
+Getting V2 Notes:   0%|          | 0/5286 [00:00<?, ?it/s]
+Getting V2 Notes:  19%|█▉        | 1000/5286 [00:00<00:01, 3205.56it/s]
+Getting V2 Notes:  38%|███▊      | 1999/5286 [00:00<00:00, 3430.65it/s]
+Getting V2 Notes:  57%|█████▋    | 2998/5286 [00:00<00:00, 3545.90it/s]
+Getting V2 Notes:  76%|███████▌  | 3997/5286 [00:01<00:00, 3470.22it/s]
+Getting V2 Notes:  95%|█████████▍| 4996/5286 [00:01<00:00, 4223.88it/s]
+Getting V2 Notes: 100%|█████████▉| 5280/5286 [00:01<00:00, 3792.14it/s]
+
+Getting V2 Notes:   0%|          | 0/1828 [00:00<?, ?it/s]
+Getting V2 Notes:  55%|█████▍    | 1000/1828 [00:00<00:00, 3823.47it/s]
+Getting V2 Notes: 100%|█████████▉| 1826/1828 [00:00<00:00, 5722.31it/s]
+
+Getting V2 Notes:   0%|          | 0/2610 [00:00<?, ?it/s]
+Getting V2 Notes:  38%|███▊      | 1000/2610 [00:00<00:00, 3669.65it/s]
+Getting V2 Notes:  77%|███████▋  | 1999/2610 [00:00<00:00, 4063.60it/s]
+Getting V2 Notes: 100%|█████████▉| 2607/2610 [00:00<00:00, 4614.12it/s]
+
+Getting V2 Notes:   0%|          | 0/3257 [00:00<?, ?it/s]
+Getting V2 Notes:  31%|███       | 1000/3257 [00:00<00:00, 3129.72it/s]
+Getting V2 Notes:  61%|██████▏   | 1999/3257 [00:00<00:00, 3126.21it/s]
+Getting V2 Notes:  92%|█████████▏| 2998/3257 [00:00<00:00, 3523.65it/s]
+Getting V2 Notes: 100%|█████████▉| 3253/3257 [00:00<00:00, 3390.61it/s]
+[openreview] Error on query 'MODNet materials property prediction small datasets': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 7 requests, surpassing the limit of 3 requests. Please try again in 34 seconds (2026-10-18-9968070)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-18T22:16:39.398Z', 'used': 7, 'current': 7, 'reqId': '2026-10-18-9968070'}}
+[openreview] Error on query 'CrabNet compositionally restricted attention network': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 11 requests, surpassing the limit of 3 requests. Please try again in 25 seconds (2026-10-18-9968816)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-18T22:16:39.397Z', 'used': 11, 'current': 11, 'reqId': '2026-10-18-9968816'}}
+[openreview] Error on query 'Roost representation learning stoichiometry': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 15 requests, surpassing the limit of 3 requests. Please try again in 15 seconds (2026-10-18-9969553)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-18T22:16:39.398Z', 'used': 15, 'current': 15, 'reqId': '2026-10-18-9969553'}}
+[openreview] Error on query 'stacking ensemble materials property prediction composition': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 18 requests, surpassing the limit of 3 requests. Please try again in 6 seconds (2026-10-18-9970479)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-18T22:16:39.398Z', 'used': 18, 'current': 18, 'reqId': '2026-10-18-9970479'}}
+
+Getting V1 Notes:   0%|          | 0/3792 [00:00<?, ?it/s]
+Getting V1 Notes:  26%|██▋       | 1000/3792 [00:00<00:00, 4083.95it/s]
+Getting V1 Notes:  53%|█████▎    | 1999/3792 [00:00<00:00, 3352.80it/s]
+Getting V1 Notes:  79%|███████▉  | 2998/3792 [00:00<00:00, 3830.78it/s]
+Getting V1 Notes: 100%|█████████▉| 3788/3792 [00:00<00:00, 4287.25it/s]
+
+Getting V2 Notes:   0%|          | 0/2260 [00:00<?, ?it/s]
+Getting V2 Notes:  44%|████▍     | 1000/2260 [00:00<00:00, 2941.67it/s]
+Getting V2 Notes:  88%|████████▊ | 1999/2260 [00:00<00:00, 4693.73it/s]
+Getting V2 Notes: 100%|█████████▉| 2257/2260 [00:00<00:00, 4266.46it/s]
+
+Getting V2 Notes:   0%|          | 0/3703 [00:00<?, ?it/s]
+Getting V2 Notes:  27%|██▋       | 1000/3703 [00:00<00:00, 3549.49it/s]
+Getting V2 Notes:  54%|█████▍    | 1999/3703 [00:00<00:00, 3523.83it/s]
+Getting V2 Notes:  81%|████████  | 2998/3703 [00:00<00:00, 3701.24it/s]
+Getting V2 Notes: 100%|█████████▉| 3699/3703 [00:00<00:00, 3860.97it/s]
+
+Getting V2 Notes:   0%|          | 0/5351 [00:00<?, ?it/s]
+Getting V2 Notes:  19%|█▊        | 1000/5351 [00:00<00:01, 2990.53it/s]
+Getting V2 Notes:  37%|███▋      | 1999/5351 [00:00<00:01, 3277.48it/s]
+Getting V2 Notes:  56%|█████▌    | 2998/5351 [00:00<00:00, 3246.94it/s]
+Getting V2 Notes:  75%|███████▍  | 3997/5351 [00:01<00:00, 3281.67it/s]
+Getting V2 Notes:  93%|█████████▎| 4996/5351 [00:01<00:00, 3898.19it/s]
+Getting V2 Notes: 100%|█████████▉| 5345/5351 [00:01<00:00, 3606.59it/s]
+
+Getting V2 Notes:   0%|          | 0/3218 [00:00<?, ?it/s]
+Getting V2 Notes:  31%|███       | 1000/3218 [00:00<00:00, 2968.04it/s]
+Getting V2 Notes:  62%|██████▏   | 1999/3218 [00:00<00:00, 3310.47it/s]
+Getting V2 Notes:  93%|█████████▎| 2998/3218 [00:00<00:00, 3983.71it/s]
+Getting V2 Notes: 100%|█████████▉| 3214/3218 [00:00<00:00, 3565.89it/s]
+
+Getting V2 Notes:   0%|          | 0/4035 [00:00<?, ?it/s]
+Getting V2 Notes:  25%|██▍       | 1000/4035 [00:00<00:00, 4218.31it/s]
+Getting V2 Notes:  50%|████▉     | 1999/4035 [00:00<00:00, 3895.74it/s]
+Getting V2 Notes:  74%|███████▍  | 2998/4035 [00:00<00:00, 3754.12it/s]
+Getting V2 Notes: 100%|█████████▉| 4030/4035 [00:00<00:00, 4284.80it/s]
+
+Getting V2 Notes:   0%|          | 0/5286 [00:00<?, ?it/s]
+Getting V2 Notes:  19%|█▉        | 1000/5286 [00:00<00:01, 2858.18it/s]
+Getting V2 Notes:  38%|███▊      | 1999/5286 [00:00<00:00, 3373.02it/s]
+Getting V2 Notes:  57%|█████▋    | 2998/5286 [00:00<00:00, 3555.63it/s]
+Getting V2 Notes:  76%|███████▌  | 3997/5286 [00:01<00:00, 3632.62it/s]
+Getting V2 Notes:  95%|█████████▍| 4996/5286 [00:01<00:00, 4433.22it/s]
+Getting V2 Notes: 100%|█████████▉| 5280/5286 [00:01<00:00, 3930.88it/s]
+
+Getting V2 Notes:   0%|          | 0/1828 [00:00<?, ?it/s]
+Getting V2 Notes:  55%|█████▍    | 1000/1828 [00:00<00:00, 5034.30it/s]
+Getting V2 Notes: 100%|█████████▉| 1826/1828 [00:00<00:00, 7091.02it/s]
+
+Getting V2 Notes:   0%|          | 0/2610 [00:00<?, ?it/s]
+Getting V2 Notes:  38%|███▊      | 1000/2610 [00:00<00:00, 4218.82it/s]
+Getting V2 Notes:  77%|███████▋  | 1999/2610 [00:00<00:00, 4977.72it/s]
+Getting V2 Notes: 100%|█████████▉| 2607/2610 [00:00<00:00, 5286.39it/s]
+
+Getting V2 Notes:   0%|          | 0/3257 [00:00<?, ?it/s]
+Getting V2 Notes:  31%|███       | 1000/3257 [00:00<00:00, 3425.04it/s]
+Getting V2 Notes:  61%|██████▏   | 1999/3257 [00:00<00:00, 3201.47it/s]
+Getting V2 Notes:  92%|█████████▏| 2998/3257 [00:00<00:00, 4278.41it/s]
+Getting V2 Notes: 100%|█████████▉| 3253/3257 [00:00<00:00, 3913.58it/s]
+[openreview] Error on query 'Darwin interpretable materials property prediction': {'name': 'RateLimitError', 'message': 'Too many requests: You have made 7 requests, surpassing the limit of 3 requests. Please try again in 36 seconds (2026-10-18-9973285)', 'status': 429, 'details': {'limit': 3, 'remaining': 0, 'resetTime': '2026-10-18T22:17:43.585Z', 'used': 7, 'current': 7, 'reqId': '2026-10-18-9973285'}}
