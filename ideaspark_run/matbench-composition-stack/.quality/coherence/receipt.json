@@ -1,0 +1,14 @@
+{
+  "contract_version": 2,
+  "request_id": "9382153f-2e8c-46e6-b5d3-719e5ede6a7f",
+  "spec_hash": "cc48850e4ac3affa2d8f430a09bf42206db37ae932383975270dcad8959b380c",
+  "inputs_sha256": {
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase2_generate\\phase2_generate_output.json": "871520d13b1be16de696dbad15da6419fb3a9e9215910b626545da1c82d5e88a",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase2_select\\phase2_select_output.json": "19f84f41f8a00c3521d21f4b21daba0a61ef46a8b28963b21f1a85f4dff8a48c",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\run_contract.json": "81c57f91778e7decdaece0c1423b155d3aa06936600f92703d9e1a104bd65f3b",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\.claude\\skills\\idea-spark\\references\\system-prompts\\coherence_trace.txt": "76aecdbdb717bc178d91198d8a0724c742499b4615fd2cecce2ebf8175f70526"
+  },
+  "outputs_sha256": {
+    "phase2_coherence/phase2_coherence_output.json": "8efb8a1a7e1d177b5c59c5bab8d988aae4fe907937a15ad316fca49788fba17c"
+  }
+}

@@ -1,3 +1,47 @@
 == design v5 matbench_expt_gap n_fold0_train=3683 cfg={'lgbm_l1_expert': True, 'stack_loss': 'l1', 'extra_features': True}
     expert lgbm_all: 17.0s, OOF score 0.3826
     expert lgbm_l1_all: 23.9s, OOF score 0.3953
+    expert rf_all: 42.9s, OOF score 0.4113
+    expert et_all: 33.6s, OOF score 0.3726
+    expert krr_frac: 34.5s, OOF score 0.5693
+    expert krr_magpie: 37.5s, OOF score 0.5187
+    expert mlp_all: 67.7s, OOF score 0.5054
+  pseudo-fold 0 (261s): best_single=0.3623, mean_ensemble=0.4305, stack=0.3638, stack_local=0.3615, stack_local_magpie=0.3610, stack_local_frac=0.3615, single_local=0.3604
+    weights={'lgbm_all': 0.248, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 0.752, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 40, 'hmult': 2.0, 'kappa': 2.0, 'alpha': 0.25}
+    expert lgbm_all: 19.1s, OOF score 0.3722
+    expert lgbm_l1_all: 19.0s, OOF score 0.3768
+    expert rf_all: 42.5s, OOF score 0.4020
+    expert et_all: 34.7s, OOF score 0.3612
+    expert krr_frac: 35.9s, OOF score 0.5796
+    expert krr_magpie: 30.2s, OOF score 0.5135
+    expert mlp_all: 70.4s, OOF score 0.4961
+  pseudo-fold 1 (256s): best_single=0.3568, mean_ensemble=0.4395, stack=0.3635, stack_local=0.3590, stack_local_magpie=0.3609, stack_local_frac=0.3590, single_local=0.3527
+    weights={'lgbm_all': 0.139, 'lgbm_l1_all': 0.105, 'rf_all': 0.0, 'et_all': 0.756, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 5, 'hmult': 2.0, 'kappa': 2.0, 'alpha': 0.25}
+    expert lgbm_all: 24.5s, OOF score 0.3809
+    expert lgbm_l1_all: 21.3s, OOF score 0.3895
+    expert rf_all: 39.5s, OOF score 0.4073
+    expert et_all: 35.1s, OOF score 0.3620
+    expert krr_frac: 35.4s, OOF score 0.5643
+    expert krr_magpie: 33.0s, OOF score 0.5230
+    expert mlp_all: 75.9s, OOF score 0.4993
+  pseudo-fold 2 (268s): best_single=0.3424, mean_ensemble=0.4003, stack=0.3421, stack_local=0.3369, stack_local_magpie=0.3397, stack_local_frac=0.3369, single_local=0.3378
+    weights={'lgbm_all': 0.015, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 0.985, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 40, 'hmult': 1.0, 'kappa': 0.1, 'alpha': 0.25}
+    expert lgbm_all: 12.1s, OOF score 0.3786
+    expert lgbm_l1_all: 15.3s, OOF score 0.3875
+    expert rf_all: 30.0s, OOF score 0.4095
+    expert et_all: 41.0s, OOF score 0.3685
+    expert krr_frac: 64.8s, OOF score 0.5630
+    expert krr_magpie: 62.5s, OOF score 0.5236
+    expert mlp_all: 103.4s, OOF score 0.5042
+  pseudo-fold 3 (332s): best_single=0.3245, mean_ensemble=0.3998, stack=0.3273, stack_local=0.3241, stack_local_magpie=0.3273, stack_local_frac=0.3241, single_local=0.3214
+    weights={'lgbm_all': 0.173, 'lgbm_l1_all': 0.038, 'rf_all': 0.0, 'et_all': 0.789, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 5, 'hmult': 2.0, 'kappa': 2.0, 'alpha': 0.25}
+    expert lgbm_all: 54.6s, OOF score 0.3855
+    expert lgbm_l1_all: 38.0s, OOF score 0.3911
+    expert rf_all: 44.1s, OOF score 0.4143
+    expert et_all: 40.4s, OOF score 0.3680
+    expert krr_frac: 55.3s, OOF score 0.5841
+    expert krr_magpie: 57.4s, OOF score 0.5355
+    expert mlp_all: 3009.4s, OOF score 0.5067
+  pseudo-fold 4 (3308s): best_single=0.3212, mean_ensemble=0.3739, stack=0.3200, stack_local=0.3156, stack_local_magpie=0.3180, stack_local_frac=0.3156, single_local=0.3173
+    weights={'lgbm_all': 0.013, 'lgbm_l1_all': 0.078, 'rf_all': 0.0, 'et_all': 0.909, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0} sel={'space': 'frac', 'k': 20, 'hmult': 1.0, 'kappa': 0.5, 'alpha': 0.25}
+  MEAN: single:lgbm_all=0.3606, single:lgbm_l1_all=0.3658, single:rf_all=0.3813, single:et_all=0.3414, single:krr_frac=0.5609, single:krr_magpie=0.5043, single:mlp_all=0.4997, best_single=0.3414, mean_ensemble=0.4088, stack=0.3433, stack_local=0.3394, stack_local_magpie=0.3414, stack_local_frac=0.3394, single_local=0.3379

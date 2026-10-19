@@ -1,0 +1,162 @@
+[
+ {
+  "title": "Slice Regular Composition Operators on Quaternionic Fock Spaces via Matrix Realization",
+  "title_norm": "slice regular composition operators on quaternionic fock spaces via matrix reali",
+  "abstract": "We characterize the boundedness and compactness of slice regular composition operators between quaternionic Fock spaces for the full range \\(0<p,q<\\infty\\), without assuming that the composition symbol preserves a fixed complex slice. As applications of the same method, we also obtain corresponding criteria for weighted composition operators and for products of Volterra-type integral operators with slice regular composition operators. The main tool is a fixed-slice matrix realization of the regular product, which represents slice regular composition on a fixed complex slice through a holomorphic \\(2\\times 2\\) matrix functional calculus. This representation reveals a genuinely quaternionic rigidity phenomenon: boundedness imposes affine restrictions on the eigenvalue functions of the associated matrix symbol rather than on the original symbol itself. In particular, the original symbol need not be affine, and affine eigenvalue functions alone do not characterize boundedness.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Zhaopeng Lin",
+   "Yufeng Lu",
+   "Chao Zu"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2606.06182v2",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2606.06182v2",
+  "published_iso": "2026-06-04T13:54:49Z",
+  "from_query": [
+   "cross-fitted stacking Matbench composition tasks"
+  ]
+ },
+ {
+  "title": "The Quantum Composition Paradox",
+  "title_norm": "the quantum composition paradox",
+  "abstract": "Quantum theory does not generally permit the probability laws obtained from individual unitary steps by the Born rule to be sewn into a consistent genealogy; we classify the exceptions and show that faithful composition can hold from an initial boundary yet fail after an internal restart. For finite-dimensional, composition-closed unitary families, universal composition holds exactly for unitary monomials, the phase-dressed permutations whose Born kernels realize reversible deterministic state machines. Prescribed sequences evade this obstruction. We classify all pairs of qubit unitary steps, give a necessary-and-sufficient criterion for pairs of qutrit unitary steps, and prove that a boundary-stable unitary sequence on a $d$-dimensional Hilbert space contains at most $d$ fully mixing steps, with equality in every prime dimension. We also construct arbitrarily long genuinely mixing sequences that compose from their initial boundary but fail after an internal restart, and a qutrit-controlled two-qubit realization with active interference. We define a Born--Chapman--Kolmogorov current that vanishes exactly when coherent and stepwise-checked endpoint laws agree, together with an associated measure of how many bits the endpoint reveals about the intermediate checking schedule. This state-machine connection provides a foundation for a quantum theory of music, in which unitary operations are notes and temporal boundaries are cues. Musical-transition prediction is proved PromiseBQP-complete, and the stepwise patterns that preserve a genealogy specify rules for rhythm, whereas the exceptional failure of that genealogy from an internal cue is the quantum music paradox.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Jacob Biamonte"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.11402v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.11402v1",
+  "published_iso": "2026-09-10T11:34:01Z",
+  "from_query": [
+   "cross-fitted stacking Matbench composition tasks"
+  ]
+ },
+ {
+  "title": "A Goal-Set Characterization of Task Composition in the Boolean Task Algebra",
+  "title_norm": "a goal set characterization of task composition in the boolean task algebra",
+  "abstract": "The Boolean Task Algebra (BTA) provides a principled framework for zero-shot task composition in reinforcement learning by equipping goal-reaching tasks with Boolean operations. We revisit its structural assumptions and formalize a collapse in the space of optimal extended Q-value functions: in deterministic MDPs, every such function is fully determined by the universal and empty tasks. This makes the logarithmic set of base tasks proposed in the original BTA formulation redundant. Building on this observation, we introduce a goal-set-based composition method that performs logical operations on goal sets and reconstructs composed value functions by selecting slices from the universal and empty value functions. This reduces learning costs for standard BTA and reduces composition time for both BTA and Skill Machines, while preserving policy performance. Experiments across tabular, visual, function-approximation, and continuous-control domains show that learning additional base tasks does not yield better performance. Finally, we study the stochastic setting and provide a counterexample showing that this collapse need not hold, that is, optimal composition may require accounting for exponentially many policies in the number of goals. Code is available at \\url{https://github.com/EduardoTerres/GoalSetBTA}.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Eduardo Terrés-Caballero",
+   "Herke van Hoof"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2606.04053v2",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2606.04053v2",
+  "published_iso": "2026-06-02T09:33:06Z",
+  "from_query": [
+   "cross-fitted stacking Matbench composition tasks"
+  ]
+ },
+ {
+  "title": "crossfit: A Graph-Based Cross-Fitting Engine in R",
+  "title_norm": "crossfit a graph based cross fitting engine in r",
+  "abstract": "Cross-fitting is a key ingredient in many semiparametric estimation procedures, such as double/debiased machine learning (DML), enabling valid estimation of low-dimensional targets in the presence of high-dimensional nuisance functions by enforcing out-of-sample use of nuisance predictions. crossfit is an R package that provides a general-purpose, estimator-agnostic cross-fitting engine. Users specify (i) a target functional and (ii) a directed acyclic graph (DAG) of nuisance models, with node-specific training fold widths and target-specific evaluation windows. The engine executes a reproducible schedule over folds, panels, and repetitions, returning either a scalar estimate (mode=\"estimate\") or a cross-fitted predictor function for application to new data (mode=\"predict\").\n  Beyond standard cross-fitting, crossfit implements fold-allocation modes that control how training data are shared across nuisance components, including disjoint and independence-enforcing allocations that duplicate reused nodes to reduce dependence between nuisance branches. The implementation targets simulation-heavy benchmarking and method development, with explicit and auditable schedules, defensive validation of specifications and nuisance dependencies, reuse-aware caching to avoid redundant refits, and failure isolation policies for large experiment grids. The crossfit package is available on CRAN, openly developed on GitHub under GPL-3, and is intended as a lightweight, tested foundation to prototype and empirically evaluate cross-fitted estimators with explicit control over fold geometry, dependence, and computation.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Etienne Peyrot",
+   "François Petit"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2605.15856v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2605.15856v1",
+  "published_iso": "2026-05-15T11:14:55Z",
+  "from_query": [
+   "cross-fitted stacking Matbench composition tasks"
+  ]
+ },
+ {
+  "title": "Pointwise provable equality and the failure of composition",
+  "title_norm": "pointwise provable equality and the failure of composition",
+  "abstract": "In their studies of pathologies in recursion categories, Montagna (1989) and Di Paola--Montagna (1991) introduce the algebraic systems $S'$ and $S'_T$, respectively, and claim that they are categories. We show that the proposed composition is not independent of the choice of representatives. For every consistent recursively enumerable extension $T$ of Peano arithmetic ($\\mathrm{PA}$), we exhibit two unary programs whose partial functions are provably equal in $T$, separately at each standard input. Composing each after a program that searches for a $T$-proof of contradiction and returns its code yields programs that are not equivalent in this sense. An alternative proof uses the productivity of the complement of the diagonal halting set. Montagna's $S'$ is the case $T=\\mathrm{PA}$. More generally, for consistent $T\\supseteq\\mathrm{PA}$, pointwise provable equality is a composition congruence exactly when $T$ proves every true $Π^0_1$ sentence, in which case it is extensional equality. This completeness condition fails for every consistent recursively enumerable $T\\supseteq\\mathrm{PA}$ by Gödel's second incompleteness theorem. For every extension $T\\supseteq\\mathrm{PA}$, the least composition congruence containing pointwise provable equality is extensional equality if $T$ is $Σ^0_1$-sound and the universal relation otherwise.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Florian Lengyel"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2609.25556v2",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2609.25556v2",
+  "published_iso": "2026-09-22T01:43:45Z",
+  "from_query": [
+   "cross-fitted stacking Matbench composition tasks"
+  ]
+ },
+ {
+  "title": "Cross-Fitted Survey-Weighted TMLE with Design-Based Variance for Causal Machine Learning",
+  "title_norm": "cross fitted survey weighted tmle with design based variance for causal machine ",
+  "abstract": "Cross-fitting is not a refinement of survey-weighted causal machine learning but, once the nuisances are flexible, what restores valid inference. We study the population average treatment effect under a stratified multistage design, estimated by a survey-aware targeted maximum likelihood estimator (TMLE) whose variance is obtained by Taylor-series linearization of the influence function, treating the primary sampling unit as the replication unit. Our central result is that this validity turns on cross-fitting at the cluster level: sufficiency is established in theory, and the failure without it is shown in simulation. Once flexible learners cross a complexity (Donsker) boundary, single-fit survey TMLE can severely under-cover, and internal cluster-aware cross-validation does not substitute for cross-fitting; among the estimators we evaluate, only out-of-fold fitting at the cluster level restores valid coverage. In simulations spanning a many-PSU and an NHANES-like design, on a diverse ensemble the single-fit and internal cross-validation estimators cover at about 0.89-0.91 and 0.85-0.88 while the cross-fitted estimator holds at 0.93-0.95, and an aggressively grown learner drives single-fit coverage to 0.18-0.22. Two scope choices are deliberate: survey-weighted point estimation is prior work, and the nuisance product-rate condition is assumed and probed empirically. Within these conditions we prove asymptotic normality and design-consistency of the linearization variance. Four NHANES analyses and open-source software illustrate the method.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "M. Ehsan Karim"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2606.30918v2",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2606.30918v2",
+  "published_iso": "2026-06-29T21:10:02Z",
+  "from_query": [
+   "cross-fitted stacking Matbench composition tasks"
+  ]
+ },
+ {
+  "title": "EVIL-Detect for NLPCC 2026 Shared Task 6: LLM-Generated Text Detection",
+  "title_norm": "evil detect for nlpcc 2026 shared task 6 llm generated text detection",
+  "abstract": "The rapid development of large language models (LLMs) has increased the need for reliable detection of LLM-generated text, especially in realistic Chinese scenarios involving human-written text (HWT), LLM-generated text (LGT), and LLM-refined text (HLT). This paper presents EVIL-Detect, a multi-signal ensemble framework with conflict-aware fusion for NLPCC 2026 Shared Task 6. The system integrates edit-extent regression, zero-shot likelihood-contrast signals, lexical statistics, and conservative text rules. With calibrated decision boundaries and conflict-aware integration, our system improves robustness under strong out-of-distribution shifts, achieving a macro-F1 score of 0.8888 and ranking first in the official evaluation. Our code is available at https://github.com/bbbbhrrrr/evildetect.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Hongrui Bao",
+   "Hangyu Rong",
+   "Zhuoshang Wang",
+   "Yubing Ren",
+   "Yanan Cao"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2608.10698v1",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2608.10698v1",
+  "published_iso": "2026-08-11T09:19:56Z",
+  "from_query": [
+   "cross-fitted stacking Matbench composition tasks"
+  ]
+ },
+ {
+  "title": "Fixed-Composition Shuffle Asymptotics in the Full-Support Gaussian Regime",
+  "title_norm": "fixed composition shuffle asymptotics in the full support gaussian regime",
+  "abstract": "We study privacy amplification by shuffling for binary-input local randomizers with a fixed finite output alphabet and full support. For a dataset containing exactly k ones among n users, let T_{n,k} denote the shuffled histogram law. For fixed-composition neighboring shuffled histogram laws in the interior regime, we identify the covariance and Fisher constant governing the neighboring pair (T_{n,k},T_{n,k+1}). For a composition parameter pi in [0,1], the correct covariance is Sigma_pi=(1-pi)Sigma_0+pi Sigma_1 rather than the multinomial covariance of the mixture. With v=W_1-W_0, the resulting constant is I_pi=v^T Sigma_pi^+ v. We prove exact likelihood-ratio identities and a regression decomposition with residual moments E[R^2]=O(n^{-2}) and E[R^4]=O(n^{-4}), uniformly over interior compositions. Consequently, JSD(T_{n,k}||T_{n,k+1})=I_{k/n}/(8n)+O(n^{-2}), and the same constant governs smooth divergence asymptotics. For mu_n=(I_{k/n}/n)^{1/2}, both directed hockey-stick privacy curves at epsilon=t mu_n equal mu_n{phi(t)-t Phi(-t)}+O(n^{-1}) uniformly for t in compact sets. Exact finite-n accounting formulas and fixed-message unbundled specializations are also provided.",
+  "year": 2026,
+  "venue": "arXiv",
+  "authors": [
+   "Alex Shvets"
+  ],
+  "citations": null,
+  "source": "arxiv",
+  "source_id": "2602.09029v6",
+  "doi": "",
+  "paper_url": "https://arxiv.org/abs/2602.09029v6",
+  "published_iso": "2026-01-17T00:09:44Z",
+  "from_query": [
+   "cross-fitted stacking Matbench composition tasks"
+  ]
+ }
+]

@@ -1,0 +1,11 @@
+{
+  "contract_version": 2,
+  "request_id": "deterministic",
+  "inputs_sha256": {
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase2_generate\\phase2_generate_output.json": "871520d13b1be16de696dbad15da6419fb3a9e9215910b626545da1c82d5e88a",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase2_coherence\\phase2_coherence_output.json": "8efb8a1a7e1d177b5c59c5bab8d988aae4fe907937a15ad316fca49788fba17c"
+  },
+  "outputs_sha256": {
+    "phase2_coherence/blocking_findings.json": "e326151c229d12f120a43f35016e23e6d2c7d64aac71ee50053b2c9b2bcf52e0"
+  }
+}

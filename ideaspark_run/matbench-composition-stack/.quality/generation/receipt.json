@@ -1,0 +1,21 @@
+{
+  "contract_version": 2,
+  "request_id": "977ac8eb-f54e-4e12-8cfe-d54f66993972",
+  "spec_hash": "108a292c9d04d45edc6b2ae940d63684e5d2bd5186759624451cb982f4a9e811",
+  "inputs_sha256": {
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase1\\phase1_output.json": "8643956a611730d3221a3f327376fedbcb952466e91fddf586fe07ffb7e8ef8e",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase0\\user_query.txt": "e7ce0e881d6a09388bbbd93b5727775cddaed8a0cad2e62fe5f47d4ecf4de74c",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase0\\lit_table.md": "52f09e04777dda86a85014505cb2631183290383bd215255c58df0d0a38c1981",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase2_generate\\closest_abstracts.json": "5bea7cf19d387214bb690b9506c3221b9a6abe1b2665475e7dfa355b7f00d0da",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\run_contract.json": "81c57f91778e7decdaece0c1423b155d3aa06936600f92703d9e1a104bd65f3b",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\.claude\\skills\\idea-spark\\references\\ideation-patterns": "e43cf8ade50359693d1beb1d49550618bcb93a373ac57c857569e696f76579a5",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\.claude\\skills\\idea-spark\\references\\ideation-sub-patterns": "234f505fcfb0febae50f6ba041b1286ac7e20a06cbab14be430e194755b79b71",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\context\\cross_run.json": "8b14122e9047c27a947917732d41575b69e3e0879f9567366ad3a6f7c6a7afd8",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\.claude\\skills\\idea-spark\\references\\system-prompts\\ideate_select.txt": "9727c35890237c134a97744ac0c39b358b3f88d88332e553540497b8ec8172a4",
+    "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\.claude\\skills\\idea-spark\\references\\system-prompts\\ideate_generate.txt": "f8dee5772cdd1b37222f504817c088e85131819da29cff2bbc3340c3d6e81cfc"
+  },
+  "outputs_sha256": {
+    "phase2_select/phase2_select_output.json": "19f84f41f8a00c3521d21f4b21daba0a61ef46a8b28963b21f1a85f4dff8a48c",
+    "phase2_generate/phase2_generate_output.json": "871520d13b1be16de696dbad15da6419fb3a9e9215910b626545da1c82d5e88a"
+  }
+}

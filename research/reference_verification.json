@@ -1,0 +1,474 @@
+{
+ "dunn2020matbench": {
+  "doi": "10.1038/s41524-020-00406-3",
+  "ok": true,
+  "title": "Benchmarking materials property prediction methods: the Matbench test set and Automatminer reference algorithm",
+  "first_author": "Dunn, Alexander",
+  "n_authors": 5,
+  "authors": [
+   "Alexander Dunn",
+   "Qi Wang",
+   "Alex Ganose",
+   "Daniel Dopp",
+   "Anubhav Jain"
+  ],
+  "year": 2020,
+  "venue": "npj Computational Materials",
+  "volume": "6",
+  "page": "138",
+  "type": "journal-article"
+ },
+ "debreuck2021modnet": {
+  "doi": "10.1038/s41524-021-00552-2",
+  "ok": true,
+  "title": "Materials property prediction for limited datasets enabled by feature selection and joint learning with MODNet",
+  "first_author": "De Breuck, Pierre-Paul",
+  "n_authors": 3,
+  "authors": [
+   "Pierre-Paul De Breuck",
+   "Geoffroy Hautier",
+   "Gian-Marco Rignanese"
+  ],
+  "year": 2021,
+  "venue": "npj Computational Materials",
+  "volume": "7",
+  "page": "83",
+  "type": "journal-article"
+ },
+ "debreuck2022bias": {
+  "doi": "10.1088/1361-648X/ac5d14",
+  "ok": false,
+  "status": 404
+ },
+ "wang2021crabnet": {
+  "doi": "10.1038/s41524-021-00545-1",
+  "ok": true,
+  "title": "Compositionally restricted attention-based network for materials property predictions",
+  "first_author": "Wang, Anthony Yu-Tung",
+  "n_authors": 4,
+  "authors": [
+   "Anthony Yu-Tung Wang",
+   "Steven K. Kauwe",
+   "Ryan J. Murdock",
+   "Taylor D. Sparks"
+  ],
+  "year": 2021,
+  "venue": "npj Computational Materials",
+  "volume": "7",
+  "page": "77",
+  "type": "journal-article"
+ },
+ "goodall2020roost": {
+  "doi": "10.1038/s41467-020-19964-7",
+  "ok": true,
+  "title": "Predicting materials properties without crystal structure: deep representation learning from stoichiometry",
+  "first_author": "Goodall, Rhys E. A.",
+  "n_authors": 2,
+  "authors": [
+   "Rhys E. A. Goodall",
+   "Alpha A. Lee"
+  ],
+  "year": 2020,
+  "venue": "Nature Communications",
+  "volume": "11",
+  "page": "6280",
+  "type": "journal-article"
+ },
+ "ward2016magpie": {
+  "doi": "10.1038/npjcompumats.2016.28",
+  "ok": true,
+  "title": "A general-purpose machine learning framework for predicting properties of inorganic materials",
+  "first_author": "Ward, Logan",
+  "n_authors": 4,
+  "authors": [
+   "Logan Ward",
+   "Ankit Agrawal",
+   "Alok Choudhary",
+   "Christopher Wolverton"
+  ],
+  "year": 2016,
+  "venue": "npj Computational Materials",
+  "volume": "2",
+  "page": "16028",
+  "type": "journal-article"
+ },
+ "ward2018matminer": {
+  "doi": "10.1016/j.commatsci.2018.05.018",
+  "ok": true,
+  "title": "Matminer: An open source toolkit for materials data mining",
+  "first_author": "Ward, Logan",
+  "n_authors": 16,
+  "authors": [
+   "Logan Ward",
+   "Alexander Dunn",
+   "Alireza Faghaninia",
+   "Nils E.R. Zimmermann",
+   "Saurabh Bajaj",
+   "Qi Wang",
+   "Joseph Montoya",
+   "Jiming Chen",
+   "Kyle Bystrom",
+   "Maxwell Dylla",
+   "Kyle Chard",
+   "Mark Asta",
+   "Kristin A. Persson",
+   "G. Jeffrey Snyder",
+   "Ian Foster",
+   "Anubhav Jain"
+  ],
+  "year": 2018,
+  "venue": "Computational Materials Science",
+  "volume": "152",
+  "page": "60-69",
+  "type": "journal-article"
+ },
+ "ong2013pymatgen": {
+  "doi": "10.1016/j.commatsci.2012.10.028",
+  "ok": true,
+  "title": "Python Materials Genomics (pymatgen): A robust, open-source python library for materials analysis",
+  "first_author": "Ong, Shyue Ping",
+  "n_authors": 10,
+  "authors": [
+   "Shyue Ping Ong",
+   "William Davidson Richards",
+   "Anubhav Jain",
+   "Geoffroy Hautier",
+   "Michael Kocher",
+   "Shreyas Cholia",
+   "Dan Gunter",
+   "Vincent L. Chevrier",
+   "Kristin A. Persson",
+   "Gerbrand Ceder"
+  ],
+  "year": 2013,
+  "venue": "Computational Materials Science",
+  "volume": "68",
+  "page": "314-319",
+  "type": "journal-article"
+ },
+ "wolpert1992stacked": {
+  "doi": "10.1016/S0893-6080(05)80023-1",
+  "ok": true,
+  "title": "Stacked generalization",
+  "first_author": "Wolpert, David H.",
+  "n_authors": 1,
+  "authors": [
+   "David H. Wolpert"
+  ],
+  "year": 1992,
+  "venue": "Neural Networks",
+  "volume": "5",
+  "page": "241-259",
+  "type": "journal-article"
+ },
+ "breiman1996stacked": {
+  "doi": "10.1007/BF00117832",
+  "ok": true,
+  "title": "Stacked regressions",
+  "first_author": "Breiman, Leo",
+  "n_authors": 1,
+  "authors": [
+   "Leo Breiman"
+  ],
+  "year": 1996,
+  "venue": "Machine Learning",
+  "volume": "24",
+  "page": "49-64",
+  "type": "journal-article"
+ },
+ "vanderlaan2007super": {
+  "doi": "10.2202/1544-6115.1309",
+  "ok": true,
+  "title": "Super Learner",
+  "first_author": "van der Laan, Mark J.",
+  "n_authors": 3,
+  "authors": [
+   "Mark J. van der Laan",
+   "Eric C Polley",
+   "Alan E. Hubbard"
+  ],
+  "year": 2007,
+  "venue": "Statistical Applications in Genetics and Molecular Biology",
+  "volume": "6",
+  "page": null,
+  "type": "journal-article"
+ },
+ "hengl2007rk": {
+  "doi": "10.1016/j.cageo.2007.05.001",
+  "ok": true,
+  "title": "About regression-kriging: From equations to case studies",
+  "first_author": "Hengl, Tomislav",
+  "n_authors": 3,
+  "authors": [
+   "Tomislav Hengl",
+   "Gerard B.M. Heuvelink",
+   "David G. Rossiter"
+  ],
+  "year": 2007,
+  "venue": "Computers &amp; Geosciences",
+  "volume": "33",
+  "page": "1301-1315",
+  "type": "journal-article"
+ },
+ "kauwe2020bandgap": {
+  "doi": "10.1007/s40192-020-00178-0",
+  "ok": true,
+  "title": "Extracting Knowledge from DFT: Experimental Band Gap Predictions Through Ensemble Learning",
+  "first_author": "Kauwe, Steven K.",
+  "n_authors": 3,
+  "authors": [
+   "Steven K. Kauwe",
+   "Taylor Welker",
+   "Taylor D. Sparks"
+  ],
+  "year": 2020,
+  "venue": "Integrating Materials and Manufacturing Innovation",
+  "volume": "9",
+  "page": "213-220",
+  "type": "journal-article"
+ },
+ "zhuo2018bandgap": {
+  "doi": "10.1021/acs.jpclett.8b00124",
+  "ok": true,
+  "title": "Predicting the Band Gaps of Inorganic Solids by Machine Learning",
+  "first_author": "Zhuo, Ya",
+  "n_authors": 3,
+  "authors": [
+   "Ya Zhuo",
+   "Aria Mansouri Tehrani",
+   "Jakoah Brgoch"
+  ],
+  "year": 2018,
+  "venue": "The Journal of Physical Chemistry Letters",
+  "volume": "9",
+  "page": "1668-1673",
+  "type": "journal-article"
+ },
+ "miccio2025ee": {
+  "doi": "10.1016/j.commatsci.2025.114092",
+  "ok": true,
+  "title": "Machine learning-driven property prediction for materials in data-scarcity scenarios: Ensemble of experts approach",
+  "first_author": "Miccio, L.A.",
+  "n_authors": 1,
+  "authors": [
+   "L.A. Miccio"
+  ],
+  "year": 2025,
+  "venue": "Computational Materials Science",
+  "volume": "258",
+  "page": "114092",
+  "type": "journal-article"
+ },
+ "chang2022moe": {
+  "doi": "10.1038/s41524-022-00929-x",
+  "ok": true,
+  "title": "Towards overcoming data scarcity in materials science: unifying models and datasets with a mixture of experts framework",
+  "first_author": "Chang, Rees",
+  "n_authors": 3,
+  "authors": [
+   "Rees Chang",
+   "Yu-Xiong Wang",
+   "Elif Ertekin"
+  ],
+  "year": 2022,
+  "venue": "npj Computational Materials",
+  "volume": "8",
+  "page": "242",
+  "type": "journal-article"
+ },
+ "chen2016xgboost": {
+  "doi": "10.1145/2939672.2939785",
+  "ok": true,
+  "title": "XGBoost",
+  "first_author": "Chen, Tianqi",
+  "n_authors": 2,
+  "authors": [
+   "Tianqi Chen",
+   "Carlos Guestrin"
+  ],
+  "year": 2016,
+  "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+  "volume": null,
+  "page": "785-794",
+  "type": "proceedings-article"
+ },
+ "nadeau2003inference": {
+  "doi": "10.1023/A:1024068626366",
+  "ok": true,
+  "title": "Inference for the Generalization Error",
+  "first_author": "Nadeau, Claude",
+  "n_authors": 2,
+  "authors": [
+   "Claude Nadeau",
+   "Yoshua Bengio"
+  ],
+  "year": 2003,
+  "venue": "Machine Learning",
+  "volume": "52",
+  "page": "239-281",
+  "type": "journal-article"
+ },
+ "hollmann2025tabpfn": {
+  "doi": "10.1038/s41586-024-08328-6",
+  "ok": true,
+  "title": "Accurate predictions on small data with a tabular foundation model",
+  "first_author": "Hollmann, Noah",
+  "n_authors": 8,
+  "authors": [
+   "Noah Hollmann",
+   "Samuel Müller",
+   "Lennart Purucker",
+   "Arjun Krishnakumar",
+   "Max Körfer",
+   "Shi Bin Hoo",
+   "Robin Tibor Schirrmeister",
+   "Frank Hutter"
+  ],
+  "year": 2025,
+  "venue": "Nature",
+  "volume": "637",
+  "page": "319-326",
+  "type": "journal-article"
+ },
+ "zou2025ecsg": {
+  "doi": "10.1038/s41467-024-55525-y",
+  "ok": true,
+  "title": "Predicting thermodynamic stability of inorganic compounds using ensemble machine learning based on electron configuration",
+  "first_author": "Zou, Hao",
+  "n_authors": 6,
+  "authors": [
+   "Hao Zou",
+   "Haochen Zhao",
+   "Mingming Lu",
+   "Jiong Wang",
+   "Zeyu Deng",
+   "Jianxin Wang"
+  ],
+  "year": 2025,
+  "venue": "Nature Communications",
+  "volume": "16",
+  "page": "203",
+  "type": "journal-article"
+ },
+ "shmalo2026kernel": {
+  "doi": "10.5281/zenodo.23329780",
+  "ok": false,
+  "status": 404
+ },
+ "geurts2006et": {
+  "doi": "10.1007/s10994-006-6226-1",
+  "ok": true,
+  "title": "Extremely randomized trees",
+  "first_author": "Geurts, Pierre",
+  "n_authors": 3,
+  "authors": [
+   "Pierre Geurts",
+   "Damien Ernst",
+   "Louis Wehenkel"
+  ],
+  "year": 2006,
+  "venue": "Machine Learning",
+  "volume": "63",
+  "page": "3-42",
+  "type": "journal-article"
+ },
+ "breiman2001rf": {
+  "doi": "10.1023/A:1010933404324",
+  "ok": true,
+  "title": "Random Forests",
+  "first_author": "Breiman, Leo",
+  "n_authors": 1,
+  "authors": [
+   "Leo Breiman"
+  ],
+  "year": 2001,
+  "venue": "Machine Learning",
+  "volume": "45",
+  "page": "5-32",
+  "type": "journal-article"
+ },
+ "meredig2014": {
+  "doi": "10.1103/PhysRevB.89.094104",
+  "ok": true,
+  "title": "Combinatorial screening for new materials in unconstrained composition space with machine learning",
+  "first_author": "Meredig, B.",
+  "n_authors": 9,
+  "authors": [
+   "B. Meredig",
+   "A. Agrawal",
+   "S. Kirklin",
+   "J. E. Saal",
+   "J. W. Doak",
+   "A. Thompson",
+   "K. Zhang",
+   "A. Choudhary",
+   "C. Wolverton"
+  ],
+  "year": 2014,
+  "venue": "Physical Review B",
+  "volume": "89",
+  "page": "094104",
+  "type": "journal-article"
+ },
+ "zhao2025hea": {
+  "doi": "10.3389/fmats.2025.1601874",
+  "ok": true,
+  "title": "An interpretable stacking ensemble model for high-entropy alloy mechanical property prediction",
+  "first_author": "Zhao, Songpeng",
+  "n_authors": 8,
+  "authors": [
+   "Songpeng Zhao",
+   "Zeyuan Li",
+   "Changshuai Yin",
+   "Zhaofu Zhang",
+   "Teng Long",
+   "Jingjing Yang",
+   "Ruyue Cao",
+   "Yuzheng Guo"
+  ],
+  "year": 2025,
+  "venue": "Frontiers in Materials",
+  "volume": "12",
+  "page": "1601874",
+  "type": "journal-article"
+ },
+ "chernozhukov2018dml": {
+  "doi": "10.1111/ectj.12097",
+  "ok": true,
+  "title": "Double/debiased machine learning for treatment and structural parameters",
+  "first_author": "Chernozhukov, Victor",
+  "n_authors": 7,
+  "authors": [
+   "Victor Chernozhukov",
+   "Denis Chetverikov",
+   "Mert Demirer",
+   "Esther Duflo",
+   "Christian Hansen",
+   "Whitney Newey",
+   "James Robins"
+  ],
+  "year": 2018,
+  "venue": "The Econometrics Journal",
+  "volume": "21",
+  "page": "C1-C68",
+  "type": "journal-article"
+ },
+ "ramakrishnan2015delta": {
+  "doi": "10.1021/acs.jctc.5b00099",
+  "ok": true,
+  "title": "Big Data Meets Quantum Chemistry Approximations: The Δ-Machine Learning Approach",
+  "first_author": "Ramakrishnan, Raghunathan",
+  "n_authors": 4,
+  "authors": [
+   "Raghunathan Ramakrishnan",
+   "Pavlo O. Dral",
+   "Matthias Rupp",
+   "O. Anatole von Lilienfeld"
+  ],
+  "year": 2015,
+  "venue": "Journal of Chemical Theory and Computation",
+  "volume": "11",
+  "page": "2087-2096",
+  "type": "journal-article"
+ }
+}
