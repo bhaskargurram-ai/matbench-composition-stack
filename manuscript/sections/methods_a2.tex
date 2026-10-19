@@ -1,0 +1,52 @@
+\subsection{Amendment 2: a stronger, still fully nested pipeline}
+\label{sec:a2}
+The Amendment-1 results (Section~\ref{sec:results}) showed the local correction to be a minor ingredient. The pipeline also ranked behind the leaderboard leader on every task.
+We therefore wrote a second amendment to the analysis plan. It is disclosed as written \emph{after} the Amendment-1 test results had been seen.
+The amendment changes only the expert pool, the features and the selection/threshold procedure.
+As before, every choice is made by inner cross-validation inside each official training fold, and the official test folds were scored exactly once under it, after a new code freeze.
+The design work for this amendment used only the training rows of fold~0.
+
+\paragraph{Features}
+In addition to the Amendment-1 features we compute further label-free composition descriptors with \texttt{matminer} \citep{ward2018matminer}:
+\begin{itemize}
+\item the ``deml'', ``matminer'' and ``megnet\_el'' element-property presets;
+\item Meredig descriptors \citep{meredig2014};
+\item Miedema mixing enthalpies, Yang solid-solution parameters and atomic packing efficiency (descriptors developed for glass formation);
+\item Wen alloy descriptors and the transition-metal fraction;
+\item Oliynyk element-property statistics from the CBFV package.
+\end{itemize}
+
+\paragraph{DFT transfer block}
+For each composition we look up the Materials Project PBE data distributed with \texttt{matminer} (\texttt{matbench\_mp\_gap}, joined to \texttt{matbench\_mp\_e\_form}) by reduced formula.
+The block contains:
+\begin{itemize}
+\item the PBE gap, metallicity and formation energy of the lowest-formation-energy polymorph;
+\item polymorph statistics: minimum, median and maximum gap, metallic fraction and count;
+\item a match indicator.
+\end{itemize}
+It covers 73\% of the expt\_gap and 73\% of the expt\_is\_metal compositions, 1\% of glass and none of steels.
+This is transfer learning from computed to experimental properties, in the spirit of \citet{kauwe2020bandgap}. The block contains no experimental labels, and no pretrained language model is involved.
+
+\paragraph{Experts}
+\begin{itemize}
+\item LightGBM on all features, tuned inside each training fold with Optuna (20 trials, default configuration evaluated first).
+\item XGBoost \citep{chen2016xgboost}.
+\item CatBoost.
+\item Extremely randomised trees on three feature sets, including element fractions alone (the strongest single model on steels in the design phase).
+\item The kernel, support-vector, nearest-neighbour and perceptron experts of Amendment~1.
+\item For the zero-inflated experimental band gap (about half of the compounds have $E_g=0$), \emph{hurdle} experts. Each pairs a classifier for $E_g>0$ with a regressor trained on the $E_g>0$ rows, and combines them as $p\,r$ or as $r\,\mathbb{1}[p\ge 0.5]$. The latter is the MAE-optimal rule when the conditional distribution is a point mass at zero plus a positive part.
+\end{itemize}
+CrabNet and MODNet experts were implemented but dropped, because a single fit exceeded our CPU budget (about 23 and more than 40 minutes, respectively).
+
+\paragraph{Stack and final pipeline}
+The simplex stack is as in Amendment~1.
+The local correction is still selected inside the training fold, but it is now kept only if a \emph{nested} check confirms it.
+For each inner fold, the correction is re-selected on the other folds and applied to the held-out one, and the correction is retained only if this honest OOF score beats the uncorrected stack.
+In the design phase this gate prevented a correction that the non-nested selection had switched on from degrading steels.
+The final pipeline is this gated stack.
+Classification labels use the balanced-accuracy-maximising threshold chosen on training OOF predictions.
+
+\paragraph{Primary endpoint of Amendment 2}
+The primary endpoint is the final pipeline versus the leaderboard leader on each task, using the board's own metric semantics. For classification this is balanced accuracy, because the leaders either recorded hard labels (Darwin) or were scored by a \texttt{matbench} version that thresholded probabilities at 0.5 (MODNet v0.1.12).
+We use the leaders' public per-sample predictions (\texttt{matbench} repository) to form a paired bootstrap over test points within folds, with Holm correction over the four tasks.
+We claim to beat a leader only if our mean is better and the Holm-adjusted $p<0.05$.

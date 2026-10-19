@@ -1,0 +1,110 @@
+{
+ "experts": [
+  "lgbm_F2_tuned",
+  "xgb_F2",
+  "cat_F1",
+  "et_F1",
+  "et_F2",
+  "hurdle_lgbm_F2_exp",
+  "hurdle_lgbm_F2_median",
+  "hurdle_et_F1_exp",
+  "krr_frac",
+  "krr_magpie",
+  "knn_frac",
+  "mlp_F1"
+ ],
+ "expert_seconds": {
+  "lgbm_F2_tuned": 154.882657289505,
+  "xgb_F2": 252.31522274017334,
+  "cat_F1": 226.50970721244812,
+  "et_F1": 103.9832706451416,
+  "et_F2": 487.96042943000793,
+  "hurdle_lgbm_F2_exp": 252.98253297805786,
+  "hurdle_lgbm_F2_median": 253.05108642578125,
+  "hurdle_et_F1_exp": 127.58703112602234,
+  "krr_frac": 222.51136589050293,
+  "krr_magpie": 227.97771048545837,
+  "knn_frac": 17.168184995651245,
+  "mlp_F1": 66.55033993721008
+ },
+ "tuned": {
+  "lgbm_F2_tuned": {
+   "params": {
+    "num_leaves": 54,
+    "learning_rate": 0.03503793049485746,
+    "n_estimators": 888,
+    "min_child_samples": 4,
+    "colsample_bytree": 0.34616327577328104,
+    "subsample": 0.8357489320918232,
+    "reg_lambda": 0.2995989848515862,
+    "objective": "l2"
+   },
+   "value": 0.30179900807057713,
+   "n_trials": 20,
+   "seconds": 1298.5012125968933
+  }
+ },
+ "expert_oof_scores": {
+  "lgbm_F2_tuned": 0.3018015352610316,
+  "xgb_F2": 0.3083778283944841,
+  "cat_F1": 0.32005848810426774,
+  "et_F1": 0.3004491392886233,
+  "et_F2": 0.2963711376595166,
+  "hurdle_lgbm_F2_exp": 0.25517528296774034,
+  "hurdle_lgbm_F2_median": 0.25482228616798075,
+  "hurdle_et_F1_exp": 0.3016448983437413,
+  "krr_frac": 0.5562159380253839,
+  "krr_magpie": 0.5025059082035003,
+  "knn_frac": 0.5270379585162049,
+  "mlp_F1": 0.43073339936640404
+ },
+ "best_single": "hurdle_lgbm_F2_median",
+ "stack_loss": "l1",
+ "stack_weights": {
+  "lgbm_F2_tuned": 0.0,
+  "xgb_F2": 0.0,
+  "cat_F1": 0.0,
+  "et_F1": 0.0,
+  "et_F2": 0.0,
+  "hurdle_lgbm_F2_exp": 0.40750160591238727,
+  "hurdle_lgbm_F2_median": 0.5924983940876127,
+  "hurdle_et_F1_exp": 0.0,
+  "krr_frac": 0.0,
+  "krr_magpie": 0.0,
+  "knn_frac": 0.0,
+  "mlp_F1": 0.0
+ },
+ "stack_oof_score": 0.2570338680227692,
+ "sel_stack_local": {
+  "space": null,
+  "k": 0,
+  "hmult": 0.0,
+  "kappa": 0.0,
+  "alpha": 0.0,
+  "h": 0.0,
+  "score": 0.2570338680227692,
+  "base_score": 0.2570338680227692
+ },
+ "gate_stack_local": {
+  "selected_alpha": 0.0,
+  "uncorrected_oof": 0.2570338680227692,
+  "honest_oof": 0.2570338680227692,
+  "kept": false
+ },
+ "sel_single_local": {
+  "space": null,
+  "k": 0,
+  "hmult": 0.0,
+  "kappa": 0.0,
+  "alpha": 0.0,
+  "h": 0.0,
+  "score": 0.25482228616798075,
+  "base_score": 0.25482228616798075
+ },
+ "gate_single_local": {
+  "selected_alpha": 0.0,
+  "uncorrected_oof": 0.25482228616798075,
+  "honest_oof": 0.25482228616798075,
+  "kept": false
+ }
+}

@@ -29,6 +29,12 @@ DOIS = {
  "zhao2025hea": "10.3389/fmats.2025.1601874",
  "chernozhukov2018dml": "10.1111/ectj.12097",
  "ramakrishnan2015delta": "10.1021/acs.jctc.5b00099",
+ "akiba2019optuna": "10.1145/3292500.3330701",
+ "jain2013mp": "10.1063/1.4812323",
+ "oliynyk2016": "10.1021/acs.chemmater.6b02724",
+ "ward2018bmg": "10.1016/j.actamat.2018.08.002",
+ "yang2012ss": "10.1016/j.matchemphys.2011.11.021",
+ "laws2015ape": "10.1038/ncomms9123",
 }
 out = {}
 for k, d in DOIS.items():

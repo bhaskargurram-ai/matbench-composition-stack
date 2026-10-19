@@ -22,6 +22,8 @@ for k, v in V.items():
         continue
     t = v.get("type")
     title = esc(re.sub(r"<[^>]+>", "", v["title"]))
+    if k == "akiba2019optuna":  # Crossref stores the subtitle separately (verified 2026-10-19)
+        title = "Optuna: A Next-generation Hyperparameter Optimization Framework"
     if t == "proceedings-article":
         out.append(f"@inproceedings{{{k},\n  author = {{{authors(v['authors'])}}},\n  title = {{{{{title}}}}},\n"
                    f"  booktitle = {{{esc(v['venue'])}}},\n  year = {{{v['year']}}},\n  pages = {{{v.get('page') or ''}}},\n  doi = {{{v['doi']}}}\n}}")
@@ -63,6 +65,12 @@ out.append("""@inproceedings{ke2017lightgbm,
   title = {{LightGBM: A Highly Efficient Gradient Boosting Decision Tree}},
   booktitle = {Advances in Neural Information Processing Systems 30},
   year = {2017}
+}""")
+out.append("""@inproceedings{prokhorenkova2018catboost,
+  author = {Liudmila Prokhorenkova and Gleb Gusev and Aleksandr Vorobev and Anna Veronika Dorogush and Andrey Gulin},
+  title = {{CatBoost: unbiased boosting with categorical features}},
+  booktitle = {Advances in Neural Information Processing Systems 31},
+  year = {2018}
 }""")
 out.append("""@misc{matbenchboard,
   author = {{Matbench developers}},

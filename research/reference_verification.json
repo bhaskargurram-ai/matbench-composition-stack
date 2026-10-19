@@ -482,5 +482,123 @@
   "volume": "11",
   "page": "2087-2096",
   "type": "journal-article"
+ },
+ "akiba2019optuna": {
+  "doi": "10.1145/3292500.3330701",
+  "ok": true,
+  "title": "Optuna",
+  "first_author": "Akiba, Takuya",
+  "n_authors": 5,
+  "authors": [
+   "Takuya Akiba",
+   "Shotaro Sano",
+   "Toshihiko Yanase",
+   "Takeru Ohta",
+   "Masanori Koyama"
+  ],
+  "year": 2019,
+  "venue": "Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining",
+  "volume": null,
+  "page": "2623-2631",
+  "type": "proceedings-article"
+ },
+ "jain2013mp": {
+  "doi": "10.1063/1.4812323",
+  "ok": true,
+  "title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
+  "first_author": "Jain, Anubhav",
+  "n_authors": 11,
+  "authors": [
+   "Anubhav Jain",
+   "Shyue Ping Ong",
+   "Geoffroy Hautier",
+   "Wei Chen",
+   "William Davidson Richards",
+   "Stephen Dacek",
+   "Shreyas Cholia",
+   "Dan Gunter",
+   "David Skinner",
+   "Gerbrand Ceder",
+   "Kristin A. Persson"
+  ],
+  "year": 2013,
+  "venue": "APL Materials",
+  "volume": "1",
+  "page": "011002",
+  "type": "journal-article"
+ },
+ "oliynyk2016": {
+  "doi": "10.1021/acs.chemmater.6b02724",
+  "ok": true,
+  "title": "High-Throughput Machine-Learning-Driven Synthesis of Full-Heusler Compounds",
+  "first_author": "Oliynyk, Anton O.",
+  "n_authors": 7,
+  "authors": [
+   "Anton O. Oliynyk",
+   "Erin Antono",
+   "Taylor D. Sparks",
+   "Leila Ghadbeigi",
+   "Michael W. Gaultois",
+   "Bryce Meredig",
+   "Arthur Mar"
+  ],
+  "year": 2016,
+  "venue": "Chemistry of Materials",
+  "volume": "28",
+  "page": "7324-7331",
+  "type": "journal-article"
+ },
+ "ward2018bmg": {
+  "doi": "10.1016/j.actamat.2018.08.002",
+  "ok": true,
+  "title": "A machine learning approach for engineering bulk metallic glass alloys",
+  "first_author": "Ward, Logan",
+  "n_authors": 6,
+  "authors": [
+   "Logan Ward",
+   "Stephanie C. O'Keeffe",
+   "Joseph Stevick",
+   "Glenton R. Jelbert",
+   "Muratahan Aykol",
+   "Chris Wolverton"
+  ],
+  "year": 2018,
+  "venue": "Acta Materialia",
+  "volume": "159",
+  "page": "102-111",
+  "type": "journal-article"
+ },
+ "yang2012ss": {
+  "doi": "10.1016/j.matchemphys.2011.11.021",
+  "ok": true,
+  "title": "Prediction of high-entropy stabilized solid-solution in multi-component alloys",
+  "first_author": "Yang, X.",
+  "n_authors": 2,
+  "authors": [
+   "X. Yang",
+   "Y. Zhang"
+  ],
+  "year": 2012,
+  "venue": "Materials Chemistry and Physics",
+  "volume": "132",
+  "page": "233-238",
+  "type": "journal-article"
+ },
+ "laws2015ape": {
+  "doi": "10.1038/ncomms9123",
+  "ok": true,
+  "title": "A predictive structural model for bulk metallic glasses",
+  "first_author": "Laws, K. J.",
+  "n_authors": 3,
+  "authors": [
+   "K. J. Laws",
+   "D. B. Miracle",
+   "M. Ferry"
+  ],
+  "year": 2015,
+  "venue": "Nature Communications",
+  "volume": "6",
+  "page": "8123",
+  "type": "journal-article"
  }
 }

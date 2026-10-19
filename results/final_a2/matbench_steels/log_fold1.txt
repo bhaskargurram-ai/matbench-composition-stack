@@ -1,0 +1,13 @@
+[matbench_steels] fold 1: n_train=249 n_test=63 ncols=984 cfg={'n_trials': 20}
+    tuned lgbm_F2_tuned: 98.4724 in 130s (20 trials)
+    expert lgbm_F2_tuned: 23s, OOF 98.5685
+    expert xgb_F2: 74s, OOF 101.3465
+    expert cat_F1: 122s, OOF 97.1823
+    expert et_F1: 7s, OOF 87.8172
+    expert et_F2: 22s, OOF 89.7938
+    expert et_frac: 119s, OOF 85.8063
+    expert krr_frac: 3s, OOF 161.0047
+    expert krr_magpie: 4s, OOF 108.7241
+    expert knn_frac: 1s, OOF 111.2968
+    expert mlp_F1: 12s, OOF 149.0794
+[matbench_steels] fold 1: done in 520s; weights={'lgbm_F2_tuned': 0.0, 'xgb_F2': 0.0, 'cat_F1': 0.0, 'et_F1': 0.0, 'et_F2': 0.124, 'et_frac': 0.811, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'knn_frac': 0.064, 'mlp_F1': 0.0}

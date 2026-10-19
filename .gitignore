@@ -16,3 +16,4 @@ papers/*.pdf
 results/design/*/*/pseudo*/
 results/final/*/fold*_experts/*_pairs.npz
 results/design_a2/*/*/pseudo*/
+results/final_a2/*/fold*_experts/

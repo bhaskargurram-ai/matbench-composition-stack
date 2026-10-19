@@ -1,0 +1,15 @@
+[matbench_expt_gap] fold 2: n_train=3683 n_test=921 ncols=984 cfg={'n_trials': 20, 'hurdle': True, 'drop_experts': ['et_frac']}
+    tuned lgbm_F2_tuned: 0.2959 in 1356s (20 trials)
+    expert lgbm_F2_tuned: 93s, OOF 0.2959
+    expert xgb_F2: 252s, OOF 0.3015
+    expert cat_F1: 231s, OOF 0.3142
+    expert et_F1: 95s, OOF 0.2951
+    expert et_F2: 444s, OOF 0.2918
+    expert hurdle_lgbm_F2_exp: 255s, OOF 0.2458
+    expert hurdle_lgbm_F2_median: 253s, OOF 0.2465
+    expert hurdle_et_F1_exp: 120s, OOF 0.2886
+    expert krr_frac: 218s, OOF 0.5391
+    expert krr_magpie: 218s, OOF 0.4802
+    expert knn_frac: 15s, OOF 0.5008
+    expert mlp_F1: 73s, OOF 0.3926
+[matbench_expt_gap] fold 2: done in 3630s; weights={'lgbm_F2_tuned': 0.0, 'xgb_F2': 0.0, 'cat_F1': 0.0, 'et_F1': 0.0, 'et_F2': 0.0, 'hurdle_lgbm_F2_exp': 0.619, 'hurdle_lgbm_F2_median': 0.381, 'hurdle_et_F1_exp': 0.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'knn_frac': 0.0, 'mlp_F1': 0.0}
