@@ -210,3 +210,8 @@ All choices below were made on fold 0's TRAINING rows only (pseudo-outer folds, 
   - Claims allowed: "beats the leader" only if the mean is better AND the Holm-adjusted p < 0.05; "on par" if the CI includes 0.
 - Retained comparisons: stack vs best single; final A2 vs Amendment-1 primary arm; correction vs stack.
 - The probability ROC-AUC is also reported, for us and for leaders that recorded probabilities.
+
+## 11. Amendment-2 execution record and deviations
+- **Execution.** Predictions for all 20 folds were committed (aa9db92) before scoring. Scoring ran once (`src.evaluate2`, about 2026-10-19 08:00 local) with no errors and no re-runs. Results are in `results/final_a2/{stats.json, summary.json, metrics_per_fold.csv}`, and the unsubmitted Matbench files in `results/final_a2/matbench_submission/{labels,probabilities}/` (both `is_valid=True`).
+- **Reporting-only code added after the Amendment-2 freeze:** `src/make_paper_assets2.py` (manuscript tables and figures from the result files) and changes to `research/make_bib.py` (new verified references). None of the frozen pipeline or scoring code changed.
+- **Leader predictions** were downloaded from the public matbench repository on 2026-10-19 and stored under `data/cache/external/leaders/`.

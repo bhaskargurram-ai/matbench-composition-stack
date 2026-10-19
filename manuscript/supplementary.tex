@@ -20,7 +20,11 @@ The analysis plan (\texttt{ANALYSIS\_PLAN.md}) and SHA-256 hashes of all code we
 \item \textbf{Deviations:} all are listed in plan Section~7. They are a one-line fix in the scoring script (iterating over each fold's own arms), scheduling-only changes, and reporting scripts.
 \end{itemize}
 
-\section*{S2. Per-fold design selection}
+\section*{S1b. Amendment 2}
+Amendment~2 (plan Sections 9--11, \texttt{results/freeze\_hashes\_amendment2.txt}) was written after the Amendment-1 test results had been seen. It changed the expert pool, the features (including a disclosed DFT transfer block) and the correction gate. It was frozen before any Amendment-2 test prediction, and the test folds were scored once under it. The design evidence (fold~0 training rows only) is in \texttt{results/design\_a2/DESIGN\_LOG\_A2.md}.
+The leaders' per-sample predictions used for the paired comparison come from the public \texttt{matbench} repository (\texttt{benchmarks/matbench\_v0.1\_\{TPOT,darwin,modnet\_v0.1.12\}/results.json.gz}).
+
+\section*{S2. Per-fold design selection (Amendment 1)}
 Table~\ref{tab:ds} lists the candidate selected inside every official training fold, with the cross-fitted OOF score of the uncorrected global stack for each candidate (MAE for regression; ROC-AUC for classification).
 Regression candidates:
 \begin{itemize}

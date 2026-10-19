@@ -1,18 +1,34 @@
 # STATUS
 
-**Current stage (2026-10-19, overnight autopilot): Amendment 2 is FROZEN (commit 537728f) and its final run is in progress.**
-- Run: `python -m src.launch_final --amendment2 --workers 5`, writing to `results/final_a2/`. Started about 03:50 local.
-- Score afterwards, ONCE: `python -m src.evaluate2 --submission`.
-- The spec is in ANALYSIS_PLAN.md Section 10, the hashes in `results/freeze_hashes_amendment2.txt`, and the design evidence in `results/design_a2/DESIGN_LOG_A2.md`.
-- **Key design findings** (fold-0 training rows only):
-  - The DFT transfer block plus a hurdle model for the zero-inflated band gap gives a dev MAE of about 0.253 on expt_gap (Darwin's board value is 0.2865).
-  - expt_is_metal: dev balanced accuracy about 0.957 (Darwin 0.9598).
-  - Glass is still about 0.877 (MODNet 0.9603).
-  - Steels: about 83 MAE, driven by extra trees on element fractions.
-  - A nested-CV gate for the local correction was added, because the ungated correction hurt steels.
-- **Dropped:** CrabNet (slow and weak), MODNet (too slow on CPU), XGBoost tuning, random forest.
-- **Leader check:** Darwin submitted hard labels. MODNet v0.1.12 submitted probabilities, but the board's rocauc for it equals balanced accuracy at 0.5.
-- Machine kept awake by the per-process helper.
+**Current stage (2026-10-19 morning):**
+- Amendment 2 is complete: frozen (537728f), run (predictions committed in aa9db92), scored ONCE, and written up.
+- The manuscript has been rewritten around both pre-registered runs and compiles: `manuscript/main.pdf` (26 pp) and `supplementary.pdf`.
+- Nothing has been submitted or published. The repo is still private.
+
+## AMENDMENT-2 FINAL RESULTS (official folds; all selection inside training folds; scored once)
+Final pipeline = cross-fitted simplex stack. The nested-CV gate kept the local correction in 0/20 folds.
+
+The comparison is paired over the same test compositions, using the leaders' public predictions. Classification is scored as balanced accuracy, which is what the board actually reports for these leaders.
+
+| Task | A2 final | Leader (board) | Δ (ours − leader) [95% CI] | p_Holm | Verdict | Rank | A1 primary |
+|---|---|---|---|---|---|---|---|
+| steels, MAE (MPa) | **80.10 ± 10.19** | TPOT-Mat 79.95 | +0.16 [−4.54, +4.89] | 0.93 | on par | 2/12 | 82.80 |
+| expt_gap, MAE (eV) | **0.2352 ± 0.0167** | Darwin 0.2865 | −0.0513 [−0.070, −0.033] | <0.001 | **beats leader (−17.9%)** | **1/13** | 0.3240 |
+| expt_is_metal, balanced accuracy | **0.9547 ± 0.0033** | Darwin 0.9598 | −0.0051 [−0.012, +0.002] | 0.30 | on par | 2/8 | 0.9370 |
+| glass, balanced accuracy | **0.8937 ± 0.0158** | MODNet v0.1.12 0.9603 | −0.0666 [−0.076, −0.057] | <0.001 | below leader | 2/8 | 0.8841 |
+
+- **Probability ROC-AUC:** expt_is_metal 0.9895, glass 0.9606. MODNet's glass probabilities give 0.9899.
+- **Drivers:** the disclosed DFT transfer block (Materials Project PBE data via matminer, matched by reduced formula) plus hurdle experts for the zero-inflated band gap.
+- **Stack vs best single:** better only on glass (+0.18% AUC, p = 0.014).
+- **Steels caveat:** the best single model (extra trees on element fractions) reached 79.56 MAE, but the pre-registered stack (80.10) is reported as final.
+- **Compute:** 5 workers × 4 threads; median per fold 9 / 62 / 48 / 57 min (steels / expt_gap / expt_is_metal / glass); 14.3 worker-hours in total.
+- **Dropped experts:** CrabNet (slow and weak) and MODNet (more than 40 min per fit on CPU).
+- **Unsubmitted Matbench files:** `results/final_a2/matbench_submission/{labels,probabilities}/results.json.gz`.
+- **Honesty notes** (all in the manuscript):
+  - Amendment 2 was written after the Amendment-1 results were seen (two looks at the test folds).
+  - Fold-0 training rows shaped the candidate space.
+  - The Optuna OOF predictions are mildly optimistic for the stack weights only.
+  - The leaders' protocols were not audited.
 
 ## AMENDMENT-1 RESULTS (first pre-registered result; official Matbench v0.1 folds; per-fold design selection inside each training fold; scored 2026-10-18 ~23:30)
 Primary arm: stack + naive novelty-damped local OOF correction. Mean ± std over 5 folds.
@@ -78,9 +94,6 @@ Primary arm: stack + naive novelty-damped local OOF correction. Mean ± std over
 - The reviewed candidate (post-revision pass) is summarised in `research/STAGE1_SUMMARY.md`. Phase 4 cards were not rendered.
 
 ## Next step
-1. **Owner review of the draft** in `manuscript/` (`main.tex`, `sections/*.tex`). Every number comes from `manuscript/generated/*` via `python -m src.make_paper_assets`. To rebuild: `cd manuscript && pdflatex main && bibtex main && pdflatex main && pdflatex main`.
-2. **Optional.** Check the Computational Materials Science scope, metrics and APC/subscription option on the journal site; aggregators give an impact factor of about 3.1-3.9.
-3. **Before submission.**
-   - Make the repo public only with the owner's OK.
-   - Decide whether to submit the labels variant to the Matbench leaderboard (owner decision; not done).
-   - Stage 4 (ResearchStudio-Reel assets) when needed.
+1. **Owner review** of `manuscript/main.pdf` and `supplementary.pdf`. Rebuild with `python -m src.make_paper_assets && python -m src.make_paper_assets2`, then `cd manuscript && pdflatex main && bibtex main && pdflatex main && pdflatex main`.
+2. **Owner decisions** (not done by autopilot): make the repo public at submission; submit to the Matbench leaderboard (the labels variant matches the board's semantics; the probabilities variant would show a true ROC-AUC); and Stage 4 (ResearchStudio-Reel assets).
+3. **Optional.** Verify the journal's metrics and APC on its site (the Elsevier page returned 403 to WebFetch).
