@@ -1,0 +1,10 @@
+[ablation nodft] matbench_glass fold 0: ncols=974 cfg={'n_trials': 20}
+    tuned lgbm_F2_tuned: 0.9512 in 2822s (20 trials)
+    expert lgbm_F2_tuned: 361s, OOF 0.9511
+[ablation nodft] matbench_glass fold 0: ncols=974 cfg={'n_trials': 20}
+    expert xgb_F2: 206s, OOF 0.9496
+    expert cat_F1: 191s, OOF 0.9377
+    expert et_F1: 56s, OOF 0.9442
+    expert et_F2: 255s, OOF 0.9499
+    expert mlp_F1: 70s, OOF 0.8918
+[ablation nodft] matbench_glass fold 0: done in 796s

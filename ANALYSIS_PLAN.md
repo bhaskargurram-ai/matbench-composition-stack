@@ -232,3 +232,11 @@ All choices below were made on fold 0's TRAINING rows only (pseudo-outer folds, 
 - the same comparison against the leader.
 
 There is no multiplicity claim: the analysis is descriptive.
+
+### 12.1 Ablation execution record (appended 2026-10-19, before ablation scoring)
+- **Interruption.** The ablation run was interrupted at about 10:42 local time, when all workers were killed. At that point the finished folds were nodft expt_gap 5/5, expt_is_metal 5/5 and glass fold 4, plus nohurdle expt_gap 5/5 (already in 379af22).
+- **Checks before any scoring.** Every finished fold was checked: the npz loads, all arms are finite, test ids equal the official fold, and the meta JSON parses. The finished folds were committed in 3ec9272.
+- **Rerun.** The 9 interrupted folds (nodft glass 0–3 and steels 0–4) were rerun with the unchanged launcher (`python -m src.launch_ablation`; 5 workers × 4 threads; deterministic LightGBM) under a per-process keep-awake request.
+  - Their partially written expert caches had been checked before reuse (they load, have the correct shapes and are finite).
+  - The pipeline is resumable and deterministic, so reusing them does not change the predictions.
+- **Reporting-only change before scoring.** `src/evaluate_ablation.py` was extended to save per-fold board metrics, mean ± s.d. and probability ROC-AUC. The LaTeX output moved to a new generator, `src/make_ablation_assets.py`, which reads `results/ablation_summary.json`. The statistics are unchanged: the same paired bootstrap as `src.evaluate2`, B = 10,000, rng seed 12345, and the same comparisons. All p-values are unadjusted (descriptive).

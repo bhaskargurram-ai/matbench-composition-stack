@@ -9,3 +9,12 @@
 {"variant": "nodft", "task": "matbench_expt_is_metal", "fold": 1, "returncode": 0, "wall_s": 2550.5}
 {"variant": "nodft", "task": "matbench_expt_is_metal", "fold": 4, "returncode": 0, "wall_s": 2660.5}
 {"variant": "nodft", "task": "matbench_glass", "fold": 4, "returncode": 0, "wall_s": 2035.2}
+{"variant": "nodft", "task": "matbench_glass", "fold": 1, "returncode": 0, "wall_s": 525.2}
+{"variant": "nodft", "task": "matbench_glass", "fold": 0, "returncode": 0, "wall_s": 800.2}
+{"variant": "nodft", "task": "matbench_glass", "fold": 2, "returncode": 0, "wall_s": 815.2}
+{"variant": "nodft", "task": "matbench_steels", "fold": 0, "returncode": 0, "wall_s": 1150.3}
+{"variant": "nodft", "task": "matbench_glass", "fold": 3, "returncode": 0, "wall_s": 1470.3}
+{"variant": "nodft", "task": "matbench_steels", "fold": 1, "returncode": 0, "wall_s": 1010.2}
+{"variant": "nodft", "task": "matbench_steels", "fold": 3, "returncode": 0, "wall_s": 765.1}
+{"variant": "nodft", "task": "matbench_steels", "fold": 4, "returncode": 0, "wall_s": 620.1}
+{"variant": "nodft", "task": "matbench_steels", "fold": 2, "returncode": 0, "wall_s": 990.2}
