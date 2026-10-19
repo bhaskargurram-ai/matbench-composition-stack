@@ -1,0 +1,107 @@
+{
+ "experts": [
+  "lgbm_all",
+  "rf_all",
+  "et_all",
+  "svc_frac",
+  "svc_magpie",
+  "mlp_all"
+ ],
+ "expert_oof_scores": {
+  "lgbm_all": 0.9801714144440064,
+  "rf_all": 0.9787734558712712,
+  "et_all": 0.9797110197432939,
+  "svc_frac": 0.9448108304240379,
+  "svc_magpie": 0.9566915427764484,
+  "mlp_all": 0.9691019412965787
+ },
+ "best_single": "lgbm_all",
+ "stack_loss": "l2",
+ "stack_weights": {
+  "lgbm_all": 0.38927007838911465,
+  "rf_all": 0.0650283021897483,
+  "et_all": 0.3575330399557551,
+  "svc_frac": 2.0203059280995148e-20,
+  "svc_magpie": 0.034612854059230425,
+  "mlp_all": 0.15355572540615162
+ },
+ "stack_oof_score": 0.9812236898880394,
+ "sel_stack_local": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 0.5,
+  "kappa": 0.0,
+  "alpha": 0.25,
+  "h": 0.16666666666666666,
+  "score": 0.9812500129034389,
+  "base_score": 0.9812236898880394
+ },
+ "sel_stack_local_magpie": {
+  "space": null,
+  "k": 0,
+  "hmult": 0.0,
+  "kappa": 0.0,
+  "alpha": 0.0,
+  "h": 0.0,
+  "score": 0.9812236898880394,
+  "base_score": 0.9812236898880394
+ },
+ "sel_stack_local_frac": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 0.5,
+  "kappa": 0.0,
+  "alpha": 0.25,
+  "h": 0.16666666666666666,
+  "score": 0.9812500129034389,
+  "base_score": 0.9812236898880394
+ },
+ "sel_stack_fm": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 0.5,
+  "kappa": 0.0,
+  "alpha": 1.0,
+  "h": 0.16666666666666666,
+  "score": 0.9819591859065544,
+  "base_score": 0.9814711778465502
+ },
+ "fm_oof_corrected_score": 0.9819591859065544,
+ "perm_control_naive": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 1.0,
+  "kappa": 0.0,
+  "alpha": 4.0,
+  "h": 0.3333333333333333,
+  "score": 0.5052811194817153,
+  "base_score": 0.4940068687586066
+ },
+ "perm_control_fm": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 1.0,
+  "kappa": 0.0,
+  "alpha": 4.0,
+  "h": 0.3333333333333333,
+  "score": 0.5052238282129047,
+  "base_score": 0.49425409864833897
+ },
+ "sel_single_local": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 0.5,
+  "kappa": 0.0,
+  "alpha": 0.5,
+  "h": 0.16666666666666666,
+  "score": 0.9801999310440224,
+  "base_score": 0.9801714144440064
+ },
+ "thresholds": {
+  "stack": 0.3680410502904037,
+  "stack_local": 0.3634834824060365,
+  "best_single": 0.32375720062041813,
+  "single_local": 0.32345433030847137,
+  "stack_fm": 0.405251847570927
+ }
+}

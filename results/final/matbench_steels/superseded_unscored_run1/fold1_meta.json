@@ -1,0 +1,100 @@
+{
+ "experts": [
+  "lgbm_all",
+  "rf_all",
+  "et_all",
+  "krr_frac",
+  "krr_magpie",
+  "mlp_all"
+ ],
+ "expert_oof_scores": {
+  "lgbm_all": 98.17038068199666,
+  "rf_all": 105.27129236947813,
+  "et_all": 89.04834377510032,
+  "krr_frac": 161.00468877723796,
+  "krr_magpie": 108.72406401135363,
+  "mlp_all": 161.34589522728555
+ },
+ "best_single": "et_all",
+ "stack_loss": "l1",
+ "stack_weights": {
+  "lgbm_all": 0.0,
+  "rf_all": 0.0,
+  "et_all": 0.9723951007099717,
+  "krr_frac": 0.0,
+  "krr_magpie": 0.027604899290028344,
+  "mlp_all": 0.0
+ },
+ "stack_oof_score": 89.26219284529068,
+ "sel_stack_local": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 8.0,
+  "kappa": 2.0,
+  "alpha": 0.25,
+  "h": 0.12317161111196685,
+  "score": 89.15394280817115,
+  "base_score": 89.26219284529068
+ },
+ "sel_stack_local_magpie": {
+  "space": null,
+  "k": 0,
+  "hmult": 0.0,
+  "kappa": 0.0,
+  "alpha": 0.0,
+  "h": 0.0,
+  "score": 89.26219284529068,
+  "base_score": 89.26219284529068
+ },
+ "sel_stack_local_frac": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 8.0,
+  "kappa": 2.0,
+  "alpha": 0.25,
+  "h": 0.12317161111196685,
+  "score": 89.15394280817115,
+  "base_score": 89.26219284529068
+ },
+ "sel_stack_fm": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 4.0,
+  "kappa": 0.5,
+  "alpha": 0.75,
+  "h": 0.061585805555983426,
+  "score": 86.0398628770069,
+  "base_score": 89.02500840904545
+ },
+ "fm_oof_corrected_score": 86.0398628770069,
+ "perm_control_naive": {
+  "space": "magpie",
+  "k": 10,
+  "hmult": 2.0,
+  "kappa": 0.1,
+  "alpha": 0.75,
+  "h": 1.730999539144607,
+  "score": 251.025736939794,
+  "base_score": 284.2281210742702
+ },
+ "perm_control_fm": {
+  "space": "magpie",
+  "k": 10,
+  "hmult": 2.0,
+  "kappa": 0.5,
+  "alpha": 1.0,
+  "h": 1.730999539144607,
+  "score": 249.47588930561614,
+  "base_score": 284.31011303881274
+ },
+ "sel_single_local": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 8.0,
+  "kappa": 2.0,
+  "alpha": 0.25,
+  "h": 0.12317161111196685,
+  "score": 89.04359843976997,
+  "base_score": 89.04834377510032
+ }
+}

@@ -1,0 +1,100 @@
+{
+ "experts": [
+  "lgbm_all",
+  "rf_all",
+  "et_all",
+  "krr_frac",
+  "krr_magpie",
+  "mlp_all"
+ ],
+ "expert_oof_scores": {
+  "lgbm_all": 92.31782167817464,
+  "rf_all": 101.78917911646559,
+  "et_all": 83.74294618473876,
+  "krr_frac": 195.70350619323878,
+  "krr_magpie": 124.0000277594459,
+  "mlp_all": 125.00020116743515
+ },
+ "best_single": "et_all",
+ "stack_loss": "l1",
+ "stack_weights": {
+  "lgbm_all": 0.0,
+  "rf_all": 0.0,
+  "et_all": 1.0,
+  "krr_frac": 0.0,
+  "krr_magpie": 0.0,
+  "mlp_all": 0.0
+ },
+ "stack_oof_score": 85.44011924426675,
+ "sel_stack_local": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 4.0,
+  "kappa": 0.1,
+  "alpha": 0.75,
+  "h": 0.057670650002427395,
+  "score": 81.30568370679367,
+  "base_score": 85.44011924426675
+ },
+ "sel_stack_local_magpie": {
+  "space": "magpie",
+  "k": 5,
+  "hmult": 8.0,
+  "kappa": 2.0,
+  "alpha": 0.75,
+  "h": 7.226897149235833,
+  "score": 84.59858718264094,
+  "base_score": 85.44011924426675
+ },
+ "sel_stack_local_frac": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 4.0,
+  "kappa": 0.1,
+  "alpha": 0.75,
+  "h": 0.057670650002427395,
+  "score": 81.30568370679367,
+  "base_score": 85.44011924426675
+ },
+ "sel_stack_fm": {
+  "space": "frac",
+  "k": 5,
+  "hmult": 4.0,
+  "kappa": 0.0,
+  "alpha": 0.75,
+  "h": 0.057670650002427395,
+  "score": 75.34294633942051,
+  "base_score": 83.74294618473876
+ },
+ "fm_oof_corrected_score": 75.34294633942051,
+ "perm_control_naive": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 4.0,
+  "kappa": 0.0,
+  "alpha": 0.75,
+  "h": 0.057670650002427395,
+  "score": 232.8246846733861,
+  "base_score": 270.39317049876786
+ },
+ "perm_control_fm": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 4.0,
+  "kappa": 0.0,
+  "alpha": 0.75,
+  "h": 0.057670650002427395,
+  "score": 232.65261038959179,
+  "base_score": 272.00807068273076
+ },
+ "sel_single_local": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 4.0,
+  "kappa": 0.1,
+  "alpha": 0.75,
+  "h": 0.057670650002427395,
+  "score": 80.3682476628288,
+  "base_score": 83.74294618473876
+ }
+}

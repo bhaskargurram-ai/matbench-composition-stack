@@ -14,7 +14,7 @@ Status at writing:
   - element fractions (103);
   - 21 extra matminer descriptors (Stoichiometry, ValenceOrbital, IonProperty(fast), BandCenter, AtomicOrbitals).
   - Featuriser failures (0 / 14 / 14 / 21 rows for steels / expt_gap / is_metal / glass) are imputed with the dataset-wide feature median. This uses no labels, but it uses feature values of all rows (disclosed).
-- **Design-data disclosure.** The design choices (feature set, expert pool and hyperparameters, stacking loss, correction grid) were made on fold 0's training rows. The fold-0 test rows were never used. The test rows of folds 1-4 are part of fold 0's training rows, so they did inform these fixed design choices, though no model was ever fitted on them as test data. Fold-0 results are therefore reported separately as the cleanest estimate.
+- **Design-data disclosure.** The design choices (feature set, expert pool and hyperparameters, stacking loss, correction grid) were made on fold 0's training rows. The fold-0 test rows were never used. The test rows of folds 1-4 are part of fold 0's training rows, so they did inform these fixed design choices, though no model was ever fitted on them as test data. Fold-0 results are therefore reported separately as the cleanest estimate. **Superseded by Amendment 1 (Section 8):** the choice among the explored candidate configurations is now made inside each official training fold.
 
 ## 2. Method (frozen; `src/pipeline.py`, `src/experts.py`, `src/frozen_config.py`)
 Everything below is done independently inside each official training fold T_k, and no official test target is ever accessed.
@@ -103,4 +103,32 @@ Everything below is done independently inside each official training fold T_k, a
 - Skipped components (MODNet, CrabNet/Roost, TabPFN, ElMD), with the reasons: CPU cost, dependency footprint, and the time budget.
 
 ## 7. Deviations
-(none yet)
+- **Line endings.** Freeze hashes were re-recorded on LF-normalised files (commit dd8624b). The code was unchanged.
+- **Superseded first run, never scored.** The first final run under the original plan (commit dd8624b) produced test-set predictions for 19/20 folds. None was ever scored: no test metric was computed and no test label was read. That run was stopped and is superseded by Amendment 1. Its files are kept, unscored, in `results/final/<task>/superseded_unscored_run1/`, and they will not be scored for the paper. The steels fold-4 job hung in a joblib/loky worker and was killed.
+- **Scheduling-only code changes for Amendment 1** (numerical results unchanged): the internal KRR grid search now uses joblib's threading backend; per-fold logging.
+- **Reporting-only scripts added after the first freeze:** `src/make_paper_assets.py` (generates manuscript tables and figures from the result files) and `research/make_bib.py`.
+- **Keep-awake helper.** A per-process keep-awake request (Windows `SetThreadExecutionState`) runs during the final run. Without it, Modern Standby suspended the jobs, which inflated wall times. It changes no system setting.
+
+## 8. Amendment 1 (2026-10-18 22:40 local; written BEFORE any official test fold was scored)
+**Why.**
+- The original plan made the design choices on fold 0's training rows. Those rows contain the test rows of folds 1–4, so for folds 1–4 the design was not chosen fold-internally.
+- Matbench expects all tuning to use each fold's training data only.
+- The owner therefore approved making every design choice inside each official training fold. This was decided before any test score existed.
+
+**What changes.** For each official fold k, using only the training rows T_k:
+1. **Candidates.** All candidate configurations already explored in the design phase (`results/design/DESIGN_LOG.md`) are listed in `src/frozen_config.py` `CANDIDATES`. Every candidate is cross-fitted (J = 5, seed 0) on T_k.
+   - Regression: A = base features + L2 stack (design v3); B = base features + L1 stack + L1-LightGBM expert (v4); D = extra features + L1 stack (v6, steels); C = extra features + L1 stack + L1-LightGBM expert (v5/v6, expt_gap).
+   - Classification: A = base features (v3); C = extra features (v6).
+2. **Selection criterion.** The same inner-CV criterion as the design phase, made automatic: the cross-fitted OOF score of the global simplex stack on T_k (MAE for regression, ROC-AUC for classification).
+   - This criterion uses the uncorrected stack, so it does not favour either correction arm.
+   - Ties go to the earlier (simpler) candidate.
+3. **Correction.** The correction hyperparameters are then selected inside T_k exactly as in Section 2. The fold-matched arm is always computed for the selected configuration.
+4. **Record.** The per-fold choice and every candidate's score are recorded in `fold<k>_meta.json` under `design_selection` and reported.
+
+**What does not change.** The expert hyperparameters and grids, the correction grid, the endpoints, the tests and the reporting rules.
+
+**Disclosure that remains.** The candidate set itself (which configurations exist) was constructed while looking at fold-0 inner-CV results. The choice among the candidates is now fold-internal.
+
+**Caching.** Expert outputs from the superseded run are reused only where the expert configuration and inputs are identical and were computed solely from T_k: same task, fold, feature set, expert name and settings, seed and J. They are stored per fold and per feature set (`fold<k>_experts` = extra features, `fold<k>_experts_base` = base features).
+
+**Execution.** `python -m src.launch_final --workers 5` (5 workers × 4 threads, deterministic LightGBM). Expected wall clock: about 30–60 min. The base-feature candidates need new cross-fits (no pair refits unless one is selected); the extra-feature candidates reuse caches.

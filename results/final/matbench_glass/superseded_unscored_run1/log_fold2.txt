@@ -1,0 +1,14 @@
+[matbench_glass] fold 2: n_train=4544 n_test=1136 cfg={'extra_features': True, 'fold_matched': True}
+    expert lgbm_all: 24.6s, OOF score 0.9479
+    expert lgbm_all: pair-excluded refits 2088.6s
+    expert rf_all: 75.1s, OOF score 0.9475
+    expert rf_all: pair-excluded refits 93.4s
+    expert et_all: 54.1s, OOF score 0.9510
+    expert et_all: pair-excluded refits 58.9s
+    expert svc_frac: 17.9s, OOF score 0.8764
+    expert svc_frac: pair-excluded refits 14.8s
+    expert svc_magpie: 15.8s, OOF score 0.9028
+    expert svc_magpie: pair-excluded refits 13.9s
+    expert mlp_all: 60.9s, OOF score 0.9001
+    expert mlp_all: pair-excluded refits 60.3s
+[matbench_glass] fold 2: done in 2614s; weights={'lgbm_all': 0.2772712430813631, 'rf_all': 0.1227231023535872, 'et_all': 0.5507451757300942, 'svc_frac': 0.049260478834955705, 'svc_magpie': 4.175519597038865e-18, 'mlp_all': 0.0}; sel={'space': None, 'k': 0, 'hmult': 0.0, 'kappa': 0.0, 'alpha': 0.0}

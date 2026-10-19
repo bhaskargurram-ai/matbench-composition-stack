@@ -1,0 +1,16 @@
+[matbench_expt_gap] fold 3: n_train=3683 n_test=921 cfg={'extra_features': True, 'fold_matched': True, 'stack_loss': 'l1', 'lgbm_l1_expert': True}
+    expert lgbm_all: 22.9s, OOF score 0.3620
+    expert lgbm_all: pair-excluded refits 36.6s
+    expert lgbm_l1_all: 26.7s, OOF score 0.3705
+    expert lgbm_l1_all: pair-excluded refits 41.0s
+    expert rf_all: 63.7s, OOF score 0.3865
+    expert rf_all: pair-excluded refits 72.1s
+    expert et_all: 51.5s, OOF score 0.3450
+    expert et_all: pair-excluded refits 60.4s
+    expert krr_frac: 130.8s, OOF score 0.5756
+    expert krr_frac: pair-excluded refits 98.3s
+    expert krr_magpie: 131.1s, OOF score 0.5014
+    expert krr_magpie: pair-excluded refits 96.7s
+    expert mlp_all: 48.6s, OOF score 0.4530
+    expert mlp_all: pair-excluded refits 46.1s
+[matbench_expt_gap] fold 3: done in 933s; weights={'lgbm_all': 0.03061882534993717, 'lgbm_l1_all': 0.04012318095847421, 'rf_all': 0.0, 'et_all': 0.9292579936915886, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0}; sel={'space': 'magpie', 'k': 20, 'hmult': 2.0, 'kappa': 0.1, 'alpha': 0.25}

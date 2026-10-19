@@ -16,6 +16,7 @@ from sklearn.neural_network import MLPRegressor, MLPClassifier
 from sklearn.compose import TransformedTargetRegressor
 from sklearn.model_selection import GridSearchCV
 import lightgbm as lgb
+import joblib
 
 
 def cols(X: pd.DataFrame, which: str):
@@ -41,7 +42,10 @@ class Expert:
         if self.task_type == "regression":
             yt = np.log(y) if self.tt == "log" else y
             self.y_lo, self.y_hi = float(np.min(y)), float(np.max(y))
-            self.model.fit(self._X(X), yt)
+            # threading backend for the internal KRR grid search: identical results, avoids loky
+            # worker-process hangs when many folds run concurrently
+            with joblib.parallel_config(backend="threading"):
+                self.model.fit(self._X(X), yt)
         else:
             self.model.fit(self._X(X), y.astype(int))
         return self

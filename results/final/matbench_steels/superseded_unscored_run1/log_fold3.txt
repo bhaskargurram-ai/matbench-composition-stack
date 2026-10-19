@@ -1,0 +1,14 @@
+[matbench_steels] fold 3: n_train=250 n_test=62 cfg={'extra_features': True, 'fold_matched': True, 'stack_loss': 'l1'}
+    expert lgbm_all: 2.4s, OOF score 96.2457
+    expert lgbm_all: pair-excluded refits 3.0s
+    expert rf_all: 4.6s, OOF score 106.1048
+    expert rf_all: pair-excluded refits 6.5s
+    expert et_all: 4.0s, OOF score 90.4029
+    expert et_all: pair-excluded refits 5.0s
+    expert krr_frac: 5.6s, OOF score 169.7749
+    expert krr_frac: pair-excluded refits 5.2s
+    expert krr_magpie: 6.2s, OOF score 120.6190
+    expert krr_magpie: pair-excluded refits 4.0s
+    expert mlp_all: 4.9s, OOF score 159.5313
+    expert mlp_all: pair-excluded refits 6.0s
+[matbench_steels] fold 3: done in 59s; weights={'lgbm_all': 0.0, 'rf_all': 0.0, 'et_all': 1.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0}; sel={'space': 'frac', 'k': 20, 'hmult': 8.0, 'kappa': 0.0, 'alpha': 0.5}

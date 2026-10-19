@@ -1,0 +1,103 @@
+{
+ "experts": [
+  "lgbm_all",
+  "lgbm_l1_all",
+  "rf_all",
+  "et_all",
+  "krr_frac",
+  "krr_magpie",
+  "mlp_all"
+ ],
+ "expert_oof_scores": {
+  "lgbm_all": 0.3592052380859665,
+  "lgbm_l1_all": 0.3685859571132751,
+  "rf_all": 0.38472733139392057,
+  "et_all": 0.34068241650828124,
+  "krr_frac": 0.5562159380253839,
+  "krr_magpie": 0.5025059082035003,
+  "mlp_all": 0.4870743686915946
+ },
+ "best_single": "et_all",
+ "stack_loss": "l1",
+ "stack_weights": {
+  "lgbm_all": 0.030189054194261454,
+  "lgbm_l1_all": 0.003465643699572116,
+  "rf_all": 0.0,
+  "et_all": 0.9663453021061665,
+  "krr_frac": 0.0,
+  "krr_magpie": 0.0,
+  "mlp_all": 0.0
+ },
+ "stack_oof_score": 0.34079440375305176,
+ "sel_stack_local": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 1.0,
+  "kappa": 0.0,
+  "alpha": 0.25,
+  "h": 0.3333333333333333,
+  "score": 0.3390812605396561,
+  "base_score": 0.34079440375305176
+ },
+ "sel_stack_local_magpie": {
+  "space": "magpie",
+  "k": 40,
+  "hmult": 2.0,
+  "kappa": 0.0,
+  "alpha": 0.25,
+  "h": 5.92311960145528,
+  "score": 0.34012537692797307,
+  "base_score": 0.34079440375305176
+ },
+ "sel_stack_local_frac": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 1.0,
+  "kappa": 0.0,
+  "alpha": 0.25,
+  "h": 0.3333333333333333,
+  "score": 0.3390812605396561,
+  "base_score": 0.34079440375305176
+ },
+ "sel_stack_fm": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 0.5,
+  "kappa": 0.0,
+  "alpha": 0.25,
+  "h": 0.16666666666666666,
+  "score": 0.33555781790131756,
+  "base_score": 0.340653267549483
+ },
+ "fm_oof_corrected_score": 0.33555781790131756,
+ "perm_control_naive": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 1.0,
+  "kappa": 0.5,
+  "alpha": 1.0,
+  "h": 0.3333333333333333,
+  "score": 1.23593693865486,
+  "base_score": 1.350229081220475
+ },
+ "perm_control_fm": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 1.0,
+  "kappa": 0.5,
+  "alpha": 1.0,
+  "h": 0.3333333333333333,
+  "score": 1.2316789933353904,
+  "base_score": 1.3503050865384811
+ },
+ "sel_single_local": {
+  "space": "frac",
+  "k": 40,
+  "hmult": 1.0,
+  "kappa": 0.0,
+  "alpha": 0.25,
+  "h": 0.3333333333333333,
+  "score": 0.339101403514407,
+  "base_score": 0.34068241650828124
+ }
+}

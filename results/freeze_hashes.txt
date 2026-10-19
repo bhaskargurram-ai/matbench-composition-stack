@@ -1,14 +1,16 @@
-# Freeze hashes (SHA-256 of LF-normalised files) — recorded 2026-10-18T21:01:48-04:00 BEFORE any official test fold was predicted or scored
-# (re-recorded after normalising line endings to LF; the first record in commit df504b2 hashed CRLF working copies of some files; code content unchanged)
-333f3bbe2f4ba1c7e5957566cb637a42c16da98007f40a5b94df7788d566e0a9 ANALYSIS_PLAN.md
+# Freeze hashes, AMENDMENT 1 (SHA-256 of LF-normalised files) - recorded 2026-10-18T22:41:13-04:00 BEFORE any official test fold was scored
+# previous freeze (original plan): results/freeze_hashes_original_plan.txt (commit dd8624b)
+# git HEAD before this freeze commit: ca1e2e9d5009ef861ab6cda2f98809b16ec05491
+f0cbc78cb5b7c3bcac01c022623515d0a616ec839faae772d35edfcad2647665 ANALYSIS_PLAN.md
 df821bfc530fd0c651444f640de0a58b8bddfb0dbea7cba5840e43691ebc1fb9 src/data.py
 2ffc9db571a1695d281475a4bef5135918ce3c7808b41d068d908e196416afa4 src/design.py
-9f1fcf5ad257615e5463a61eddaba6ece689318196bae292243b5628ea673a94 src/evaluate.py
-8ac59946fcc75c50dc4d3fbb52b6e5951cbf1aadc0acc71025c8f964a7728a71 src/experts.py
-1af57e67c29e775f5f41710b7d50c70fa3c486b9d9f73187d24c9ed69a392db9 src/frozen_config.py
+ef86a55c90b6f68c348fce29aaca525997a8a1c9ec8ec1774cf01e89e2a552ae src/evaluate.py
+597d3834d4b445a174e4133506288b43ade23e5919d6a0f23fa46957d2f1f89c src/experts.py
+a8bc3facb01ba41755210152eb6dce08aafa7af2769efe06aca8158e93923556 src/frozen_config.py
 b3f3d194dc52a58165fdad2e64119589fe10517fcc105b0f7399b0aa3b6e4a79 src/launch_final.py
+695859746f845026661965dca88fa402ae16486fb89b2f0d5defdaec4ccd3c98 src/make_paper_assets.py
 a06c7ae8e593fb9837b5e0343131bf031d4d66b8d08c1c36c01ae635db4d18c6 src/pipeline.py
-00efd779f949ede04a6097bdd8c727820e21e0791422062c19aafb5dee5cb5a1 src/run_final.py
+0024ec923353dead9f18cf28f3532bb9640dceceff818d83e3e8107f4f80c1d3 src/run_final.py
 b6bc11a1689f0d32544fa4a91235b29cd770afd8b14c50fcb931fbc47b10cfb0 src/smoke_test_evaluate.py
 # environment
 python 3.12.10

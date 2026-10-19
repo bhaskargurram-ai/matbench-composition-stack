@@ -181,7 +181,8 @@ def main(write_submission=False):
                         "selections": [{"fold": k, "best_single": m["best_single"], "stack_weights": m["stack_weights"],
                                         "sel_stack_local": m["sel_stack_local"], "sel_single_local": m["sel_single_local"],
                                         "sel_stack_fm": m.get("sel_stack_fm"), "perm_control_naive": m.get("perm_control_naive"),
-                                        "perm_control_fm": m.get("perm_control_fm")}
+                                        "perm_control_fm": m.get("perm_control_fm"),
+                                        "design_selection": m.get("design_selection")}
                                        for k, (_, _, m) in enumerate(data)]}
     ps = [statsd[t]["primary"]["boot_p"] for t in TASKS]
     for t, p in zip(TASKS, holm(ps)):
