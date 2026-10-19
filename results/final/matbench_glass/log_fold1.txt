@@ -1,0 +1,17 @@
+[matbench_glass] fold 1: n_train=4544 n_test=1136; per-fold design selection
+    expert lgbm_all: 19.9s, OOF score 0.9473
+    expert rf_all: 52.6s, OOF score 0.9477
+    expert et_all: 41.4s, OOF score 0.9505
+    expert svc_frac: 16.0s, OOF score 0.8717
+    expert svc_magpie: 13.6s, OOF score 0.9018
+    expert mlp_all: 63.1s, OOF score 0.8964
+    design candidate A_base: stack OOF score 0.95207
+    design candidate C_extra: stack OOF score 0.95205
+[matbench_glass] fold 1: selected design A_base -> cfg={'extra_features': False, 'fold_matched': True}
+    expert lgbm_all: pair-excluded refits 26.9s
+    expert rf_all: pair-excluded refits 62.5s
+    expert et_all: pair-excluded refits 50.6s
+    expert svc_frac: pair-excluded refits 18.7s
+    expert svc_magpie: pair-excluded refits 16.1s
+    expert mlp_all: pair-excluded refits 49.7s
+[matbench_glass] fold 1: done in 460s; design=A_base; weights={'lgbm_all': 0.2675083180100727, 'rf_all': 0.06561036201973124, 'et_all': 0.6059563350775089, 'svc_frac': 0.06092498489268713, 'svc_magpie': 3.596154425074639e-18, 'mlp_all': 0.0}; sel={'space': None, 'k': 0, 'hmult': 0.0, 'kappa': 0.0, 'alpha': 0.0}

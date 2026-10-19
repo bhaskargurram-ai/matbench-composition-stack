@@ -1,0 +1,14 @@
+[matbench_expt_gap] fold 3: n_train=3683 n_test=921; per-fold design selection
+    expert lgbm_all: 20.8s, OOF score 0.4164
+    expert rf_all: 58.1s, OOF score 0.4591
+    expert et_all: 48.4s, OOF score 0.4271
+    expert krr_frac: 132.0s, OOF score 0.5756
+    expert krr_magpie: 137.0s, OOF score 0.5014
+    expert mlp_all: 71.7s, OOF score 0.5438
+    design candidate A_base_l2: stack OOF score 0.41750
+    expert lgbm_l1_all: 22.3s, OOF score 0.4295
+    design candidate B_base_l1: stack OOF score 0.41851
+    design candidate D_extra_l1: stack OOF score 0.34507
+    design candidate C_extra_l1_lgbml1: stack OOF score 0.34538
+[matbench_expt_gap] fold 3: selected design D_extra_l1 -> cfg={'extra_features': True, 'stack_loss': 'l1', 'fold_matched': True}
+[matbench_expt_gap] fold 3: done in 502s; design=D_extra_l1; weights={'lgbm_all': 0.04948122671665262, 'rf_all': 0.0, 'et_all': 0.9505187732833474, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0}; sel={'space': 'magpie', 'k': 40, 'hmult': 2.0, 'kappa': 0.1, 'alpha': 0.25}

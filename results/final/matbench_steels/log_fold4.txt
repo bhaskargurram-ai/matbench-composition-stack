@@ -1,0 +1,25 @@
+[matbench_steels] fold 4: n_train=250 n_test=62; per-fold design selection
+    expert lgbm_all: 2.6s, OOF score 100.9466
+    expert rf_all: 5.4s, OOF score 105.5558
+    expert et_all: 4.6s, OOF score 88.8950
+    expert krr_frac: 3.0s, OOF score 194.4459
+    expert krr_magpie: 2.9s, OOF score 115.9816
+    expert mlp_all: 10.3s, OOF score 165.8733
+    design candidate A_base_l2: stack OOF score 88.89510
+    expert lgbm_l1_all: 2.6s, OOF score 100.9466
+    design candidate B_base_l1: stack OOF score 88.89505
+    expert krr_frac: 2.7s, OOF score 194.4459
+    expert krr_magpie: 2.8s, OOF score 115.9816
+    expert mlp_all: 8.5s, OOF score 142.8730
+    design candidate D_extra_l1: stack OOF score 89.29529
+    expert lgbm_l1_all: 2.2s, OOF score 100.1945
+    design candidate C_extra_l1_lgbml1: stack OOF score 89.29529
+[matbench_steels] fold 4: selected design B_base_l1 -> cfg={'extra_features': False, 'stack_loss': 'l1', 'lgbm_l1_expert': True, 'fold_matched': True}
+    expert lgbm_all: pair-excluded refits 2.4s
+    expert lgbm_l1_all: pair-excluded refits 2.5s
+    expert rf_all: pair-excluded refits 5.4s
+    expert et_all: pair-excluded refits 3.9s
+    expert krr_frac: pair-excluded refits 2.6s
+    expert krr_magpie: pair-excluded refits 2.7s
+    expert mlp_all: pair-excluded refits 5.5s
+[matbench_steels] fold 4: done in 75s; design=B_base_l1; weights={'lgbm_all': 0.0, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 1.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0}; sel={'space': 'frac', 'k': 20, 'hmult': 8.0, 'kappa': 0.0, 'alpha': 0.25}

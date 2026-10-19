@@ -1,0 +1,22 @@
+[matbench_steels] fold 0: n_train=249 n_test=63; per-fold design selection
+    expert lgbm_all: 2.8s, OOF score 92.4624
+    expert rf_all: 5.6s, OOF score 102.2123
+    expert et_all: 4.7s, OOF score 83.1777
+    expert krr_frac: 3.3s, OOF score 195.7035
+    expert krr_magpie: 3.1s, OOF score 124.0000
+    expert mlp_all: 9.5s, OOF score 146.7683
+    design candidate A_base_l2: stack OOF score 84.37083
+    expert lgbm_l1_all: 2.9s, OOF score 92.4624
+    design candidate B_base_l1: stack OOF score 83.17767
+    design candidate D_extra_l1: stack OOF score 85.44012
+    expert lgbm_l1_all: 3.0s, OOF score 92.3178
+    design candidate C_extra_l1_lgbml1: stack OOF score 85.44012
+[matbench_steels] fold 0: selected design B_base_l1 -> cfg={'extra_features': False, 'stack_loss': 'l1', 'lgbm_l1_expert': True, 'fold_matched': True}
+    expert lgbm_all: pair-excluded refits 3.3s
+    expert lgbm_l1_all: pair-excluded refits 3.4s
+    expert rf_all: pair-excluded refits 8.4s
+    expert et_all: pair-excluded refits 5.9s
+    expert krr_frac: pair-excluded refits 4.4s
+    expert krr_magpie: pair-excluded refits 4.4s
+    expert mlp_all: pair-excluded refits 6.8s
+[matbench_steels] fold 0: done in 74s; design=B_base_l1; weights={'lgbm_all': 0.0, 'lgbm_l1_all': 0.0, 'rf_all': 0.0, 'et_all': 1.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'mlp_all': 0.0}; sel={'space': 'frac', 'k': 40, 'hmult': 4.0, 'kappa': 0.1, 'alpha': 0.75}

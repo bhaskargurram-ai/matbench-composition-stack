@@ -1,0 +1,11 @@
+[matbench_expt_is_metal] fold 0: n_train=3936 n_test=985; per-fold design selection
+    expert lgbm_all: 19.4s, OOF score 0.9726
+    expert rf_all: 56.1s, OOF score 0.9704
+    expert et_all: 43.9s, OOF score 0.9721
+    expert svc_frac: 14.4s, OOF score 0.9458
+    expert svc_magpie: 11.1s, OOF score 0.9558
+    expert mlp_all: 40.0s, OOF score 0.9490
+    design candidate A_base: stack OOF score 0.97390
+    design candidate C_extra: stack OOF score 0.98192
+[matbench_expt_is_metal] fold 0: selected design C_extra -> cfg={'extra_features': True, 'fold_matched': True}
+[matbench_expt_is_metal] fold 0: done in 214s; design=C_extra; weights={'lgbm_all': 0.5944863495193135, 'rf_all': 0.0, 'et_all': 0.3770443339320045, 'svc_frac': 0.024557857709884914, 'svc_magpie': 3.262770912823565e-18, 'mlp_all': 0.003911458838797149}; sel={'space': None, 'k': 0, 'hmult': 0.0, 'kappa': 0.0, 'alpha': 0.0}
