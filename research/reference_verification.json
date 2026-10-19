@@ -600,5 +600,117 @@
   "volume": "6",
   "page": "8123",
   "type": "journal-article"
+ },
+ "lee2016gap": {
+  "doi": "10.1103/PhysRevB.93.115104",
+  "ok": true,
+  "title": "Prediction model of band gap for inorganic compounds by combination of density functional theory calculations and machine learning techniques",
+  "first_author": "Lee, Joohwi",
+  "n_authors": 5,
+  "authors": [
+   "Joohwi Lee",
+   "Atsuto Seko",
+   "Kazuki Shitara",
+   "Keita Nakayama",
+   "Isao Tanaka"
+  ],
+  "year": 2016,
+  "venue": "Physical Review B",
+  "volume": "93",
+  "page": "115104",
+  "type": "journal-article"
+ },
+ "chen2021multifidelity": {
+  "doi": "10.1038/s43588-020-00002-x",
+  "ok": true,
+  "title": "Learning properties of ordered and disordered materials from multi-fidelity data",
+  "first_author": "Chen, Chi",
+  "n_authors": 5,
+  "authors": [
+   "Chi Chen",
+   "Yunxing Zuo",
+   "Weike Ye",
+   "Xiangguo Li",
+   "Shyue Ping Ong"
+  ],
+  "year": 2021,
+  "venue": "Nature Computational Science",
+  "volume": "1",
+  "page": "46-53",
+  "type": "journal-article"
+ },
+ "jha2019transfer": {
+  "doi": "10.1038/s41467-019-13297-w",
+  "ok": true,
+  "title": "Enhancing materials property prediction by leveraging computational and experimental data using deep transfer learning",
+  "first_author": "Jha, Dipendra",
+  "n_authors": 7,
+  "authors": [
+   "Dipendra Jha",
+   "Kamal Choudhary",
+   "Francesca Tavazza",
+   "Wei-keng Liao",
+   "Alok Choudhary",
+   "Carelyn Campbell",
+   "Ankit Agrawal"
+  ],
+  "year": 2019,
+  "venue": "Nature Communications",
+  "volume": "10",
+  "page": "5316",
+  "type": "journal-article"
+ },
+ "liu2022denoise": {
+  "doi": "10.1038/s41524-022-00925-1",
+  "ok": true,
+  "title": "A simple denoising approach to exploit multi-fidelity data for machine learning materials properties",
+  "first_author": "Liu, Xiaotong",
+  "n_authors": 4,
+  "authors": [
+   "Xiaotong Liu",
+   "Pierre-Paul De Breuck",
+   "Linghui Wang",
+   "Gian-Marco Rignanese"
+  ],
+  "year": 2022,
+  "venue": "npj Computational Materials",
+  "volume": "8",
+  "page": "233",
+  "type": "journal-article"
+ },
+ "ko2024gap": {
+  "doi": "10.1016/j.mtcomm.2024.110717",
+  "ok": true,
+  "title": "Enhancing predictions of experimental band gap using machine learning and knowledge transfer",
+  "first_author": "Ko, Taeseo",
+  "n_authors": 4,
+  "authors": [
+   "Taeseo Ko",
+   "Taehyun Park",
+   "Minseon Kim",
+   "Kyoungmin Min"
+  ],
+  "year": 2024,
+  "venue": "Materials Today Communications",
+  "volume": "41",
+  "page": "110717",
+  "type": "journal-article"
+ },
+ "pilania2017mf": {
+  "doi": "10.1016/j.commatsci.2016.12.004",
+  "ok": true,
+  "title": "Multi-fidelity machine learning models for accurate bandgap predictions of solids",
+  "first_author": "Pilania, G.",
+  "n_authors": 3,
+  "authors": [
+   "G. Pilania",
+   "J.E. Gubernatis",
+   "T. Lookman"
+  ],
+  "year": 2017,
+  "venue": "Computational Materials Science",
+  "volume": "129",
+  "page": "156-163",
+  "type": "journal-article"
  }
 }

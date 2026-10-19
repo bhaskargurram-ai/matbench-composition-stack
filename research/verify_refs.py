@@ -35,6 +35,12 @@ DOIS = {
  "ward2018bmg": "10.1016/j.actamat.2018.08.002",
  "yang2012ss": "10.1016/j.matchemphys.2011.11.021",
  "laws2015ape": "10.1038/ncomms9123",
+ "lee2016gap": "10.1103/PhysRevB.93.115104",
+ "chen2021multifidelity": "10.1038/s43588-020-00002-x",
+ "jha2019transfer": "10.1038/s41467-019-13297-w",
+ "liu2022denoise": "10.1038/s41524-022-00925-1",
+ "ko2024gap": "10.1016/j.mtcomm.2024.110717",
+ "pilania2017mf": "10.1016/j.commatsci.2016.12.004",
 }
 out = {}
 for k, d in DOIS.items():

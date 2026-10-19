@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{31}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -30,21 +30,15 @@
   \bibinfo{pages}{49--64}.
 \newblock \DOIprefix\doi{10.1007/BF00117832}.
 %Type = Article
-\bibitem[{Breiman(2001)}]{breiman2001rf}
-\bibinfo{author}{Breiman, L.}, \bibinfo{year}{2001}.
-\newblock \bibinfo{title}{{Random Forests}}.
-\newblock \bibinfo{journal}{Machine Learning} \bibinfo{volume}{45},
-  \bibinfo{pages}{5--32}.
-\newblock \DOIprefix\doi{10.1023/A:1010933404324}.
-%Type = Article
-\bibitem[{Chang et~al.(2022)Chang, Wang and Ertekin}]{chang2022moe}
-\bibinfo{author}{Chang, R.}, \bibinfo{author}{Wang, Y.X.},
-  \bibinfo{author}{Ertekin, E.}, \bibinfo{year}{2022}.
-\newblock \bibinfo{title}{{Towards overcoming data scarcity in materials
-  science: unifying models and datasets with a mixture of experts framework}}.
-\newblock \bibinfo{journal}{npj Computational Materials} \bibinfo{volume}{8},
-  \bibinfo{pages}{242}.
-\newblock \DOIprefix\doi{10.1038/s41524-022-00929-x}.
+\bibitem[{Chen et~al.(2021)Chen, Zuo, Ye, Li and Ong}]{chen2021multifidelity}
+\bibinfo{author}{Chen, C.}, \bibinfo{author}{Zuo, Y.}, \bibinfo{author}{Ye,
+  W.}, \bibinfo{author}{Li, X.}, \bibinfo{author}{Ong, S.P.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{{Learning properties of ordered and disordered
+  materials from multi-fidelity data}}.
+\newblock \bibinfo{journal}{Nature Computational Science} \bibinfo{volume}{1},
+  \bibinfo{pages}{46--53}.
+\newblock \DOIprefix\doi{10.1038/s43588-020-00002-x}.
 %Type = Inproceedings
 \bibitem[{Chen and Guestrin(2016)}]{chen2016xgboost}
 \bibinfo{author}{Chen, T.}, \bibinfo{author}{Guestrin, C.},
@@ -54,20 +48,10 @@
   Mining}, pp. \bibinfo{pages}{785--794}.
 \newblock \DOIprefix\doi{10.1145/2939672.2939785}.
 %Type = Article
-\bibitem[{{De Breuck} et~al.(2021a){De Breuck}, Evans and
-  Rignanese}]{debreuck2021bias}
-\bibinfo{author}{{De Breuck}, P.P.}, \bibinfo{author}{Evans, M.L.},
-  \bibinfo{author}{Rignanese, G.M.}, \bibinfo{year}{2021}a.
-\newblock \bibinfo{title}{{Robust model benchmarking and bias-imbalance in
-  data-driven materials science: a case study on MODNet}}.
-\newblock \bibinfo{journal}{Journal of Physics: Condensed Matter}
-  \bibinfo{volume}{33}, \bibinfo{pages}{404002}.
-\newblock \DOIprefix\doi{10.1088/1361-648x/ac1280}.
-%Type = Article
-\bibitem[{{De Breuck} et~al.(2021b){De Breuck}, Hautier and
+\bibitem[{{De Breuck} et~al.(2021){De Breuck}, Hautier and
   Rignanese}]{debreuck2021modnet}
 \bibinfo{author}{{De Breuck}, P.P.}, \bibinfo{author}{Hautier, G.},
-  \bibinfo{author}{Rignanese, G.M.}, \bibinfo{year}{2021}b.
+  \bibinfo{author}{Rignanese, G.M.}, \bibinfo{year}{2021}.
 \newblock \bibinfo{title}{{Materials property prediction for limited datasets
   enabled by feature selection and joint learning with MODNet}}.
 \newblock \bibinfo{journal}{npj Computational Materials} \bibinfo{volume}{7},
@@ -92,25 +76,6 @@
 \newblock \bibinfo{journal}{Machine Learning} \bibinfo{volume}{63},
   \bibinfo{pages}{3--42}.
 \newblock \DOIprefix\doi{10.1007/s10994-006-6226-1}.
-%Type = Article
-\bibitem[{Goodall and Lee(2020)}]{goodall2020roost}
-\bibinfo{author}{Goodall, R.E.A.}, \bibinfo{author}{Lee, A.A.},
-  \bibinfo{year}{2020}.
-\newblock \bibinfo{title}{{Predicting materials properties without crystal
-  structure: deep representation learning from stoichiometry}}.
-\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{11},
-  \bibinfo{pages}{6280}.
-\newblock \DOIprefix\doi{10.1038/s41467-020-19964-7}.
-%Type = Misc
-\bibitem[{Gouv{\^e}a et~al.(2025)Gouv{\^e}a, {De Breuck}, Pretto, Rignanese and
-  Santos}]{gouvea2025mattervial}
-\bibinfo{author}{Gouv{\^e}a, R.A.}, \bibinfo{author}{{De Breuck}, P.P.},
-  \bibinfo{author}{Pretto, T.}, \bibinfo{author}{Rignanese, G.M.},
-  \bibinfo{author}{Santos, M.J.L.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{{Combining feature-based approaches with graph neural
-  networks and symbolic regression for synergistic performance and
-  interpretability}}.
-\newblock \bibinfo{howpublished}{arXiv:2509.03547}.
 %Type = Misc
 \bibitem[{Gurram(2026)}]{gurram2026signet}
 \bibinfo{author}{Gurram, B.}, \bibinfo{year}{2026}.
@@ -118,28 +83,6 @@
   novelty-damped local out-of-fold residual correction}.
 \newblock \bibinfo{howpublished}{Manuscript submitted; code at
   \url{https://github.com/bhaskargurram-ai/SIG-Net}}.
-%Type = Article
-\bibitem[{Hengl et~al.(2007)Hengl, Heuvelink and Rossiter}]{hengl2007rk}
-\bibinfo{author}{Hengl, T.}, \bibinfo{author}{Heuvelink, G.B.},
-  \bibinfo{author}{Rossiter, D.G.}, \bibinfo{year}{2007}.
-\newblock \bibinfo{title}{{About regression-kriging: From equations to case
-  studies}}.
-\newblock \bibinfo{journal}{Computers \& Geosciences} \bibinfo{volume}{33},
-  \bibinfo{pages}{1301--1315}.
-\newblock \DOIprefix\doi{10.1016/j.cageo.2007.05.001}.
-%Type = Article
-\bibitem[{Hollmann et~al.(2025)Hollmann, Müller, Purucker, Krishnakumar,
-  Körfer, Hoo, Schirrmeister and Hutter}]{hollmann2025tabpfn}
-\bibinfo{author}{Hollmann, N.}, \bibinfo{author}{Müller, S.},
-  \bibinfo{author}{Purucker, L.}, \bibinfo{author}{Krishnakumar, A.},
-  \bibinfo{author}{Körfer, M.}, \bibinfo{author}{Hoo, S.B.},
-  \bibinfo{author}{Schirrmeister, R.T.}, \bibinfo{author}{Hutter, F.},
-  \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{{Accurate predictions on small data with a tabular
-  foundation model}}.
-\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{637},
-  \bibinfo{pages}{319--326}.
-\newblock \DOIprefix\doi{10.1038/s41586-024-08328-6}.
 %Type = Article
 \bibitem[{Jain et~al.(2013)Jain, Ong, Hautier, Chen, Richards, Dacek, Cholia,
   Gunter, Skinner, Ceder and Persson}]{jain2013mp}
@@ -154,6 +97,19 @@
 \newblock \bibinfo{journal}{APL Materials} \bibinfo{volume}{1},
   \bibinfo{pages}{011002}.
 \newblock \DOIprefix\doi{10.1063/1.4812323}.
+%Type = Article
+\bibitem[{Jha et~al.(2019)Jha, Choudhary, Tavazza, keng Liao, Choudhary,
+  Campbell and Agrawal}]{jha2019transfer}
+\bibinfo{author}{Jha, D.}, \bibinfo{author}{Choudhary, K.},
+  \bibinfo{author}{Tavazza, F.}, \bibinfo{author}{keng Liao, W.},
+  \bibinfo{author}{Choudhary, A.}, \bibinfo{author}{Campbell, C.},
+  \bibinfo{author}{Agrawal, A.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{{Enhancing materials property prediction by
+  leveraging computational and experimental data using deep transfer
+  learning}}.
+\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{10},
+  \bibinfo{pages}{5316}.
+\newblock \DOIprefix\doi{10.1038/s41467-019-13297-w}.
 %Type = Article
 \bibitem[{Kauwe et~al.(2020)Kauwe, Welker and Sparks}]{kauwe2020bandgap}
 \bibinfo{author}{Kauwe, S.K.}, \bibinfo{author}{Welker, T.},
@@ -174,6 +130,15 @@
   Decision Tree}}, in: \bibinfo{booktitle}{Advances in Neural Information
   Processing Systems 30}.
 %Type = Article
+\bibitem[{Ko et~al.(2024)Ko, Park, Kim and Min}]{ko2024gap}
+\bibinfo{author}{Ko, T.}, \bibinfo{author}{Park, T.}, \bibinfo{author}{Kim,
+  M.}, \bibinfo{author}{Min, K.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{{Enhancing predictions of experimental band gap using
+  machine learning and knowledge transfer}}.
+\newblock \bibinfo{journal}{Materials Today Communications}
+  \bibinfo{volume}{41}, \bibinfo{pages}{110717}.
+\newblock \DOIprefix\doi{10.1016/j.mtcomm.2024.110717}.
+%Type = Article
 \bibitem[{van~der Laan et~al.(2007)van~der Laan, Polley and
   Hubbard}]{vanderlaan2007super}
 \bibinfo{author}{van~der Laan, M.J.}, \bibinfo{author}{Polley, E.C.},
@@ -191,6 +156,35 @@
 \newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{6},
   \bibinfo{pages}{8123}.
 \newblock \DOIprefix\doi{10.1038/ncomms9123}.
+%Type = Article
+\bibitem[{Lee et~al.(2016)Lee, Seko, Shitara, Nakayama and Tanaka}]{lee2016gap}
+\bibinfo{author}{Lee, J.}, \bibinfo{author}{Seko, A.},
+  \bibinfo{author}{Shitara, K.}, \bibinfo{author}{Nakayama, K.},
+  \bibinfo{author}{Tanaka, I.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{{Prediction model of band gap for inorganic compounds
+  by combination of density functional theory calculations and machine learning
+  techniques}}.
+\newblock \bibinfo{journal}{Physical Review B} \bibinfo{volume}{93},
+  \bibinfo{pages}{115104}.
+\newblock \DOIprefix\doi{10.1103/PhysRevB.93.115104}.
+%Type = Article
+\bibitem[{Liu et~al.(2022)Liu, {De Breuck}, Wang and
+  Rignanese}]{liu2022denoise}
+\bibinfo{author}{Liu, X.}, \bibinfo{author}{{De Breuck}, P.P.},
+  \bibinfo{author}{Wang, L.}, \bibinfo{author}{Rignanese, G.M.},
+  \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{{A simple denoising approach to exploit
+  multi-fidelity data for machine learning materials properties}}.
+\newblock \bibinfo{journal}{npj Computational Materials} \bibinfo{volume}{8},
+  \bibinfo{pages}{233}.
+\newblock \DOIprefix\doi{10.1038/s41524-022-00925-1}.
+%Type = Misc
+\bibitem[{Ma et~al.(2025)Ma, Dugan and Solja{\v{c}}i{\'c}}]{ma2025gap}
+\bibinfo{author}{Ma, A.}, \bibinfo{author}{Dugan, O.},
+  \bibinfo{author}{Solja{\v{c}}i{\'c}, M.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{{Predicting band gap from chemical composition: A
+  simple learned model for a material property with atypical statistics}}.
+\newblock \bibinfo{howpublished}{arXiv:2501.02932}.
 %Type = Misc
 \bibitem[{{Matbench developers}(2026)}]{matbenchboard}
 \bibinfo{author}{{Matbench developers}}, \bibinfo{year}{2026}.
@@ -211,22 +205,6 @@
 \newblock \bibinfo{journal}{Physical Review B} \bibinfo{volume}{89},
   \bibinfo{pages}{094104}.
 \newblock \DOIprefix\doi{10.1103/PhysRevB.89.094104}.
-%Type = Article
-\bibitem[{Miccio(2025)}]{miccio2025ee}
-\bibinfo{author}{Miccio, L.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{{Machine learning-driven property prediction for
-  materials in data-scarcity scenarios: Ensemble of experts approach}}.
-\newblock \bibinfo{journal}{Computational Materials Science}
-  \bibinfo{volume}{258}, \bibinfo{pages}{114092}.
-\newblock \DOIprefix\doi{10.1016/j.commatsci.2025.114092}.
-%Type = Article
-\bibitem[{Nadeau and Bengio(2003)}]{nadeau2003inference}
-\bibinfo{author}{Nadeau, C.}, \bibinfo{author}{Bengio, Y.},
-  \bibinfo{year}{2003}.
-\newblock \bibinfo{title}{{Inference for the Generalization Error}}.
-\newblock \bibinfo{journal}{Machine Learning} \bibinfo{volume}{52},
-  \bibinfo{pages}{239--281}.
-\newblock \DOIprefix\doi{10.1023/A:1024068626366}.
 %Type = Article
 \bibitem[{Oliynyk et~al.(2016)Oliynyk, Antono, Sparks, Ghadbeigi, Gaultois,
   Meredig and Mar}]{oliynyk2016}
@@ -269,6 +247,15 @@
 \newblock \bibinfo{title}{{Scikit-learn: Machine Learning in Python}}.
 \newblock \bibinfo{journal}{Journal of Machine Learning Research}
   \bibinfo{volume}{12}, \bibinfo{pages}{2825--2830}.
+%Type = Article
+\bibitem[{Pilania et~al.(2017)Pilania, Gubernatis and Lookman}]{pilania2017mf}
+\bibinfo{author}{Pilania, G.}, \bibinfo{author}{Gubernatis, J.},
+  \bibinfo{author}{Lookman, T.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{{Multi-fidelity machine learning models for accurate
+  bandgap predictions of solids}}.
+\newblock \bibinfo{journal}{Computational Materials Science}
+  \bibinfo{volume}{129}, \bibinfo{pages}{156--163}.
+\newblock \DOIprefix\doi{10.1016/j.commatsci.2016.12.004}.
 %Type = Inproceedings
 \bibitem[{Prokhorenkova et~al.(2018)Prokhorenkova, Gusev, Vorobev, Dorogush and
   Gulin}]{prokhorenkova2018catboost}
@@ -278,24 +265,6 @@
 \newblock \bibinfo{title}{{CatBoost: unbiased boosting with categorical
   features}}, in: \bibinfo{booktitle}{Advances in Neural Information Processing
   Systems 31}.
-%Type = Article
-\bibitem[{Ramakrishnan et~al.(2015)Ramakrishnan, Dral, Rupp and von
-  Lilienfeld}]{ramakrishnan2015delta}
-\bibinfo{author}{Ramakrishnan, R.}, \bibinfo{author}{Dral, P.O.},
-  \bibinfo{author}{Rupp, M.}, \bibinfo{author}{von Lilienfeld, O.A.},
-  \bibinfo{year}{2015}.
-\newblock \bibinfo{title}{{Big Data Meets Quantum Chemistry Approximations: The
-  $\Delta$-Machine Learning Approach}}.
-\newblock \bibinfo{journal}{Journal of Chemical Theory and Computation}
-  \bibinfo{volume}{11}, \bibinfo{pages}{2087--2096}.
-\newblock \DOIprefix\doi{10.1021/acs.jctc.5b00099}.
-%Type = Misc
-\bibitem[{Shmalo(2026)}]{shmalo2026kernel}
-\bibinfo{author}{Shmalo, Y.}, \bibinfo{year}{2026}.
-\newblock \bibinfo{title}{{Neural Means and Kernel Corrections for Operator
-  Learning}}.
-\newblock \bibinfo{howpublished}{Zenodo preprint}.
-\newblock \DOIprefix\doi{10.5281/zenodo.23329780}.
 %Type = Article
 \bibitem[{Wang et~al.(2021)Wang, Kauwe, Murdock and Sparks}]{wang2021crabnet}
 \bibinfo{author}{Wang, A.Y.T.}, \bibinfo{author}{Kauwe, S.K.},
@@ -362,27 +331,5 @@
 \newblock \bibinfo{journal}{Materials Chemistry and Physics}
   \bibinfo{volume}{132}, \bibinfo{pages}{233--238}.
 \newblock \DOIprefix\doi{10.1016/j.matchemphys.2011.11.021}.
-%Type = Article
-\bibitem[{Zhao et~al.(2025)Zhao, Li, Yin, Zhang, Long, Yang, Cao and
-  Guo}]{zhao2025hea}
-\bibinfo{author}{Zhao, S.}, \bibinfo{author}{Li, Z.}, \bibinfo{author}{Yin,
-  C.}, \bibinfo{author}{Zhang, Z.}, \bibinfo{author}{Long, T.},
-  \bibinfo{author}{Yang, J.}, \bibinfo{author}{Cao, R.}, \bibinfo{author}{Guo,
-  Y.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{{An interpretable stacking ensemble model for
-  high-entropy alloy mechanical property prediction}}.
-\newblock \bibinfo{journal}{Frontiers in Materials} \bibinfo{volume}{12},
-  \bibinfo{pages}{1601874}.
-\newblock \DOIprefix\doi{10.3389/fmats.2025.1601874}.
-%Type = Article
-\bibitem[{Zou et~al.(2025)Zou, Zhao, Lu, Wang, Deng and Wang}]{zou2025ecsg}
-\bibinfo{author}{Zou, H.}, \bibinfo{author}{Zhao, H.}, \bibinfo{author}{Lu,
-  M.}, \bibinfo{author}{Wang, J.}, \bibinfo{author}{Deng, Z.},
-  \bibinfo{author}{Wang, J.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{{Predicting thermodynamic stability of inorganic
-  compounds using ensemble machine learning based on electron configuration}}.
-\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{16},
-  \bibinfo{pages}{203}.
-\newblock \DOIprefix\doi{10.1038/s41467-024-55525-y}.
 
 \end{thebibliography}

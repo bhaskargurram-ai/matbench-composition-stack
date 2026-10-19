@@ -1,0 +1,40 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Like-for-like caveat}
+The expt\_gap result is not a like-for-like comparison of learning algorithms. Our pipeline feeds PBE band gaps and formation energies from the Materials Project into the experts. The leaders use no external computed data: Darwin is a scientific language model fine-tuned on the task, and MODNet and TPOT-Mat use only composition descriptors.
+What the result does show is the value of disclosed DFT transfer on this benchmark, under a protocol in which every choice is made inside the training folds.
+This agrees with a long line of work showing that computed gaps are informative inputs or low-fidelity sources for experimental gaps \citep{lee2016gap,pilania2017mf,kauwe2020bandgap,chen2021multifidelity,liu2022denoise,ko2024gap}.
+The ablation separates two sources of gain on expt\_gap: the DFT block, and an explicit treatment of the point mass at $E_g=0$.
+
+\paragraph{Where the pipeline does not lead}
+On glass, MODNet v0.1.12's public predictions reach a probability ROC-AUC of \AtwoLeaderAUCGlass, against our \AtwoAUCGlass{}. Neither the glass-formation descriptors nor any CPU-feasible expert we tried closed this gap.
+On expt\_is\_metal and steels the pipeline is statistically on par with the leaders.
+We did not audit the leaders' protocols, for example whether all of their tuning was confined to the training folds.
+
+\paragraph{Classification metrics}
+The board's ``ROC-AUC'' for the classification leaders is, in effect, balanced accuracy. Darwin recorded labels. MODNet recorded probabilities that the \texttt{matbench} version used for its board entry thresholded at 0.5.
+Our probability ROC-AUC on expt\_is\_metal (\AtwoAUCMetal) is therefore not comparable to the board's numbers.
+We recommend reporting both quantities in separate columns.
+
+\paragraph{The local correction}
+The local residual correction that motivated this work transferred only weakly from chemistry to materials. Once its benefit had to survive a nested inner-CV check, it was never kept. We report it as a negative result.
+
+\paragraph{Limitations}
+\begin{itemize}
+\item \textbf{Two looks at the test folds.} Run~2 was written after run~1 had been scored, so its motivation, though none of its choices, depended on the first test results. Both runs are reported.
+\item \textbf{Candidate space from fold 0.} The candidate feature blocks and expert pool were developed on fold~0's training rows. Those rows contain the test rows of folds 1--4.
+\item \textbf{Optimistic tuning OOF.} The tuned expert's OOF predictions are mildly optimistic, because tuning and stacking share inner splits. This can affect only the stack weights.
+\item \textbf{Scope.} Four tasks, CPU-feasible experts only, five folds and a single seed limit the power and generality of the conclusions.
+\item \textbf{Post-hoc ablation.} The ablation is descriptive.
+\end{itemize}
+
+\section{Conclusions}
+\label{sec:conclusions}
+Under two pre-registered, fully nested protocols on the Matbench v0.1 composition tasks, a cross-fitted stack of standard experts with a disclosed DFT feature block and a hurdle model for zero-inflated gaps:
+\begin{itemize}
+\item lowered the experimental band-gap MAE to \AtwoFinalGap~eV, below the current leader;
+\item was on par with the leaders for metallicity and steel yield strength;
+\item remained behind on glass formation.
+\end{itemize}
+The local residual correction that originally motivated the study did not survive nested validation.

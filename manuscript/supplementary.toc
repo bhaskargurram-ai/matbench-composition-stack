@@ -1,0 +1,15 @@
+\contentsline {section}{S1. Pre-registration, amendments and the post-hoc ablation}{1}{section*.2}%
+\contentsline {subsection}{\numberline {0.1}Novelty-damped local OOF residual correction}{2}{subsection.0.1}%
+\contentsline {subsection}{\numberline {0.2}Fold-matched correction}{2}{subsection.0.2}%
+\contentsline {subsection}{\numberline {0.3}Hard labels for classification}{3}{subsection.0.3}%
+\contentsline {section}{S3. Per-fold design selection (run 1)}{3}{section*.4}%
+\contentsline {section}{\numberline {S4}Results I: the transferred local correction (Amendment 1)}{4}{section.1}%
+\contentsline {subsection}{\numberline {S4.1}All arms on the official folds}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {S4.2}Primary endpoint: does the local correction transfer?}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {S4.3}Where the correction helps and hurts}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {S4.4}Ablations and controls}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {S4.5}Comparison with the Matbench leaderboard}{6}{subsection.1.5}%
+\contentsline {subsection}{\numberline {S4.6}Calibration and compute}{6}{subsection.1.6}%
+\contentsline {section}{S5. Run-2 arms, experts and stack weights}{9}{section*.5}%
+\contentsline {section}{S6. Ideation and prior-art process}{9}{section*.6}%
+\contentsline {section}{S7. Leaderboard snapshot and label-based classification scores}{10}{section*.7}%

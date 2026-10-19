@@ -72,6 +72,12 @@ out.append("""@inproceedings{prokhorenkova2018catboost,
   booktitle = {Advances in Neural Information Processing Systems 31},
   year = {2018}
 }""")
+out.append("""@misc{ma2025gap,
+  author = {Andrew Ma and Owen Dugan and Marin Solja{\\v{c}}i{\\'c}},
+  title = {{Predicting band gap from chemical composition: A simple learned model for a material property with atypical statistics}},
+  year = {2025},
+  howpublished = {arXiv:2501.02932}
+}""")
 out.append("""@misc{matbenchboard,
   author = {{Matbench developers}},
   title = {{Matbench leaderboard (per-task leaderboards, matbench v0.1)}},

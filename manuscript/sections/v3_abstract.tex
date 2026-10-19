@@ -1,0 +1,27 @@
+\begin{abstract}
+Experimental composition–property datasets are small, while computed properties of related compounds are abundant.
+We evaluate DFT-informed, cross-fitted stacked ensembles on the four composition tasks of Matbench v0.1: steel yield strength, experimental band gap, metallicity and glass formation. The protocol is strict: official folds only, every choice made by cross-validation inside each training fold, and the analysis plan and code frozen by SHA-256 hash before each scoring of the test folds.
+
+\textbf{Pipeline.} Standard composition experts are stacked with simplex weights, with three additions:
+\begin{itemize}
+\item a disclosed transfer-learning block of PBE band gaps and formation energies from offline Materials Project data, matched by reduced formula;
+\item hurdle experts for the zero-inflated band gap;
+\item Optuna-tuned gradient boosting.
+\end{itemize}
+
+\textbf{Results} (paired over the same test compositions, using the leaders' public predictions):
+\begin{itemize}
+\item \textbf{band gap:} MAE \AtwoFinalGap{}~eV against \AtwoLeaderGap{}~eV for the best leaderboard entry (\AtwoPHolmExprGap);
+\item \textbf{metallicity and steel yield strength:} on par with the leaders;
+\item \textbf{glass formation:} clearly behind.
+\end{itemize}
+The leaders use no external DFT data, so these are not like-for-like comparisons of learning algorithms.
+
+A post-hoc ablation attributes the band-gap gain to the DFT block and the hurdle model: without them the MAE is \AblNoDftGap{} and \AblNoHurdleGap{}~eV, respectively.
+
+\textbf{Negative finding.} A novelty-damped local residual correction, tested in a first pre-registered run, transferred only weakly from our earlier chemistry work. It was never retained under nested validation.
+
+\textbf{Metric note.} The leaderboard's classification ``ROC-AUC'' values for the leaders are in effect balanced accuracies.
+
+All computation used one 24-core CPU workstation.
+\end{abstract}

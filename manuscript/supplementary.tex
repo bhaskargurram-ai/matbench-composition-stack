@@ -2,71 +2,100 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[margin=2.2cm]{geometry}
-\usepackage{booktabs,adjustbox,amsmath,url}
+\usepackage{booktabs,adjustbox,amsmath,amssymb,url,graphicx}
 \usepackage[hidelinks]{hyperref}
 \input{generated/numbers.tex}
-\title{Supplementary Material for ``A pre-registered test of cross-fitted stacking with a novelty-damped local residual correction on the Matbench composition tasks''}
+\input{generated/numbers_a2.tex}
+\input{generated/numbers_ablation.tex}
+\title{Supplementary Material for ``DFT-informed stacked ensembles for experimental composition--property prediction: two pre-registered, fully nested evaluations on Matbench''}
 \author{Bhaskar Gurram (Independent Researcher)}
 \date{}
 \begin{document}
 \maketitle
+\tableofcontents
 
-\section*{S1. Pre-registration and amendment}
-The analysis plan (\texttt{ANALYSIS\_PLAN.md}) and SHA-256 hashes of all code were committed before any official test fold was scored.
+\section*{S1. Pre-registration, amendments and the post-hoc ablation}
+\addcontentsline{toc}{section}{S1. Pre-registration, amendments and the post-hoc ablation}
+The analysis plan (\texttt{ANALYSIS\_PLAN.md}) and SHA-256 hashes of all code were committed before each scoring of the official test folds.
 \begin{itemize}
-\item \textbf{Original freeze:} \texttt{results/freeze\_hashes\_original\_plan.txt}. Under it, the design was fixed on inner CV of fold~0's training rows.
-\item \textbf{Amendment~1:} \texttt{results/freeze\_hashes.txt}, plan Section~8. Written before any scoring. It moved the choice among the explored design configurations inside every official training fold, because fold~0's training rows contain the test rows of folds 1--4.
-\item \textbf{Superseded run:} a first run under the original plan produced test predictions that were never scored. They are archived unscored in the repository.
-\item \textbf{Deviations:} all are listed in plan Section~7. They are a one-line fix in the scoring script (iterating over each fold's own arms), scheduling-only changes, and reporting scripts.
+\item \textbf{Original freeze} (\texttt{results/freeze\_hashes\_original\_plan.txt}). Under it, the design was fixed on inner CV of fold~0's training rows. A run under this plan produced test predictions that were never scored; they are archived unscored.
+\item \textbf{Amendment~1 = run~1} (\texttt{results/freeze\_hashes.txt}, plan Section~8). Written before any scoring. It moved the choice among the explored design configurations inside every official training fold (Section~S3).
+\item \textbf{Amendment~2 = run~2} (\texttt{results/freeze\_hashes\_amendment2.txt}, plan Sections~9--11). Written after run~1 had been scored.
+  \begin{itemize}
+  \item It changed the expert pool, the features (including the disclosed DFT block) and the correction gate.
+  \item It was frozen before any run-2 test prediction, and scored once.
+  \item The design evidence (fold~0 training rows only) is in \texttt{results/design\_a2/DESIGN\_LOG\_A2.md}.
+  \end{itemize}
+\item \textbf{Post-hoc ablation} (plan Section~12). Written after run~2 had been scored and not used for any selection. It re-runs the frozen run-2 code without the DFT block (all tasks) or without the hurdle experts (expt\_gap).
+\item \textbf{Deviations} are listed in plan Sections~7 and~11.
 \end{itemize}
+The leaders' per-sample predictions come from the public \texttt{matbench} repository (\texttt{benchmarks/matbench\_v0.1\_\{TPOT,darwin,modnet\_v0.1.12\}/results.json.gz}).
 
-\section*{S1b. Amendment 2}
-Amendment~2 (plan Sections 9--11, \texttt{results/freeze\_hashes\_amendment2.txt}) was written after the Amendment-1 test results had been seen. It changed the expert pool, the features (including a disclosed DFT transfer block) and the correction gate. It was frozen before any Amendment-2 test prediction, and the test folds were scored once under it. The design evidence (fold~0 training rows only) is in \texttt{results/design\_a2/DESIGN\_LOG\_A2.md}.
-The leaders' per-sample predictions used for the paired comparison come from the public \texttt{matbench} repository (\texttt{benchmarks/matbench\_v0.1\_\{TPOT,darwin,modnet\_v0.1.12\}/results.json.gz}).
+\input{sections/si_a1_methods.tex}
 
-\section*{S2. Per-fold design selection (Amendment 1)}
-Table~\ref{tab:ds} lists the candidate selected inside every official training fold, with the cross-fitted OOF score of the uncorrected global stack for each candidate (MAE for regression; ROC-AUC for classification).
+\section*{S3. Per-fold design selection (run 1)}
+\addcontentsline{toc}{section}{S3. Per-fold design selection (run 1)}
+Inside each official training fold, every candidate was cross-fitted and the one with the best cross-fitted OOF score of the uncorrected stack was kept.
+
 Regression candidates:
 \begin{itemize}
 \item A: base features, L2 stack;
 \item B: base features, L1 stack, plus an L1-objective LightGBM expert;
 \item D: extra features, L1 stack;
-\item C: extra features, L1 stack, plus the L1-LightGBM expert.
+\item C: as D, plus the L1-LightGBM expert.
 \end{itemize}
 Classification candidates: A (base features) and C (extra features).
 
 \begin{table}[h]
 \centering
-\caption{Per-fold design selection (inside each official training fold).}
+\caption{Per-fold design selection in run 1.}
 \label{tab:ds}
 \begin{adjustbox}{max width=\textwidth}
 \input{generated/table_design_selection.tex}
 \end{adjustbox}
 \end{table}
 
-\section*{S3. Ideation and prior-art process}
-Literature search, prior-art checking and idea generation used the ResearchStudio Idea skills (paper-search, scoop-check, idea-spark), driven by an AI assistant; all records are in the repository (\texttt{research/}, \texttt{ideaspark\_run/}).
+\clearpage
+\renewcommand{\thesection}{S4}
+\input{sections/results.tex}
+
+\clearpage
+\section*{S5. Run-2 arms, experts and stack weights}
+\addcontentsline{toc}{section}{S5. Run-2 arms, experts and stack weights}
+\begin{table}[h]
+\centering
+\caption{Run-2 arms and experts on the official folds (mean $\pm$ s.d.\ over folds; probability ROC-AUC for classification).}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/a2_table_arms.tex}
+\end{adjustbox}
+\end{table}
+\begin{table}[h]
+\centering
+\caption{Mean run-2 stack weight per expert over folds.}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/a2_table_weights.tex}
+\end{adjustbox}
+\end{table}
+
+\section*{S6. Ideation and prior-art process}
+\addcontentsline{toc}{section}{S6. Ideation and prior-art process}
+Literature search, prior-art checking and idea generation for run~1 used the ResearchStudio Idea skills (paper-search, scoop-check, idea-spark), driven by an AI assistant. All records are in the repository (\texttt{research/}, \texttt{ideaspark\_run/}).
+
 \begin{itemize}
-\item \textbf{Sources.} Retrieval used arXiv, OpenAlex, Semantic Scholar and Crossref. DBLP failed to return parseable responses, and OpenReview returned no records (rate-limited and off-venue).
-\item \textbf{Prior-art verdict: medium overlap.}
-  \begin{itemize}
-  \item No retrieved work combines cross-fitted heterogeneous stacking, a novelty-damped local OOF correction and the Matbench composition tasks.
-  \item Every component has ancestors: stacking, regression kriging and $\Delta$-learning.
-  \item The closest external works are a stack with a global kernel-ridge residual correction in operator learning, MODNet, and a stacked band-gap ensemble.
-  \end{itemize}
-\item \textbf{Idea card.} idea-spark proposed the fold-matched correction. Its coherence check verified the decomposition naive $=$ analogue $+$ absorption on synthetic instances, and its independent post-revision review passed.
-\item \textbf{Run outcome.} The run ended in a \texttt{needs\_work} state because of an internal inconsistency in the tool's novelty re-audit gate. We therefore treated the proposal as unvalidated and pre-registered it as a secondary arm.
+\item \textbf{Prior-art verdict: medium overlap.} Every component has ancestors (stacking, regression kriging, $\Delta$-learning), but we found no work that combines them on these tasks.
+\item \textbf{Idea card.} idea-spark proposed the fold-matched correction (Section~S2). Its coherence check verified the decomposition on synthetic instances.
+\item \textbf{Run outcome.} The run ended in a \texttt{needs\_work} state because of an internal inconsistency in the tool's novelty gate. We therefore pre-registered the proposal only as a secondary arm.
+\item \textbf{Run-2 literature check.} A further search on DFT-informed and multi-fidelity prediction of experimental band gaps (\texttt{research/paper\_search\_dft/}) added the band-gap transfer and multi-fidelity references cited in the main text.
 \end{itemize}
 
-\section*{S4. Design-phase log}
-All configurations explored on fold~0's training rows (five pseudo-folds) are listed in \texttt{results/design/DESIGN\_LOG.md}.
-These numbers informed only which candidates exist, not the test-fold results.
-
-\section*{S5. Leaderboard snapshot and label-based classification scores}
-The leaderboard values used (\texttt{results/leaderboard\_snapshot.json}) were taken from the per-task Matbench pages on 18 October 2026.
-
-For every listed classification entry, the reported mean ``ROC-AUC'' equals the mean balanced accuracy to four decimals. This is what \texttt{matbench} computes when boolean labels are recorded: ROC-AUC computed from hard labels equals balanced accuracy.
-
-We provide two unsubmitted result files: one with labels at the inner-CV threshold (comparable with the board) and one with probabilities.
+\section*{S7. Leaderboard snapshot and label-based classification scores}
+\addcontentsline{toc}{section}{S7. Leaderboard snapshot and label-based classification scores}
+The leaderboard values (\texttt{results/leaderboard\_snapshot.json}) were taken from the per-task Matbench pages on 18 October 2026.
+For every listed classification entry the reported mean ``ROC-AUC'' equals the mean balanced accuracy to four decimals.
+\begin{itemize}
+\item Darwin's public results contain boolean labels.
+\item MODNet v0.1.12's contain probabilities, yet its board ROC-AUC equals its balanced accuracy. This is consistent with the older \texttt{matbench} scoring thresholding probabilities at 0.5.
+\end{itemize}
+We prepared two unsubmitted result files for each run: one with labels at the inner-CV threshold (comparable with the board) and one with probabilities.
 
 \end{document}

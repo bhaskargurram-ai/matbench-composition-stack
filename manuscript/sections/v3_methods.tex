@@ -1,0 +1,70 @@
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Tasks, splits and protocol}
+We use the four composition-only tasks of Matbench v0.1 with their official five folds, through \texttt{matbench}:
+\begin{itemize}
+\item steels: yield strength, 312 alloys, MAE;
+\item expt\_gap: experimental band gap, 4,604 compounds, MAE;
+\item expt\_is\_metal: metallicity, 4,921 compounds, classification;
+\item glass: glass-forming ability, 5,680 alloys, classification.
+\end{itemize}
+Inside each official training fold $T_k$ the rows are split into $J=5$ inner folds (seed 0).
+All selection uses only $T_k$: hyperparameters, the choice among design configurations, stack weights, the optional local correction and classification thresholds.
+The design space was explored on the training rows of fold~0 only.
+
+Two analysis plans were frozen in turn, each by SHA-256 hashes of all code, and each run scored the test folds once.
+\begin{itemize}
+\item \textbf{Run 1 (Amendment~1).} Originally the design was fixed on fold~0's training rows. Amendment~1 moved the choice among the explored configurations inside every training fold. An earlier, superseded run under the original plan was never scored.
+\item \textbf{Run 2 (Amendment~2).} Written after run~1 had been scored.
+\end{itemize}
+Plans, amendments, freeze hashes, per-fold predictions and the post-hoc ablation (plan Section~12) are in the repository. The Supplementary Material (SI) gives details.
+
+\subsection{Features}
+All descriptors are deterministic functions of the formula and are computed with \texttt{matminer} \citep{ward2018matminer} and \texttt{pymatgen} \citep{ong2013pymatgen}:
+\begin{itemize}
+\item Magpie element-property statistics \citep{ward2016magpie} and element fractions;
+\item stoichiometric, valence-orbital \citep{meredig2014}, ionic, band-centre and atomic-orbital descriptors;
+\item the ``deml'', ``matminer'' and ``megnet\_el'' element-property presets;
+\item Miedema enthalpies, Yang solid-solution parameters \citep{yang2012ss} and atomic packing efficiency \citep{laws2015ape}, as implemented by \citet{ward2018bmg};
+\item Wen alloy descriptors and the transition-metal fraction;
+\item Oliynyk element statistics \citep{oliynyk2016}.
+\end{itemize}
+
+\paragraph{DFT block (disclosed transfer learning)}
+Each composition is matched by reduced formula to the Materials Project PBE data distributed with \texttt{matminer} (\texttt{matbench\_mp\_gap}, joined to \texttt{matbench\_mp\_e\_form}). The block contains:
+\begin{itemize}
+\item the gap, metallicity and formation energy of the lowest-formation-energy polymorph;
+\item the minimum, median and maximum gap over polymorphs, the metallic fraction and the polymorph count;
+\item a match indicator.
+\end{itemize}
+It matches 73\% of the expt\_gap and expt\_is\_metal compositions, 1\% of glass and none of steels.
+The block uses no experimental labels and no pretrained model.
+
+\subsection{Experts}
+\begin{itemize}
+\item \textbf{Gradient boosting.} LightGBM \citep{ke2017lightgbm} on all features, tuned inside $T_k$ by Optuna \citep{akiba2019optuna}: 20 trials, with the default configuration evaluated first. Also XGBoost \citep{chen2016xgboost} and CatBoost \citep{prokhorenkova2018catboost} with fixed settings.
+\item \textbf{Tree ensembles.} Extremely randomised trees \citep{geurts2006et} on two feature sets and on element fractions alone.
+\item \textbf{Kernel, neighbour and neural experts} \citep{pedregosa2011sklearn}: kernel ridge regression or RBF support-vector classifiers on element fractions and on Magpie features, distance-weighted $k$-nearest neighbours, and a two-layer perceptron.
+\item \textbf{Hurdle experts (expt\_gap only).} About half of the experimental gaps are exactly zero. Each hurdle expert pairs a classifier for $E_g>0$ with a regressor fitted on the $E_g>0$ rows, and combines them as $p\,r$ or as $r\,\mathbb{1}[p\ge 0.5]$. The latter is the MAE-optimal rule for a point mass at zero plus a positive part.
+\end{itemize}
+CrabNet- \citep{wang2021crabnet} and MODNet-based experts were implemented but dropped, because a single fit exceeded our CPU budget.
+
+\subsection{Stack, gated correction and thresholds}
+Every expert is cross-fitted inside $T_k$ to give out-of-fold (OOF) predictions.
+A simplex-constrained stack (non-negative weights summing to one) is fitted on these OOF predictions. Its loss is the MAE for regression and the Brier score for classification.
+
+The local OOF residual correction of run~1 adds a kernel-weighted, novelty-damped average of neighbouring training residuals (SI Section~S2). In run~2 it is kept only if a nested inner-CV check confirms that it improves the honest OOF score.
+
+Hard labels use the threshold that maximises balanced accuracy on the training OOF predictions.
+
+\subsection{Endpoints and statistics}
+The endpoints follow the board's semantics.
+\begin{itemize}
+\item \textbf{Regression:} MAE.
+\item \textbf{Classification:} balanced accuracy, because the leaders either recorded labels (Darwin) or were scored by a \texttt{matbench} version that thresholded probabilities at 0.5 (MODNet v0.1.12), which makes their reported ``ROC-AUC'' equal to their balanced accuracy.
+\item \textbf{Run 2 primary comparison:} our final pipeline versus each task's leader, paired over the same test compositions using the leaders' public per-sample predictions.
+\end{itemize}
+
+The test is a bootstrap over test points within folds ($B=10^4$), with Holm correction over the four tasks. We claim to beat a leader only if our mean is better and the Holm-adjusted $p<0.05$.
+Run 1's primary endpoint (corrected versus uncorrected stack) used the same bootstrap. The same statistics are used for the post-hoc ablation, which is descriptive only.

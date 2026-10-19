@@ -12,6 +12,7 @@
 
 \input{generated/numbers.tex}
 \input{generated/numbers_a2.tex}
+\input{generated/numbers_ablation.tex}
 
 \journal{Computational Materials Science}
 
@@ -19,27 +20,26 @@
 
 \begin{frontmatter}
 
-\title{Cross-fitted stacking with DFT transfer descriptors on the Matbench composition tasks: two pre-registered, fully nested evaluations}
+\title{DFT-informed stacked ensembles for experimental composition--property prediction: two pre-registered, fully nested evaluations on Matbench}
 
 \author{Bhaskar Gurram}
 \ead{gurrambhaskar.ai@gmail.com}
 \affiliation{organization={Independent Researcher}}
 
-\input{sections/abstract.tex}
+\input{sections/v3_abstract.tex}
 
 \begin{keyword}
-materials informatics \sep composition-based property prediction \sep Matbench \sep stacking \sep residual correction \sep transfer learning \sep nested cross-validation \sep pre-registration
+materials informatics \sep experimental band gap \sep DFT transfer learning \sep Matbench \sep stacking \sep zero-inflated regression \sep nested cross-validation \sep pre-registration
 \end{keyword}
 
 \end{frontmatter}
 
 \linenumbers
 
-\input{sections/intro_methods.tex}
-\input{sections/methods_a2.tex}
-\input{sections/results.tex}
-\input{sections/results_a2.tex}
-\input{sections/discussion.tex}
+\input{sections/v3_intro.tex}
+\input{sections/v3_methods.tex}
+\input{sections/v3_results.tex}
+\input{sections/v3_discussion.tex}
 
 \section*{Data and code availability}
 All code, the frozen analysis plan (\texttt{ANALYSIS\_PLAN.md}), SHA-256 freeze hashes, per-fold predictions of every arm, per-fold metrics and the unsubmitted Matbench result files are in the repository \url{https://github.com/bhaskargurram-ai/matbench-composition-stack}, which will be made public on submission. The data are the public Matbench v0.1 tasks.

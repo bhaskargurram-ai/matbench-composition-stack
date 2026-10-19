@@ -1,0 +1,90 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{The DFT-informed pipeline versus the leaderboard (run 2)}
+Table~\ref{tab:a2leader} and Fig.~\ref{fig:a2} compare the frozen run-2 pipeline with each task's leader.
+
+\paragraph{expt\_gap}
+The MAE is \AtwoFinalGap{}~eV against \AtwoLeaderGap{}~eV for Darwin. The difference is $\Delta=\AtwoDeltaGap$~eV (95\% CI [\AtwoCIloGap, \AtwoCIhiGap]; \AtwoPHolmExprGap). This is the only task that meets our pre-registered rule for beating the leader.
+
+\paragraph{expt\_is\_metal and steels}
+The pipeline is statistically on par with the leaders:
+\begin{itemize}
+\item expt\_is\_metal: balanced accuracy \AtwoFinalMetal{} versus \AtwoLeaderMetal{} (\AtwoPHolmExprMetal);
+\item steels: MAE \AtwoFinalSteels{} versus \AtwoLeaderSteels~MPa (\AtwoPHolmExprSteels).
+\end{itemize}
+
+\paragraph{glass}
+The pipeline is clearly behind MODNet v0.1.12: \AtwoFinalGlass{} versus \AtwoLeaderGlass{} (\AtwoPHolmExprGlass). This also holds for the probability ROC-AUC (\AtwoAUCGlass{} versus \AtwoLeaderAUCGlass).
+
+\paragraph{Caveat}
+These are not like-for-like comparisons. Our pipeline uses an external DFT block for expt\_gap and expt\_is\_metal, and the leaders did not (Section~\ref{sec:discussion}).
+
+\begin{table}[t]
+\centering
+\caption{Run-2 (Amendment-2) final pipeline versus each task's leaderboard leader, paired over the official test compositions using the leaders' public per-sample predictions. Metrics follow the board: MAE; balanced accuracy for classification. $\Delta$ is ours minus the leader. 95\% CI: paired bootstrap over test points within folds. Holm correction over four tasks. Rank is among the entries of 18 October 2026, including ours.}
+\label{tab:a2leader}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/a2_table_leader.tex}
+\end{adjustbox}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_a2_leader.pdf}
+\caption{Per-fold board metric of the run-2 final pipeline, the task leader and the run-1 primary arm.}
+\label{fig:a2}
+\end{figure}
+
+\subsection{Where the gain comes from: post-hoc ablation}
+The ablation in Table~\ref{tab:ablation} was written after run~2 had been scored and was not used for any selection; the reported pipeline is unchanged. It re-runs the frozen run-2 code, either without the DFT block (all tasks) or without the hurdle experts (expt\_gap).
+
+\paragraph{expt\_gap}
+\begin{itemize}
+\item Without the DFT block, the MAE rises to \AblNoDftGap{}~eV (\AblNoDftGapRel\% relative to the full pipeline, $p_\mathrm{boot}=\AblNoDftGapP$).
+\item Without the hurdle experts, it rises to \AblNoHurdleGap{}~eV (\AblNoHurdleGapRel\%, $p_\mathrm{boot}=\AblNoHurdleGapP$).
+\end{itemize}
+
+\paragraph{expt\_is\_metal}
+Removing the DFT block changes the balanced accuracy to \AblNoDftMetal{} (\AblNoDftMetalRel\%, $p_\mathrm{boot}=\AblNoDftMetalP$).
+
+\paragraph{glass and steels}
+The DFT block matches few or none of the compositions on these tasks, and removing it changes little:
+\begin{itemize}
+\item glass: \AblNoDftGlassRel\%;
+\item steels: \AblNoDftSteelsRel\%.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\caption{Post-hoc ablation of the frozen run-2 pipeline (plan Section~12; not used for selection). Board metric of the run-2 final pipeline and of each variant; paired bootstrap of the difference; number of folds in which the variant is worse; the leader's value, with the $p$-value of the variant versus the leader.}
+\label{tab:ablation}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_ablation.tex}
+\end{adjustbox}
+\end{table}
+
+\subsection{The local residual correction: a negative finding (run 1)}
+Run~1 pre-registered a single primary question: does the novelty-damped local OOF residual correction improve a cross-fitted stack on these tasks?
+\begin{itemize}
+\item \textbf{expt\_gap.} It improved the MAE from \GapStack{} to \GapStackLocal{}~eV (\RelGap\%; 5/5 folds; $p_\mathrm{Holm}=\PHolmGap$).
+\item \textbf{steels.} No detectable effect (\RelSteels\%).
+\item \textbf{Classification tasks.} The inner selection almost never switched the correction on (\GlassNaiveOn/5 and \MetalNaiveOn/5 folds).
+\end{itemize}
+Stratifying the test errors by distance to the nearest training composition showed the correction \emph{hurting} for near-duplicate compositions (expt\_gap \GapLocalQOne\%, steels \SteelsLocalQOne\% in the nearest quartile).
+A fold-matched variant designed to remove the double counting behind this did not help (\GapStackFmVsStackLocalRel\% MAE versus the naive correction on expt\_gap).
+In run~2 the nested gate kept the correction in none of the 20 folds.
+The SI reports all run-1 arms, ablations and controls.
+
+\subsection{Stacking and the two runs}
+Run~2 improved on run~1 on every task (Table~\ref{tab:a1a2}). The improvement is large on expt\_gap and expt\_is\_metal, and within noise on steels ($p=\AtwoVsAonePSteels$).
+The simplex stack beat the best single expert selected by inner CV only on glass (\AtwoStackVsBestGlass\% ROC-AUC, $p=\AtwoStackVsBestPGlass$). Elsewhere it matched that expert.
+On steels, extremely randomised trees on element fractions alone reached \AtwoBestSteels~MPa as the best single expert, against \AtwoStackSteels~MPa for the pre-registered stack, which we report.
+One official fold took a median of \AtwoWallMinSteels--\AtwoWallMinGap{} minutes on a 24-core CPU workstation with five parallel workers.
+
+\begin{table}[t]
+\centering
+\caption{Board metric of the two pre-registered pipelines on the official folds, with a paired bootstrap $p$-value for the difference.}
+\label{tab:a1a2}
+\input{generated/a2_table_a1a2.tex}
+\end{table}

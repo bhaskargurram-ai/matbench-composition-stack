@@ -1,0 +1,1 @@
+[ablation nodft] matbench_expt_gap fold 0: ncols=974 cfg={'n_trials': 20, 'hurdle': True, 'drop_experts': ['et_frac']}

@@ -1,0 +1,30 @@
+\section{Introduction}
+\label{sec:intro}
+
+Experimental materials properties are expensive to measure, so the datasets are small. Yet for many compounds a cheap computed estimate of a closely related property exists.
+The experimental band gap is the canonical example. Density-functional theory (DFT) with semi-local functionals underestimates gaps systematically, but the computed gap still carries much of the chemical trend. Large DFT databases such as the Materials Project \citep{jain2013mp} cover tens of thousands of compositions.
+Using computed values as inputs or as a low-fidelity source has a long history: DFT gaps as features \citep{lee2016gap}, multi-fidelity co-kriging \citep{pilania2017mf}, stacked transfer from DFT-trained models \citep{kauwe2020bandgap}, deep transfer learning \citep{jha2019transfer}, multi-fidelity graph networks \citep{chen2021multifidelity}, multi-fidelity denoising \citep{liu2022denoise}, and knowledge transfer for experimental gaps \citep{ko2024gap}.
+On the public Matbench v0.1 benchmark \citep{dunn2020matbench}, however, the composition-only experimental tasks are led by models that use no external computed data. These are a fine-tuned scientific language model (Darwin) on the two band-gap-derived tasks, an AutoML pipeline (TPOT-Mat) on steels, and MODNet \citep{debreuck2021modnet} on glass-forming ability \citep{matbenchboard}.
+
+This paper asks how far a DFT-informed but otherwise conventional pipeline gets on these four tasks under a strict protocol. The pipeline is a cross-fitted stack of composition experts \citep{wolpert1992stacked,breiman1996stacked,vanderlaan2007super}. The protocol has four rules:
+\begin{itemize}
+\item only the official folds are used;
+\item every model, hyperparameter and design choice is made by cross-validation inside each training fold;
+\item the analysis plan is written, and the code frozen by SHA-256 hash, before any test fold is scored;
+\item every task, fold and comparison is reported.
+\end{itemize}
+
+We report two pre-registered runs.
+\begin{itemize}
+\item \textbf{First run.} It tested the transfer of a novelty-damped local out-of-fold residual correction from our earlier chemistry study \citep{gurram2026signet}. The correction transferred only weakly, and we report this as a short negative finding.
+\item \textbf{Second run.} Written after the first run's results were seen, and disclosed as such, it added a DFT feature block, a hurdle model for the zero-inflated band gap (cf.\ the mixed-variable view of \citealp{ma2025gap}), further descriptors and tuned gradient boosting.
+\end{itemize}
+
+Against the leaders, the DFT-informed pipeline:
+\begin{itemize}
+\item lowers the experimental band-gap MAE below the current best entry;
+\item is on par for metallicity and steel yield strength;
+\item remains clearly behind on glass formation.
+\end{itemize}
+Because the leaders used no external DFT data, these are not like-for-like comparisons of learning algorithms. They show what disclosed transfer of computed data adds under a fully nested protocol.
+A post-hoc ablation, labelled as such, separates the contributions of the DFT block and the hurdle model.

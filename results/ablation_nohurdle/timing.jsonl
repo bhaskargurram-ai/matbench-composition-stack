@@ -1,0 +1,5 @@
+{"variant": "nohurdle", "task": "matbench_expt_gap", "fold": 0, "returncode": 0, "wall_s": 25.0}
+{"variant": "nohurdle", "task": "matbench_expt_gap", "fold": 1, "returncode": 0, "wall_s": 25.0}
+{"variant": "nohurdle", "task": "matbench_expt_gap", "fold": 2, "returncode": 0, "wall_s": 25.0}
+{"variant": "nohurdle", "task": "matbench_expt_gap", "fold": 3, "returncode": 0, "wall_s": 25.0}
+{"variant": "nohurdle", "task": "matbench_expt_gap", "fold": 4, "returncode": 0, "wall_s": 25.0}

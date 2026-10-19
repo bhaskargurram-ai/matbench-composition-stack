@@ -1,0 +1,2 @@
+[ablation nohurdle] matbench_expt_gap fold 4: ncols=984 cfg={'n_trials': 20, 'hurdle': False, 'drop_experts': ['et_frac']}
+[ablation nohurdle] matbench_expt_gap fold 4: done in 21s
