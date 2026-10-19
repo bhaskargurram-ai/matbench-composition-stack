@@ -3,7 +3,11 @@
 
 Experimental materials properties are expensive to measure, so the datasets are small. Yet for many compounds a cheap computed estimate of a closely related property exists.
 The experimental band gap is the canonical example. Density-functional theory (DFT) with semi-local functionals underestimates gaps systematically, but the computed gap still carries much of the chemical trend. Large DFT databases such as the Materials Project \citep{jain2013mp} cover tens of thousands of compositions.
-Using computed values as inputs or as a low-fidelity source has a long history: DFT gaps as features \citep{lee2016gap}, multi-fidelity co-kriging \citep{pilania2017mf}, stacked transfer from DFT-trained models \citep{kauwe2020bandgap}, deep transfer learning \citep{jha2019transfer}, multi-fidelity graph networks \citep{chen2021multifidelity}, multi-fidelity denoising \citep{liu2022denoise}, and knowledge transfer for experimental gaps \citep{ko2024gap}.
+Using computed values as inputs or as a low-fidelity source has a long history.
+\citet{lee2016gap} used Kohn--Sham gaps (PBE and mBJ) together with elemental and compound predictors to predict $G_0W_0$ gaps of 270 inorganic compounds. The test RMSE fell from 0.59~eV, for a linear model on the Kohn--Sham gap alone, to 0.24~eV for support-vector regression on the full predictor set.
+\citet{chen2021multifidelity} trained multi-fidelity graph networks on PBE and higher-fidelity gaps. Including the low-fidelity PBE gaps reduced the MAE of experimental band-gap prediction by 22--45\%. Their model, however, needs a crystal structure for every compound.
+Related approaches include multi-fidelity co-kriging \citep{pilania2017mf}, stacked transfer from DFT-trained models \citep{kauwe2020bandgap}, deep transfer learning \citep{jha2019transfer}, multi-fidelity denoising \citep{liu2022denoise} and knowledge transfer for experimental gaps \citep{ko2024gap}.
+Our DFT block is the simplest member of this family: a lookup of PBE quantities by reduced formula, used as features. It needs no structure for the target compound, which the composition-only Matbench tasks do not provide.
 On the public Matbench v0.1 benchmark \citep{dunn2020matbench}, however, the composition-only experimental tasks are led by models that use no external computed data. These are a fine-tuned scientific language model (Darwin) on the two band-gap-derived tasks, an AutoML pipeline (TPOT-Mat) on steels, and MODNet \citep{debreuck2021modnet} on glass-forming ability \citep{matbenchboard}.
 
 This paper asks how far a DFT-informed but otherwise conventional pipeline gets on these four tasks under a strict protocol. The pipeline is a cross-fitted stack of composition experts \citep{wolpert1992stacked,breiman1996stacked,vanderlaan2007super}. The protocol has four rules:
@@ -26,5 +30,9 @@ Against the leaders, the DFT-informed pipeline:
 \item is on par for metallicity and steel yield strength;
 \item remains clearly behind on glass formation.
 \end{itemize}
-Because the leaders used no external DFT data, these are not like-for-like comparisons of learning algorithms. They show what disclosed transfer of computed data adds under a fully nested protocol.
-A post-hoc ablation, labelled as such, separates the contributions of the DFT block and the hurdle model.
+The leaders used no external data, so beating them on expt\_gap is not a like-for-like comparison of learning algorithms. It shows what disclosed transfer of computed data adds under a fully nested protocol.
+A post-hoc ablation, labelled as such, quantifies how much of the gain is due to the DFT features (Section~\ref{sec:ablation}):
+\begin{itemize}
+\item without them, \AblNoDftGapShareOfLeaderGain\% of the band-gap margin over the leader disappears, and the pipeline is on par with the leader rather than ahead of it;
+\item without them, the metallicity result falls significantly below the leader.
+\end{itemize}

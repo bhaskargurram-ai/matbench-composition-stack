@@ -13,3 +13,4 @@
 \contentsline {section}{S5. Run-2 arms, experts and stack weights}{9}{section*.5}%
 \contentsline {section}{S6. Ideation and prior-art process}{9}{section*.6}%
 \contentsline {section}{S7. Leaderboard snapshot and label-based classification scores}{10}{section*.7}%
+\contentsline {section}{S8. Post-hoc ablation: per-fold values and execution}{10}{section*.8}%

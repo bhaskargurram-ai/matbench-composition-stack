@@ -36,29 +36,49 @@ These are not like-for-like comparisons. Our pipeline uses an external DFT block
 \label{fig:a2}
 \end{figure}
 
-\subsection{Where the gain comes from: post-hoc ablation}
-The ablation in Table~\ref{tab:ablation} was written after run~2 had been scored and was not used for any selection; the reported pipeline is unchanged. It re-runs the frozen run-2 code, either without the DFT block (all tasks) or without the hurdle experts (expt\_gap).
+\subsection{How much of the gain is due to DFT features: post-hoc ablation}
+\label{sec:ablation}
+The ablation was written after run~2 had been scored and was not used for any selection. The reported pipeline and the prepared leaderboard files are unchanged.
+It re-runs the frozen run-2 code with one component removed:
+\begin{itemize}
+\item without the DFT block, on all four tasks;
+\item without the three hurdle experts, on expt\_gap only.
+\end{itemize}
+Each variant was scored once, using the run-2 paired bootstrap (Table~\ref{tab:ablation}). The $p$-values are descriptive and unadjusted.
 
 \paragraph{expt\_gap}
 \begin{itemize}
-\item Without the DFT block, the MAE rises to \AblNoDftGap{}~eV (\AblNoDftGapRel\% relative to the full pipeline, $p_\mathrm{boot}=\AblNoDftGapP$).
-\item Without the hurdle experts, it rises to \AblNoHurdleGap{}~eV (\AblNoHurdleGapRel\%, $p_\mathrm{boot}=\AblNoHurdleGapP$).
+\item \textbf{Without the DFT block,} the MAE rises from \AtwoFinalGap{} to \AblNoDftGap{}~eV ($\Delta=\AblNoDftGapDelta$~eV, 95\% CI [\AblNoDftGapCIlo, \AblNoDftGapCIhi], \AblNoDftGapRel\%, \AblNoDftGapPExpr). It is worse in \AblNoDftGapFoldsWorse/5 folds. This removes \AblNoDftGapShareOfLeaderGain\% of the full pipeline's \AtwoDeltaGap~eV margin over Darwin.
+\item \textbf{Without the hurdle experts,} the MAE rises to \AblNoHurdleGap{}~eV ($\Delta=\AblNoHurdleGapDelta$~eV [\AblNoHurdleGapCIlo, \AblNoHurdleGapCIhi], \AblNoHurdleGapRel\%, \AblNoHurdleGapPExpr; \AblNoHurdleGapFoldsWorse/5 folds). This removes \AblNoHurdleGapShareOfLeaderGain\% of the margin.
+\item \textbf{The two components are not additive.} Each removal alone erases most of the margin. Each variant is statistically on par with Darwin:
+  \begin{itemize}
+  \item without DFT: $\Delta=\AblNoDftGapVsLeader$~eV, \AblNoDftGapVsLeaderPExpr;
+  \item without hurdles: $\Delta=\AblNoHurdleGapVsLeader$~eV, \AblNoHurdleGapVsLeaderPExpr.
+  \end{itemize}
+  Under our claim rule, therefore, neither the DFT block nor the hurdle experts alone would have been enough to beat the leader. This is consistent with the two carrying overlapping information, because the DFT gap and metal flag also indicate which compounds have $E_g=0$.
 \end{itemize}
 
 \paragraph{expt\_is\_metal}
-Removing the DFT block changes the balanced accuracy to \AblNoDftMetal{} (\AblNoDftMetalRel\%, $p_\mathrm{boot}=\AblNoDftMetalP$).
-
-\paragraph{glass and steels}
-The DFT block matches few or none of the compositions on these tasks, and removing it changes little:
+Without the DFT block the balanced accuracy falls from \AtwoFinalMetal{} to \AblNoDftMetal{} ($\Delta=\AblNoDftMetalDelta$ [\AblNoDftMetalCIlo, \AblNoDftMetalCIhi], \AblNoDftMetalPExpr; \AblNoDftMetalFoldsWorse/5 folds).
 \begin{itemize}
-\item glass: \AblNoDftGlassRel\%;
-\item steels: \AblNoDftSteelsRel\%.
+\item The variant is significantly below Darwin ($\Delta=\AblNoDftMetalVsLeader$, \AblNoDftMetalVsLeaderPExpr), so parity with the leader on this task also depends on the DFT block.
+\item The probability ROC-AUC falls less, from \AblNoDftMetalAtwoAUC{} to \AblNoDftMetalAUC.
 \end{itemize}
+
+\paragraph{steels and glass}
+The DFT block matches no steels and 1\% of glass compositions, so it serves mainly as a negative control. Removing it changes nothing detectable:
+\begin{itemize}
+\item steels: \AblNoDftSteels{} versus \AtwoFinalSteels~MPa (\AblNoDftSteelsPExpr);
+\item glass: \AblNoDftGlass{} versus \AtwoFinalGlass{} balanced accuracy (\AblNoDftGlassPExpr).
+\end{itemize}
+The small per-fold differences (SI Section~S8) most likely arise because removing these constant or nearly constant columns changes the random column subsampling of the tree ensembles.
 
 \begin{table}[t]
 \centering
-\caption{Post-hoc ablation of the frozen run-2 pipeline (plan Section~12; not used for selection). Board metric of the run-2 final pipeline and of each variant; paired bootstrap of the difference; number of folds in which the variant is worse; the leader's value, with the $p$-value of the variant versus the leader.}
+\caption{Post-hoc ablation of the frozen run-2 (A2) pipeline (plan Section~12; written after run-2 scoring and not used for selection). Board metric, as mean $\pm$ s.d.\ over the five official folds, of the full A2 pipeline and of each variant. $\Delta$: variant minus full A2, and variant minus the task leader, with the 95\% paired-bootstrap CI ($B=10^4$, resampling test points within folds) and unadjusted $p_\mathrm{boot}$. ``Folds worse'': folds in which the variant is worse than the full pipeline. MAE: lower is better. Balanced accuracy: higher is better. Generated from \texttt{results/ablation\_summary.json}.}
 \label{tab:ablation}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
 \begin{adjustbox}{max width=\textwidth}
 \input{generated/table_ablation.tex}
 \end{adjustbox}

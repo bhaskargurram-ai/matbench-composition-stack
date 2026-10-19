@@ -1,15 +1,43 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{Like-for-like caveat}
-The expt\_gap result is not a like-for-like comparison of learning algorithms. Our pipeline feeds PBE band gaps and formation energies from the Materials Project into the experts. The leaders use no external computed data: Darwin is a scientific language model fine-tuned on the task, and MODNet and TPOT-Mat use only composition descriptors.
-What the result does show is the value of disclosed DFT transfer on this benchmark, under a protocol in which every choice is made inside the training folds.
-This agrees with a long line of work showing that computed gaps are informative inputs or low-fidelity sources for experimental gaps \citep{lee2016gap,pilania2017mf,kauwe2020bandgap,chen2021multifidelity,liu2022denoise,ko2024gap}.
-The ablation separates two sources of gain on expt\_gap: the DFT block, and an explicit treatment of the point mass at $E_g=0$.
+\paragraph{Like-for-like caveat, quantified}
+The expt\_gap result is not a like-for-like comparison of learning algorithms.
+\begin{itemize}
+\item \textbf{The leaders used no external data.} As model inputs they used only the chemical formula and the task's own training labels. TPOT-Mat and MODNet use composition descriptors. Darwin is a language model pre-trained on scientific text and fine-tuned on the task.
+\item \textbf{Our pipeline does use external data.} It feeds PBE band gaps and formation energies from the Materials Project into the experts.
+\end{itemize}
+The ablation (Section~\ref{sec:ablation}) puts a number on this.
+\begin{itemize}
+\item Removing the DFT block raises our band-gap MAE by \AblNoDftGapDelta~eV (\AblNoDftGapRel\%), which is \AblNoDftGapShareOfLeaderGain\% of our margin over Darwin.
+\item The remaining DFT-free pipeline is statistically on par with Darwin (\AblNoDftGap{} versus \AtwoLeaderGap~eV, \AblNoDftGapVsLeaderPExpr), not ahead of it.
+\item On expt\_is\_metal the DFT block likewise turns a result significantly below Darwin into parity.
+\end{itemize}
+The claim that survives is therefore:
+\begin{itemize}
+\item a DFT-free, fully nested stack is on par with the leader on expt\_gap, but below it on expt\_is\_metal;
+\item disclosed DFT transfer adds a further, clearly significant improvement;
+\item that improvement, together with the hurdle experts, takes the pipeline past the leader on expt\_gap and to parity on expt\_is\_metal.
+\end{itemize}
+The hurdle experts matter to a similar degree: without them, too, most of the margin disappears.
+
+\paragraph{Relation to prior DFT-informed gap models}
+That computed gaps are informative inputs or low-fidelity sources for experimental gaps is well established \citep{lee2016gap,pilania2017mf,kauwe2020bandgap,chen2021multifidelity,liu2022denoise,ko2024gap}.
+\begin{itemize}
+\item \textbf{\citet{lee2016gap}} showed, for 270 compounds and $G_0W_0$ targets, that combining Kohn--Sham gaps with elemental predictors in a nonlinear model reduces the RMSE from 0.59 to 0.24~eV, compared with a linear correction of the Kohn--Sham gap alone.
+\item \textbf{\citet{chen2021multifidelity}} reported a 22--45\% lower experimental-gap MAE when low-fidelity PBE gaps were added to multi-fidelity graph networks.
+\end{itemize}
+Adding our DFT block lowers the MAE by \AblNoDftGapGainRel\% relative to the DFT-free variant. This is smaller than the improvement \citet{chen2021multifidelity} report, and it is obtained in a different setting:
+\begin{itemize}
+\item from a formula lookup, without any structure for the target compound;
+\item on the official Matbench folds;
+\item with the DFT block covering only 73\% of the compositions, the remainder being flagged as unmatched.
+\end{itemize}
+The results are not directly comparable, because the datasets, splits, targets and metrics differ.
 
 \paragraph{Where the pipeline does not lead}
 On glass, MODNet v0.1.12's public predictions reach a probability ROC-AUC of \AtwoLeaderAUCGlass, against our \AtwoAUCGlass{}. Neither the glass-formation descriptors nor any CPU-feasible expert we tried closed this gap.
-On expt\_is\_metal and steels the pipeline is statistically on par with the leaders.
+On expt\_is\_metal and steels the pipeline is statistically on par with the leaders. On expt\_is\_metal this parity depends on the DFT block.
 We did not audit the leaders' protocols, for example whether all of their tuning was confined to the training folds.
 
 \paragraph{Classification metrics}
@@ -26,15 +54,15 @@ The local residual correction that motivated this work transferred only weakly f
 \item \textbf{Candidate space from fold 0.} The candidate feature blocks and expert pool were developed on fold~0's training rows. Those rows contain the test rows of folds 1--4.
 \item \textbf{Optimistic tuning OOF.} The tuned expert's OOF predictions are mildly optimistic, because tuning and stacking share inner splits. This can affect only the stack weights.
 \item \textbf{Scope.} Four tasks, CPU-feasible experts only, five folds and a single seed limit the power and generality of the conclusions.
-\item \textbf{Post-hoc ablation.} The ablation is descriptive.
+\item \textbf{Post-hoc ablation.} The ablation was designed after run-2 scoring, is descriptive and reports unadjusted $p$-values. Each component was removed one at a time, so the effects are not additive. It uses one seed, and does not separate the gap features from the formation-energy features within the DFT block.
 \end{itemize}
 
 \section{Conclusions}
 \label{sec:conclusions}
 Under two pre-registered, fully nested protocols on the Matbench v0.1 composition tasks, a cross-fitted stack of standard experts with a disclosed DFT feature block and a hurdle model for zero-inflated gaps:
 \begin{itemize}
-\item lowered the experimental band-gap MAE to \AtwoFinalGap~eV, below the current leader;
-\item was on par with the leaders for metallicity and steel yield strength;
+\item lowered the experimental band-gap MAE to \AtwoFinalGap~eV, below the current leader, which used no external data; without the DFT block the MAE was \AblNoDftGap~eV, on par with that leader;
+\item was on par with the leaders for metallicity (only with the DFT block) and steel yield strength;
 \item remained behind on glass formation.
 \end{itemize}
 The local residual correction that originally motivated the study did not survive nested validation.

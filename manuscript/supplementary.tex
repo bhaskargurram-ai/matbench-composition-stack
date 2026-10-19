@@ -98,4 +98,31 @@ For every listed classification entry the reported mean ``ROC-AUC'' equals the m
 \end{itemize}
 We prepared two unsubmitted result files for each run: one with labels at the inner-CV threshold (comparable with the board) and one with probabilities.
 
+\section*{S8. Post-hoc ablation: per-fold values and execution}
+\addcontentsline{toc}{section}{S8. Post-hoc ablation: per-fold values and execution}
+The ablation (plan Section~12) was written after run~2 had been scored. It was not used for any selection, and it changes neither the reported pipeline nor the prepared leaderboard files.
+
+\begin{itemize}
+\item \textbf{Code.} Each variant re-runs the frozen run-2 code unchanged (\texttt{src/run\_ablation.py}), with either the \texttt{dft\_*} block or the three hurdle experts removed.
+\item \textbf{Cached experts.} Expert caches were reused only where the inputs were byte-identical:
+  \begin{itemize}
+  \item in the no-DFT variant, the experts that read only Magpie or element-fraction columns;
+  \item in the no-hurdle variant, all remaining experts.
+  \end{itemize}
+\item \textbf{Interrupted run.} The run was interrupted once, when all workers were killed.
+  \begin{itemize}
+  \item Before any scoring, the 16 completed folds were checked (loadable, finite, test identifiers equal to the official folds) and committed.
+  \item The 9 interrupted folds (glass 0--3, steels 0--4) were then rerun with the same launcher. Their partially written expert caches were checked to load and reused by the resumable pipeline. All experts are deterministic (deterministic LightGBM, fixed seeds).
+  \end{itemize}
+\item \textbf{Scoring.} All predictions were committed before the single scoring run (\texttt{src/evaluate\_ablation.py}). It uses the same paired bootstrap as the run-2 evaluation, with no multiplicity adjustment because the ablation is descriptive.
+\end{itemize}
+
+\begin{table}[h]
+\centering
+\caption{Per-fold board metric of the full run-2 pipeline and of each ablation variant (full / variant). For classification the mean probability ROC-AUC (full / variant) is also given. The last column gives the number of folds in which the variant's nested gate kept the local correction.}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_ablation_folds.tex}
+\end{adjustbox}
+\end{table}
+
 \end{document}
