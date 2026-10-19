@@ -41,4 +41,4 @@ the test folds were predicted.
 CPU-only, 5 workers x 4 threads; 14.3 worker-hours for all 20 task-folds.
 
 ## Paper and code
-Manuscript in preparation (no DOI or preprint yet). Research repository: https://github.com/bhaskargurram-ai/matbench-composition-stack
+Manuscript under review at Computational Materials Science (no DOI or preprint yet). Research repository: https://github.com/bhaskargurram-ai/matbench-composition-stack

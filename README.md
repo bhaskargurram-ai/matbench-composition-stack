@@ -41,4 +41,4 @@ Python 3.12, CPU only. Install the pinned requirements in
 The full run took about 14 worker-hours (5 workers × 4 threads).
 
 ## Author
-Bhaskar Gurram, Independent Researcher. A manuscript describing this work is in preparation.
+Bhaskar Gurram, Independent Researcher. A manuscript describing this work is under review at Computational Materials Science.
