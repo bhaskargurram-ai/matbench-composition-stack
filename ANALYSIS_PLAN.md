@@ -215,3 +215,20 @@ All choices below were made on fold 0's TRAINING rows only (pseudo-outer folds, 
 - **Execution.** Predictions for all 20 folds were committed (aa9db92) before scoring. Scoring ran once (`src.evaluate2`, about 2026-10-19 08:00 local) with no errors and no re-runs. Results are in `results/final_a2/{stats.json, summary.json, metrics_per_fold.csv}`, and the unsubmitted Matbench files in `results/final_a2/matbench_submission/{labels,probabilities}/` (both `is_valid=True`).
 - **Reporting-only code added after the Amendment-2 freeze:** `src/make_paper_assets2.py` (manuscript tables and figures from the result files) and changes to `research/make_bib.py` (new verified references). None of the frozen pipeline or scoring code changed.
 - **Leader predictions** were downloaded from the public matbench repository on 2026-10-19 and stored under `data/cache/external/leaders/`.
+
+## 12. Post-hoc ablation (written 2026-10-19 after Amendment-2 scoring; NOT used for any selection; the final pipeline is unchanged)
+**Label:** post-hoc ablation, written after Amendment-2 scoring and not used for any selection. The final reported pipeline (Amendment 2) and the prepared leaderboard files do NOT change because of it.
+
+**Variants.** Both re-run the frozen Amendment-2 code unchanged (same experts, inner-CV selection inside each T_k, seeds, J = 5, Optuna budget), except for:
+- **A2-noDFT** (all 4 tasks): the DFT feature block (`dft_*` columns) is removed from every feature group. On expt_gap the hurdle experts are kept.
+- **A2-noHurdle** (expt_gap only): the three hurdle experts are removed and the DFT block is kept. Together with A2-noDFT this separates the two sources of the expt_gap gain.
+
+**Caching.** Expert caches from the Amendment-2 run are reused only for experts whose inputs and configuration are byte-identical:
+- in A2-noDFT, the experts that read only Magpie or element-fraction columns;
+- in A2-noHurdle, every remaining expert, including the tuned LightGBM parameters.
+
+**Statistics.** Each variant is scored once. It is compared with the Amendment-2 final arm (`stack_local`) by:
+- the paired bootstrap over test points within folds (B = 10,000) on the board metric (MAE; balanced accuracy at each pipeline's own inner-CV threshold), reported with the per-fold differences;
+- the same comparison against the leader.
+
+There is no multiplicity claim: the analysis is descriptive.
