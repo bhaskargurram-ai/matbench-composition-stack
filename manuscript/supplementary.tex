@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{booktabs,adjustbox,amsmath,url}
+\usepackage[hidelinks]{hyperref}
+\input{generated/numbers.tex}
+\title{Supplementary Material for ``A pre-registered test of cross-fitted stacking with a novelty-damped local residual correction on the Matbench composition tasks''}
+\author{Bhaskar Gurram (Independent Researcher)}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{S1. Pre-registration and amendment}
+The analysis plan (\texttt{ANALYSIS\_PLAN.md}) and SHA-256 hashes of all code were committed before any official test fold was scored.
+\begin{itemize}
+\item \textbf{Original freeze:} \texttt{results/freeze\_hashes\_original\_plan.txt}. Under it, the design was fixed on inner CV of fold~0's training rows.
+\item \textbf{Amendment~1:} \texttt{results/freeze\_hashes.txt}, plan Section~8. Written before any scoring. It moved the choice among the explored design configurations inside every official training fold, because fold~0's training rows contain the test rows of folds 1--4.
+\item \textbf{Superseded run:} a first run under the original plan produced test predictions that were never scored. They are archived unscored in the repository.
+\item \textbf{Deviations:} all are listed in plan Section~7. They are a one-line fix in the scoring script (iterating over each fold's own arms), scheduling-only changes, and reporting scripts.
+\end{itemize}
+
+\section*{S2. Per-fold design selection}
+Table~\ref{tab:ds} lists the candidate selected inside every official training fold, with the cross-fitted OOF score of the uncorrected global stack for each candidate (MAE for regression; ROC-AUC for classification).
+Regression candidates:
+\begin{itemize}
+\item A: base features, L2 stack;
+\item B: base features, L1 stack, plus an L1-objective LightGBM expert;
+\item D: extra features, L1 stack;
+\item C: extra features, L1 stack, plus the L1-LightGBM expert.
+\end{itemize}
+Classification candidates: A (base features) and C (extra features).
+
+\begin{table}[h]
+\centering
+\caption{Per-fold design selection (inside each official training fold).}
+\label{tab:ds}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_design_selection.tex}
+\end{adjustbox}
+\end{table}
+
+\section*{S3. Ideation and prior-art process}
+Literature search, prior-art checking and idea generation used the ResearchStudio Idea skills (paper-search, scoop-check, idea-spark), driven by an AI assistant; all records are in the repository (\texttt{research/}, \texttt{ideaspark\_run/}).
+\begin{itemize}
+\item \textbf{Sources.} Retrieval used arXiv, OpenAlex, Semantic Scholar and Crossref. DBLP failed to return parseable responses, and OpenReview returned no records (rate-limited and off-venue).
+\item \textbf{Prior-art verdict: medium overlap.}
+  \begin{itemize}
+  \item No retrieved work combines cross-fitted heterogeneous stacking, a novelty-damped local OOF correction and the Matbench composition tasks.
+  \item Every component has ancestors: stacking, regression kriging and $\Delta$-learning.
+  \item The closest external works are a stack with a global kernel-ridge residual correction in operator learning, MODNet, and a stacked band-gap ensemble.
+  \end{itemize}
+\item \textbf{Idea card.} idea-spark proposed the fold-matched correction. Its coherence check verified the decomposition naive $=$ analogue $+$ absorption on synthetic instances, and its independent post-revision review passed.
+\item \textbf{Run outcome.} The run ended in a \texttt{needs\_work} state because of an internal inconsistency in the tool's novelty re-audit gate. We therefore treated the proposal as unvalidated and pre-registered it as a secondary arm.
+\end{itemize}
+
+\section*{S4. Design-phase log}
+All configurations explored on fold~0's training rows (five pseudo-folds) are listed in \texttt{results/design/DESIGN\_LOG.md}.
+These numbers informed only which candidates exist, not the test-fold results.
+
+\section*{S5. Leaderboard snapshot and label-based classification scores}
+The leaderboard values used (\texttt{results/leaderboard\_snapshot.json}) were taken from the per-task Matbench pages on 18 October 2026.
+
+For every listed classification entry, the reported mean ``ROC-AUC'' equals the mean balanced accuracy to four decimals. This is what \texttt{matbench} computes when boolean labels are recorded: ROC-AUC computed from hard labels equals balanced accuracy.
+
+We provide two unsubmitted result files: one with labels at the inner-CV threshold (comparable with the board) and one with probabilities.
+
+\end{document}

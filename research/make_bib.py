@@ -13,7 +13,7 @@ def esc(s):
 
 
 def authors(lst):
-    return " and ".join(lst)
+    return " and ".join(a.replace("Pierre-Paul De Breuck", "Pierre-Paul {De Breuck}") for a in lst)
 
 
 out = []
@@ -45,7 +45,7 @@ out.append("""@misc{shmalo2026kernel,
   doi = {10.5281/zenodo.23329780}
 }""")
 out.append("""@misc{gouvea2025mattervial,
-  author = {Rog{\\'e}rio Almeida Gouv{\\^e}a and Pierre-Paul De Breuck and Tatiane Pretto and Gian-Marco Rignanese and Marcos Jos{\\'e} Leite Santos},
+  author = {Rog{\\'e}rio Almeida Gouv{\\^e}a and Pierre-Paul {De Breuck} and Tatiane Pretto and Gian-Marco Rignanese and Marcos Jos{\\'e} Leite Santos},
   title = {{Combining feature-based approaches with graph neural networks and symbolic regression for synergistic performance and interpretability}},
   year = {2025},
   howpublished = {arXiv:2509.03547}

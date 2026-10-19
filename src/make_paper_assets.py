@@ -105,8 +105,8 @@ def main():
         p = stats[t]["primary"]; k = MACRO[t]
         good = (p["delta"] < 0) if t in REG else (p["delta"] > 0)
         n_improved += int(good and p["boot_p_holm"] < 0.05)
-        M(f"Delta{k}", f"{p['delta']:+.4g}"); M(f"Rel{k}", f"{p['rel_change_pct']:+.2f}")
-        M(f"PBoot{k}", fmt_p(p["boot_p"])); M(f"PHolm{k}", fmt_p(p["boot_p_holm"])); M(f"Folds{k}", f"{p['folds_improved']}")
+        M(f"Delta{k}", f"{p['delta']:+.4g}" if t in REG else f"{p['delta']:+.5f}"); M(f"Rel{k}", f"{p['rel_change_pct']:+.2f}")
+        M(f"PNB{k}", fmt_p(p["nadeau_bengio_p"])); M(f"PBoot{k}", fmt_p(p["boot_p"])); M(f"PHolm{k}", fmt_p(p["boot_p_holm"])); M(f"Folds{k}", f"{p['folds_improved']}")
         m = "mae" if t in REG else "rocauc"
         for a in ("stack", "stack_local", "stack_fm", "best_single", "mean_ensemble", "single_local"):
             M(f"{k}{macro_name(a)}", fmt(summ[t][a][m]["mean"], t))
@@ -137,6 +137,17 @@ def main():
         lines.append(f"{SHORT[t]} & " + " & ".join(f"{x}/5" for x in c) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}"]
     (GEN / "table_selections.tex").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    # ---------------- per-fold design selection table (Amendment 1)
+    lines = [r"\begin{tabular}{llll}", r"\toprule", r"Task & Fold & Selected design & Candidate stack OOF scores \\", r"\midrule"]
+    for t in TASKS:
+        for k, s_ in enumerate(stats[t]["selections"]):
+            ds = s_.get("design_selection") or {}
+            cands = ", ".join(f"{c['candidate'].split('_')[0]}={c['stack_oof_score']:.4f}" for c in ds.get("candidates", []))
+            sel = ds.get("selected", "--").replace("_", r"\_")
+            lines.append(f"{SHORT[t]} & {k} & {sel} & {cands} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    (GEN / "table_design_selection.tex").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     # ---------------- stack weights table (mean over folds)
     experts = sorted({e for t in TASKS for s in stats[t]["selections"] for e in s["stack_weights"]})
@@ -194,6 +205,35 @@ def main():
             if len(sub):
                 M(f"{MACRO[t]}WallMin", f"{sub.wall_s.mean() / 60:.0f}")
         M("TotalCPUhWall", f"{tm.wall_s.sum() / 3600:.1f}")
+    # first (superseded, never scored) run computed every expert from scratch: timing only
+    tf1 = RES / "superseded_unscored_run1_timing.jsonl"
+    if tf1.exists():
+        t1 = pd.read_json(tf1, lines=True)
+        t1 = t1[t1.returncode == 0]
+        for t in TASKS:
+            sub = t1[t1.task == t]
+            if len(sub):
+                M(f"{MACRO[t]}ScratchMin", f"{sub.wall_s.median() / 60:.0f}")
+    import glob
+    for t in TASKS:
+        a = b = 0.0
+        for f in glob.glob(str(RES / t / "fold*_experts*" / "*.npz")):
+            sec = float(np.load(f)["seconds"])
+            if f.endswith("_pairs.npz"):
+                b += sec
+            else:
+                a += sec
+        if a + b > 0:
+            M(f"{MACRO[t]}PairShare", f"{100 * b / (a + b):.0f}")
+    sf0 = RES / "support_strata.csv"
+    if sf0.exists():
+        st0 = pd.read_csv(sf0)
+        words = ["One", "Two", "Three", "Four"]
+        for t in TASKS:
+            g = st0[st0.task == t].groupby(["arm", "bin"])["value"].mean().unstack(0)
+            for b in g.index:
+                for a, nm in (("stack_local", "Local"), ("stack_fm", "Fm")):
+                    M(f"{MACRO[t]}{nm}Q{words[b]}", f"{100 * (g.loc[b, a] - g.loc[b, 'stack']) / g.loc[b, 'stack']:+.1f}")
     (GEN / "numbers.tex").write_text("\n".join(macros) + "\n", encoding="utf-8")
 
     # ---------------- figures
@@ -204,7 +244,7 @@ def main():
                          "axes.edgecolor": "#52514e", "axes.labelcolor": "#0b0b0b", "xtick.color": "#52514e",
                          "ytick.color": "#52514e", "axes.grid": True, "grid.color": "#e6e5e0", "grid.linewidth": 0.5})
     comp = (("stack_local", "naive local corr."), ("stack_fm", "fold-matched corr."), ("best_single", "best single"))
-    fig, axes = plt.subplots(1, 4, figsize=(7.2, 2.1))
+    fig, axes = plt.subplots(1, 4, figsize=(7.2, 2.4))
     for ax, t in zip(axes, TASKS):
         m = "mae" if t in REG else "rocauc"
         sub = per[per.task == t].pivot(index="fold", columns="arm", values=m)
@@ -215,12 +255,13 @@ def main():
         ax.set_title(SHORT[t].replace("\\", ""), fontsize=8)
         ax.set_xlabel("official fold"); ax.set_xticks(range(5))
         ax.set_ylabel(("MAE" if t in REG else "ROC-AUC") + " change vs stack (%)", fontsize=7)
-    axes[0].legend(frameon=False, fontsize=6, loc="best")
-    fig.tight_layout(); fig.savefig(FIG / "fig_perfold.pdf"); plt.close(fig)
+    h, l = axes[0].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper center", ncol=3, frameon=False, fontsize=7)
+    fig.tight_layout(rect=(0, 0, 1, 0.9)); fig.savefig(FIG / "fig_perfold.pdf"); plt.close(fig)
     sf = RES / "support_strata.csv"
     if sf.exists():
         st = pd.read_csv(sf)
-        fig, axes = plt.subplots(1, 4, figsize=(7.2, 2.1))
+        fig, axes = plt.subplots(1, 4, figsize=(7.2, 2.4))
         for ax, t in zip(axes, TASKS):
             sub = st[st.task == t].groupby(["arm", "bin"])["value"].mean().unstack(0)
             for j, (a, l) in enumerate(comp):
@@ -231,8 +272,9 @@ def main():
             ax.set_title(SHORT[t].replace("\\", ""), fontsize=8)
             ax.set_xticks(range(4)); ax.set_xticklabels(["Q1\n(near)", "Q2", "Q3", "Q4\n(far)"])
             ax.set_ylabel(("MAE" if t in REG else "Brier score") + " change vs stack (%)", fontsize=7)
-        axes[0].legend(frameon=False, fontsize=6)
-        fig.tight_layout(); fig.savefig(FIG / "fig_support.pdf"); plt.close(fig)
+        h, l = axes[0].get_legend_handles_labels()
+        fig.legend(h, l, loc="upper center", ncol=3, frameon=False, fontsize=7)
+        fig.tight_layout(rect=(0, 0, 1, 0.9)); fig.savefig(FIG / "fig_support.pdf"); plt.close(fig)
     print("assets written:", sorted(p.name for p in GEN.iterdir()), sorted(p.name for p in FIG.iterdir()))
 
 

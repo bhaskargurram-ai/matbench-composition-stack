@@ -22,15 +22,15 @@ We also test a variant suggested by a structured ideation-and-review process (Se
 \section{Related work}
 \label{sec:related}
 
-\paragraph{Composition models on Matbench.}
+\paragraph{Composition models on Matbench}
 Magpie descriptors with random forests \citep{ward2016magpie} and the Automatminer reference \citep{dunn2020matbench} established the baselines; MODNet \citep{debreuck2021modnet,debreuck2021bias} added relevance-redundancy feature selection and joint learning for small data; CrabNet \citep{wang2021crabnet} and Roost \citep{goodall2020roost} learn representations directly from stoichiometry; MatterVial fuses latent, symbolic and descriptor features into a MODNet model \citep{gouvea2025mattervial}; and tabular foundation models such as TabPFN \citep{hollmann2025tabpfn} are now competitive on small tabular sets.
 None of these adapts its prediction to the residual structure of nearby training compositions.
 
-\paragraph{Ensembles and stacking for materials.}
+\paragraph{Ensembles and stacking for materials}
 Stacked ensembles have been used for experimental band gaps with DFT-trained first-layer models \citep{kauwe2020bandgap}, for thermodynamic stability from electron-configuration and other composition models \citep{zou2025ecsg}, and for alloy mechanical properties on single datasets with random splits (e.g.\ \citealp{zhao2025hea}).
 A mixture of experts over pretrained extractors addresses data scarcity \citep{chang2022moe}, and an ``ensemble of experts'' built from networks pre-trained on related polymer properties was recently proposed in this journal \citep{miccio2025ee}; the latter is transfer learning from SMILES and contains no stacking or residual stage.
 
-\paragraph{Residual correction.}
+\paragraph{Residual correction}
 Regression kriging \citep{hengl2007rk} and $\Delta$-learning \citep{ramakrishnan2015delta} are the closest classical analogues of a local residual correction.
 A recent preprint corrects a convex neural stack by global kernel-ridge regression of its residuals in operator learning \citep{shmalo2026kernel}.
 None of these uses OOF residuals with novelty damping in composition space, or evaluates on Matbench folds; the method itself, however, is not new in its components, and our contribution is the pre-registered transfer test, the fold-matched variant and the analysis of where the correction helps or hurts.

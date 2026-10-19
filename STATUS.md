@@ -1,26 +1,29 @@
 # STATUS
 
-**Current stage:** Stage 2, final run 2 (Amendment 1), in progress. No official test fold has been scored yet.
+**Current stage:**
+- Stages 1-3 are complete as a first full draft.
+- Final official-fold results are scored (Amendment 1 run).
+- The manuscript compiles: `manuscript/main.pdf` (18 pp) and `manuscript/supplementary.pdf` (3 pp).
+- Nothing has been submitted (no leaderboard submission, no publication).
 
-**Amendment 1 (owner-approved, written before any scoring; `ANALYSIS_PLAN.md` §8, re-frozen in commit 36796aa).**
-- Every design choice is now made inside each official training fold, by automatic selection among the configurations explored in the design phase.
-  - Regression: A/B/C/D. Classification: A/C (see `src/frozen_config.py`).
-  - Criterion: the cross-fitted OOF score of the uncorrected global stack.
-- The per-fold choices are recorded in `fold<k>_meta.json` under `design_selection`.
+## FINAL RESULTS (official Matbench v0.1 folds; per-fold design selection inside each training fold; scored 2026-10-18 ~23:30)
+Primary arm: stack + naive novelty-damped local OOF correction. Mean ± std over 5 folds.
 
-**Run 1 was superseded and never scored.**
-- It produced 19 of 20 fold predictions under the original plan (design fixed on fold 0). The steels fold-4 job hung in joblib/loky and was killed.
-- Archived unscored in `results/final/<task>/superseded_unscored_run1/`.
+| Task | Best single (inner CV) | Stack | **Stack + local corr. (primary)** | Stack + fold-matched | Primary test (local vs stack) | Board leader | Our rank |
+|---|---|---|---|---|---|---|---|
+| steels MAE (MPa) | 83.41 | 83.12 | **82.80 ± 11.65** | 82.02 | −0.39%, p_Holm = 1.0, 3/5 folds | TPOT-Mat 79.95 (MODNet 87.76) | 3 of 12 |
+| expt_gap MAE (eV) | 0.3259 | 0.3264 | **0.3240 ± 0.0140** | 0.3276 | **−0.71%, p_Holm = 0.005, 5/5 folds** | Darwin 0.2865 (MODNet 0.3327) | 2 of 13 |
+| expt_is_metal | AUC 0.9819 | AUC 0.9825 | **AUC 0.9825; BA 0.9370** | AUC 0.9826 | Δ ≈ 0 (correction on in 1/5 folds) | Darwin BA 0.9598 (AMMExpress 0.9209) | 2 of 8 (by BA) |
+| glass | AUC 0.9548 | AUC 0.9567 | **AUC 0.9567; BA 0.8841** | AUC 0.9559 | Δ = 0 (correction never selected) | MODNet BA 0.9603 (AMMExpress 0.8607) | 2 of 8 (by BA) |
 
-**Parallel setup (scheduling only).**
-- `python -m src.launch_final --workers 5`: one process per (task, fold), 5 workers × 4 threads (expert `n_jobs=4`; OMP/BLAS/MKL capped at 4).
-- LightGBM is deterministic (`deterministic=True`, `force_col_wise=True`). The KRR grid search uses joblib's threading backend.
-- A per-process keep-awake request (scratchpad `keep_awake.py`, `SetThreadExecutionState`) is running. It changes no system setting.
-- Run 1 wall times, from `results/final/superseded_unscored_run1_timing.jsonl`:
-  - glass ≈ 2,600 s per fold, of which about 35 min was a Modern Standby suspension;
-  - is_metal ≈ 450 s; expt_gap ≈ 930 s; steels ≈ 65 s per fold;
-  - total wall clock about 1 h 40 min.
-- Run 2 started at about 22:45 local. Expected about 30–60 min, because the extra-feature caches from run 1 are reused (same configuration, same T_k).
+- **Primary endpoint.** 1 of 4 tasks improved (expt_gap, about 0.7% of the MAE; real but small). The leaderboard leader is not beaten on any task.
+- **Support strata.** The naive correction hurts in the nearest-neighbour quartile (expt_gap +0.9%, steels +6.8% MAE) and helps at larger distances. The fold-matched variant did not fix this: on expt_gap it was worse than naive (+1.1%, p = 0.005).
+- **Permutation control.** The correction is still selected under permuted labels (a shrinkage effect), so this control is diagnostic only.
+- **Classification comparison.** The board's classification "rocauc" equals balanced accuracy for label-based entries, so we compare BA with BA. Our probability AUCs are not ranked.
+- **Files.**
+  - Results: `results/final/{stats.json, summary.json, metrics_per_fold.csv, support_strata.csv}`.
+  - Unsubmitted Matbench files: `results/final/matbench_submission/{labels,probabilities}/results.json.gz` (`is_valid=True`).
+- **Wall clock** (5 workers × 4 threads, deterministic LightGBM): run 2 about 20 min (caches reused). Run 1 from scratch about 1 h 40 min, including a 35-min Modern Standby pause.
 
 ## Done
 - **Environment**
@@ -67,6 +70,9 @@
 - The reviewed candidate (post-revision pass) is summarised in `research/STAGE1_SUMMARY.md`. Phase 4 cards were not rendered.
 
 ## Next step
-1. Wait for run 2 to finish (`logs/launch_final.log`). To resume after an interruption: `python -m src.launch_final --workers 5`; it skips folds that are already done.
-2. Run `python -m src.evaluate --submission`.
-3. Write the manuscript in `manuscript/`.
+1. **Owner review of the draft** in `manuscript/` (`main.tex`, `sections/*.tex`). Every number comes from `manuscript/generated/*` via `python -m src.make_paper_assets`. To rebuild: `cd manuscript && pdflatex main && bibtex main && pdflatex main && pdflatex main`.
+2. **Optional.** Check the Computational Materials Science scope, metrics and APC/subscription option on the journal site; aggregators give an impact factor of about 3.1-3.9.
+3. **Before submission.**
+   - Make the repo public only with the owner's OK.
+   - Decide whether to submit the labels variant to the Matbench leaderboard (owner decision; not done).
+   - Stage 4 (ResearchStudio-Reel assets) when needed.

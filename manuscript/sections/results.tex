@@ -1,0 +1,110 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{All arms on the official folds}
+Table~\ref{tab:arms} lists every arm on every task (mean $\pm$ standard deviation over the five official folds), and Table~\ref{tab:tests} the pre-registered tests.
+The equal-weight mean of the experts is clearly the worst ensemble on all tasks; the simplex stack never loses to it.
+Against the best single expert chosen by inner cross-validation, the stack is better on glass (\GlassStackVsBestSingleRel\% ROC-AUC, $p_\mathrm{boot}=\GlassStackVsBestSingleP$, 5/5 folds) and is within noise on the other three tasks (steels \SteelsStackVsBestSingleRel\%, expt\_gap \GapStackVsBestSingleRel\%, expt\_is\_metal \MetalStackVsBestSingleRel\%).
+The extremely randomised trees expert carries most of the stack weight on the two regression tasks, and LightGBM and extra trees share it on the classification tasks (Table~\ref{tab:weights}).
+
+\begin{table}[t]
+\centering
+\caption{Every arm on the four Matbench composition tasks (official 5-fold CV; mean $\pm$ s.d.\ over folds). Regression: MAE (lower is better); classification: ROC-AUC from probabilities (higher is better). Single-expert rows are means over the folds in which the expert was part of the selected configuration.}
+\label{tab:arms}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_arms.tex}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Pre-registered primary test (naive local correction vs.\ uncorrected stack) and key secondary comparisons. $\Delta$ is the mean over folds of the metric difference (MAE for regression, where negative favours A; ROC-AUC for classification, where positive favours A). CI and $p_\mathrm{boot}$: paired bootstrap over test points within folds ($B=10^4$); $p_\mathrm{Holm}$: Holm correction over the four primary tests; $p_\mathrm{NB}$: Nadeau--Bengio corrected resampled $t$-test over the five folds.}
+\label{tab:tests}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_tests.tex}
+\end{adjustbox}
+\end{table}
+
+\subsection{Primary endpoint: does the local correction transfer?}
+The correction improved \NTasksImproved{} of the four tasks under the pre-registered rule.
+On expt\_gap the corrected stack reached an MAE of \GapStackLocal{}~eV against \GapStack{}~eV for the uncorrected stack ($\Delta=\DeltaGap$~eV, \RelGap\%), with every one of the five folds improved and $p_\mathrm{Holm}=\PHolmGap$ (Nadeau--Bengio $p=\PNBGap$).
+The effect is real but small: about 0.7\% of the MAE.
+On steels the change was \RelSteels\% ($p_\mathrm{Holm}=\PHolmSteels$, \FoldsSteels{}/5 folds improved), indistinguishable from zero given a fold-to-fold standard deviation of about \SteelsStackStd~MPa.
+On the two classification tasks the inner-CV selection almost never switched the correction on (glass: \GlassNaiveOn/5 folds; expt\_is\_metal: \MetalNaiveOn/5), so the corrected and uncorrected stacks are identical or nearly so ($\Delta$ ROC-AUC $=\DeltaMetal$ and $\DeltaGlass$).
+In short, the correction that was confirmed in our chemistry study transfers only weakly: it gives a consistent sub-percent gain on the largest regression task, nothing measurable on steels, and is (correctly) declined by its own selection procedure on the classification tasks.
+
+\subsection{Where the correction helps and hurts}
+Fig.~\ref{fig:support} stratifies the test errors by the distance from each test composition to its nearest training composition.
+On both regression tasks the naive correction \emph{hurt} in the nearest-support quartile (expt\_gap \GapLocalQOne\%, steels \SteelsLocalQOne\% MAE relative to the stack) and helped in the other three (expt\_gap \GapLocalQTwo\%, \GapLocalQThree\%, \GapLocalQFour\%).
+That is the pattern the fold-matched analysis predicts: for a near-duplicate neighbour the deployed stack has already absorbed the neighbour's error, so adding its OOF residual counts it twice.
+The fold-matched variant, however, did not repair it: on expt\_gap it was worse than the naive correction overall (\GapStackFmVsStackLocalRel\% MAE, $p_\mathrm{boot}=\GapStackFmVsStackLocalP$, 0/5 folds better) and also worse in the nearest quartile (\GapFmQOne\%).
+On steels it gave the lowest mean MAE of all arms (\SteelsStackFm~MPa) but with no detectable difference from the stack (\SteelsStackFmVsStackRel\%, $p_\mathrm{boot}=\SteelsStackFmVsStackP$).
+On the classification tasks it was switched on in every fold but changed ROC-AUC by less than 0.1\% in either direction.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_support.pdf}
+\caption{Error change relative to the uncorrected stack, by support quartile (distance from the test composition to its nearest training composition; bin edges are the training rows' leave-one-out quartiles in each fold). Regression: MAE; classification: Brier score. Negative is better.}
+\label{fig:support}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_perfold.pdf}
+\caption{Per-fold change of the test metric relative to the uncorrected stack for the naive and fold-matched corrections and the best single expert (selected by inner CV). For classification a positive change in ROC-AUC is better.}
+\label{fig:perfold}
+\end{figure}
+
+\subsection{Ablations and controls}
+Restricting the neighbour search to one composition space gave essentially the same gain on expt\_gap (Magpie \GapStackLocalMagpieVsStackRel\%, element fractions \GapStackLocalFracVsStackRel\%), whereas on steels only the element-fraction space was selected in practice and the Magpie-only variant was slightly worse than the stack (\SteelsStackLocalMagpieVsStackRel\%, 0/5 folds better).
+Applying the correction to the best single expert instead of the stack (``correction without stacking'') improved expt\_gap by \GapSingleLocalVsBestSingleRel\% relative to that expert ($p_\mathrm{boot}=\GapSingleLocalVsBestSingleP$, 5/5 folds), so on this task the gain does not depend on stacking.
+The label-permutation control did not behave as a clean null: with labels permuted within inner folds the selection still switched a correction on in every fold of every task (Table~\ref{tab:selections}), because shrinking predictions toward a neighbourhood mean lowers the training loss against permuted labels too.
+We pre-registered this control as diagnostic only, and it shows that a non-zero selected strength is not by itself evidence of local structure.
+
+\begin{table}[t]
+\centering
+\caption{Number of official folds (of 5) in which the inner-CV selection switched each correction on, and the same for the label-permutation control.}
+\label{tab:selections}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_selections.tex}
+\end{adjustbox}
+\end{table}
+
+\subsection{Comparison with the Matbench leaderboard}
+Table~\ref{tab:board} places the pre-registered primary arm on the leaderboard snapshot of 18 October 2026.
+For the classification tasks we compare balanced accuracy at the inner-CV threshold with the board's balanced-accuracy column, because the board's ``ROC-AUC'' values of the label-based entries equal their balanced accuracy.
+The method would rank \SteelsRank{} of \SteelsNEntries{} on steels (behind TPOT-Mat and AutoML-Mat, ahead of MODNet v0.1.12), \GapRank{} of \GapNEntries{} on expt\_gap (behind Darwin, ahead of the CrabNet and MODNet entries), \MetalRank{} of \MetalNEntries{} on expt\_is\_metal and \GlassRank{} of \GlassNEntries{} on glass.
+It does not beat the best entry on any task.
+On expt\_gap and glass the gaps to the leaders are large (\GapStackLocal{} vs.\ 0.2865~eV; balanced accuracy \GlassStackLocalBA{} vs.\ 0.9603), and on expt\_is\_metal it is 0.023 in balanced accuracy.
+Our probability ROC-AUCs (\MetalAUCprob{} on expt\_is\_metal, \GlassAUCprob{} on glass) are not comparable with the label-based board values and are not ranked.
+
+\begin{table}[t]
+\centering
+\caption{Primary arm versus the Matbench v0.1 leaderboard (snapshot 18 October 2026). Classification: balanced accuracy at the threshold chosen inside each training fold, compared with the board's balanced-accuracy column. Rank counts our entry among the board entries.}
+\label{tab:board}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_leaderboard.tex}
+\end{adjustbox}
+\end{table}
+
+\subsection{Calibration and compute}
+Stacking improved the Brier score and the expected calibration error over the best single expert on both classification tasks, and the corrections left them essentially unchanged (Table~\ref{tab:calib}).
+On 24 CPU cores (5 parallel workers of 4 threads) one official fold took a median of about \SteelsScratchMin, \GapScratchMin, \MetalScratchMin{} and \GlassScratchMin{} minutes for steels, expt\_gap, expt\_is\_metal and glass when every expert was computed from scratch (the glass figure includes a system-standby pause); the pair-excluded refits of the fold-matched arm account for \SteelsPairShare\%, \GapPairShare\% and \MetalPairShare\% of the expert-fitting time on the first three tasks (\GlassPairShare\% on glass, inflated by the same pause).
+
+\begin{table}[t]
+\centering
+\caption{Calibration on the classification tasks (means over folds) and balanced accuracy at the inner-CV threshold.}
+\label{tab:calib}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_calibration.tex}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Mean simplex-stack weight per expert (over folds; ``--'' where the expert was not in the selected configuration of every fold).}
+\label{tab:weights}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/table_weights.tex}
+\end{adjustbox}
+\end{table}
