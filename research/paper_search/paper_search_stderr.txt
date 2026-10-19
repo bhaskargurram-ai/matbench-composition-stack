@@ -33,9 +33,9 @@
 [semantic_scholar] HTTP 429; retrying in 12s (attempt 4/4)
 [semantic_scholar] Error on query 'Darwin interpretable materials property prediction': 429 Client Error:  for url: https://api.semanticscholar.org/graph/v1/paper/search?query=Darwin+interpretable+materials+property+prediction&offset=0&limit=10&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2020-2026
 Traceback (most recent call last):
-  File "C:\Users\Bhaskar\Downloads\Matbench_Paper\research\run_paper_search.py", line 34, in <module>
+  File "research\run_paper_search.py", line 34, in <module>
     print(f"{i}\t{p.get('publication_date') or p.get('year')}\t{(p.get('venue') or '')[:40]}\t{p.get('citation_count')}\t{p['relevance_score']}\t{','.join(p['found_in'])}\t{'[survey] ' if p['is_survey'] else ''}{p.get('title')}\t{p.get('doi') or p.get('url')}")
-  File "C:\Users\Bhaskar\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+  File "<python312>\Lib\encodings\cp1252.py", line 19, in encode
     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 UnicodeEncodeError: 'charmap' codec can't encode character '\u2010' in position 94: character maps to <undefined>

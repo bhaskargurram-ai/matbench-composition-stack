@@ -35,7 +35,7 @@ Write a complete draft in Elsevier `elsarticle` LaTeX under `manuscript/`:
 Compile it to PDF.
 
 ## Rules for running unattended
-- **Stay inside this folder** (`C:\Users\Bhaskar\Downloads\Matbench_Paper`).
+- **Stay inside this folder** (the repository root, `Matbench_Paper/`).
   - Do not touch other projects.
   - Do not delete anything outside this folder.
 - **Git:**

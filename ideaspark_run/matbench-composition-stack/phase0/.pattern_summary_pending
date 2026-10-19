@@ -1,8 +1,8 @@
 {
   "step_name": "pattern_summary",
-  "rubric_file": "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\.claude\\skills\\idea-spark\\references\\pattern-summary-rubric.md",
+  "rubric_file": ".claude\\skills\\idea-spark\\references\\pattern-summary-rubric.md",
   "inputs": {
-    "lit_results": "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase0\\lit_results.json",
+    "lit_results": "ideaspark_run\\matbench-composition-stack\\phase0\\lit_results.json",
     "lit_table_columns": [
       "paper_id",
       "year_month",

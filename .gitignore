@@ -18,3 +18,23 @@ results/final/*/fold*_experts/*_pairs.npz
 results/design_a2/*/*/pseudo*/
 results/final_a2/*/fold*_experts/
 results/ablation_*/*/fold*_experts/
+
+# Third-party paper text retrieved by ResearchStudio (abstracts / full texts): kept locally, not redistributed
+ideaspark_run/matbench-composition-stack/phase0/fulltext/
+ideaspark_run/matbench-composition-stack/phase0/fulltext_cache.json
+ideaspark_run/matbench-composition-stack/phase0/*_phase0.json
+ideaspark_run/matbench-composition-stack/phase0/lit_results.json
+ideaspark_run/matbench-composition-stack/phase2_generate/closest_abstracts.json
+ideaspark_run/matbench-composition-stack/phase3_collision/*collision*.json
+ideaspark_run/matbench-composition-stack/phase3_collision/.*_channel_hits.json
+ideaspark_run/matbench-composition-stack/phase3_revise/collision/*collision*.json
+ideaspark_run/matbench-composition-stack/phase3_revise/collision/.*_channel_hits.json
+research/paper_search/paper_search_results.json
+research/paper_search/full_grounding/paper_search_results.json
+research/paper_search_dft/results.json
+research/scoop_check/search_results.json
+
+# leaderboard submission: runtime caches of the self-contained rerun script
+leaderboard_submission/**/data/
+leaderboard_submission/**/rerun_cache/
+leaderboard_submission/**/results_rerun.json.gz
