@@ -1,0 +1,13 @@
+{
+  "step_name": "signature_extraction",
+  "rubric_file": "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\.claude\\skills\\idea-spark\\references\\intent-recognition.md",
+  "inputs": {
+    "idea_json": "C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase3_revise\\collision_query.json",
+    "mode": "collision"
+  },
+  "expected_outputs": [
+    "edit idea_json to add signature_terms[] AND alias_terms[]"
+  ],
+  "instruction": "Read the rubric file whose absolute path is in this sentinel's `rubric_file` field (Collision mode). Produce BOTH term sets: 3-5 signature_terms (mechanism + claim + setting + 1-2 specific identifiers, each 3-7 words, the candidate's own vocabulary) AND 2-4 alias_terms (other communities' names for the same mechanism — parametric knowledge, not paraphrase). Add both fields to idea_json and re-invoke. Long sentences (title / core_mechanism verbatim) fail URL encoding at the connector — keep terms tight.",
+  "re_invocation": "python3 -m scripts.run phase3_collision --idea-json C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase3_revise\\collision_query.json --out C:\\Users\\Bhaskar\\Downloads\\Matbench_Paper\\ideaspark_run\\matbench-composition-stack\\phase3_revise\\collision"
+}

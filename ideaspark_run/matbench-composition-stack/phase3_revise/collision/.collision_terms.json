@@ -1,0 +1,15 @@
+{
+ "signature_terms": [
+  "absorbed residual double counting refit",
+  "composition-only Matbench property prediction",
+  "damping weight fit on manufactured instances",
+  "fold-matched local residual correction",
+  "pair-excluded refits cross-fitted stack"
+ ],
+ "alias_terms": [
+  "delta-learning local bias correction",
+  "jackknife plus leave-one-out residuals",
+  "pairwise difference regression analogue prediction",
+  "regression kriging of cross-validated residuals"
+ ]
+}

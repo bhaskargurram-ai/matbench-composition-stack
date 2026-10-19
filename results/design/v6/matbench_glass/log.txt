@@ -1,0 +1,54 @@
+== design v6 matbench_glass n_fold0_train=4544 cfg={'fold_matched': True, 'extra_features': True}
+    expert lgbm_all: 15.7s, OOF score 0.9272
+    expert lgbm_all: pair-excluded refits 24.3s
+    expert rf_all: 39.7s, OOF score 0.9331
+    expert rf_all: pair-excluded refits 47.6s
+    expert et_all: 26.6s, OOF score 0.9324
+    expert et_all: pair-excluded refits 31.8s
+    expert svc_frac: 9.4s, OOF score 0.8610
+    expert svc_frac: pair-excluded refits 9.1s
+    expert svc_magpie: 10.3s, OOF score 0.8824
+    expert svc_magpie: pair-excluded refits 9.1s
+    expert mlp_all: 112.8s, OOF score 0.8767
+    expert mlp_all: pair-excluded refits 137.3s
+  pseudo-fold 0 (495s): best_single=0.9427, mean_ensemble=0.9376, stack=0.9470, stack_local=0.9470, stack_local_magpie=0.9470, stack_local_frac=0.9470, stack_fm=0.9467, single_local=0.9428
+    weights={'lgbm_all': 0.159, 'rf_all': 0.449, 'et_all': 0.341, 'svc_frac': 0.051, 'svc_magpie': 0.0, 'mlp_all': 0.0} sel={'space': None, 'k': 0, 'hmult': 0.0, 'kappa': 0.0, 'alpha': 0.0}
+    expert lgbm_all: 38.2s, OOF score 0.9322
+    expert lgbm_all: pair-excluded refits 279.5s
+    expert rf_all: 42.9s, OOF score 0.9325
+    expert rf_all: pair-excluded refits 109.3s
+    expert et_all: 68.9s, OOF score 0.9337
+    expert et_all: pair-excluded refits 89.4s
+    expert svc_frac: 35.2s, OOF score 0.8541
+    expert svc_frac: pair-excluded refits 27.4s
+    expert svc_magpie: 12.0s, OOF score 0.8876
+    expert svc_magpie: pair-excluded refits 11.9s
+    expert mlp_all: 100.8s, OOF score 0.8683
+    expert mlp_all: pair-excluded refits 246.3s
+  pseudo-fold 1 (1121s): best_single=0.9479, mean_ensemble=0.9434, stack=0.9516, stack_local=0.9516, stack_local_magpie=0.9516, stack_local_frac=0.9516, stack_fm=0.9494, single_local=0.9479
+    weights={'lgbm_all': 0.267, 'rf_all': 0.192, 'et_all': 0.461, 'svc_frac': 0.08, 'svc_magpie': 0.0, 'mlp_all': 0.0} sel={'space': None, 'k': 0, 'hmult': 0.0, 'kappa': 0.0, 'alpha': 0.0}
+    expert lgbm_all: 138.8s, OOF score 0.9349
+    expert lgbm_all: pair-excluded refits 435.8s
+    expert rf_all: 40.6s, OOF score 0.9360
+    expert rf_all: pair-excluded refits 59.8s
+    expert et_all: 34.6s, OOF score 0.9383
+    expert et_all: pair-excluded refits 30.9s
+    expert svc_frac: 9.0s, OOF score 0.8637
+    expert svc_frac: pair-excluded refits 7.6s
+    expert svc_magpie: 8.0s, OOF score 0.8940
+    expert svc_magpie: pair-excluded refits 6.7s
+    expert mlp_all: 41.9s, OOF score 0.8765
+    expert mlp_all: pair-excluded refits 73.6s
+  pseudo-fold 2 (902s): best_single=0.9434, mean_ensemble=0.9332, stack=0.9443, stack_local=0.9443, stack_local_magpie=0.9443, stack_local_frac=0.9443, stack_fm=0.9447, single_local=0.9434
+    weights={'lgbm_all': 0.252, 'rf_all': 0.136, 'et_all': 0.559, 'svc_frac': 0.053, 'svc_magpie': 0.0, 'mlp_all': 0.0} sel={'space': None, 'k': 0, 'hmult': 0.0, 'kappa': 0.0, 'alpha': 0.0}
+    expert lgbm_all: 17.4s, OOF score 0.9327
+    expert lgbm_all: pair-excluded refits 27.0s
+    expert rf_all: 54.3s, OOF score 0.9336
+    expert rf_all: pair-excluded refits 69.2s
+    expert et_all: 28.7s, OOF score 0.9326
+    expert et_all: pair-excluded refits 40.9s
+    expert svc_frac: 8.8s, OOF score 0.8617
+    expert svc_frac: pair-excluded refits 7.6s
+    expert svc_magpie: 8.3s, OOF score 0.8907
+    expert svc_magpie: pair-excluded refits 7.3s
+    expert mlp_all: 47.5s, OOF score 0.8825

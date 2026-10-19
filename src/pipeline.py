@@ -352,8 +352,18 @@ def run_split(task_type, X_tr, y_tr, X_te, cache_dir, cfg=None, n_inner=5, seed=
         sel_fm = select_correction(task_type, X_tr, y_tr, oof_w, T_fn=Ttr)
         meta["sel_stack_fm"] = sel_fm
         out["stack_fm"] = predict_correction(task_type, X_tr, y_tr, oof_w, X_te, s_te, sel_fm, T_fn=Tte)
-        # ablation A2b: naive transfer but selected on the same global-weight OOF base
         meta["fm_oof_corrected_score"] = sel_fm["score"]
+    # label-permutation control (selection only; predictions untouched): permute the training labels
+    # within each inner fold, recompute residuals against the SAME base predictions, and re-select.
+    # A correction that exploits real local structure should be switched off (alpha = 0) here.
+    rng = np.random.default_rng(seed + 991)
+    y_perm = y_tr.copy()
+    for _, va_i in splits:
+        y_perm[va_i] = y_tr[rng.permutation(va_i)]
+    meta["perm_control_naive"] = select_correction(task_type, X_tr, y_perm, s_oof)
+    if fm is not None:
+        meta["perm_control_fm"] = select_correction(task_type, X_tr, y_perm, oof_w,
+                                                    T_fn=fm_train_T(y_perm, oof_w, pair_w, fm["fold_of"]))
     # correction without stacking: on the inner-CV-selected best single expert
     b_oof = P_oof[:, best_j]
     sel_b = select_correction(task_type, X_tr, y_tr, b_oof)

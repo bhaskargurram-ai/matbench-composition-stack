@@ -18,7 +18,7 @@ from .design import TASK_TYPE
 from .frozen_config import CFG, SEED, N_INNER
 
 
-def run_task(task):
+def run_task(task, only_fold=None):
     tt = TASK_TYPE[task]
     df, folds = load_task_frames(task)
     X_all = featurise(task, df)
@@ -26,9 +26,11 @@ def run_task(task):
         X_all = X_all.join(featurise_extra(task, df))
     out_root = ROOT / "results" / "final" / task
     out_root.mkdir(parents=True, exist_ok=True)
-    logf = open(out_root / "log.txt", "a", encoding="utf-8")
+    logf = open(out_root / (f"log_fold{only_fold}.txt" if only_fold is not None else "log.txt"), "a", encoding="utf-8")
     log = lambda s: (print(s, flush=True), logf.write(s + "\n"), logf.flush())
     for k, f in enumerate(folds):
+        if only_fold is not None and k != only_fold:
+            continue
         pf = out_root / f"fold{k}_predictions.npz"
         if pf.exists():
             log(f"[{task}] fold {k}: already done, skipping")
@@ -48,5 +50,9 @@ def run_task(task):
 
 
 if __name__ == "__main__":
-    for t in (sys.argv[1:] or TASKS):
-        run_task(t)
+    args = sys.argv[1:]
+    fold = None
+    if "--fold" in args:
+        i = args.index("--fold"); fold = int(args[i + 1]); args = args[:i] + args[i + 2:]
+    for t in (args or TASKS):
+        run_task(t, fold)

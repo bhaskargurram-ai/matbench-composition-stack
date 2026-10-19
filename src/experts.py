@@ -59,7 +59,8 @@ class Expert:
 def _lgb(task_type, n, seed, objective=None):
     common = dict(n_estimators=1500 if n > 1000 else 800, learning_rate=0.02, num_leaves=31,
                   min_child_samples=5 if n < 1000 else 10, subsample=0.8, subsample_freq=1,
-                  colsample_bytree=0.4, reg_lambda=1.0, random_state=seed, n_jobs=4, verbose=-1)
+                  colsample_bytree=0.4, reg_lambda=1.0, random_state=seed, n_jobs=4, verbose=-1,
+                  deterministic=True, force_col_wise=True)  # reproducible with a fixed thread count
     return lgb.LGBMRegressor(objective=objective or ("l1" if n < 1000 else "l2"), **common) if task_type == "regression" \
         else lgb.LGBMClassifier(**common)
 

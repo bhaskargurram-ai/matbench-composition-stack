@@ -1,0 +1,24 @@
+# Freeze hashes (SHA-256) — recorded 2026-10-18T21:01:21-04:00 BEFORE any official test fold was predicted or scored
+# git HEAD before freeze commit: 974f4f8a61d36af9566ad28a3babdb9e0036edb2
+e33368de5beffa1d57609c16c0bc3f1b483cfecae453008b1d1d1c7cb913459a ANALYSIS_PLAN.md
+115a4b0e56349cfb19e48dc767d6153a55eb2cc79ef493ac02fc49fd74639134 src/data.py
+7841824cb750bad572e830e80180913c55ba475db67224fd9a67ca5143ad8e69 src/design.py
+9cfd8830212323f1ebd202e1b276af48efe786b630bb638bf62304cdc931aab8 src/evaluate.py
+e0fca81e78292ada4a529547e80afa7eef2d25e9e7318c78437250d9cd191d41 src/experts.py
+1af57e67c29e775f5f41710b7d50c70fa3c486b9d9f73187d24c9ed69a392db9 src/frozen_config.py
+b3f3d194dc52a58165fdad2e64119589fe10517fcc105b0f7399b0aa3b6e4a79 src/launch_final.py
+1331a5d8471220eba158960f4fc5918cf9eebcf5091e81d8df87a37831a6e3a4 src/pipeline.py
+87faeb65920d194cc3a1694c4bc881dab20580d48432952b20c88ec1da17aaa8 src/run_final.py
+b6bc11a1689f0d32544fa4a91235b29cd770afd8b14c50fcb931fbc47b10cfb0 src/smoke_test_evaluate.py
+# environment
+python 3.12.10
+sklearn 1.9.1
+lightgbm 4.7.0
+xgboost 3.4.1
+numpy 2.5.4
+scipy 1.18.1
+pandas 2.3.3
+matminer 0.10.1
+pymatgen 2026.9.24
+matbench 0.6
+# hashes are of the LF-normalised files (.gitattributes forces eol=lf); verify with: sha256sum -c <(grep -v '^#' results/freeze_hashes.txt | grep -v '^[a-z]* [0-9]' )

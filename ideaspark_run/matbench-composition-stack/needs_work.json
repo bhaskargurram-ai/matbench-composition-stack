@@ -1,0 +1,10 @@
+{
+  "input_fingerprint": "243dde411950251c06369ba852c4710072b77ec3b32a42cafca1ea00814244ef",
+  "findings": [
+    {
+      "validator": "execution_contract",
+      "severity": "fail",
+      "message": "quality_collision: Collision retrieval did not complete; no receipt issued"
+    }
+  ]
+}

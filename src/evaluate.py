@@ -17,7 +17,9 @@ from .design import TASK_TYPE
 FINAL = ROOT / "results" / "final"
 PRIMARY = ("stack_local", "stack")          # primary endpoint: full method vs global stack
 SECONDARY = [("stack_local", "best_single"), ("stack", "best_single"),
-             ("single_local", "best_single"), ("stack_local", "mean_ensemble")]
+             ("single_local", "best_single"), ("stack_local", "mean_ensemble"),
+             ("stack_fm", "stack"), ("stack_fm", "stack_local"),
+             ("stack_local_magpie", "stack"), ("stack_local_frac", "stack")]
 B = 10000
 RNG_SEED = 12345
 
@@ -88,11 +90,20 @@ def compare(tt, data, a, b, rng):
     d = fa - fb
     improved = int((d < 0).sum()) if tt == "regression" else int((d > 0).sum())
     t = stats.ttest_rel(fa, fb) if np.any(d != 0) else None
+    # Nadeau-Bengio corrected resampled t-test (k-fold: variance inflated by 1/k + n_test/n_train)
+    k = len(d)
+    n_te = np.mean([len(y) for y, _, _ in data]); n_tr = n_te * (k - 1)
+    sd = d.std(ddof=1)
+    if sd > 0:
+        t_nb = d.mean() / np.sqrt((1.0 / k + n_te / n_tr) * sd ** 2)
+        p_nb = float(2 * stats.t.sf(abs(t_nb), df=k - 1))
+    else:
+        p_nb = 1.0
     obs, lo, hi, p_boot = paired_bootstrap(tt, data, a, b, m, rng)
     res = {"arm": a, "comparator": b, "metric": m, "mean_a": float(fa.mean()), "mean_b": float(fb.mean()),
            "delta": float(d.mean()), "rel_change_pct": float(100 * d.mean() / fb.mean()),
            "per_fold_delta": d.tolist(), "folds_improved": improved,
-           "paired_t_p": float(t.pvalue) if t is not None else 1.0,
+           "paired_t_p": float(t.pvalue) if t is not None else 1.0, "nadeau_bengio_p": p_nb,
            "cohens_dz": float(d.mean() / d.std(ddof=1)) if d.std(ddof=1) > 0 else 0.0,
            "boot_delta": obs, "boot_ci95": [lo, hi], "boot_p": p_boot}
     if tt == "regression":
@@ -100,6 +111,42 @@ def compare(tt, data, a, b, rng):
         eb = np.concatenate([np.abs(y - P[b]) for y, P, _ in data])
         res["wilcoxon_p"] = float(stats.wilcoxon(ea, eb).pvalue) if np.any(ea != eb) else 1.0
     return res
+
+
+def support_strata(task, arms, n_bins=4):
+    """Secondary (pre-registered): test errors stratified by support, i.e. the distance from each test
+    composition to its nearest training composition (standardised Magpie, Euclidean). Bin edges are
+    the quartiles of the TRAINING rows' leave-one-out nearest-neighbour distances in each fold."""
+    from sklearn.neighbors import NearestNeighbors
+    from sklearn.preprocessing import StandardScaler
+    from .data import featurise
+    df, folds = load_task_frames(task)
+    X = featurise(task, df)
+    mag = [c for c in X.columns if c.startswith("magpie_")]
+    tt = TASK_TYPE[task]
+    recs = []
+    for k, f in enumerate(folds):
+        sc = StandardScaler().fit(X.loc[f["train"], mag])
+        Ztr, Zte = sc.transform(X.loc[f["train"], mag]), sc.transform(X.loc[f["test"], mag])
+        nn = NearestNeighbors(n_neighbors=2).fit(Ztr)
+        dtr = nn.kneighbors(Ztr)[0][:, 1]
+        dte = nn.kneighbors(Zte, n_neighbors=1)[0][:, 0]
+        edges = np.quantile(dtr, np.linspace(0, 1, n_bins + 1)[1:-1])
+        b = np.digitize(dte, edges)
+        z = np.load(FINAL / task / f"fold{k}_predictions.npz")
+        y = df.loc[f["test"], "target"].to_numpy(dtype=float)
+        for a in arms:
+            p = z[a.replace(":", "__")]
+            for bi in range(n_bins):
+                m = b == bi
+                if m.sum() < 2:
+                    continue
+                if tt == "regression":
+                    v = float(np.mean(np.abs(y[m] - p[m])))
+                else:
+                    v = float(np.mean((y[m] - p[m]) ** 2))  # Brier within stratum
+                recs.append({"task": task, "fold": k, "arm": a, "bin": bi, "n": int(m.sum()), "value": v})
+    return recs
 
 
 def holm(ps):
@@ -125,16 +172,25 @@ def main(write_submission=False):
                 r = {"task": task, "fold": k, "arm": a, **fold_metrics(tt, y, P[a], thr.get(a))}
                 rows.append(r)
         dfm = pd.DataFrame([r for r in rows if r["task"] == task])
-        summary[task] = dfm.drop(columns=["task", "fold"]).groupby("arm").agg(["mean", "std"]).round(6) \
-            .to_dict()
+        summary[task] = {a: {m: {"mean": float(sub[m].mean()), "std": float(sub[m].std(ddof=1))}
+                             for m in sub.columns if m not in ("arm", "task", "fold") and sub[m].notna().any()}
+                         for a, sub in dfm.groupby("arm")}
         statsd[task] = {"primary": compare(tt, data, *PRIMARY, rng),
-                        "secondary": [compare(tt, data, a, b, rng) for a, b in SECONDARY],
+                        "secondary": [compare(tt, data, a, b, rng) for a, b in SECONDARY
+                                      if a in data[0][1] and b in data[0][1]],
                         "selections": [{"fold": k, "best_single": m["best_single"], "stack_weights": m["stack_weights"],
-                                        "sel_stack_local": m["sel_stack_local"], "sel_single_local": m["sel_single_local"]}
+                                        "sel_stack_local": m["sel_stack_local"], "sel_single_local": m["sel_single_local"],
+                                        "sel_stack_fm": m.get("sel_stack_fm"), "perm_control_naive": m.get("perm_control_naive"),
+                                        "perm_control_fm": m.get("perm_control_fm")}
                                        for k, (_, _, m) in enumerate(data)]}
     ps = [statsd[t]["primary"]["boot_p"] for t in TASKS]
     for t, p in zip(TASKS, holm(ps)):
         statsd[t]["primary"]["boot_p_holm"] = p
+    strata = []
+    for task in TASKS:
+        arms = [a for a in ("stack", "stack_local", "stack_fm", "best_single") if a in load_task(task)[0][1]]
+        strata += support_strata(task, arms)
+    pd.DataFrame(strata).to_csv(FINAL / "support_strata.csv", index=False)
     pd.DataFrame(rows).to_csv(FINAL / "metrics_per_fold.csv", index=False)
     json.dump(summary, open(FINAL / "summary.json", "w"), indent=1, default=str)
     json.dump(statsd, open(FINAL / "stats.json", "w"), indent=1)
