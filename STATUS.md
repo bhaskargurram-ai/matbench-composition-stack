@@ -1,13 +1,26 @@
 # STATUS
 
-**Current stage:** Stage 2. The design is FROZEN: `ANALYSIS_PLAN.md` and `results/freeze_hashes.txt` were committed in dd8624b (first freeze commit df504b2; hashes re-recorded on LF bytes). The final official-fold run is in progress.
+**Current stage:** Stage 2, final run 2 (Amendment 1), in progress. No official test fold has been scored yet.
 
-**Final-run setup.**
-- Command: `python -m src.launch_final --workers 5`. It runs one process per (task, fold), with 5 workers × 4 threads (expert `n_jobs=4`; OMP/BLAS/MKL capped at 4).
-- LightGBM is deterministic (`deterministic=True`, `force_col_wise=True`).
-- Outputs: `results/final/<task>/fold<k>_*`; wall times in `results/final/timing.jsonl`.
-- Started 2026-10-18 21:02 (local).
-- The machine has 32 GB RAM (about 10 GB free at launch).
+**Amendment 1 (owner-approved, written before any scoring; `ANALYSIS_PLAN.md` §8, re-frozen in commit 36796aa).**
+- Every design choice is now made inside each official training fold, by automatic selection among the configurations explored in the design phase.
+  - Regression: A/B/C/D. Classification: A/C (see `src/frozen_config.py`).
+  - Criterion: the cross-fitted OOF score of the uncorrected global stack.
+- The per-fold choices are recorded in `fold<k>_meta.json` under `design_selection`.
+
+**Run 1 was superseded and never scored.**
+- It produced 19 of 20 fold predictions under the original plan (design fixed on fold 0). The steels fold-4 job hung in joblib/loky and was killed.
+- Archived unscored in `results/final/<task>/superseded_unscored_run1/`.
+
+**Parallel setup (scheduling only).**
+- `python -m src.launch_final --workers 5`: one process per (task, fold), 5 workers × 4 threads (expert `n_jobs=4`; OMP/BLAS/MKL capped at 4).
+- LightGBM is deterministic (`deterministic=True`, `force_col_wise=True`). The KRR grid search uses joblib's threading backend.
+- A per-process keep-awake request (scratchpad `keep_awake.py`, `SetThreadExecutionState`) is running. It changes no system setting.
+- Run 1 wall times, from `results/final/superseded_unscored_run1_timing.jsonl`:
+  - glass ≈ 2,600 s per fold, of which about 35 min was a Modern Standby suspension;
+  - is_metal ≈ 450 s; expt_gap ≈ 930 s; steels ≈ 65 s per fold;
+  - total wall clock about 1 h 40 min.
+- Run 2 started at about 22:45 local. Expected about 30–60 min, because the extra-feature caches from run 1 are reused (same configuration, same T_k).
 
 ## Done
 - **Environment**
@@ -54,6 +67,6 @@
 - The reviewed candidate (post-revision pass) is summarised in `research/STAGE1_SUMMARY.md`. Phase 4 cards were not rendered.
 
 ## Next step
-1. Wait for the final run to finish. To resume after an interruption: `python -m src.launch_final --workers 5`; it skips folds that are already done.
+1. Wait for run 2 to finish (`logs/launch_final.log`). To resume after an interruption: `python -m src.launch_final --workers 5`; it skips folds that are already done.
 2. Run `python -m src.evaluate --submission`.
 3. Write the manuscript in `manuscript/`.

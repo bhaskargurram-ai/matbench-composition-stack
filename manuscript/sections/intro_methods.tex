@@ -86,9 +86,12 @@ For a like-for-like comparison we therefore also report balanced accuracy at a t
 
 \subsection{Protocol, pre-registration and statistics}
 \label{sec:protocol}
-All design work (feature set, expert pool and hyperparameters, stacking loss, correction grid) used inner cross-validation on the training rows of official fold~0 only.
-The fold-0 test rows were never used; the test rows of folds 1--4 are part of the fold-0 training rows and so did inform these fixed design choices, which is why we also report fold~0 separately.
-Before any official test fold was predicted, we wrote the analysis plan and recorded SHA-256 hashes of all code; both are in the repository.
+All model and hyperparameter selection was done by cross-validation within each official training fold.
+Concretely, the candidate design configurations (with or without the 21 extra descriptors; L2 or L1 stacking loss; with or without an L1-objective LightGBM expert) were first explored by inner cross-validation on the training rows of fold~0 only.
+Then, inside every official training fold $T_k$, all candidates were cross-fitted and the one with the best cross-fitted OOF score of the uncorrected global stack was kept; because this criterion uses the uncorrected stack, it favours neither correction arm.
+The correction hyperparameters were then selected inside $T_k$ as described above.
+The analysis plan, including an amendment that introduced this per-fold selection and was written before any official test fold was scored, and the SHA-256 hashes of all code were committed before the final run; both are provided in the repository and Supplementary Material.
+(An earlier run under the original plan, in which the design was fixed on fold~0's training rows, was stopped and never scored.)
 
 The primary endpoint, per task, is $\Delta$ = mean over the five official folds of the metric of the corrected stack minus that of the uncorrected stack (MAE for regression, probability ROC-AUC for classification).
 Its test is a paired bootstrap that resamples test points within folds ($B=10{,}000$), with Holm correction across the four tasks; a task counts as improved only if $\Delta$ favours the correction and the Holm-adjusted $p<0.05$.
