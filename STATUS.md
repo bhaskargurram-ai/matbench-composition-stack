@@ -1,18 +1,18 @@
 # STATUS
 
-**Current stage (2026-10-19, overnight autopilot): Amendment 2, development phase.**
-- The protocol was committed in 719d26f, before any Amendment-2 scoring.
-- Amendment-1 results (below) are final and are kept as the first pre-registered result.
-- Development uses fold-0 training rows only. No test scoring until the Amendment-2 freeze.
-
-Amendment-2 progress:
-- **DFT transfer features.** Built from offline Materials Project data (`matbench_mp_gap` + `matbench_mp_e_form` via matminer). The figshare-hosted `mp_nostruct` table returned HTTP 500 and could not be used.
-  - Matches: expt_gap 3,347/4,604; is_metal 3,613/4,921; glass 60/5,680; steels 0.
-  - Effect, fold-0 training CV with LightGBM: expt_gap MAE 0.3735 → 0.3015; is_metal AUC 0.981 → 0.988.
-- **New label-free feature blocks.** ElementProperty presets (deml, matminer, matscholar, megnet), Meredig, Miedema, Yang, APE, WenAlloys, TMetalFraction, CBFV (oliynyk, jarvis, mat2vec).
-- **New experts.** CatBoost, XGBoost, Optuna-tuned LightGBM, kNN on element fractions, a MODNet expert (being tested) and a CrabNet expert.
-  - CrabNet is dropped: about 23 min per fit and a weak score (dev MAE 0.419 on expt_gap).
-- **Leaderboard check.** The Darwin leader submissions are hard labels. MODNet v0.1.12 submitted probabilities, but its board "rocauc" equals balanced accuracy at 0.5. The old matbench scoring evidently thresholded the probabilities, so balanced accuracy vs balanced accuracy is the like-for-like comparison.
+**Current stage (2026-10-19, overnight autopilot): Amendment 2 is FROZEN (commit 537728f) and its final run is in progress.**
+- Run: `python -m src.launch_final --amendment2 --workers 5`, writing to `results/final_a2/`. Started about 03:50 local.
+- Score afterwards, ONCE: `python -m src.evaluate2 --submission`.
+- The spec is in ANALYSIS_PLAN.md Section 10, the hashes in `results/freeze_hashes_amendment2.txt`, and the design evidence in `results/design_a2/DESIGN_LOG_A2.md`.
+- **Key design findings** (fold-0 training rows only):
+  - The DFT transfer block plus a hurdle model for the zero-inflated band gap gives a dev MAE of about 0.253 on expt_gap (Darwin's board value is 0.2865).
+  - expt_is_metal: dev balanced accuracy about 0.957 (Darwin 0.9598).
+  - Glass is still about 0.877 (MODNet 0.9603).
+  - Steels: about 83 MAE, driven by extra trees on element fractions.
+  - A nested-CV gate for the local correction was added, because the ungated correction hurt steels.
+- **Dropped:** CrabNet (slow and weak), MODNet (too slow on CPU), XGBoost tuning, random forest.
+- **Leader check:** Darwin submitted hard labels. MODNet v0.1.12 submitted probabilities, but the board's rocauc for it equals balanced accuracy at 0.5.
+- Machine kept awake by the per-process helper.
 
 ## AMENDMENT-1 RESULTS (first pre-registered result; official Matbench v0.1 folds; per-fold design selection inside each training fold; scored 2026-10-18 ~23:30)
 Primary arm: stack + naive novelty-damped local OOF correction. Mean ± std over 5 folds.
