@@ -1,9 +1,0 @@
-\begin{abstract}
-Experimental composition--property datasets are small, whereas computed properties of related compounds are abundant.
-We evaluate DFT-informed, cross-fitted stacked ensembles on the four composition tasks of Matbench v0.1 (steel yield strength, experimental band gap, metallicity and glass formation) under a strict protocol: official folds only, every choice made by cross-validation inside training folds, and analysis plan and code frozen before scoring.
-Standard composition experts are combined with non-negative stacking weights, a disclosed block of Materials Project PBE band gaps and formation energies matched by reduced formula, and hurdle experts for the zero-inflated band gap.
-Paired over the same test compositions, the band-gap mean absolute error is \AtwoFinalGap{}~eV, against \AtwoLeaderGap{}~eV for the best merged leaderboard entry. Metallicity and steel yield strength are on par with the leaders, and glass formation is clearly behind.
-The comparison is not like-for-like: our pipeline uses external DFT data, and the band-gap leader is a fine-tuned scientific language model whose pre-training text is itself external knowledge.
-In a post-hoc ablation without the DFT block, the band-gap error rises to \AblNoDftGap{}~eV, on par with that leader.
-A novelty-damped local residual correction, tested in a first pre-registered run, was never retained under nested validation.
-\end{abstract}

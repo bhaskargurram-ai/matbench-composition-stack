@@ -1,7 +1,0 @@
-Highlights
-
-- Pre-registered, fully nested stacking on four Matbench composition tasks
-- Experimental band-gap MAE 0.2352 eV vs 0.2865 eV, best merged Matbench entry
-- Without formula-matched PBE DFT features, band-gap MAE rises to 0.2724 eV
-- Hurdle experts for the zero-inflated band gap matter about as much as DFT features
-- Local residual correction never survived nested validation; glass lags

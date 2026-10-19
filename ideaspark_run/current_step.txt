@@ -1,6 +1,0 @@
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STATE  : needs_work
-STEP   : Preserved draft needs revision
-TYPE   : terminal
-NOTES  : quality_collision: Collision retrieval did not complete; no receipt issued
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

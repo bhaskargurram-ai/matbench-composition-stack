@@ -40,9 +40,9 @@ BIB = [
     "and Stephen Dacek and Shreyas Cholia and Dan Gunter and David Skinner and Gerbrand Ceder and Kristin A. Persson},\n"
     "  title = {Commentary: The Materials Project: A materials genome approach to accelerating materials innovation},\n"
     "  journal = {APL Materials},\n  year = {2013},\n  volume = {1},\n  pages = {011002},\n  doi = {10.1063/1.4812323}\n}",
-    "@unpublished{gurram_dftstack_inreview,\n  author = {Bhaskar Gurram},\n"
+    "@unpublished{gurram_dftstack_inprep,\n  author = {Bhaskar Gurram},\n"
     "  title = {DFT-informed stacked ensembles for experimental composition--property prediction: two pre-registered, fully nested evaluations on Matbench},\n"
-    "  note = {Manuscript under review. Placeholder entry: no DOI or preprint identifier yet; to be updated on publication},\n"
+    "  note = {Manuscript in preparation. Placeholder entry: no DOI or preprint identifier yet; to be updated on publication},\n"
     "  year = {2026}\n}",
 ]
 
@@ -215,7 +215,7 @@ the test folds were predicted.
 CPU-only, {nw} workers x {nth} threads; {tot_h:.1f} worker-hours for all 20 task-folds.
 
 ## Paper and code
-Manuscript under review (no DOI or preprint yet). Research repository: {REPO}
+Manuscript in preparation (no DOI or preprint yet). Research repository: {REPO}
 """
     (ROOT / "leaderboard_submission" / "PR_BODY.md").write_text(pr, encoding="utf-8")
     print("wrote info.json, requirements.txt, README.md, PR_BODY.md")
