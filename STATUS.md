@@ -1,12 +1,20 @@
 # STATUS
 
-**Current stage:**
-- Stages 1-3 are complete as a first full draft.
-- Final official-fold results are scored (Amendment 1 run).
-- The manuscript compiles: `manuscript/main.pdf` (18 pp) and `manuscript/supplementary.pdf` (3 pp).
-- Nothing has been submitted (no leaderboard submission, no publication).
+**Current stage (2026-10-19, overnight autopilot): Amendment 2, development phase.**
+- The protocol was committed in 719d26f, before any Amendment-2 scoring.
+- Amendment-1 results (below) are final and are kept as the first pre-registered result.
+- Development uses fold-0 training rows only. No test scoring until the Amendment-2 freeze.
 
-## FINAL RESULTS (official Matbench v0.1 folds; per-fold design selection inside each training fold; scored 2026-10-18 ~23:30)
+Amendment-2 progress:
+- **DFT transfer features.** Built from offline Materials Project data (`matbench_mp_gap` + `matbench_mp_e_form` via matminer). The figshare-hosted `mp_nostruct` table returned HTTP 500 and could not be used.
+  - Matches: expt_gap 3,347/4,604; is_metal 3,613/4,921; glass 60/5,680; steels 0.
+  - Effect, fold-0 training CV with LightGBM: expt_gap MAE 0.3735 → 0.3015; is_metal AUC 0.981 → 0.988.
+- **New label-free feature blocks.** ElementProperty presets (deml, matminer, matscholar, megnet), Meredig, Miedema, Yang, APE, WenAlloys, TMetalFraction, CBFV (oliynyk, jarvis, mat2vec).
+- **New experts.** CatBoost, XGBoost, Optuna-tuned LightGBM, kNN on element fractions, a MODNet expert (being tested) and a CrabNet expert.
+  - CrabNet is dropped: about 23 min per fit and a weak score (dev MAE 0.419 on expt_gap).
+- **Leaderboard check.** The Darwin leader submissions are hard labels. MODNet v0.1.12 submitted probabilities, but its board "rocauc" equals balanced accuracy at 0.5. The old matbench scoring evidently thresholded the probabilities, so balanced accuracy vs balanced accuracy is the like-for-like comparison.
+
+## AMENDMENT-1 RESULTS (first pre-registered result; official Matbench v0.1 folds; per-fold design selection inside each training fold; scored 2026-10-18 ~23:30)
 Primary arm: stack + naive novelty-damped local OOF correction. Mean ± std over 5 folds.
 
 | Task | Best single (inner CV) | Stack | **Stack + local corr. (primary)** | Stack + fold-matched | Primary test (local vs stack) | Board leader | Our rank |

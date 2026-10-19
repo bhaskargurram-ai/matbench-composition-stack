@@ -1,0 +1,4 @@
+== design_a2 a2v1 matbench_steels cfg={'n_trials': 25}
+    tuned lgbm_F2_tuned: 106.6596 in 190s (25 trials)
+    expert lgbm_F2_tuned: 3s, OOF 106.4220
+    expert xgb_F2: 156s, OOF 117.7896
