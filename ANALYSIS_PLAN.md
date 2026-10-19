@@ -134,3 +134,25 @@ Everything below is done independently inside each official training fold T_k, a
 **Caching.** Expert outputs from the superseded run are reused only where the expert configuration and inputs are identical and were computed solely from T_k: same task, fold, feature set, expert name and settings, seed and J. They are stored per fold and per feature set (`fold<k>_experts` = extra features, `fold<k>_experts_base` = base features).
 
 **Execution.** `python -m src.launch_final --workers 5` (5 workers × 4 threads, deterministic LightGBM). Expected wall clock: about 30–60 min. The base-feature candidates need new cross-fits (no pair refits unless one is selected); the extra-feature candidates reuse caches.
+
+## 9. Amendment 2 (protocol part, 2026-10-19 00:10 local; written BEFORE any Amendment-2 test scoring)
+**Status and honesty statement.**
+- This amendment was written AFTER the Amendment-1 official test results had been scored and seen (commit f422c82).
+- Those results are kept and reported unchanged as the first pre-registered result. Amendment 2 does not replace them.
+- Owner decision: strengthen the pipeline to try to be competitive with the leaderboard leaders.
+
+**What Amendment 2 changes:** only the expert pool, the feature sets (including one disclosed transfer-learning feature block) and the selection/threshold procedure. Every selection (features, experts, hyperparameters, stack, optional local correction, thresholds) is made by inner cross-validation inside each official training fold T_k only.
+
+**Rules:**
+1. The official test folds are scored exactly ONCE under Amendment 2, after the code is re-frozen (new SHA-256 hashes). There is no iteration on test results. Any later bug fix is reported as a deviation, with both versions shown.
+2. Design exploration before the freeze uses training rows only (fold 0's training rows and/or inner CV inside each T_k). No official test rows or test labels are used.
+3. External data is limited to offline DFT (PBE) databases distributed with matminer. These are used as features, mapped by reduced composition, and disclosed as transfer learning.
+   - No experimental labels from any external source.
+   - No LLM or pretrained model that could have memorised experimental values.
+   - Missing matches are encoded with an indicator column.
+4. Experts that exceed about 45 min per official fold on the local CPU budget (5 workers × 4 threads) are dropped and logged.
+5. **New primary endpoint (Amendment 2):** per task, the final Amendment-2 pipeline vs the leaderboard leader (snapshot 2026-10-18).
+   - The comparison uses the board's own metric semantics: MAE for regression. For classification, balanced accuracy at the inner-CV threshold vs the board's balanced-accuracy column for label-based entries; probability ROC-AUC is also reported.
+   - Retained paired tests: stack vs best single expert; final pipeline vs the Amendment-1 primary arm; optional local correction vs stack.
+
+**Details to be fixed before the re-freeze:** the exact expert list, feature blocks, external dataset and tuning budgets will be recorded in Section 10 (the Amendment 2 specification) before the final run.
