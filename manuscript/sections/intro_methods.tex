@@ -19,6 +19,10 @@ Here we ask whether the same construction transfers to composition-based materia
 (iv) every task, fold and arm is reported.
 We also test a variant suggested by a structured ideation-and-review process (Section~\ref{sec:fm}): a \emph{fold-matched} correction that removes a double-counting term which arises because the deployed stack has already been trained on the neighbours whose residuals it borrows.
 
+The first pre-registered run answered that question: the correction transferred only weakly (Section~\ref{sec:results}), and the pipeline ranked behind the leader on every task.
+We then wrote a second, disclosed amendment to strengthen the pipeline under the same rules (Section~\ref{sec:a2}). It added label-free descriptors, a transfer-learning block of DFT data, a hurdle model for the zero-inflated experimental band gap and tuned gradient boosting, and it scored the test folds once more (Section~\ref{sec:results2}).
+Both runs are reported in full.
+
 \section{Related work}
 \label{sec:related}
 

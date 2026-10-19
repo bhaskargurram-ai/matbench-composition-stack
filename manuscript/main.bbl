@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{37}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -11,6 +11,17 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Inproceedings
+\bibitem[{Akiba et~al.(2019)Akiba, Sano, Yanase, Ohta and
+  Koyama}]{akiba2019optuna}
+\bibinfo{author}{Akiba, T.}, \bibinfo{author}{Sano, S.},
+  \bibinfo{author}{Yanase, T.}, \bibinfo{author}{Ohta, T.},
+  \bibinfo{author}{Koyama, M.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{{Optuna: A Next-generation Hyperparameter
+  Optimization Framework}}, in: \bibinfo{booktitle}{Proceedings of the 25th ACM
+  SIGKDD International Conference on Knowledge Discovery \& Data Mining}, pp.
+  \bibinfo{pages}{2623--2631}.
+\newblock \DOIprefix\doi{10.1145/3292500.3330701}.
 %Type = Article
 \bibitem[{Breiman(1996)}]{breiman1996stacked}
 \bibinfo{author}{Breiman, L.}, \bibinfo{year}{1996}.
@@ -34,6 +45,14 @@
 \newblock \bibinfo{journal}{npj Computational Materials} \bibinfo{volume}{8},
   \bibinfo{pages}{242}.
 \newblock \DOIprefix\doi{10.1038/s41524-022-00929-x}.
+%Type = Inproceedings
+\bibitem[{Chen and Guestrin(2016)}]{chen2016xgboost}
+\bibinfo{author}{Chen, T.}, \bibinfo{author}{Guestrin, C.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{{XGBoost}}, in: \bibinfo{booktitle}{Proceedings of
+  the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data
+  Mining}, pp. \bibinfo{pages}{785--794}.
+\newblock \DOIprefix\doi{10.1145/2939672.2939785}.
 %Type = Article
 \bibitem[{{De Breuck} et~al.(2021a){De Breuck}, Evans and
   Rignanese}]{debreuck2021bias}
@@ -122,6 +141,20 @@
   \bibinfo{pages}{319--326}.
 \newblock \DOIprefix\doi{10.1038/s41586-024-08328-6}.
 %Type = Article
+\bibitem[{Jain et~al.(2013)Jain, Ong, Hautier, Chen, Richards, Dacek, Cholia,
+  Gunter, Skinner, Ceder and Persson}]{jain2013mp}
+\bibinfo{author}{Jain, A.}, \bibinfo{author}{Ong, S.P.},
+  \bibinfo{author}{Hautier, G.}, \bibinfo{author}{Chen, W.},
+  \bibinfo{author}{Richards, W.D.}, \bibinfo{author}{Dacek, S.},
+  \bibinfo{author}{Cholia, S.}, \bibinfo{author}{Gunter, D.},
+  \bibinfo{author}{Skinner, D.}, \bibinfo{author}{Ceder, G.},
+  \bibinfo{author}{Persson, K.A.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{{Commentary: The Materials Project: A materials
+  genome approach to accelerating materials innovation}}.
+\newblock \bibinfo{journal}{APL Materials} \bibinfo{volume}{1},
+  \bibinfo{pages}{011002}.
+\newblock \DOIprefix\doi{10.1063/1.4812323}.
+%Type = Article
 \bibitem[{Kauwe et~al.(2020)Kauwe, Welker and Sparks}]{kauwe2020bandgap}
 \bibinfo{author}{Kauwe, S.K.}, \bibinfo{author}{Welker, T.},
   \bibinfo{author}{Sparks, T.D.}, \bibinfo{year}{2020}.
@@ -149,6 +182,15 @@
 \newblock \bibinfo{journal}{Statistical Applications in Genetics and Molecular
   Biology} \bibinfo{volume}{6}.
 \newblock \DOIprefix\doi{10.2202/1544-6115.1309}.
+%Type = Article
+\bibitem[{Laws et~al.(2015)Laws, Miracle and Ferry}]{laws2015ape}
+\bibinfo{author}{Laws, K.J.}, \bibinfo{author}{Miracle, D.B.},
+  \bibinfo{author}{Ferry, M.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{{A predictive structural model for bulk metallic
+  glasses}}.
+\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{6},
+  \bibinfo{pages}{8123}.
+\newblock \DOIprefix\doi{10.1038/ncomms9123}.
 %Type = Misc
 \bibitem[{{Matbench developers}(2026)}]{matbenchboard}
 \bibinfo{author}{{Matbench developers}}, \bibinfo{year}{2026}.
@@ -186,6 +228,18 @@
   \bibinfo{pages}{239--281}.
 \newblock \DOIprefix\doi{10.1023/A:1024068626366}.
 %Type = Article
+\bibitem[{Oliynyk et~al.(2016)Oliynyk, Antono, Sparks, Ghadbeigi, Gaultois,
+  Meredig and Mar}]{oliynyk2016}
+\bibinfo{author}{Oliynyk, A.O.}, \bibinfo{author}{Antono, E.},
+  \bibinfo{author}{Sparks, T.D.}, \bibinfo{author}{Ghadbeigi, L.},
+  \bibinfo{author}{Gaultois, M.W.}, \bibinfo{author}{Meredig, B.},
+  \bibinfo{author}{Mar, A.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{{High-Throughput Machine-Learning-Driven Synthesis of
+  Full-Heusler Compounds}}.
+\newblock \bibinfo{journal}{Chemistry of Materials} \bibinfo{volume}{28},
+  \bibinfo{pages}{7324--7331}.
+\newblock \DOIprefix\doi{10.1021/acs.chemmater.6b02724}.
+%Type = Article
 \bibitem[{Ong et~al.(2013)Ong, Richards, Jain, Hautier, Kocher, Cholia, Gunter,
   Chevrier, Persson and Ceder}]{ong2013pymatgen}
 \bibinfo{author}{Ong, S.P.}, \bibinfo{author}{Richards, W.D.},
@@ -215,6 +269,15 @@
 \newblock \bibinfo{title}{{Scikit-learn: Machine Learning in Python}}.
 \newblock \bibinfo{journal}{Journal of Machine Learning Research}
   \bibinfo{volume}{12}, \bibinfo{pages}{2825--2830}.
+%Type = Inproceedings
+\bibitem[{Prokhorenkova et~al.(2018)Prokhorenkova, Gusev, Vorobev, Dorogush and
+  Gulin}]{prokhorenkova2018catboost}
+\bibinfo{author}{Prokhorenkova, L.}, \bibinfo{author}{Gusev, G.},
+  \bibinfo{author}{Vorobev, A.}, \bibinfo{author}{Dorogush, A.V.},
+  \bibinfo{author}{Gulin, A.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{{CatBoost: unbiased boosting with categorical
+  features}}, in: \bibinfo{booktitle}{Advances in Neural Information Processing
+  Systems 31}.
 %Type = Article
 \bibitem[{Ramakrishnan et~al.(2015)Ramakrishnan, Dral, Rupp and von
   Lilienfeld}]{ramakrishnan2015delta}
@@ -255,7 +318,7 @@
   \bibinfo{pages}{16028}.
 \newblock \DOIprefix\doi{10.1038/npjcompumats.2016.28}.
 %Type = Article
-\bibitem[{Ward et~al.(2018)Ward, Dunn, Faghaninia, Zimmermann, Bajaj, Wang,
+\bibitem[{Ward et~al.(2018a)Ward, Dunn, Faghaninia, Zimmermann, Bajaj, Wang,
   Montoya, Chen, Bystrom, Dylla, Chard, Asta, Persson, Snyder, Foster and
   Jain}]{ward2018matminer}
 \bibinfo{author}{Ward, L.}, \bibinfo{author}{Dunn, A.},
@@ -266,12 +329,24 @@
   \bibinfo{author}{Chard, K.}, \bibinfo{author}{Asta, M.},
   \bibinfo{author}{Persson, K.A.}, \bibinfo{author}{Snyder, G.J.},
   \bibinfo{author}{Foster, I.}, \bibinfo{author}{Jain, A.},
-  \bibinfo{year}{2018}.
+  \bibinfo{year}{2018}a.
 \newblock \bibinfo{title}{{Matminer: An open source toolkit for materials data
   mining}}.
 \newblock \bibinfo{journal}{Computational Materials Science}
   \bibinfo{volume}{152}, \bibinfo{pages}{60--69}.
 \newblock \DOIprefix\doi{10.1016/j.commatsci.2018.05.018}.
+%Type = Article
+\bibitem[{Ward et~al.(2018b)Ward, O'Keeffe, Stevick, Jelbert, Aykol and
+  Wolverton}]{ward2018bmg}
+\bibinfo{author}{Ward, L.}, \bibinfo{author}{O'Keeffe, S.C.},
+  \bibinfo{author}{Stevick, J.}, \bibinfo{author}{Jelbert, G.R.},
+  \bibinfo{author}{Aykol, M.}, \bibinfo{author}{Wolverton, C.},
+  \bibinfo{year}{2018}b.
+\newblock \bibinfo{title}{{A machine learning approach for engineering bulk
+  metallic glass alloys}}.
+\newblock \bibinfo{journal}{Acta Materialia} \bibinfo{volume}{159},
+  \bibinfo{pages}{102--111}.
+\newblock \DOIprefix\doi{10.1016/j.actamat.2018.08.002}.
 %Type = Article
 \bibitem[{Wolpert(1992)}]{wolpert1992stacked}
 \bibinfo{author}{Wolpert, D.H.}, \bibinfo{year}{1992}.
@@ -279,6 +354,14 @@
 \newblock \bibinfo{journal}{Neural Networks} \bibinfo{volume}{5},
   \bibinfo{pages}{241--259}.
 \newblock \DOIprefix\doi{10.1016/S0893-6080(05)80023-1}.
+%Type = Article
+\bibitem[{Yang and Zhang(2012)}]{yang2012ss}
+\bibinfo{author}{Yang, X.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{{Prediction of high-entropy stabilized solid-solution
+  in multi-component alloys}}.
+\newblock \bibinfo{journal}{Materials Chemistry and Physics}
+  \bibinfo{volume}{132}, \bibinfo{pages}{233--238}.
+\newblock \DOIprefix\doi{10.1016/j.matchemphys.2011.11.021}.
 %Type = Article
 \bibitem[{Zhao et~al.(2025)Zhao, Li, Yin, Zhang, Long, Yang, Cao and
   Guo}]{zhao2025hea}

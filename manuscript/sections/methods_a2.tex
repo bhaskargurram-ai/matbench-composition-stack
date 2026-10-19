@@ -11,13 +11,13 @@ In addition to the Amendment-1 features we compute further label-free compositio
 \begin{itemize}
 \item the ``deml'', ``matminer'' and ``megnet\_el'' element-property presets;
 \item Meredig descriptors \citep{meredig2014};
-\item Miedema mixing enthalpies, Yang solid-solution parameters and atomic packing efficiency (descriptors developed for glass formation);
+\item Miedema mixing enthalpies, Yang solid-solution parameters \citep{yang2012ss} and atomic packing efficiency \citep{laws2015ape} (descriptors developed for glass formation, as implemented by \citealp{ward2018bmg});
 \item Wen alloy descriptors and the transition-metal fraction;
-\item Oliynyk element-property statistics from the CBFV package.
+\item Oliynyk element-property statistics \citep{oliynyk2016} from the CBFV package.
 \end{itemize}
 
 \paragraph{DFT transfer block}
-For each composition we look up the Materials Project PBE data distributed with \texttt{matminer} (\texttt{matbench\_mp\_gap}, joined to \texttt{matbench\_mp\_e\_form}) by reduced formula.
+For each composition we look up the Materials Project \citep{jain2013mp} PBE data distributed with \texttt{matminer} (\texttt{matbench\_mp\_gap}, joined to \texttt{matbench\_mp\_e\_form}) by reduced formula.
 The block contains:
 \begin{itemize}
 \item the PBE gap, metallicity and formation energy of the lowest-formation-energy polymorph;
@@ -29,9 +29,9 @@ This is transfer learning from computed to experimental properties, in the spiri
 
 \paragraph{Experts}
 \begin{itemize}
-\item LightGBM on all features, tuned inside each training fold with Optuna (20 trials, default configuration evaluated first).
+\item LightGBM on all features, tuned inside each training fold with Optuna \citep{akiba2019optuna} (20 trials, default configuration evaluated first).
 \item XGBoost \citep{chen2016xgboost}.
-\item CatBoost.
+\item CatBoost \citep{prokhorenkova2018catboost}.
 \item Extremely randomised trees on three feature sets, including element fractions alone (the strongest single model on steels in the design phase).
 \item The kernel, support-vector, nearest-neighbour and perceptron experts of Amendment~1.
 \item For the zero-inflated experimental band gap (about half of the compounds have $E_g=0$), \emph{hurdle} experts. Each pairs a classifier for $E_g>0$ with a regressor trained on the $E_g>0$ rows, and combines them as $p\,r$ or as $r\,\mathbb{1}[p\ge 0.5]$. The latter is the MAE-optimal rule when the conditional distribution is a point mass at zero plus a positive part.

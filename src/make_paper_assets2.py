@@ -50,14 +50,20 @@ def main():
                  f"{s['leader']}: {f(s['leader_value'], t)} & {s['delta']:+.4g} [{s['ci95'][0]:+.3g}, {s['ci95'][1]:+.3g}] & "
                  f"{fp(s['p_holm'])} & {rank} of {len(ent) + 1} \\\\")
         m(f"AtwoFinal{k}", f(s["ours"], t)); m(f"AtwoFinal{k}Std", f(ours_sd, t)); m(f"AtwoLeader{k}", f(s["leader_value"], t))
-        m(f"AtwoLeaderName{k}", s["leader"]); m(f"AtwoDelta{k}", f"{s['delta']:+.4g}"); m(f"AtwoPHolm{k}", fp(s["p_holm"]))
+        m(f"AtwoLeaderName{k}", s["leader"]); m(f"AtwoDelta{k}", f"{s['delta']:+.4g}"); m(f"AtwoPHolm{k}", fp(s["p_holm"])); m(f"AtwoPHolmExpr{k}", "$p_\\mathrm{Holm}<0.001$" if s["p_holm"] < 1e-3 else f"$p_\\mathrm{{Holm}}={s['p_holm']:.3f}$")
         m(f"AtwoCIlo{k}", f"{s['ci95'][0]:+.3g}"); m(f"AtwoCIhi{k}", f"{s['ci95'][1]:+.3g}")
         m(f"AtwoRank{k}", str(rank)); m(f"AtwoNEntries{k}", str(len(ent) + 1)); m(f"AtwoVerdict{k}", verdict)
         m(f"AtwoRel{k}", f"{100 * s['delta'] / s['leader_value']:+.1f}")
         a = st[t]["a2_vs_a1"]; m(f"AtwoVsAone{k}", f"{a['delta']:+.4g}"); m(f"AtwoVsAoneP{k}", fp(a["p_boot"]))
         c = st[t]["stack_vs_best_single"]; m(f"AtwoStackVsBest{k}", f"{c['rel_change_pct']:+.2f}"); m(f"AtwoStackVsBestP{k}", fp(c["boot_p"]))
         c = st[t]["local_vs_stack"]; m(f"AtwoLocalVsStack{k}", f"{c['rel_change_pct']:+.2f}"); m(f"AtwoLocalVsStackP{k}", fp(c["boot_p"]))
+        met = "mae" if t in REG else "rocauc"
+        m(f"AtwoBest{k}", f(sm[t]["best_single"][met]["mean"], t)); m(f"AtwoStack{k}", f(sm[t]["stack"][met]["mean"], t))
+        m(f"AtwoBestBoard{k}", f(sm[t]["best_single"]["board_metric"]["mean"], t))
+        m(f"AtwoMeanEns{k}", f(sm[t]["mean_ensemble"][met]["mean"], t))
         sels = st[t]["selections"]
+        bests = [x["best_single"] for x in sels]
+        m(f"AtwoBestName{k}", max(set(bests), key=bests.count).replace("_", r"\_"))
         m(f"AtwoCorrOn{k}", str(sum(1 for x in sels if x["sel_stack_local"].get("alpha", 0) > 0)))
         if "prob_rocauc_ours" in st[t]:
             m(f"AtwoAUC{k}", f"{st[t]['prob_rocauc_ours']:.4f}")

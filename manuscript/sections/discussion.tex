@@ -1,38 +1,50 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{What transferred}
-The cross-fitted simplex stack is a sound default on these tasks. It never lost to an equal-weight ensemble, it improved calibration on both classification tasks, and it was the best probabilistic classifier on glass. On the other tasks it was statistically indistinguishable from the best single expert, which is itself selected by inner CV.
-The novelty-damped local OOF correction, the part that SIG-Net confirmed for chemical properties, transferred only partly.
-It produced a consistent but small gain on the experimental band gap: all five folds improved, by 0.7\% of the MAE, and the gain survives Holm correction.
-It made no measurable difference on steels.
-On the two classification tasks its own inner-CV selection almost never switched it on.
-We read the band-gap result as a genuine but modest effect. It is of the size that the honesty rules of this study led us to expect, and much smaller than what is needed to close the gaps to the leaderboard leaders.
+\paragraph{What the two pre-registered runs show}
+The first run tested the transfer of the novelty-damped local OOF residual correction from our chemistry study.
+It transferred only weakly: a consistent 0.7\% MAE gain on the experimental band gap, nothing measurable on steels, and nothing on the classification tasks, where the inner selection switched it off.
+The second run strengthened the substrate instead. It added a disclosed DFT transfer block, a hurdle treatment of the zero-inflated band gap, more descriptors and more experts, and it gated the correction by a nested check.
+That gate then kept the correction in none of the 20 folds.
+The pipeline that emerges is therefore a well-regularised cross-fitted stack of standard composition experts. Its strength comes from \emph{what the experts see} (DFT descriptors) and \emph{what loss structure they model} (the point mass at $E_g=0$), not from a local residual stage.
 
-\paragraph{Why it does not do more}
-The support-stratified analysis points to a mechanism.
-On both regression tasks the naive correction is harmful for test compositions that have a near-duplicate in the training set. This is where the deployed stack has already absorbed the neighbour's error, and adding the neighbour's OOF residual double-counts it.
-The correction helps only at intermediate and large distances.
-The fold-matched variant was designed to remove exactly this absorption term, but it did not help in practice. One possible reason: the pair-excluded refits are trained on 60\% of the fold, and on these data that appears to make the transferred analogue estimates noisier than the bias they remove.
-We regard this as a negative result for that proposal, not a refutation of the decomposition, which is an algebraic identity.
-The label-permutation control also shows that selecting a non-zero correction strength is weak evidence of local structure, because shrinkage toward a local mean pays off even against permuted labels.
-A stricter selection rule, for example a one-standard-error rule over inner folds, might switch the correction off more often. It would not have changed the qualitative conclusions here.
+\paragraph{The experimental band gap}
+On expt\_gap the final pipeline's MAE differs from the board leader's by \AtwoRelGap\% (\AtwoFinalGap{} versus \AtwoLeaderGap~eV), and the margin is clear on a paired test.
+Two caveats apply.
+First, the gain relies on transfer from DFT calculations, which the leaders of this task do not use in the same form. We disclose it as transfer learning, use only the offline Materials Project data shipped with \texttt{matminer}, and use no experimental labels from outside the task.
+Second, 27\% of the expt\_gap compositions have no DFT match, and for them the pipeline falls back on composition descriptors.
+The hurdle construction is simple and general. A model that must predict exactly zero for half of the targets is poorly served by a single L1 or L2 regressor. Separating ``is the gap non-zero?'' from ``how large is it?'' removed a substantial part of that error in the design phase (MAE about 0.30 to 0.25 on fold~0's training rows).
 
-\paragraph{The leaderboard}
-With CPU-only, off-the-shelf experts and fully nested selection, the method would rank \SteelsRank{}, \GapRank{}, \MetalRank{} and \GlassRank{} on steels, expt\_gap, expt\_is\_metal and glass among the leaderboard entries of 18 October 2026. It is never first.
-The gaps to Darwin on expt\_gap and to MODNet v0.1.12 on glass are far larger than anything a residual correction contributed here. Closing them would need better base representations, not a better correction stage.
-For the classification tasks we found that most board entries recorded hard labels, so their ``ROC-AUC'' is a balanced accuracy. Comparing probability ROC-AUCs with these values would have inflated our standing considerably, for example \MetalAUCprob{} versus 0.9598 on expt\_is\_metal.
-We recommend that future Matbench classification submissions report both quantities explicitly.
+\paragraph{The tasks where we do not lead}
+On expt\_is\_metal and steels the pipeline is statistically on par with the leaders (Darwin and TPOT-Mat), and on glass it is clearly behind MODNet v0.1.12.
+MODNet's glass submission reaches a probability ROC-AUC of \AtwoLeaderAUCGlass, against our \AtwoAUCGlass{}. We could not close this gap with the descriptors developed for glass formation or with any CPU-feasible expert we tried. A MODNet expert itself exceeded our CPU budget.
+We did not audit the leaders' protocols. For example, we cannot tell from the public records whether all tuning was confined to the training folds. Our comparison is therefore against the reported numbers and predictions, not a claim about the methods.
+
+\paragraph{Classification metrics on the leaderboard}
+The leaders of both classification tasks are scored by balanced accuracy, whatever the column name says. Darwin recorded hard labels. MODNet recorded probabilities, but the \texttt{matbench} version that produced the board entry thresholded them at 0.5 for every metric.
+A submission with probabilities scored by the current package would receive a true ROC-AUC (\AtwoAUCMetal{} for our expt\_is\_metal pipeline). That number is not comparable to the label-based entries.
+We recommend that future submissions and leaderboards report balanced accuracy and probability ROC-AUC as separate columns.
 
 \paragraph{Limitations}
-The study covers four composition tasks only. The expert pool is restricted to CPU-feasible models (no CrabNet, Roost, MODNet or TabPFN experts), and five official folds give little power for per-task comparisons; the Nadeau--Bengio $p$-values in Table~\ref{tab:tests} show how weak fold-level evidence is.
-The set of candidate design configurations was itself constructed while looking at inner-CV results on fold~0's training rows; only the choice among the candidates was made inside every training fold.
-We did not tune the expert hyperparameters per fold beyond the internal kernel-ridge grid, and we used a single seed.
-The fold-matched arm was implemented in a simplified form of the proposal: the same damping family as the naive correction, two composition distances, and no element mover's distance.
-The ideation, prior-art and review steps that suggested it were partly automated, and their full records are in the repository.
+\begin{itemize}
+\item \textbf{Scope.} The study covers four composition tasks and CPU-feasible experts only. Five folds give little power per task, except where effects are large.
+\item \textbf{Two looks at the test folds.} Amendment~2 was written after the Amendment-1 test results had been seen. Although every Amendment-2 choice was made on training rows only and the test folds were scored once under it, the decision to strengthen the pipeline, and the direction it took, were motivated by the first run's standing on the board. Both runs are reported in full.
+\item \textbf{Candidate configurations from fold 0.} The candidate configurations, feature blocks and expert pool were developed on fold~0's training rows. Those rows contain the test rows of folds 1--4, so for those folds the \emph{space} of designs, though never their fitted parameters, was informed by data that later served as test data.
+\item \textbf{Optimistic tuning OOF.} The Optuna-tuned expert's OOF predictions are mildly optimistic, because tuning and stacking share inner splits. This can affect only the stack weights.
+\item \textbf{Dropped experts.} CrabNet- and MODNet-based experts were implemented but dropped for CPU cost, so the expert pool is not exhaustive.
+\end{itemize}
 
 \section{Conclusions}
 \label{sec:conclusions}
-Under a pre-registered, fully nested protocol on the official Matbench folds, cross-fitted stacking of diverse composition experts is a reliable baseline. The novelty-damped local OOF residual correction transfers only weakly from chemistry to materials: a 0.7\% MAE gain on the experimental band gap, and none elsewhere.
-The correction hurts for near-duplicate compositions. A fold-matched variant aimed at that failure did not fix it.
-We report these mixed results in full, together with every arm, fold and selection, as a calibrated data point for anyone tempted to bolt a residual-correction stage onto a materials model.
+We evaluated cross-fitted stacking of composition experts on the four Matbench v0.1 composition tasks under two pre-registered, fully nested protocols.
+
+\textbf{First run.} A novelty-damped local OOF residual correction transferred only weakly from chemistry to materials.
+
+\textbf{Second run.} The strengthened, still fully nested pipeline used DFT transfer descriptors and a hurdle model for the zero-inflated band gap. It:
+\begin{itemize}
+\item lowers the experimental band-gap MAE to \AtwoFinalGap~eV, below the current leader (\AtwoLeaderGap~eV);
+\item is on par with the leaders on expt\_is\_metal and steels;
+\item remains behind on glass.
+\end{itemize}
+
+We report all runs, folds and comparisons. Predictions and code are provided so that the numbers can be checked.

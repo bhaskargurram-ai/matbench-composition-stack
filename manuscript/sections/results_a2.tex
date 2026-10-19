@@ -1,0 +1,78 @@
+\section{Results II: the strengthened pipeline against the leaderboard (Amendment 2)}
+\label{sec:results2}
+
+\subsection{Primary endpoint: final pipeline versus the board leader}
+Table~\ref{tab:a2leader} compares the frozen Amendment-2 pipeline with the leader of each per-task leaderboard. The comparison is paired over the same official test compositions, using the leaders' public predictions.
+
+\textbf{expt\_gap.} The final pipeline reached an MAE of \AtwoFinalGap{}~eV against \AtwoLeaderGap{}~eV for Darwin, a fine-tuned large language model and the current leader ($\Delta=\AtwoDeltaGap$~eV, 95\% CI [\AtwoCIloGap, \AtwoCIhiGap], \AtwoPHolmExprGap). This is the only task where the pre-registered rule for ``beats the leader'' is met. It would place first among the \AtwoNEntriesGap{} entries.
+
+\textbf{expt\_is\_metal.} The balanced accuracy of \AtwoFinalMetal{} is on par with Darwin's \AtwoLeaderMetal{} (\AtwoPHolmExprMetal). It would rank \AtwoRankMetal{} of \AtwoNEntriesMetal.
+
+\textbf{steels.} The MAE of \AtwoFinalSteels{}~MPa is on par with TPOT-Mat's \AtwoLeaderSteels{}~MPa (95\% CI [\AtwoCIloSteels, \AtwoCIhiSteels]~MPa, \AtwoPHolmExprSteels). It would rank \AtwoRankSteels{} of \AtwoNEntriesSteels.
+
+\textbf{glass.} The pipeline remains clearly behind MODNet v0.1.12: balanced accuracy \AtwoFinalGlass{} versus \AtwoLeaderGlass{}, \AtwoPHolmExprGlass. MODNet's probabilities, which are available in its submission, also give a much higher probability ROC-AUC (\AtwoLeaderAUCGlass{} versus our \AtwoAUCGlass).
+
+\begin{table}[t]
+\centering
+\caption{Amendment-2 final pipeline versus the leaderboard leader of each task. The comparison is paired over the same official test compositions, using the leaders' public per-sample predictions. Metric semantics follow the board: MAE; balanced accuracy for classification (ours at the inner-CV threshold; Darwin's recorded labels; MODNet's probabilities at 0.5, as the board scored them). $\Delta$ is ours minus the leader. CI: paired bootstrap over test points within folds ($B=10^4$). Holm correction over four tasks. Rank: among the board entries of 18 October 2026, including ours.}
+\label{tab:a2leader}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/a2_table_leader.tex}
+\end{adjustbox}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_a2_leader.pdf}
+\caption{Per-fold board metric of the Amendment-2 final pipeline, the task leader and the Amendment-1 primary arm.}
+\label{fig:a2}
+\end{figure}
+
+\subsection{What changed between the two pre-registered runs}
+Table~\ref{tab:a1a2} compares the two frozen pipelines on the board metric.
+The largest gain is on expt\_gap, where the MAE fell from \AoneBoardGap{} to \AtwoFinalGap~eV.
+Two ingredients account for it. Both were identified on training rows only in the design phase (\texttt{results/design\_a2/DESIGN\_LOG\_A2.md}):
+\begin{itemize}
+\item the DFT transfer block, which lowered the cross-validated MAE of a single LightGBM on fold~0's training rows from 0.374 to 0.302;
+\item hurdle experts, which treat the roughly half of compounds with $E_g=0$ separately. They lowered it further to about 0.25.
+\end{itemize}
+A hurdle expert was the best single model in every fold (\AtwoBestNameGap{} in most), and the stack added nothing on top of it ($\Delta$ vs.\ best single \AtwoStackVsBestGap\%, $p=\AtwoStackVsBestPGap$).
+On expt\_is\_metal the DFT block and the larger expert pool raised the balanced accuracy from \AoneBoardMetal{} to \AtwoFinalMetal.
+Glass improved modestly (\AoneBoardGlass{} to \AtwoFinalGlass). Steels changed by \AtwoVsAoneSteels~MPa (\AoneBoardSteels{} to \AtwoFinalSteels~MPa, $p=\AtwoVsAonePSteels$), which is within noise.
+
+\begin{table}[t]
+\centering
+\caption{Board metric of the two pre-registered pipelines on the official folds, with a paired bootstrap $p$-value for the difference.}
+\label{tab:a1a2}
+\input{generated/a2_table_a1a2.tex}
+\end{table}
+
+\subsection{Stacking and the gated correction}
+Under the nested gate the local correction was kept in none of the 20 official folds (steels \AtwoCorrOnSteels/5, expt\_gap \AtwoCorrOnGap/5, expt\_is\_metal \AtwoCorrOnMetal/5, glass \AtwoCorrOnGlass/5). The final pipeline is therefore the simplex stack itself.
+This agrees with Amendment~1: once judged by an honest nested estimate, the local correction does not earn its place on these tasks.
+
+The stack improved on the best single expert only on glass (\AtwoStackVsBestGlass\% ROC-AUC, $p=\AtwoStackVsBestPGlass$). It was statistically indistinguishable from it elsewhere.
+On steels the best single expert, extremely randomised trees on element fractions alone, reached a slightly lower MAE (\AtwoBestSteels~MPa) than the stack (\AtwoStackSteels~MPa). We report the pre-registered stack as the final result.
+Table~\ref{tab:a2arms} lists every arm and expert, and Table~\ref{tab:a2weights} the stack weights.
+
+\begin{table}[t]
+\centering
+\caption{Amendment-2 arms and experts on the official folds (mean $\pm$ s.d.\ over folds; probability ROC-AUC for classification).}
+\label{tab:a2arms}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/a2_table_arms.tex}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Mean Amendment-2 stack weight per expert over folds.}
+\label{tab:a2weights}
+\begin{adjustbox}{max width=\textwidth}
+\input{generated/a2_table_weights.tex}
+\end{adjustbox}
+\end{table}
+
+\subsection{Compute}
+With five parallel workers of four threads on one 24-core workstation, one official fold took a median of about \AtwoWallMinSteels, \AtwoWallMinGap, \AtwoWallMinMetal{} and \AtwoWallMinGlass{} minutes for steels, expt\_gap, expt\_is\_metal and glass. The whole Amendment-2 run used \AtwoTotalJobHours{} worker-hours.
+The Optuna tuning of LightGBM is the largest single cost.

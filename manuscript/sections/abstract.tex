@@ -1,21 +1,30 @@
 \begin{abstract}
-We test whether a local residual correction confirmed in an earlier chemistry study transfers to composition-based materials property prediction.
-The pipeline has two stages:
-\begin{itemize}
-\item cross-fitted stacking of diverse experts;
-\item a novelty-damped local out-of-fold residual correction.
-\end{itemize}
-The test uses the four composition tasks of Matbench v0.1 (steels, expt\_gap, expt\_is\_metal, glass) under a strict protocol:
+We evaluate cross-fitted stacking of composition-based experts on the four composition tasks of Matbench v0.1 (steels, expt\_gap, expt\_is\_metal, glass).
+The protocol is the same for both runs:
 \begin{itemize}
 \item only the official folds are used;
 \item every model, hyperparameter and design choice is made by cross-validation inside each training fold;
-\item the analysis plan was written, and the code frozen by SHA-256 hash, before any test fold was scored;
-\item every task, fold and comparison is reported.
+\item the analysis plan was written, and the code frozen by SHA-256 hash, before the test folds were scored.
 \end{itemize}
-The simplex-constrained stack never lost to an equal-weight ensemble and improved calibration. Its gains over the best single expert were small (largest on glass).
-The local correction improved one of the four tasks under the pre-registered rule. On expt\_gap the mean absolute error fell from \GapStack{} to \GapStackLocal{}~eV (\RelGap\%, 5/5 folds, Holm-adjusted $p=\PHolmGap$).
-It had no detectable effect on steels (\RelSteels\%), and its own nested selection declined it on the two classification tasks.
-Stratifying by distance to the nearest training composition shows that the correction hurts for near-duplicate compositions, where the deployed stack has already absorbed the neighbours' errors. A fold-matched variant designed to remove this double counting did not help.
-Among the leaderboard entries the method would rank \SteelsRank{}, \GapRank{}, \MetalRank{} and \GlassRank{} on steels, expt\_gap, expt\_is\_metal and glass. It does not beat the best entry on any task.
-We also show that most leaderboard classification scores are label-based balanced accuracies, which are not comparable with probability ROC-AUCs.
+
+\textbf{First pre-registered run.} It tested whether a novelty-damped local out-of-fold residual correction, confirmed in earlier chemistry work, transfers to materials. It transferred only weakly: a 0.7\% MAE gain on the experimental band gap (5/5 folds, Holm-adjusted $p=\PHolmGap$), and no effect elsewhere.
+
+\textbf{Second pre-registered run.} Written after the first results were seen, and disclosed as such, it strengthened the pipeline with:
+\begin{itemize}
+\item further label-free descriptors;
+\item a transfer-learning block of DFT (PBE) gaps and formation energies from offline Materials Project data;
+\item a hurdle treatment of the zero-inflated band gap;
+\item Optuna-tuned gradient boosting;
+\item a nested-CV gate for the local correction, which then kept the correction in none of the 20 folds.
+\end{itemize}
+
+Against the leaderboard leaders, paired over the same test compositions with their public predictions:
+\begin{itemize}
+\item \textbf{expt\_gap:} our MAE is \AtwoFinalGap{}~eV against \AtwoLeaderGap{}~eV for the best entry (\AtwoPHolmExprGap).
+\item \textbf{expt\_is\_metal:} on par (balanced accuracy \AtwoFinalMetal{} vs.\ \AtwoLeaderMetal).
+\item \textbf{steels:} on par (MAE \AtwoFinalSteels{} vs.\ \AtwoLeaderSteels~MPa).
+\item \textbf{glass:} behind (\AtwoFinalGlass{} vs.\ \AtwoLeaderGlass).
+\end{itemize}
+We also show that the leaders of the classification tasks are scored by balanced accuracy, not probability ROC-AUC.
+Everything ran on one 24-core CPU workstation.
 \end{abstract}
