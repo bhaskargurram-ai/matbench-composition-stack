@@ -1,3 +1,13 @@
-egin{tabular}{l}
-TBD
-nd{tabular}
+\begin{tabular}{lllcccccccc}
+\toprule
+ & & & \multicolumn{2}{c}{mean $\pm$ s.d.\ over 5 folds} & \multicolumn{3}{c}{variant $-$ full A2} & \multicolumn{3}{c}{variant $-$ leader} \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}
+Task & Metric & Variant & Full A2 & Variant & $\Delta$ [95\% CI] & $p_\mathrm{boot}$ & folds worse & Leader & $\Delta$ [95\% CI] & $p_\mathrm{boot}$ \\
+\midrule
+expt\_gap & MAE (eV) & no DFT block & 0.2352 $\pm$ 0.0167 & 0.2724 $\pm$ 0.0088 & +0.0372 [+0.0251, +0.0493] & $<$0.001 & 5/5 & Darwin: 0.2865 & -0.0141 [-0.0326, +0.0043] & 0.129 \\
+expt\_gap & MAE (eV) & no hurdle experts & 0.2352 $\pm$ 0.0167 & 0.2789 $\pm$ 0.0107 & +0.0437 [+0.0351, +0.0520] & $<$0.001 & 5/5 & Darwin: 0.2865 & -0.0077 [-0.0256, +0.0108] & 0.414 \\
+expt\_is\_metal & bal.\ acc. & no DFT block & 0.9547 $\pm$ 0.0033 & 0.9425 $\pm$ 0.0050 & -0.0122 [-0.0177, -0.0069] & $<$0.001 & 5/5 & Darwin: 0.9598 & -0.0173 [-0.0244, -0.0102] & $<$0.001 \\
+steels & MAE (MPa) & no DFT block & 80.10 $\pm$ 10.19 & 80.06 $\pm$ 10.28 & -0.04 [-0.54, +0.46] & 0.877 & 1/5 & TPOT-Mat: 79.95 & +0.11 [-4.80, +4.88] & 0.978 \\
+glass & bal.\ acc. & no DFT block & 0.8937 $\pm$ 0.0158 & 0.8922 $\pm$ 0.0141 & -0.0016 [-0.0054, +0.0021] & 0.416 & 3/5 & MODNet (v0.1.12): 0.9603 & -0.0682 [-0.0777, -0.0588] & $<$0.001 \\
+\bottomrule
+\end{tabular}
