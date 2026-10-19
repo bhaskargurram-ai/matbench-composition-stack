@@ -1,0 +1,5 @@
+== design_a2 a2v3 matbench_glass cfg={'n_trials': 25}
+    expert et_frac: 285s, OOF 0.9258
+  pseudo 0 (298s): single:lgbm_F2_tuned=0.9514, single:xgb_F2=0.9487, single:cat_F1=0.9418, single:et_F1=0.9470, single:et_F2=0.9496, single:et_frac=0.9400, single:svc_frac=0.8669, single:svc_magpie=0.9040, single:knn_frac=0.8947, single:mlp_F1=0.9023, best_single=0.9496, mean_ensemble=0.9453, stack=0.9531, stack_local=0.9531, single_local=0.9496, stack_BA=0.8772, stack_local_BA=0.8772, best_single_BA=0.8639
+    weights={'lgbm_F2_tuned': 0.0, 'xgb_F2': 0.197, 'cat_F1': 0.123, 'et_F1': 0.0, 'et_F2': 0.436, 'et_frac': 0.233, 'svc_frac': 0.011, 'svc_magpie': 0.0, 'knn_frac': 0.0, 'mlp_F1': 0.0} corr=0.0
+  MEAN: single:lgbm_F2_tuned=0.9514, single:xgb_F2=0.9487, single:cat_F1=0.9418, single:et_F1=0.9470, single:et_F2=0.9496, single:et_frac=0.9400, single:svc_frac=0.8669, single:svc_magpie=0.9040, single:knn_frac=0.8947, single:mlp_F1=0.9023, best_single=0.9496, mean_ensemble=0.9453, stack=0.9531, stack_local=0.9531, single_local=0.9496, stack_BA=0.8772, stack_local_BA=0.8772, best_single_BA=0.8639

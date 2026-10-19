@@ -1,0 +1,15 @@
+== design_a2 a2v2 matbench_expt_gap cfg={'n_trials': 25}
+    tuned lgbm_F2_tuned: 0.3121 in 1493s (25 trials)
+    expert lgbm_F2_tuned: 68s, OOF 0.3121
+    expert xgb_F2: 179s, OOF 0.3206
+    expert cat_F1: 168s, OOF 0.3300
+    expert et_F1: 57s, OOF 0.3129
+    expert et_F2: 255s, OOF 0.3128
+    expert rf_F2: 303s, OOF 0.3526
+    expert krr_frac: 116s, OOF 0.5693
+    expert krr_magpie: 121s, OOF 0.5187
+    expert knn_frac: 12s, OOF 0.5209
+    expert mlp_F1: 58s, OOF 0.4311
+  pseudo 0 (2833s): single:lgbm_F2_tuned=0.3142, single:xgb_F2=0.3136, single:cat_F1=0.3322, single:et_F1=0.3082, single:et_F2=0.3074, single:rf_F2=0.3492, single:krr_frac=0.5661, single:krr_magpie=0.5236, single:knn_frac=0.5197, single:mlp_F1=0.4379, best_single=0.3142, mean_ensemble=0.3730, stack=0.3057, stack_local=0.3039, single_local=0.3142
+    weights={'lgbm_F2_tuned': 0.487, 'xgb_F2': 0.0, 'cat_F1': 0.0, 'et_F1': 0.513, 'et_F2': 0.0, 'rf_F2': 0.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'knn_frac': 0.0, 'mlp_F1': 0.0} corr=0.25
+  MEAN: single:lgbm_F2_tuned=0.3142, single:xgb_F2=0.3136, single:cat_F1=0.3322, single:et_F1=0.3082, single:et_F2=0.3074, single:rf_F2=0.3492, single:krr_frac=0.5661, single:krr_magpie=0.5236, single:knn_frac=0.5197, single:mlp_F1=0.4379, best_single=0.3142, mean_ensemble=0.3730, stack=0.3057, stack_local=0.3039, single_local=0.3142

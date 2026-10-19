@@ -7,7 +7,8 @@
    affect the level-1 stack weights, never the test fold.)
 3. cross-fitting of all experts -> OOF and test predictions (cached per expert, resumable);
 4. simplex stack (L1 for regression / Brier for classification) + cross-fitted OOF stack;
-5. optional naive local correction selected by inner CV (alpha = 0 allowed) -> FINAL arm `stack_local`;
+5. optional naive local correction selected by inner CV (alpha = 0 allowed) and kept only if a NESTED
+   inner-CV check confirms it (gated_correction) -> FINAL arm `stack_local`;
 6. balanced-accuracy thresholds from training OOF predictions (classification).
 """
 from __future__ import annotations
@@ -15,8 +16,30 @@ import json, pathlib, time
 import numpy as np
 
 from .pipeline import (inner_splits, simplex_weights, crossfitted_stack, select_correction, predict_correction,
-                       corrected_oof, balanced_threshold, score)
+                       corrected_oof, balanced_threshold, score, better)
 from .experts2 import make_experts2, suggest, DEFAULTS
+
+
+def gated_correction(task_type, X_tr, y_tr, base_oof, splits):
+    """Select the local correction on all training rows, then check it by NESTED inner CV: for each inner
+    fold f the correction is re-selected on the other folds only and applied to f. The correction is kept
+    only if this honest corrected OOF score beats the uncorrected OOF score; otherwise alpha = 0."""
+    sel = select_correction(task_type, X_tr, y_tr, base_oof)
+    info = {"selected_alpha": sel["alpha"], "uncorrected_oof": float(score(task_type, y_tr, base_oof))}
+    if sel["alpha"] == 0:
+        info.update(honest_oof=info["uncorrected_oof"], kept=False)
+        return sel, info
+    honest = base_oof.copy()
+    for tr_i, va_i in splits:
+        sf = select_correction(task_type, X_tr.iloc[tr_i], y_tr[tr_i], base_oof[tr_i])
+        honest[va_i] = predict_correction(task_type, X_tr.iloc[tr_i], y_tr[tr_i], base_oof[tr_i], X_tr.iloc[va_i],
+                                          base_oof[va_i], sf)
+    h = float(score(task_type, y_tr, honest))
+    keep = better(task_type, h, info["uncorrected_oof"])
+    info.update(honest_oof=h, kept=bool(keep))
+    if not keep:
+        sel = dict(sel, alpha=0.0, space=None)
+    return sel, info
 
 
 def tune_expert(ex, task_type, X, y, splits, n_trials, cache: pathlib.Path, seed=0, log=print):
@@ -101,12 +124,14 @@ def run_split2(task_type, X_tr, y_tr, X_te, cache_dir, cfg=None, n_inner=5, seed
     s_oof = crossfitted_stack(P_oof, y_tr, splits, task_type, loss)
     meta["stack_oof_score"] = float(score(task_type, y_tr, s_oof))
     out["stack"] = s_te
-    sel = select_correction(task_type, X_tr, y_tr, s_oof)
+    sel, gate = gated_correction(task_type, X_tr, y_tr, s_oof, splits)
     meta["sel_stack_local"] = sel
+    meta["gate_stack_local"] = gate
     out["stack_local"] = predict_correction(task_type, X_tr, y_tr, s_oof, X_te, s_te, sel)
     b_oof = P_oof[:, best_j]
-    sel_b = select_correction(task_type, X_tr, y_tr, b_oof)
+    sel_b, gate_b = gated_correction(task_type, X_tr, y_tr, b_oof, splits)
     meta["sel_single_local"] = sel_b
+    meta["gate_single_local"] = gate_b
     out["single_local"] = predict_correction(task_type, X_tr, y_tr, b_oof, X_te, P_te[:, best_j], sel_b)
     if task_type != "regression":
         for k in out:

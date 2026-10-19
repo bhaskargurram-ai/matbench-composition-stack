@@ -1,0 +1,43 @@
+# Freeze hashes, AMENDMENT 2 (SHA-256 of LF-normalised files) - recorded 2026-10-19T03:18:25-04:00 BEFORE any Amendment-2 official test fold was predicted or scored
+# previous freezes: results/freeze_hashes_original_plan.txt (dd8624b), results/freeze_hashes.txt (Amendment 1, 36796aa)
+# git HEAD before this freeze commit: 0e7d5f3f115af2f8335593b9dea2511fb551438a
+6ed1c6c9e2dc4220a3727fcc4d6bf56aa2526cd9c6ceb6c8b266a0bcd47d1402 ANALYSIS_PLAN.md
+1b3a9b9e54fd27cb8254b1545ef7110e7b90b00c2fc7a21021a66d8369f7454d src/crabnet_expert.py
+df821bfc530fd0c651444f640de0a58b8bddfb0dbea7cba5840e43691ebc1fb9 src/data.py
+2ffc9db571a1695d281475a4bef5135918ce3c7808b41d068d908e196416afa4 src/design.py
+9722c7f4a9da4facd507103a264f459bd37df10773dac68dadbdc81abc0a8bf4 src/design2.py
+c5bc36d6ad40cac4bd1d2052029afa1ec8b56170eb9f5a90b7de8bfa0eae3937 src/dev_quick.py
+93c8c8c38a39707fecdd0944fb6b1564cd52643779157f6dacd104377f2ca540 src/evaluate.py
+dc5b6800376dea8e4053503bdc6d991eef1adcbcbd1ff290f4b696c4a520dbfa src/evaluate2.py
+597d3834d4b445a174e4133506288b43ade23e5919d6a0f23fa46957d2f1f89c src/experts.py
+f1f8562949379b5a487618615b704a921e6f32f266b5c0d6eeae5a5320b4e8a6 src/experts2.py
+2b554a57c1f5da3c8a00241a78ed67ffec947eb80a00e59ce1cd2c1c8035deb3 src/external_dft.py
+d56157eaad636e712a3e9609255cc61c08d92f6e20452160689beca35a28a56c src/features_all.py
+cf4d559a830a252c6124414b038305aca46258c4cd7211978cc1dbfd36769c17 src/features_more.py
+a8bc3facb01ba41755210152eb6dce08aafa7af2769efe06aca8158e93923556 src/frozen_config.py
+d286b35b750cbbcd76718051b21b6d7e6bf6ee70785fbf7b40d10e376bfb982d src/frozen_config2.py
+e3f4052fec9f5aad929e461b425cf1627d6bcf80602578c74bb6d073d2fb2100 src/launch_final.py
+fac4045b4ea45bba9b5819e65f2164c3ce5de1fdff3d3782ab3c711db7139f40 src/make_paper_assets.py
+a54aa4a7bdd41784d5b6fd99298385e78573131f256b5378c92b37914e4c4494 src/modnet_expert.py
+a06c7ae8e593fb9837b5e0343131bf031d4d66b8d08c1c36c01ae635db4d18c6 src/pipeline.py
+c60e0e8b4157b4c43a27aef1d7dc1cc1aca0012988d3f2480a71508e72f9c519 src/pipeline2.py
+0024ec923353dead9f18cf28f3532bb9640dceceff818d83e3e8107f4f80c1d3 src/run_final.py
+b94ec06e3db1f65b7d4be338f97635558048803527f0e60ca686f5b6627eab42 src/run_final2.py
+b6bc11a1689f0d32544fa4a91235b29cd770afd8b14c50fcb931fbc47b10cfb0 src/smoke_test_evaluate.py
+17e686cf95573fc9597be9b597758d5900378731547d5e71ca65aeaab358b401 src/smoke_test_evaluate2.py
+# environment
+python 3.12.10
+scikit-learn 1.9.1
+lightgbm 4.7.0
+xgboost 3.4.1
+catboost 1.2.10
+optuna 5.0.0
+numpy 2.5.4
+scipy 1.18.1
+pandas 2.3.3
+matminer 0.10.1
+pymatgen 2026.9.24
+matbench 0.6
+CBFV 1.1.0
+torch 2.14.1+cpu
+# verify: sha256sum -c <(grep -E '^[0-9a-f]{64} ' results/freeze_hashes_amendment2.txt)

@@ -1,0 +1,8 @@
+== design_a2 a2v3 matbench_expt_gap cfg={'n_trials': 25, 'hurdle': True}
+    expert et_frac: 422s, OOF 0.4960
+    expert hurdle_lgbm_F2_exp: 84s, OOF 0.2648
+    expert hurdle_lgbm_F2_median: 82s, OOF 0.2677
+    expert hurdle_et_F1_exp: 41s, OOF 0.3130
+  pseudo 0 (632s): single:lgbm_F2_tuned=0.3142, single:xgb_F2=0.3136, single:cat_F1=0.3322, single:et_F1=0.3082, single:et_F2=0.3074, single:et_frac=0.4895, single:hurdle_lgbm_F2_exp=0.2535, single:hurdle_lgbm_F2_median=0.2437, single:hurdle_et_F1_exp=0.3144, single:krr_frac=0.5661, single:krr_magpie=0.5236, single:knn_frac=0.5197, single:mlp_F1=0.4379, best_single=0.2535, mean_ensemble=0.3517, stack=0.2530, stack_local=0.2530, single_local=0.2535
+    weights={'lgbm_F2_tuned': 0.0, 'xgb_F2': 0.0, 'cat_F1': 0.0, 'et_F1': 0.0, 'et_F2': 0.0, 'et_frac': 0.0, 'hurdle_lgbm_F2_exp': 0.957, 'hurdle_lgbm_F2_median': 0.043, 'hurdle_et_F1_exp': 0.0, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'knn_frac': 0.0, 'mlp_F1': 0.0} corr=0.0
+  MEAN: single:lgbm_F2_tuned=0.3142, single:xgb_F2=0.3136, single:cat_F1=0.3322, single:et_F1=0.3082, single:et_F2=0.3074, single:et_frac=0.4895, single:hurdle_lgbm_F2_exp=0.2535, single:hurdle_lgbm_F2_median=0.2437, single:hurdle_et_F1_exp=0.3144, single:krr_frac=0.5661, single:krr_magpie=0.5236, single:knn_frac=0.5197, single:mlp_F1=0.4379, best_single=0.2535, mean_ensemble=0.3517, stack=0.2530, stack_local=0.2530, single_local=0.2535

@@ -4,7 +4,7 @@ gradient-boosting experts are tuned with Optuna by inner CV inside the official 
 
 Feature groups (column prefixes after name sanitisation, see features_all.py):
   F1     : magpie_, frac_, extra_, dft_            (Amendment-1 features + DFT transfer block)
-  F2     : F1 + ep_* + meredig_ + miedema_ + yang_ + ape_ + wen_ + tmetal_ + cbfv_oliynyk_ + cbfv_mat2vec_
+  F2     : F1 + ep_* + meredig_ + miedema_ + yang_ + ape_ + wen_ + tmetal_ + cbfv_oliynyk_
   magpie : magpie_ only;  frac : frac_ only;  comp : the composition string (CrabNet)
 """
 from __future__ import annotations
@@ -26,7 +26,7 @@ import xgboost as xgb
 from catboost import CatBoostRegressor, CatBoostClassifier
 
 F1_PREFIX = ("magpie_", "frac_", "extra_", "dft_")
-F2_PREFIX = F1_PREFIX + ("ep_", "meredig_", "miedema_", "yang_", "ape_", "wen_", "tmetal_", "cbfv_oliynyk_", "cbfv_mat2vec_")
+F2_PREFIX = F1_PREFIX + ("ep_", "meredig_", "miedema_", "yang_", "ape_", "wen_", "tmetal_", "cbfv_oliynyk_")
 
 
 def group_cols(X: pd.DataFrame, group: str):
@@ -79,6 +79,26 @@ class Expert2:
         return self.model.predict(A)
 
 
+class Hurdle:
+    """Zero-inflated target (e.g. experimental band gap, ~half exactly 0): a classifier for y > 0 and a
+    regressor fitted on the y > 0 rows. rule="exp": p * r (expectation); rule="median": r if p >= 0.5 else 0
+    (the MAE-optimal choice when the conditional distribution is a point mass at 0 plus a positive part)."""
+    def __init__(self, clf, reg, rule):
+        self.clf, self.reg, self.rule = clf, reg, rule
+
+    def fit(self, X, y):
+        y = np.asarray(y, dtype=float)
+        self.clf.fit(X, (y > 0).astype(int))
+        nz = y > 0
+        self.reg.fit(X[nz], y[nz])
+        return self
+
+    def predict(self, X):
+        p = self.clf.predict_proba(X)[:, 1]
+        r = np.clip(self.reg.predict(X), 0, None)
+        return p * r if self.rule == "exp" else np.where(p >= 0.5, r, 0.0)
+
+
 def _imp(m):
     return make_pipeline(SimpleImputer(strategy="median", keep_empty_features=True), m)
 
@@ -107,19 +127,34 @@ def make_experts2(task_type, n_train, seed=0, cfg=None):
     E.append(Expert2("xgb_F2", "F2", xgbm, task_type))  # fixed defaults (tuning too slow on CPU, see plan)
 
     def cat(p):
-        q = dict(iterations=1500, learning_rate=0.05, depth=6, l2_leaf_reg=3.0, random_seed=seed, thread_count=4, verbose=0,
+        q = dict(iterations=1000, learning_rate=0.05, depth=6, l2_leaf_reg=3.0, random_seed=seed, thread_count=4, verbose=0,
                  allow_writing_files=False)
         q.update(p)
         return CatBoostRegressor(loss_function="MAE" if q.pop("mae", False) else "RMSE", **q) if reg \
             else CatBoostClassifier(**{k: v for k, v in q.items() if k != "mae"})
-    E.append(Expert2("cat_F2", "F2", cat, task_type))
+    E.append(Expert2("cat_F1", "F1", cat, task_type))  # F1: CatBoost on ~1k features was too slow on CPU
 
     # --- fixed tree ensembles ---
     for g in ("F1", "F2"):
         E.append(Expert2(f"et_{g}", g, (lambda p: _imp(ExtraTreesRegressor(n_estimators=500, max_features=0.5, n_jobs=4, random_state=seed))) if reg
                          else (lambda p: _imp(ExtraTreesClassifier(n_estimators=500, max_features=0.5, n_jobs=4, random_state=seed))), task_type))
-    E.append(Expert2("rf_F2", "F2", (lambda p: _imp(RandomForestRegressor(n_estimators=500, max_features=0.33, n_jobs=4, random_state=seed))) if reg
-                     else (lambda p: _imp(RandomForestClassifier(n_estimators=500, max_features=0.33, n_jobs=4, random_state=seed))), task_type))
+    # extremely randomised trees on element fractions only, max_features chosen by an internal 3-fold grid
+    E.append(Expert2("et_frac", "frac", (lambda p: GridSearchCV(ExtraTreesRegressor(n_estimators=1000, n_jobs=4, random_state=seed),
+                                                               {"max_features": [0.3, 0.5, 0.8, 1.0]}, cv=3,
+                                                               scoring="neg_mean_absolute_error")) if reg else
+                     (lambda p: GridSearchCV(ExtraTreesClassifier(n_estimators=1000, n_jobs=4, random_state=seed),
+                                             {"max_features": [0.1, 0.3, 0.5, 0.8]}, cv=3, scoring="roc_auc")), task_type))
+    # (random forest on F2 removed after design: slow on CPU and near-zero stack weight)
+
+    # --- hurdle experts for zero-inflated regression targets (enabled per task in the config) ---
+    if reg and cfg.get("hurdle"):
+        hp = dict(n_estimators=1500, learning_rate=0.02, num_leaves=31, min_child_samples=10, subsample=0.8, subsample_freq=1,
+                  colsample_bytree=0.3, random_state=seed, n_jobs=4, verbose=-1, deterministic=True, force_col_wise=True)
+        for rule in ("exp", "median"):
+            E.append(Expert2(f"hurdle_lgbm_F2_{rule}", "F2", (lambda p, rule=rule: Hurdle(lgb.LGBMClassifier(**hp),
+                     lgb.LGBMRegressor(objective="l1", **hp), rule)), task_type))
+        E.append(Expert2("hurdle_et_F1_exp", "F1", lambda p: Hurdle(_imp(ExtraTreesClassifier(n_estimators=500, max_features=0.5, n_jobs=4, random_state=seed)),
+                 _imp(ExtraTreesRegressor(n_estimators=500, max_features=0.5, n_jobs=4, random_state=seed)), "exp"), task_type))
 
     # --- kernel / neighbour / neural experts (Amendment-1 style) ---
     if reg:

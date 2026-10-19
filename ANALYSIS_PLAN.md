@@ -156,3 +156,57 @@ Everything below is done independently inside each official training fold T_k, a
    - Retained paired tests: stack vs best single expert; final pipeline vs the Amendment-1 primary arm; optional local correction vs stack.
 
 **Details to be fixed before the re-freeze:** the exact expert list, feature blocks, external dataset and tuning budgets will be recorded in Section 10 (the Amendment 2 specification) before the final run.
+
+## 10. Amendment 2 specification (FROZEN before the Amendment-2 final run; no Amendment-2 test scoring before this)
+All choices below were made on fold 0's TRAINING rows only (pseudo-outer folds, seed 2026; `results/design_a2/`, `logs/design_a2*`, quick CV scripts) and are fixed in `src/frozen_config2.py`, `src/experts2.py`, `src/pipeline2.py`, `src/features_all.py`, `src/features_more.py`, `src/external_dft.py`, `src/run_final2.py` and `src/evaluate2.py`.
+
+**Features (label-free, computed per formula).**
+- Amendment-1 features: Magpie, element fractions, 21 extra descriptors.
+- matminer ElementProperty presets: deml, matminer, megnet_el.
+- Meredig, Miedema, YangSolidSolution, AtomicPackingEfficiency, WenAlloys, TMetalFraction.
+- CBFV Oliynyk statistics.
+- Tried and excluded after design (too slow or no gain): CBFV jarvis and mat2vec, ElementProperty matscholar_el.
+
+**Disclosed transfer block (`dft_*`).**
+- Source: Materials Project PBE data as distributed by matminer, `matbench_mp_gap` (gap) joined to `matbench_mp_e_form` (formation energy) by reduced formula + number of sites + volume.
+- Matching to task compositions is by reduced formula. The "stable" entry is the polymorph with the lowest formation energy per atom.
+- Features: stable-entry gap, metal flag and formation energy; min/median/max gap over polymorphs; metallic fraction; number of polymorphs; indicator `dft_matched`.
+- Matches: expt_gap 3,347/4,604; expt_is_metal 3,613/4,921; glass 60/5,680; steels 0.
+- No experimental labels are used, and no pretrained model or LLM.
+- The figshare `mp_nostruct_20181018` table (which has e_hull) could not be downloaded (HTTP 500).
+
+**Expert pool** (`src/experts2.py`; F1 = Amendment-1 features + dft; F2 = F1 + the new blocks):
+- LightGBM on F2, tuned by Optuna inside T_k: 20 TPE trials (seed 0), with the default configuration evaluated first; the objective is the mean inner-validation metric over the same J = 5 inner splits.
+- XGBoost on F2 (fixed parameters).
+- CatBoost on F1 (fixed).
+- Extra trees on F1 and on F2.
+- Extra trees on element fractions, with max_features chosen by an internal 3-fold grid. Not used for expt_gap.
+- Kernel ridge (regression) or RBF-SVC (classification) on element fractions and on Magpie.
+- Distance-weighted kNN on element fractions, k chosen by an internal 3-fold grid.
+- MLP on F1.
+- expt_gap only, three hurdle experts for the zero-inflated target: a LightGBM classifier for y > 0 combined with a LightGBM L1 regressor fitted on the y > 0 rows (prediction p·r, or r if p ≥ 0.5 else 0), and an extra-trees variant (p·r).
+
+**Dropped experts (logged).**
+- CrabNet: own CPU training loop around the `crabnet` network; about 23 min per fit and dev MAE 0.419 on expt_gap.
+- MODNet 0.4.5 with TensorFlow 2.21: a single fit on 200 steels rows exceeded 40 min, even on 281 features.
+- XGBoost Optuna tuning: too slow on CPU.
+- Random forest on F2: slow, with near-zero stack weight.
+- The CatBoost input was reduced to F1, because on F2 it took about 29 min for a 200-row steels cross-fit.
+
+**Stack and final pipeline.**
+- Simplex stack: L1 loss for regression, Brier for classification, with cross-fitted OOF.
+- The naive local correction is optional. It is selected as in Amendment 1, and kept only if a NESTED inner-CV check confirms that it improves the honest OOF score (`gated_correction`).
+- **Final arm = `stack_local`** (the stack, plus the correction only where the gate keeps it).
+- Classification hard labels use the balanced-accuracy-maximising threshold chosen on the training OOF predictions.
+
+**Disclosure.** The OOF predictions of the Optuna-tuned expert are mildly optimistic, because tuning and stacking use the same inner splits. This can affect only the level-1 stack weights. The test folds are never involved.
+
+**Scoring (once).**
+- Run: `python -m src.launch_final --amendment2 --workers 5`.
+- Then: `python -m src.evaluate2 --submission`.
+- Primary analysis per task: final vs leaderboard leader (TPOT-Mat on steels, Darwin on expt_gap and expt_is_metal, MODNet v0.1.12 on glass).
+  - Metric: board semantics (MAE; balanced accuracy, with labels or probabilities at 0.5 for the leader, as the board computed).
+  - Test: paired bootstrap over test points within folds using the leaders' public per-sample predictions (matbench repository, downloaded 2026-10-19), Holm over the 4 tasks.
+  - Claims allowed: "beats the leader" only if the mean is better AND the Holm-adjusted p < 0.05; "on par" if the CI includes 0.
+- Retained comparisons: stack vs best single; final A2 vs Amendment-1 primary arm; correction vs stack.
+- The probability ROC-AUC is also reported, for us and for leaders that recorded probabilities.

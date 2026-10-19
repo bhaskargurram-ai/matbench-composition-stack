@@ -1,0 +1,5 @@
+== design_a2 a2v3 matbench_steels cfg={'n_trials': 25}
+    expert et_frac: 120s, OOF 95.9909
+  pseudo 0 (121s): single:lgbm_F2_tuned=92.3116, single:xgb_F2=99.1448, single:cat_F1=100.8667, single:et_F1=85.2017, single:et_F2=93.3181, single:et_frac=83.8871, single:krr_frac=208.2109, single:krr_magpie=125.7615, single:knn_frac=114.2869, single:mlp_F1=142.9503, best_single=83.8871, mean_ensemble=100.3620, stack=83.3770, stack_local=95.0207, single_local=89.6920
+    weights={'lgbm_F2_tuned': 0.121, 'xgb_F2': 0.0, 'cat_F1': 0.0, 'et_F1': 0.0, 'et_F2': 0.0, 'et_frac': 0.879, 'krr_frac': 0.0, 'krr_magpie': 0.0, 'knn_frac': 0.0, 'mlp_F1': 0.0} corr=1.0
+  MEAN: single:lgbm_F2_tuned=92.3116, single:xgb_F2=99.1448, single:cat_F1=100.8667, single:et_F1=85.2017, single:et_F2=93.3181, single:et_frac=83.8871, single:krr_frac=208.2109, single:krr_magpie=125.7615, single:knn_frac=114.2869, single:mlp_F1=142.9503, best_single=83.8871, mean_ensemble=100.3620, stack=83.3770, stack_local=95.0207, single_local=89.6920
