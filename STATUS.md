@@ -1,6 +1,13 @@
 # STATUS
 
-**Current stage:** Stage 1 is finishing: idea-spark is in Phase 3 (revision). Stage 2 design work (inner CV on fold 0's training rows only) is running in parallel. No official test fold has been scored.
+**Current stage:** Stage 2. The design is FROZEN: `ANALYSIS_PLAN.md` and `results/freeze_hashes.txt` were committed in dd8624b (first freeze commit df504b2; hashes re-recorded on LF bytes). The final official-fold run is in progress.
+
+**Final-run setup.**
+- Command: `python -m src.launch_final --workers 5`. It runs one process per (task, fold), with 5 workers × 4 threads (expert `n_jobs=4`; OMP/BLAS/MKL capped at 4).
+- LightGBM is deterministic (`deterministic=True`, `force_col_wise=True`).
+- Outputs: `results/final/<task>/fold<k>_*`; wall times in `results/final/timing.jsonl`.
+- Started 2026-10-18 21:02 (local).
+- The machine has 32 GB RAM (about 10 GB free at launch).
 
 ## Done
 - **Environment**
@@ -41,9 +48,12 @@
 - Two design pseudo-folds took about 50 minutes of wall time at the same moment, probably machine sleep or contention. There was no effect on results.
 - Firecrawl credits are exhausted, so WebFetch/WebSearch were used instead.
 
+## idea-spark outcome
+- The run ended `needs_work`. A navigator inconsistency caused it: the post-revision reviewer is instructed to report empty `confirmed_terms`, but the novelty re-audit gate then requires non-empty terms.
+- I ran the term-refresh collision manually (240 hits) and found no fold-matched prior art by title scan.
+- The reviewed candidate (post-revision pass) is summarised in `research/STAGE1_SUMMARY.md`. Phase 4 cards were not rendered.
+
 ## Next step
-1. Finish idea-spark (revision → post-revision review → Phase 4 cards).
-2. Finish design v6 (fold-matched arm + extra features).
-3. Choose the final design.
-4. Write `ANALYSIS_PLAN.md` and `results/freeze_hashes.txt`, then commit.
-5. Run `python -m src.run_final`, then `python -m src.evaluate --submission`.
+1. Wait for the final run to finish. To resume after an interruption: `python -m src.launch_final --workers 5`; it skips folds that are already done.
+2. Run `python -m src.evaluate --submission`.
+3. Write the manuscript in `manuscript/`.
