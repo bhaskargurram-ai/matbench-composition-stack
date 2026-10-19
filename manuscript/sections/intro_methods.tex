@@ -1,0 +1,96 @@
+\section{Introduction}
+\label{sec:intro}
+
+Composition-only property models remain the workhorse of materials screening whenever the crystal structure is unknown, and the Matbench v0.1 suite \citep{dunn2020matbench} has become the common yardstick for them.
+Four of its tasks are composition-only and comparatively small: the yield strength of steels (312 alloys), the experimental band gap (4,604 compounds), the experimental metal/non-metal label (4,921) and glass-forming ability (5,680).
+On these tasks the leaderboard \citep{matbenchboard} is led by quite different model families: automated machine-learning pipelines on steels, feature-selected neural networks (MODNet, \citealp{debreuck2021modnet}) on glass, and the Darwin entry on the two experimental band-gap tasks.
+The composition models we are aware of either fit one global predictor or combine predictors with weights that are the same for every composition (as automated-ML ensembles and stacked models do) \citep{debreuck2021modnet,wang2021crabnet,goodall2020roost,gouvea2025mattervial,zou2025ecsg}.
+
+Errors of such models are rarely uniform over composition space.
+Chemical families share systematic biases, and a residual that is large for one alloy is often large for its neighbours.
+In geostatistics this observation underlies regression kriging, where a trend model is followed by interpolation of its residuals \citep{hengl2007rk}; in quantum chemistry, $\Delta$-learning corrects a cheap baseline with a learned residual \citep{ramakrishnan2015delta}.
+In earlier work on chemical property prediction (SIG-Net, \citealp{gurram2026signet}) we combined a cross-fitted stack of diverse experts \citep{wolpert1992stacked,breiman1996stacked,vanderlaan2007super} with a \emph{novelty-damped local out-of-fold (OOF) residual correction}: each prediction is shifted by a kernel-weighted average of the OOF residuals of its nearest training neighbours, and the shift is damped where the query is far from all of them.
+That correction was confirmed in a pre-registered replication.
+
+Here we ask whether the same construction transfers to composition-based materials property prediction, under the strictest protocol we could devise on a public benchmark:
+(i) only the official Matbench folds are used;
+(ii) every choice (expert hyperparameters, stacking weights, correction strength, neighbourhood size, bandwidth, damping and kernel space) is made by cross-validation inside each training fold;
+(iii) the analysis plan, endpoints and tests were written and the code was frozen by cryptographic hash before any official test fold was predicted; and
+(iv) every task, fold and arm is reported.
+We also test a variant suggested by a structured ideation-and-review process (Section~\ref{sec:fm}): a \emph{fold-matched} correction that removes a double-counting term which arises because the deployed stack has already been trained on the neighbours whose residuals it borrows.
+
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Composition models on Matbench.}
+Magpie descriptors with random forests \citep{ward2016magpie} and the Automatminer reference \citep{dunn2020matbench} established the baselines; MODNet \citep{debreuck2021modnet,debreuck2021bias} added relevance-redundancy feature selection and joint learning for small data; CrabNet \citep{wang2021crabnet} and Roost \citep{goodall2020roost} learn representations directly from stoichiometry; MatterVial fuses latent, symbolic and descriptor features into a MODNet model \citep{gouvea2025mattervial}; and tabular foundation models such as TabPFN \citep{hollmann2025tabpfn} are now competitive on small tabular sets.
+None of these adapts its prediction to the residual structure of nearby training compositions.
+
+\paragraph{Ensembles and stacking for materials.}
+Stacked ensembles have been used for experimental band gaps with DFT-trained first-layer models \citep{kauwe2020bandgap}, for thermodynamic stability from electron-configuration and other composition models \citep{zou2025ecsg}, and for alloy mechanical properties on single datasets with random splits (e.g.\ \citealp{zhao2025hea}).
+A mixture of experts over pretrained extractors addresses data scarcity \citep{chang2022moe}, and an ``ensemble of experts'' built from networks pre-trained on related polymer properties was recently proposed in this journal \citep{miccio2025ee}; the latter is transfer learning from SMILES and contains no stacking or residual stage.
+
+\paragraph{Residual correction.}
+Regression kriging \citep{hengl2007rk} and $\Delta$-learning \citep{ramakrishnan2015delta} are the closest classical analogues of a local residual correction.
+A recent preprint corrects a convex neural stack by global kernel-ridge regression of its residuals in operator learning \citep{shmalo2026kernel}.
+None of these uses OOF residuals with novelty damping in composition space, or evaluates on Matbench folds; the method itself, however, is not new in its components, and our contribution is the pre-registered transfer test, the fold-matched variant and the analysis of where the correction helps or hurts.
+A structured prior-art check (details in the Supplementary Material) rated the overlap as medium: every component has ancestors, but we found no work that combines them on these tasks.
+
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Data, splits and features}
+We use the four composition tasks of Matbench v0.1 through the \texttt{matbench} package (\texttt{MatbenchBenchmark}), with the official five folds; nothing is re-split.
+Each composition is described by label-free features computed with \texttt{matminer} \citep{ward2018matminer} and \texttt{pymatgen} \citep{ong2013pymatgen}: 132 Magpie element-property statistics \citep{ward2016magpie}, 103 element fractions, and 21 further descriptors (stoichiometric norms, valence-orbital fractions \citep{meredig2014}, ionic character and charge-balance flags, band centre and atomic-orbital HOMO/LUMO estimates).
+A handful of compositions (0, 14, 14 and 21 rows in the four tasks) make one of the extra featurisers fail; these values are imputed with the feature's dataset-wide median, which uses no labels.
+
+\subsection{Experts and cross-fitting}
+Inside an official training fold $T_k$ the training rows are split into $J=5$ inner folds $P_1,\dots,P_J$ (seed 0; stratified for classification).
+Every expert $e$ is fitted $J$ times on $T_k\setminus P_m$ to produce OOF predictions $\hat f_e^{(-m(i))}(x_i)$, and once on all of $T_k$ to predict the test rows.
+The expert pool is deliberately heterogeneous and CPU-feasible: LightGBM \citep{ke2017lightgbm} on all features (for expt\_gap also an L1-objective copy), random forests \citep{breiman2001rf}, extremely randomised trees \citep{geurts2006et}, kernel ridge regression on element fractions and on standardised Magpie features (RBF kernel, regularisation and width chosen by an internal three-fold grid search), RBF support-vector classifiers on the same two spaces for the classification tasks, and a two-layer perceptron \citep{pedregosa2011sklearn}.
+Regression predictions are clipped to the training-target range.
+
+\subsection{Simplex stack}
+The global stack is $s(x)=\sum_e w_e \hat f_e(x)$ with $w_e\ge 0$ and $\sum_e w_e=1$, fitted on the OOF predictions.
+For regression the weights minimise the mean absolute error (a linear programme, matching the Matbench metric); for classification they minimise the Brier score.
+To obtain OOF \emph{stack} predictions $s^{\mathrm{oof}}(x_i)$ for the training rows, the weights used for inner fold $m$ are fitted without the rows of $P_m$.
+
+\subsection{Novelty-damped local OOF residual correction}
+\label{sec:naive}
+With OOF residuals $r_j = y_j - s^{\mathrm{oof}}(x_j)$, the corrected prediction for a query $q$ is
+\begin{equation}
+\hat y(q) = s(q) + \alpha\,\frac{\sum_{j\in\mathcal N_k(q)} w_{qj}\,r_j}{\sum_{j\in\mathcal N_k(q)} w_{qj} + \kappa},
+\qquad w_{qj}=\exp\!\big(-(d(q,j)/h)^2\big),
+\label{eq:naive}
+\end{equation}
+where $\mathcal N_k(q)$ are the $k$ nearest training compositions under a composition distance $d$ (Euclidean on standardised Magpie vectors, or L1 on element fractions).
+The pseudo-count $\kappa$ provides the novelty damping: when all neighbours are far, $\sum w$ is small and the correction vanishes.
+For classification the shift is applied on the logit scale with probability residuals.
+The tuple $(d,k,h,\kappa,\alpha)$ is selected on the training rows only, by scoring the corrected OOF predictions (leave-self-out neighbour sets) with the task metric over a fixed grid: $k\in\{5,10,20,40\}$, $h$ a multiple $\{0.5,1,2,4,8,16\}$ of the median nearest-neighbour distance, $\kappa\in\{0,0.1,0.5,2\}$, and $\alpha\in\{0.25,0.5,0.75,1\}$ (regression) or $\{0.1,0.25,0.5,1,2,4\}$ (classification).
+The uncorrected stack ($\alpha=0$) is always a candidate and wins ties, so the procedure may decline to correct.
+
+\subsection{Fold-matched correction}
+\label{sec:fm}
+The deployed stack $s=F^{\mathrm{full}}$ was trained on the very neighbours $j$ whose OOF residuals Eq.~\eqref{eq:naive} borrows.
+Writing $F^{(-m)}$ for the stack whose experts excluded inner fold $P_m$, the naive transfer decomposes as $r_j = [r_j + F^{(-m(j))}(q) - F^{\mathrm{full}}(q)] + [F^{\mathrm{full}}(q)-F^{(-m(j))}(q)]$.
+The second bracket, the \emph{absorption term}, measures how far the refit has already moved toward the neighbour, and the naive correction counts it a second time; for interpolating experts and near-duplicate neighbours it can be as large as $r_j$ itself.
+The fold-matched variant transfers only the first bracket, $T_{qj}=r_j + F^{(-m(j))}(q) - F^{\mathrm{full}}(q)$, in place of $r_j$ in Eq.~\eqref{eq:naive}.
+Its selection uses deployment-matched training instances: for a training row $i\in P_m$ and a neighbour $j\in P_{m'}$ ($m'\neq m$) the transfer is computed from the pair-excluded refit $F^{(-m,-m')}$, which saw neither $i$ nor $j$; neighbours in the same inner fold use $r_j$ directly.
+This requires $J(J-1)/2=10$ extra fits per expert and fold, with the stack weights held fixed.
+The variant was proposed by a structured ideation pipeline (ResearchStudio IdeaSpark), whose coherence check verified the algebraic decomposition on synthetic instances; we pre-registered it as a secondary arm, not as the primary method.
+Relative to that proposal we simplified the damping map to the same $(\alpha,\kappa)$ family as Eq.~\eqref{eq:naive}, used the same two distances instead of the element mover's distance, and did not add TabPFN or MODNet experts, for reasons of CPU cost.
+
+\subsection{Hard labels for classification}
+Most classification entries on the Matbench leaderboard report a ``ROC-AUC'' equal to their balanced accuracy, which is what \texttt{matbench} computes when hard labels rather than probabilities are recorded.
+For a like-for-like comparison we therefore also report balanced accuracy at a threshold chosen inside each training fold (maximising balanced accuracy on the arm's training OOF predictions), alongside the probability ROC-AUC.
+
+\subsection{Protocol, pre-registration and statistics}
+\label{sec:protocol}
+All design work (feature set, expert pool and hyperparameters, stacking loss, correction grid) used inner cross-validation on the training rows of official fold~0 only.
+The fold-0 test rows were never used; the test rows of folds 1--4 are part of the fold-0 training rows and so did inform these fixed design choices, which is why we also report fold~0 separately.
+Before any official test fold was predicted, we wrote the analysis plan and recorded SHA-256 hashes of all code; both are in the repository.
+
+The primary endpoint, per task, is $\Delta$ = mean over the five official folds of the metric of the corrected stack minus that of the uncorrected stack (MAE for regression, probability ROC-AUC for classification).
+Its test is a paired bootstrap that resamples test points within folds ($B=10{,}000$), with Holm correction across the four tasks; a task counts as improved only if $\Delta$ favours the correction and the Holm-adjusted $p<0.05$.
+Because five folds give little power, we also report per-fold differences, the number of folds improved, and the Nadeau--Bengio corrected resampled $t$-test \citep{nadeau2003inference}.
+Secondary comparisons (fold-matched versus stack and versus naive, stack versus the best single expert selected by inner CV, kernel-space ablations, correction without stacking) and analyses (errors stratified by distance to the nearest training composition, calibration, selected configurations, and a label-permutation control) were also pre-specified.

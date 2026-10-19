@@ -35,10 +35,22 @@
   "page": "83",
   "type": "journal-article"
  },
- "debreuck2022bias": {
-  "doi": "10.1088/1361-648X/ac5d14",
-  "ok": false,
-  "status": 404
+ "debreuck2021bias": {
+  "doi": "10.1088/1361-648x/ac1280",
+  "ok": true,
+  "title": "Robust model benchmarking and bias-imbalance in data-driven materials science: a case study on MODNet",
+  "first_author": "De Breuck, Pierre-Paul",
+  "n_authors": 3,
+  "authors": [
+   "Pierre-Paul De Breuck",
+   "Matthew L Evans",
+   "Gian-Marco Rignanese"
+  ],
+  "year": 2021,
+  "venue": "Journal of Physics: Condensed Matter",
+  "volume": "33",
+  "page": "404002",
+  "type": "journal-article"
  },
  "wang2021crabnet": {
   "doi": "10.1038/s41524-021-00545-1",

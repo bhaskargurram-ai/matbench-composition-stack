@@ -14,3 +14,4 @@ logs/
 papers/
 papers/*.pdf
 results/design/*/*/pseudo*/
+results/final/*/fold*_experts/*_pairs.npz
