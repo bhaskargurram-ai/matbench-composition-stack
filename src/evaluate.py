@@ -168,7 +168,7 @@ def main(write_submission=False):
         arms = list(data[0][1].keys())
         for k, (y, P, meta) in enumerate(data):
             thr = meta.get("thresholds", {})
-            for a in arms:
+            for a in P:  # arms can differ by fold (per-fold design selection, Amendment 1)
                 r = {"task": task, "fold": k, "arm": a, **fold_metrics(tt, y, P[a], thr.get(a))}
                 rows.append(r)
         dfm = pd.DataFrame([r for r in rows if r["task"] == task])

@@ -109,6 +109,8 @@ Everything below is done independently inside each official training fold T_k, a
 - **Reporting-only scripts added after the first freeze:** `src/make_paper_assets.py` (generates manuscript tables and figures from the result files) and `research/make_bib.py`.
 - **Keep-awake helper.** A per-process keep-awake request (Windows `SetThreadExecutionState`) runs during the final run. Without it, Modern Standby suspended the jobs, which inflated wall times. It changes no system setting.
 
+- **Post-freeze bug fix in `src/evaluate.py` (one line).** The first scoring attempt crashed with a KeyError before any metric was output. Its per-fold loop took the arm list from fold 0, but with per-fold design selection the set of single-expert arms differs between folds (for example `single:lgbm_l1_all`). The fix iterates over each fold's own arms. No metric had been displayed before the crash. Arms present in only some folds are averaged over the folds in which they exist.
+
 ## 8. Amendment 1 (2026-10-18 22:40 local; written BEFORE any official test fold was scored)
 **Why.**
 - The original plan made the design choices on fold 0's training rows. Those rows contain the test rows of folds 1–4, so for folds 1–4 the design was not chosen fold-internally.
