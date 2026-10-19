@@ -1,0 +1,9 @@
+[ablation nodft] matbench_expt_is_metal fold 2: ncols=974 cfg={'n_trials': 20}
+    tuned lgbm_F2_tuned: 0.9834 in 1292s (20 trials)
+    expert lgbm_F2_tuned: 105s, OOF 0.9833
+    expert xgb_F2: 204s, OOF 0.9824
+    expert cat_F1: 217s, OOF 0.9774
+    expert et_F1: 70s, OOF 0.9799
+    expert et_F2: 381s, OOF 0.9813
+    expert mlp_F1: 100s, OOF 0.9619
+[ablation nodft] matbench_expt_is_metal fold 2: done in 2426s

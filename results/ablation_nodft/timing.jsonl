@@ -1,0 +1,11 @@
+{"variant": "nodft", "task": "matbench_expt_gap", "fold": 2, "returncode": 0, "wall_s": 2975.3}
+{"variant": "nodft", "task": "matbench_expt_gap", "fold": 4, "returncode": 0, "wall_s": 3165.3}
+{"variant": "nodft", "task": "matbench_expt_gap", "fold": 3, "returncode": 0, "wall_s": 3205.4}
+{"variant": "nodft", "task": "matbench_expt_gap", "fold": 0, "returncode": 0, "wall_s": 3635.4}
+{"variant": "nodft", "task": "matbench_expt_gap", "fold": 1, "returncode": 0, "wall_s": 3635.4}
+{"variant": "nodft", "task": "matbench_expt_is_metal", "fold": 0, "returncode": 0, "wall_s": 2345.3}
+{"variant": "nodft", "task": "matbench_expt_is_metal", "fold": 3, "returncode": 0, "wall_s": 2000.3}
+{"variant": "nodft", "task": "matbench_expt_is_metal", "fold": 2, "returncode": 0, "wall_s": 2435.4}
+{"variant": "nodft", "task": "matbench_expt_is_metal", "fold": 1, "returncode": 0, "wall_s": 2550.5}
+{"variant": "nodft", "task": "matbench_expt_is_metal", "fold": 4, "returncode": 0, "wall_s": 2660.5}
+{"variant": "nodft", "task": "matbench_glass", "fold": 4, "returncode": 0, "wall_s": 2035.2}

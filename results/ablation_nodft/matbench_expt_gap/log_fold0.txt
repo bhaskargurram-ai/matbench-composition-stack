@@ -1,1 +1,12 @@
 [ablation nodft] matbench_expt_gap fold 0: ncols=974 cfg={'n_trials': 20, 'hurdle': True, 'drop_experts': ['et_frac']}
+    tuned lgbm_F2_tuned: 0.3543 in 1725s (20 trials)
+    expert lgbm_F2_tuned: 192s, OOF 0.3543
+    expert xgb_F2: 260s, OOF 0.3600
+    expert cat_F1: 206s, OOF 0.3756
+    expert et_F1: 93s, OOF 0.3407
+    expert et_F2: 455s, OOF 0.3407
+    expert hurdle_lgbm_F2_exp: 236s, OOF 0.2951
+    expert hurdle_lgbm_F2_median: 252s, OOF 0.2985
+    expert hurdle_et_F1_exp: 123s, OOF 0.3470
+    expert mlp_F1: 81s, OOF 0.4871
+[ablation nodft] matbench_expt_gap fold 0: done in 3629s
