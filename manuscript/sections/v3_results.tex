@@ -18,11 +18,11 @@ The pipeline is statistically on par with the leaders:
 The pipeline is clearly behind MODNet v0.1.12: \AtwoFinalGlass{} versus \AtwoLeaderGlass{} (\AtwoPHolmExprGlass). This also holds for the probability ROC-AUC (\AtwoAUCGlass{} versus \AtwoLeaderAUCGlass).
 
 \paragraph{Caveat}
-These are not like-for-like comparisons. Our pipeline uses an external DFT block for expt\_gap and expt\_is\_metal, and the leaders did not (Section~\ref{sec:discussion}).
+These are not like-for-like comparisons. Our pipeline uses an external DFT block for expt\_gap and expt\_is\_metal. The leader on those tasks, Darwin, uses no external property data but brings external knowledge from language-model pre-training (Section~\ref{sec:discussion}).
 
 \begin{table}[t]
 \centering
-\caption{Run-2 (Amendment-2) final pipeline versus each task's leaderboard leader, paired over the official test compositions using the leaders' public per-sample predictions. Metrics follow the board: MAE; balanced accuracy for classification. $\Delta$ is ours minus the leader. 95\% CI: paired bootstrap over test points within folds. Holm correction over four tasks. Rank is among the entries of 18 October 2026, including ours.}
+\caption{Run-2 (Amendment-2) final pipeline versus each task's leaderboard leader, paired over the official test compositions using the leaders' public per-sample predictions. Metrics follow the board: MAE; balanced accuracy for classification. $\Delta$ is ours minus the leader. 95\% CI: paired bootstrap over test points within folds. Holm correction over four tasks. Rank is among the merged leaderboard entries as of 19 October 2026 (values taken on 18 October 2026; no entry has been merged since January 2024), including ours. Open, unmerged submissions are discussed in Section~\ref{sec:discussion}.}
 \label{tab:a2leader}
 \begin{adjustbox}{max width=\textwidth}
 \input{generated/a2_table_leader.tex}

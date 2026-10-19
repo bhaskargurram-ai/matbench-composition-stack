@@ -71,7 +71,7 @@ We pre-registered this control as diagnostic only, and it shows that a non-zero 
 \end{table}
 
 \subsection{Comparison with the Matbench leaderboard}
-Table~\ref{tab:board} places the pre-registered primary arm on the leaderboard snapshot of 18 October 2026.
+Table~\ref{tab:board} places the pre-registered primary arm on the leaderboard snapshot of 18 October 2026, which contains merged entries only (no entry has been merged since January 2024; open, unmerged submissions are discussed in the main text).
 For the classification tasks we compare balanced accuracy at the inner-CV threshold with the board's balanced-accuracy column, because the board's ``ROC-AUC'' values of the label-based entries equal their balanced accuracy.
 The method would rank \SteelsRank{} of \SteelsNEntries{} on steels (behind TPOT-Mat and AutoML-Mat, ahead of MODNet v0.1.12), \GapRank{} of \GapNEntries{} on expt\_gap (behind Darwin, ahead of the CrabNet and MODNet entries), \MetalRank{} of \MetalNEntries{} on expt\_is\_metal and \GlassRank{} of \GlassNEntries{} on glass.
 It does not beat the best entry on any task.
@@ -80,7 +80,7 @@ Our probability ROC-AUCs (\MetalAUCprob{} on expt\_is\_metal, \GlassAUCprob{} on
 
 \begin{table}[t]
 \centering
-\caption{Primary arm versus the Matbench v0.1 leaderboard (snapshot 18 October 2026). Classification: balanced accuracy at the threshold chosen inside each training fold, compared with the board's balanced-accuracy column. Rank counts our entry among the board entries.}
+\caption{Primary arm versus the Matbench v0.1 leaderboard (snapshot 18 October 2026; merged entries only). Classification: balanced accuracy at the threshold chosen inside each training fold, compared with the board's balanced-accuracy column. Rank counts our entry among the board entries.}
 \label{tab:board}
 \begin{adjustbox}{max width=\textwidth}
 \input{generated/table_leaderboard.tex}

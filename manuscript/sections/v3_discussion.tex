@@ -4,8 +4,8 @@
 \paragraph{Like-for-like caveat, quantified}
 The expt\_gap result is not a like-for-like comparison of learning algorithms.
 \begin{itemize}
-\item \textbf{The leaders used no external data.} As model inputs they used only the chemical formula and the task's own training labels. TPOT-Mat and MODNet use composition descriptors. Darwin is a language model pre-trained on scientific text and fine-tuned on the task.
-\item \textbf{Our pipeline does use external data.} It feeds PBE band gaps and formation energies from the Materials Project into the experts.
+\item \textbf{The leaders differ in the external information they use.} TPOT-Mat (steels) and MODNet (glass) used no external data: their inputs are composition descriptors computed from the formula, and they are fitted on the task's own training labels. Darwin, the leader on expt\_gap and expt\_is\_metal, fine-tunes the DARWIN natural-science large language model \citep{xie2023master,xie2023darwin}. Its pre-training corpus of scientific text is external knowledge. That text may include reported experimental band gaps or metallicity of some test compounds, and the extent of this overlap is unknown.
+\item \textbf{Our pipeline uses external computed data.} It feeds PBE band gaps and formation energies from the Materials Project into the experts. It uses no external experimental labels.
 \end{itemize}
 The ablation (Section~\ref{sec:ablation}) puts a number on this.
 \begin{itemize}
@@ -13,7 +13,7 @@ The ablation (Section~\ref{sec:ablation}) puts a number on this.
 \item The remaining DFT-free pipeline is statistically on par with Darwin (\AblNoDftGap{} versus \AtwoLeaderGap~eV, \AblNoDftGapVsLeaderPExpr), not ahead of it.
 \item On expt\_is\_metal the DFT block likewise turns a result significantly below Darwin into parity.
 \end{itemize}
-The claim that survives is therefore:
+Our DFT block and Darwin's pre-training are different kinds of external information, so neither comparison isolates the learning algorithm. The claim that survives is therefore:
 \begin{itemize}
 \item a DFT-free, fully nested stack is on par with the leader on expt\_gap, but below it on expt\_is\_metal;
 \item disclosed DFT transfer adds a further, clearly significant improvement;
@@ -40,6 +40,14 @@ On glass, MODNet v0.1.12's public predictions reach a probability ROC-AUC of \At
 On expt\_is\_metal and steels the pipeline is statistically on par with the leaders. On expt\_is\_metal this parity depends on the DFT block.
 We did not audit the leaders' protocols, for example whether all of their tuning was confined to the training folds.
 
+\paragraph{Unmerged leaderboard submissions}
+The official leaderboard has not been updated since early 2024: the last merged pull request to the \texttt{matbench} repository dates from January 2024, and several benchmark submissions are open and unreviewed (checked 19 October 2026). Our ranks are therefore among merged entries only. Three open submissions bear directly on our results. Their numbers are as reported by their authors and have not yet been reviewed by the maintainers.
+\begin{itemize}
+\item \textbf{expt\_gap.} Zoey-MetalGate \citep{mbpr364} reports an MAE of 0.2775 $\pm$ 0.0051~eV with a composition-only, metal-classifier-gated gradient-boosting blend. This is prior art for our hurdle experts on this task. It uses no external data, so it is the natural reference for our DFT-free (\AblNoDftGap~eV) and hurdle-free (\AblNoHurdleGap~eV) ablation variants; we did not test these differences statistically. Our full pipeline (\AtwoFinalGap~eV) would remain first.
+\item \textbf{steels.} Atomic-AffQRF \citep{mbpr371} reports about 75.8~MPa (mean over seven seeds). It combines extra-trees predictors on atomic fractions by out-of-fold, weighted-MAE linear-program stacking inside each training fold, a design closely related to ours. It would rank above our \AtwoFinalSteels~MPa and above the merged leader.
+\item \textbf{glass.} A composition-only gradient-boosting submission \citep{mbpr363} reports a ROC-AUC of 0.8658, which does not change the ranking on this task.
+\end{itemize}
+
 \paragraph{Classification metrics}
 The board's ``ROC-AUC'' for the classification leaders is, in effect, balanced accuracy. Darwin recorded labels. MODNet recorded probabilities that the \texttt{matbench} version used for its board entry thresholded at 0.5.
 Our probability ROC-AUC on expt\_is\_metal (\AtwoAUCMetal) is therefore not comparable to the board's numbers.
@@ -61,7 +69,7 @@ The local residual correction that motivated this work transferred only weakly f
 \label{sec:conclusions}
 Under two pre-registered, fully nested protocols on the Matbench v0.1 composition tasks, a cross-fitted stack of standard experts with a disclosed DFT feature block and a hurdle model for zero-inflated gaps:
 \begin{itemize}
-\item lowered the experimental band-gap MAE to \AtwoFinalGap~eV, below the current leader, which used no external data; without the DFT block the MAE was \AblNoDftGap~eV, on par with that leader;
+\item lowered the experimental band-gap MAE to \AtwoFinalGap~eV, below the best merged leaderboard entry (a fine-tuned scientific language model); without the DFT block the MAE was \AblNoDftGap~eV, on par with that leader;
 \item was on par with the leaders for metallicity (only with the DFT block) and steel yield strength;
 \item remained behind on glass formation.
 \end{itemize}

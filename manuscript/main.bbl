@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{36}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -110,6 +110,16 @@
 \newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{10},
   \bibinfo{pages}{5316}.
 \newblock \DOIprefix\doi{10.1038/s41467-019-13297-w}.
+%Type = Misc
+\bibitem[{Kannan and Chatterjee(2026)}]{mbpr364}
+\bibinfo{author}{Kannan, S.S.}, \bibinfo{author}{Chatterjee, T.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{{New benchmark: Zoey-MetalGate on
+  matbench\_expt\_gap}}.
+\newblock \bibinfo{howpublished}{Open, unmerged pull request \#364 to
+  materialsproject/matbench,
+  \url{https://github.com/materialsproject/matbench/pull/364}}.
+\newblock \bibinfo{note}{Opened 12 August 2026; accessed 19 October 2026}.
 %Type = Article
 \bibitem[{Kauwe et~al.(2020)Kauwe, Welker and Sparks}]{kauwe2020bandgap}
 \bibinfo{author}{Kauwe, S.K.}, \bibinfo{author}{Welker, T.},
@@ -191,7 +201,8 @@
 \newblock \bibinfo{title}{{Matbench leaderboard (per-task leaderboards,
   matbench v0.1)}}.
 \newblock \bibinfo{howpublished}{\url{https://matbench.materialsproject.org/}}.
-\newblock \bibinfo{note}{Accessed 18 October 2026}.
+\newblock \bibinfo{note}{Leaderboard values accessed 18 October 2026; merge
+  status checked 19 October 2026}.
 %Type = Article
 \bibitem[{Meredig et~al.(2014)Meredig, Agrawal, Kirklin, Saal, Doak, Thompson,
   Zhang, Choudhary and Wolverton}]{meredig2014}
@@ -205,6 +216,15 @@
 \newblock \bibinfo{journal}{Physical Review B} \bibinfo{volume}{89},
   \bibinfo{pages}{094104}.
 \newblock \DOIprefix\doi{10.1103/PhysRevB.89.094104}.
+%Type = Misc
+\bibitem[{{nkwork9999}(2026)}]{mbpr363}
+\bibinfo{author}{{nkwork9999}}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{{Add composition and composition+persistent-homology
+  benchmark submissions}}.
+\newblock \bibinfo{howpublished}{Open, unmerged pull request \#363 to
+  materialsproject/matbench,
+  \url{https://github.com/materialsproject/matbench/pull/363}}.
+\newblock \bibinfo{note}{Opened 18 July 2026; accessed 19 October 2026}.
 %Type = Article
 \bibitem[{Oliynyk et~al.(2016)Oliynyk, Antono, Sparks, Ghadbeigi, Gaultois,
   Meredig and Mar}]{oliynyk2016}
@@ -265,6 +285,14 @@
 \newblock \bibinfo{title}{{CatBoost: unbiased boosting with categorical
   features}}, in: \bibinfo{booktitle}{Advances in Neural Information Processing
   Systems 31}.
+%Type = Misc
+\bibitem[{Ursin(2026)}]{mbpr371}
+\bibinfo{author}{Ursin, T.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{{New benchmark: Atomic-AffQRF for matbench\_steels}}.
+\newblock \bibinfo{howpublished}{Open, unmerged pull request \#371 to
+  materialsproject/matbench,
+  \url{https://github.com/materialsproject/matbench/pull/371}}.
+\newblock \bibinfo{note}{Opened 6 October 2026; accessed 19 October 2026}.
 %Type = Article
 \bibitem[{Wang et~al.(2021)Wang, Kauwe, Murdock and Sparks}]{wang2021crabnet}
 \bibinfo{author}{Wang, A.Y.T.}, \bibinfo{author}{Kauwe, S.K.},
@@ -323,6 +351,30 @@
 \newblock \bibinfo{journal}{Neural Networks} \bibinfo{volume}{5},
   \bibinfo{pages}{241--259}.
 \newblock \DOIprefix\doi{10.1016/S0893-6080(05)80023-1}.
+%Type = Misc
+\bibitem[{Xie et~al.(2023a)Xie, Wan, Huang, Yin, Liu, Wang, Linghu, Kit,
+  Grazian, Zhang, Razzak and Hoex}]{xie2023darwin}
+\bibinfo{author}{Xie, T.}, \bibinfo{author}{Wan, Y.}, \bibinfo{author}{Huang,
+  W.}, \bibinfo{author}{Yin, Z.}, \bibinfo{author}{Liu, Y.},
+  \bibinfo{author}{Wang, S.}, \bibinfo{author}{Linghu, Q.},
+  \bibinfo{author}{Kit, C.}, \bibinfo{author}{Grazian, C.},
+  \bibinfo{author}{Zhang, W.}, \bibinfo{author}{Razzak, I.},
+  \bibinfo{author}{Hoex, B.}, \bibinfo{year}{2023}a.
+\newblock \bibinfo{title}{{DARWIN Series: Domain Specific Large Language Models
+  for Natural Science}}.
+\newblock \bibinfo{howpublished}{arXiv:2308.13565}.
+%Type = Misc
+\bibitem[{Xie et~al.(2023b)Xie, Wan, Huang, Zhou, Liu, Linghu, Wang, Kit,
+  Grazian, Zhang and Hoex}]{xie2023master}
+\bibinfo{author}{Xie, T.}, \bibinfo{author}{Wan, Y.}, \bibinfo{author}{Huang,
+  W.}, \bibinfo{author}{Zhou, Y.}, \bibinfo{author}{Liu, Y.},
+  \bibinfo{author}{Linghu, Q.}, \bibinfo{author}{Wang, S.},
+  \bibinfo{author}{Kit, C.}, \bibinfo{author}{Grazian, C.},
+  \bibinfo{author}{Zhang, W.}, \bibinfo{author}{Hoex, B.},
+  \bibinfo{year}{2023}b.
+\newblock \bibinfo{title}{{Large Language Models as Master Key: Unlocking the
+  Secrets of Materials Science with GPT}}.
+\newblock \bibinfo{howpublished}{arXiv:2304.02213}.
 %Type = Article
 \bibitem[{Yang and Zhang(2012)}]{yang2012ss}
 \bibinfo{author}{Yang, X.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{year}{2012}.
