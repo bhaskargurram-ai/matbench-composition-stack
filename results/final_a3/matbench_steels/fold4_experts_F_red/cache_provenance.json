@@ -1,0 +1,12 @@
+{
+ "cat_F1": "copied from A2:F_full (results/final_a2/matbench_steels/fold4_experts): identical inputs (281 columns)",
+ "et_F1": "copied from A2:F_full (results/final_a2/matbench_steels/fold4_experts): identical inputs (281 columns)",
+ "et_frac": "copied from A2:F_full (results/final_a2/matbench_steels/fold4_experts): identical inputs (118 columns)",
+ "krr_frac": "copied from A2:F_full (results/final_a2/matbench_steels/fold4_experts): identical inputs (118 columns)",
+ "krr_magpie": "copied from A2:F_full (results/final_a2/matbench_steels/fold4_experts): identical inputs (132 columns)",
+ "knn_frac": "copied from A2:F_full (results/final_a2/matbench_steels/fold4_experts): identical inputs (118 columns)",
+ "mlp_F1": "copied from A2:F_full (results/final_a2/matbench_steels/fold4_experts): identical inputs (281 columns)",
+ "lgbm_F2_tuned": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+ "xgb_F2": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+ "et_F2": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)"
+}

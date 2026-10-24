@@ -1,0 +1,12 @@
+{
+ "lgbm_F2_tuned": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (983 columns)",
+ "xgb_F2": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (983 columns)",
+ "cat_F1": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (281 columns)",
+ "et_F1": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (281 columns)",
+ "et_F2": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (983 columns)",
+ "et_frac": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (118 columns)",
+ "krr_frac": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (118 columns)",
+ "krr_magpie": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (132 columns)",
+ "knn_frac": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (118 columns)",
+ "mlp_F1": "copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (281 columns)"
+}

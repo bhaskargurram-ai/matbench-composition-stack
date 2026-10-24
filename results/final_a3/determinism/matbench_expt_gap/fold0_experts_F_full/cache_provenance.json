@@ -1,0 +1,15 @@
+{
+ "lgbm_F2_tuned": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "xgb_F2": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "cat_F1": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "et_F1": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "et_F2": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "et_frac": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "hurdle_lgbm_F2_exp": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "hurdle_lgbm_F2_median": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "hurdle_et_F1_exp": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "krr_frac": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "krr_magpie": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "knn_frac": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "mlp_F1": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)"
+}

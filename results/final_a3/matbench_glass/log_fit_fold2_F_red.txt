@@ -1,0 +1,13 @@
+    cache F_red/cat_F1: copied from A2:F_full (results/final_a2/matbench_glass/fold2_experts): identical inputs (281 columns)
+    cache F_red/et_F1: copied from A2:F_full (results/final_a2/matbench_glass/fold2_experts): identical inputs (281 columns)
+    cache F_red/et_frac: copied from A2:F_full (results/final_a2/matbench_glass/fold2_experts): identical inputs (118 columns)
+    cache F_red/svc_frac: copied from A2:F_full (results/final_a2/matbench_glass/fold2_experts): identical inputs (118 columns)
+    cache F_red/svc_magpie: copied from A2:F_full (results/final_a2/matbench_glass/fold2_experts): identical inputs (132 columns)
+    cache F_red/knn_frac: copied from A2:F_full (results/final_a2/matbench_glass/fold2_experts): identical inputs (118 columns)
+    cache F_red/mlp_F1: copied from A2:F_full (results/final_a2/matbench_glass/fold2_experts): identical inputs (281 columns)
+  [matbench_glass] fold 2 F_red: ncols=281; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'et_F2']
+    tuned lgbm_F2_tuned: 0.9504 in 199s (20 trials)
+    expert lgbm_F2_tuned: 18s, OOF 0.9504
+    expert xgb_F2: 20s, OOF 0.9466
+    expert et_F2: 37s, OOF 0.9512
+[matbench_glass] fold 2 F_red: expert fits complete in 280s (with cache reuse)

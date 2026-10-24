@@ -1,0 +1,14 @@
+{
+ "params": {
+  "num_leaves": 67,
+  "learning_rate": 0.06765261336162061,
+  "n_estimators": 1225,
+  "min_child_samples": 2,
+  "colsample_bytree": 0.41341848458021085,
+  "subsample": 0.8613550890400377,
+  "reg_lambda": 7.83779463936508
+ },
+ "value": 0.954179946235508,
+ "n_trials": 20,
+ "seconds": 1687.6951730251312
+}

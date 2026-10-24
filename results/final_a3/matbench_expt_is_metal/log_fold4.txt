@@ -1,0 +1,19 @@
+[matbench_expt_is_metal] fold 4: n_train=3937 n_test=984; block sets ['F_min', 'F_red', 'F_full']; subsets 1
+  [matbench_expt_is_metal] fold 4 F_min: ncols=271; to fit here: nothing
+    candidate F_min|hurdle=off|et_frac=in: stack OOF 0.98186
+  [matbench_expt_is_metal] fold 4 F_red: ncols=281; to fit here: nothing
+    candidate F_red|hurdle=off|et_frac=in: stack OOF 0.98881
+    cache F_full/lgbm_F2_tuned: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (983 columns)
+    cache F_full/xgb_F2: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (983 columns)
+    cache F_full/cat_F1: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (281 columns)
+    cache F_full/et_F1: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (281 columns)
+    cache F_full/et_F2: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (983 columns)
+    cache F_full/et_frac: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (118 columns)
+    cache F_full/svc_frac: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (118 columns)
+    cache F_full/svc_magpie: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (132 columns)
+    cache F_full/knn_frac: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (118 columns)
+    cache F_full/mlp_F1: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold4_experts): identical inputs (281 columns)
+  [matbench_expt_is_metal] fold 4 F_full: ncols=983; to fit here: nothing
+    candidate F_full|hurdle=off|et_frac=in: stack OOF 0.98937
+[matbench_expt_is_metal] fold 4: selected F_full|hurdle=off|et_frac=in (stack OOF 0.98937) -> cfg={'n_trials': 20, 'hurdle': False, 'drop_experts': []}
+[matbench_expt_is_metal] fold 4: done in 37s; selected=F_full|hurdle=off|et_frac=in; weights={'lgbm_F2_tuned': 0.456, 'cat_F1': 0.129, 'et_F2': 0.308, 'et_frac': 0.0, 'svc_magpie': 0.024, 'knn_frac': 0.001, 'mlp_F1': 0.081}

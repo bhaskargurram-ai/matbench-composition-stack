@@ -1,0 +1,36 @@
+{
+ "runs": [
+  {
+   "host": "DESKTOP-CMVPHF5",
+   "cpu_model": "Intel(R) Core(TM) i7-14650HX",
+   "cpu_count": 24,
+   "cpu_affinity": 24,
+   "threads_per_worker": 4,
+   "n_workers": 5,
+   "platform": "Windows-11-10.0.26200-SP0",
+   "python": "3.12.10",
+   "fitted_here": [
+    "lgbm_F2_tuned",
+    "xgb_F2",
+    "et_F2"
+   ],
+   "wall_s": 49.0,
+   "n_trials": 20,
+   "finished": "2026-10-24 09:47:17"
+  },
+  {
+   "host": "DESKTOP-CMVPHF5",
+   "cpu_model": "Intel(R) Core(TM) i7-14650HX",
+   "cpu_count": 24,
+   "cpu_affinity": 24,
+   "threads_per_worker": 4,
+   "n_workers": 5,
+   "platform": "Windows-11-10.0.26200-SP0",
+   "python": "3.12.10",
+   "fitted_here": [],
+   "wall_s": 1.7,
+   "n_trials": 20,
+   "finished": "2026-10-24 09:53:09"
+  }
+ ]
+}

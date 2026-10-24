@@ -1,0 +1,173 @@
+{
+ "tasks": {
+  "matbench_expt_gap": {
+   "pod": {
+    "host": "6a4443701efb",
+    "cpu_model": "AMD EPYC 9575F 64-Core Processor",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+   },
+   "lgbm_params_identical": true,
+   "lgbm_best_value_pod": 0.30179900807057713,
+   "lgbm_best_value_pc": 0.30179900807057713,
+   "max_abs_diff_test_all_experts": 0.882819652557373,
+   "max_abs_diff_oof_all_experts": 1.130990743637085,
+   "max_abs_diff_test_trees": 0.882819652557373,
+   "max_abs_diff_test_other": 5.169198402654729e-13,
+   "per_expert": {
+    "cat_F1": {
+     "max_abs_diff_oof": 0.0,
+     "max_abs_diff_test": 0.0,
+     "seconds_pod": 19.06801962852478,
+     "seconds_pc": 226.50970721244812
+    },
+    "et_F1": {
+     "max_abs_diff_oof": 1.7763568394002505e-15,
+     "max_abs_diff_test": 8.881784197001252e-16,
+     "seconds_pod": 14.948116064071655,
+     "seconds_pc": 103.9832706451416
+    },
+    "et_F2": {
+     "max_abs_diff_oof": 1.7763568394002505e-15,
+     "max_abs_diff_test": 8.881784197001252e-16,
+     "seconds_pod": 64.61375331878662,
+     "seconds_pc": 487.96042943000793
+    },
+    "et_frac": {
+     "note": "not part of the Amendment-2 run (et_frac was dropped for expt_gap); no reference"
+    },
+    "hurdle_et_F1_exp": {
+     "max_abs_diff_oof": 1.7763568394002505e-15,
+     "max_abs_diff_test": 8.881784197001252e-16,
+     "seconds_pod": 19.175646781921387,
+     "seconds_pc": 127.58703112602234
+    },
+    "hurdle_lgbm_F2_exp": {
+     "max_abs_diff_oof": 5.551115123125783e-17,
+     "max_abs_diff_test": 1.6940658945086007e-21,
+     "seconds_pod": 46.03162097930908,
+     "seconds_pc": 252.98253297805786
+    },
+    "hurdle_lgbm_F2_median": {
+     "max_abs_diff_oof": 0.0,
+     "max_abs_diff_test": 0.0,
+     "seconds_pod": 45.91849660873413,
+     "seconds_pc": 253.05108642578125
+    },
+    "knn_frac": {
+     "max_abs_diff_oof": 0.0,
+     "max_abs_diff_test": 0.0,
+     "seconds_pod": 2.7299211025238037,
+     "seconds_pc": 17.168184995651245
+    },
+    "krr_frac": {
+     "max_abs_diff_oof": 5.466738173254271e-13,
+     "max_abs_diff_test": 3.934630399271555e-13,
+     "seconds_pod": 43.870391845703125,
+     "seconds_pc": 222.51136589050293
+    },
+    "krr_magpie": {
+     "max_abs_diff_oof": 5.655476087440547e-13,
+     "max_abs_diff_test": 5.169198402654729e-13,
+     "seconds_pod": 43.82573938369751,
+     "seconds_pc": 227.97771048545837
+    },
+    "lgbm_F2_tuned": {
+     "max_abs_diff_oof": 0.0,
+     "max_abs_diff_test": 0.0,
+     "seconds_pod": 33.41189169883728,
+     "seconds_pc": 154.882657289505
+    },
+    "mlp_F1": {
+     "max_abs_diff_oof": 5.098144129078719e-13,
+     "max_abs_diff_test": 1.1102230246251565e-14,
+     "seconds_pod": 8.165616512298584,
+     "seconds_pc": 66.55033993721008
+    },
+    "xgb_F2": {
+     "max_abs_diff_oof": 1.130990743637085,
+     "max_abs_diff_test": 0.882819652557373,
+     "seconds_pod": 40.525989294052124,
+     "seconds_pc": 252.31522274017334
+    }
+   }
+  },
+  "matbench_steels": {
+   "pod": {
+    "host": "6a4443701efb",
+    "cpu_model": "AMD EPYC 9575F 64-Core Processor",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+   },
+   "lgbm_params_identical": false,
+   "lgbm_best_value_pod": 87.33296065795523,
+   "lgbm_best_value_pc": 87.3328814915761,
+   "max_abs_diff_test_all_experts": 65.9022216796875,
+   "max_abs_diff_oof_all_experts": 141.7147216796875,
+   "max_abs_diff_test_trees": 65.9022216796875,
+   "max_abs_diff_test_other": 5.3660187404602766e-11,
+   "per_expert": {
+    "cat_F1": {
+     "max_abs_diff_oof": 0.0,
+     "max_abs_diff_test": 0.0,
+     "seconds_pod": 17.58410882949829,
+     "seconds_pc": 133.5367386341095
+    },
+    "et_F1": {
+     "max_abs_diff_oof": 4.547473508864641e-13,
+     "max_abs_diff_test": 2.2737367544323206e-13,
+     "seconds_pod": 2.3633458614349365,
+     "seconds_pc": 8.335850715637207
+    },
+    "et_F2": {
+     "max_abs_diff_oof": 4.547473508864641e-13,
+     "max_abs_diff_test": 4.547473508864641e-13,
+     "seconds_pod": 5.686834812164307,
+     "seconds_pc": 24.46836280822754
+    },
+    "et_frac": {
+     "max_abs_diff_oof": 9.094947017729282e-13,
+     "max_abs_diff_test": 4.547473508864641e-13,
+     "seconds_pod": 29.195424556732178,
+     "seconds_pc": 157.38297033309937
+    },
+    "knn_frac": {
+     "max_abs_diff_oof": 0.0,
+     "max_abs_diff_test": 0.0,
+     "seconds_pod": 0.25131988525390625,
+     "seconds_pc": 1.4460194110870361
+    },
+    "krr_frac": {
+     "max_abs_diff_oof": 6.161826604511589e-11,
+     "max_abs_diff_test": 5.3660187404602766e-11,
+     "seconds_pod": 1.2906720638275146,
+     "seconds_pc": 6.018482208251953
+    },
+    "krr_magpie": {
+     "max_abs_diff_oof": 3.0995579436421394e-09,
+     "max_abs_diff_test": 1.5006662579253316e-11,
+     "seconds_pod": 1.391427993774414,
+     "seconds_pc": 5.755372047424316
+    },
+    "lgbm_F2_tuned": {
+     "max_abs_diff_oof": 0.1377177966137424,
+     "max_abs_diff_test": 0.0778757431376107,
+     "seconds_pod": 4.1051788330078125,
+     "seconds_pc": 14.450725317001343
+    },
+    "mlp_F1": {
+     "max_abs_diff_oof": 1.4097167877480388e-11,
+     "max_abs_diff_test": 1.8189894035458565e-12,
+     "seconds_pod": 2.000030994415283,
+     "seconds_pc": 12.362797021865845
+    },
+    "xgb_F2": {
+     "max_abs_diff_oof": 141.7147216796875,
+     "max_abs_diff_test": 65.9022216796875,
+     "seconds_pod": 18.305860996246338,
+     "seconds_pc": 85.8702712059021
+    }
+   }
+  }
+ }
+}

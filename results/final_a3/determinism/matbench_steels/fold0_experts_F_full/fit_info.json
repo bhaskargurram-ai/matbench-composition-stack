@@ -1,0 +1,29 @@
+{
+ "runs": [
+  {
+   "host": "6a4443701efb",
+   "cpu_model": "AMD EPYC 9575F 64-Core Processor",
+   "cpu_count": 128,
+   "cpu_affinity": 32,
+   "threads_per_worker": 4,
+   "n_workers": 8,
+   "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+   "python": "3.12.3",
+   "fitted_here": [
+    "lgbm_F2_tuned",
+    "xgb_F2",
+    "cat_F1",
+    "et_F1",
+    "et_F2",
+    "et_frac",
+    "krr_frac",
+    "krr_magpie",
+    "knn_frac",
+    "mlp_F1"
+   ],
+   "wall_s": 135.4,
+   "n_trials": 20,
+   "finished": "2026-10-24 13:50:34"
+  }
+ ]
+}

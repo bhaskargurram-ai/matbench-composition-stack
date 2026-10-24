@@ -1,0 +1,13 @@
+  [matbench_steels] fold 0 F_full: ncols=983; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'cat_F1', 'et_F1', 'et_F2', 'et_frac', 'krr_frac', 'krr_magpie', 'knn_frac', 'mlp_F1']
+    tuned lgbm_F2_tuned: 87.3330 in 53s (20 trials)
+    expert lgbm_F2_tuned: 4s, OOF 87.3421
+    expert xgb_F2: 18s, OOF 92.4975
+    expert cat_F1: 18s, OOF 87.1547
+    expert et_F1: 2s, OOF 82.6470
+    expert et_F2: 6s, OOF 87.6088
+    expert et_frac: 29s, OOF 78.9164
+    expert krr_frac: 1s, OOF 195.7035
+    expert krr_magpie: 1s, OOF 124.0000
+    expert knn_frac: 0s, OOF 124.8600
+    expert mlp_F1: 2s, OOF 163.8410
+[matbench_steels] fold 0 F_full: expert fits complete in 135s (no reuse)

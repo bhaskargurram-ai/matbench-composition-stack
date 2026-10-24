@@ -1,0 +1,16 @@
+  [matbench_expt_gap] fold 0 F_full: ncols=983; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'cat_F1', 'et_F1', 'et_F2', 'et_frac', 'hurdle_lgbm_F2_exp', 'hurdle_lgbm_F2_median', 'hurdle_et_F1_exp', 'krr_frac', 'krr_magpie', 'knn_frac', 'mlp_F1']
+    tuned lgbm_F2_tuned: 0.3018 in 327s (20 trials)
+    expert lgbm_F2_tuned: 33s, OOF 0.3018
+    expert xgb_F2: 41s, OOF 0.3039
+    expert cat_F1: 19s, OOF 0.3201
+    expert et_F1: 15s, OOF 0.3004
+    expert et_F2: 65s, OOF 0.2964
+    expert et_frac: 105s, OOF 0.4854
+    expert hurdle_lgbm_F2_exp: 46s, OOF 0.2552
+    expert hurdle_lgbm_F2_median: 46s, OOF 0.2548
+    expert hurdle_et_F1_exp: 19s, OOF 0.3016
+    expert krr_frac: 44s, OOF 0.5562
+    expert krr_magpie: 44s, OOF 0.5025
+    expert knn_frac: 3s, OOF 0.5270
+    expert mlp_F1: 8s, OOF 0.4307
+[matbench_expt_gap] fold 0 F_full: expert fits complete in 815s (no reuse)

@@ -1,0 +1,13 @@
+    cache F_min/et_frac: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold0_experts): identical inputs (118 columns)
+    cache F_min/svc_frac: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold0_experts): identical inputs (118 columns)
+    cache F_min/svc_magpie: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold0_experts): identical inputs (132 columns)
+    cache F_min/knn_frac: copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold0_experts): identical inputs (118 columns)
+  [matbench_expt_is_metal] fold 0 F_min: ncols=271; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'cat_F1', 'et_F1', 'et_F2', 'mlp_F1']
+    tuned lgbm_F2_tuned: 0.9818 in 96s (20 trials)
+    expert lgbm_F2_tuned: 6s, OOF 0.9817
+    expert xgb_F2: 8s, OOF 0.9808
+    expert cat_F1: 25s, OOF 0.9798
+    expert et_F1: 15s, OOF 0.9799
+    expert et_F2: 15s, OOF 0.9799
+    expert mlp_F1: 13s, OOF 0.9620
+[matbench_expt_is_metal] fold 0 F_min: expert fits complete in 177s (with cache reuse)

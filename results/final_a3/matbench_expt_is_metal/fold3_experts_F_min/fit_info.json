@@ -1,0 +1,39 @@
+{
+ "runs": [
+  {
+   "host": "6a4443701efb",
+   "cpu_model": "AMD EPYC 9575F 64-Core Processor",
+   "cpu_count": 128,
+   "cpu_affinity": 32,
+   "threads_per_worker": 4,
+   "n_workers": 8,
+   "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+   "python": "3.12.3",
+   "fitted_here": [
+    "lgbm_F2_tuned",
+    "xgb_F2",
+    "cat_F1",
+    "et_F1",
+    "et_F2",
+    "mlp_F1"
+   ],
+   "wall_s": 251.0,
+   "n_trials": 20,
+   "finished": "2026-10-24 13:54:50"
+  },
+  {
+   "host": "DESKTOP-CMVPHF5",
+   "cpu_model": "Intel(R) Core(TM) i7-14650HX",
+   "cpu_count": 24,
+   "cpu_affinity": 24,
+   "threads_per_worker": 4,
+   "n_workers": 5,
+   "platform": "Windows-11-10.0.26200-SP0",
+   "python": "3.12.10",
+   "fitted_here": [],
+   "wall_s": 1.8,
+   "n_trials": 20,
+   "finished": "2026-10-24 10:02:27"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+    cache F_min/krr_frac: copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (118 columns)
+    cache F_min/krr_magpie: copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (132 columns)
+    cache F_min/knn_frac: copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (118 columns)
+  [matbench_expt_gap] fold 0 F_min: ncols=271; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'cat_F1', 'et_F1', 'et_F2', 'et_frac', 'hurdle_lgbm_F2_exp', 'hurdle_lgbm_F2_median', 'hurdle_et_F1_exp', 'mlp_F1']
+    tuned lgbm_F2_tuned: 0.3551 in 207s (20 trials)
+    expert lgbm_F2_tuned: 27s, OOF 0.3551
+    expert xgb_F2: 10s, OOF 0.3662
+    expert cat_F1: 26s, OOF 0.3756
+    expert et_F1: 19s, OOF 0.3407
+    expert et_F2: 19s, OOF 0.3407
+    expert et_frac: 140s, OOF 0.4854
+    expert hurdle_lgbm_F2_exp: 20s, OOF 0.3020
+    expert hurdle_lgbm_F2_median: 20s, OOF 0.2994
+    expert hurdle_et_F1_exp: 19s, OOF 0.3470
+    expert mlp_F1: 10s, OOF 0.4871
+[matbench_expt_gap] fold 0 F_min: expert fits complete in 516s (with cache reuse)

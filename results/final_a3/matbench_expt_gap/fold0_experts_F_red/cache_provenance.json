@@ -1,0 +1,15 @@
+{
+ "cat_F1": "copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (281 columns)",
+ "et_F1": "copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (281 columns)",
+ "hurdle_et_F1_exp": "copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (281 columns)",
+ "krr_frac": "copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (118 columns)",
+ "krr_magpie": "copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (132 columns)",
+ "knn_frac": "copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (118 columns)",
+ "mlp_F1": "copied from A2:F_full (results/final_a2/matbench_expt_gap/fold0_experts): identical inputs (281 columns)",
+ "lgbm_F2_tuned": "fitted here (c0c4f697aaf2, AMD EPYC 9575F 64-Core Processor)",
+ "xgb_F2": "fitted here (c0c4f697aaf2, AMD EPYC 9575F 64-Core Processor)",
+ "et_F2": "fitted here (c0c4f697aaf2, AMD EPYC 9575F 64-Core Processor)",
+ "et_frac": "fitted here (c0c4f697aaf2, AMD EPYC 9575F 64-Core Processor)",
+ "hurdle_lgbm_F2_exp": "fitted here (c0c4f697aaf2, AMD EPYC 9575F 64-Core Processor)",
+ "hurdle_lgbm_F2_median": "fitted here (c0c4f697aaf2, AMD EPYC 9575F 64-Core Processor)"
+}

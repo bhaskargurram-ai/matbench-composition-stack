@@ -1,0 +1,17 @@
+[matbench_steels] fold 1: n_train=249 n_test=63; block sets ['F_red', 'F_full']; subsets 1
+  [matbench_steels] fold 1 F_red: ncols=281; to fit here: nothing
+    candidate F_red|hurdle=off|et_frac=in: stack OOF 86.68898
+    cache F_full/lgbm_F2_tuned: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (983 columns)
+    cache F_full/xgb_F2: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (983 columns)
+    cache F_full/cat_F1: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (281 columns)
+    cache F_full/et_F1: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (281 columns)
+    cache F_full/et_F2: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (983 columns)
+    cache F_full/et_frac: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (118 columns)
+    cache F_full/krr_frac: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (118 columns)
+    cache F_full/krr_magpie: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (132 columns)
+    cache F_full/knn_frac: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (118 columns)
+    cache F_full/mlp_F1: copied from A2:F_full (results/final_a2/matbench_steels/fold1_experts): identical inputs (281 columns)
+  [matbench_steels] fold 1 F_full: ncols=983; to fit here: nothing
+    candidate F_full|hurdle=off|et_frac=in: stack OOF 86.94732
+[matbench_steels] fold 1: selected F_red|hurdle=off|et_frac=in (stack OOF 86.68898) -> cfg={'n_trials': 20, 'hurdle': False, 'drop_experts': []}
+[matbench_steels] fold 1: done in 9s; selected=F_red|hurdle=off|et_frac=in; weights={'et_frac': 0.938, 'knn_frac': 0.062}

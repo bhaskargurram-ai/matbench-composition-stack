@@ -1,0 +1,12 @@
+{
+ "et_frac": "copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold1_experts): identical inputs (118 columns)",
+ "svc_frac": "copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold1_experts): identical inputs (118 columns)",
+ "svc_magpie": "copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold1_experts): identical inputs (132 columns)",
+ "knn_frac": "copied from A2:F_full (results/final_a2/matbench_expt_is_metal/fold1_experts): identical inputs (118 columns)",
+ "lgbm_F2_tuned": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "xgb_F2": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "cat_F1": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "et_F1": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "et_F2": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)",
+ "mlp_F1": "fitted here (6a4443701efb, AMD EPYC 9575F 64-Core Processor)"
+}
