@@ -1,0 +1,78 @@
+{
+ "matbench_steels": {
+  "n_rows": 312,
+  "cbfv_oliynyk": {
+   "nan_cells": 0,
+   "rows_with_nan": 0,
+   "shape": [
+    312,
+    308
+   ]
+  },
+  "extra": {
+   "nan_cells": 0,
+   "rows_with_nan": 0,
+   "shape": [
+    312,
+    21
+   ]
+  }
+ },
+ "matbench_expt_gap": {
+  "n_rows": 4604,
+  "cbfv_oliynyk": {
+   "nan_cells": 2782,
+   "rows_with_nan": 422,
+   "shape": [
+    4604,
+    308
+   ]
+  },
+  "extra": {
+   "nan_cells": 42,
+   "rows_with_nan": 14,
+   "shape": [
+    4604,
+    21
+   ]
+  }
+ },
+ "matbench_expt_is_metal": {
+  "n_rows": 4921,
+  "cbfv_oliynyk": {
+   "nan_cells": 3075,
+   "rows_with_nan": 465,
+   "shape": [
+    4921,
+    308
+   ]
+  },
+  "extra": {
+   "nan_cells": 42,
+   "rows_with_nan": 14,
+   "shape": [
+    4921,
+    21
+   ]
+  }
+ },
+ "matbench_glass": {
+  "n_rows": 5680,
+  "cbfv_oliynyk": {
+   "nan_cells": 132,
+   "rows_with_nan": 22,
+   "shape": [
+    5680,
+    308
+   ]
+  },
+  "extra": {
+   "nan_cells": 63,
+   "rows_with_nan": 21,
+   "shape": [
+    5680,
+    21
+   ]
+  }
+ }
+}

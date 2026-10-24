@@ -11,11 +11,15 @@ The modules in ./dftstack are verbatim copies of the frozen research code (see R
 Data (Matbench tasks, matminer DFT datasets) is downloaded on first use into ./data/cache/.
 
 Usage:  python run_submission.py [matbench_steels ...] [--out results_rerun.json.gz]
-CPU-only; compute time of the original run is given in info.json ("notes").
+CPU-only; compute time of the original run is given in info.json ("notes") and per fold in the recorded
+parameters of results.json.gz (wall_time_s, expert_fit_seconds, threads, CPU model). A rerun records the same
+fields for its own hardware. results_rerun.json.gz is only this script's output name; it is not shipped.
 """
 from __future__ import annotations
 import gzip
+import os
 import pathlib
+import platform
 import sys
 import time
 
@@ -29,9 +33,21 @@ from dftstack.frozen_config2 import BLOCKS2, CFG2, N_INNER, SEED
 from dftstack.pipeline2 import run_split2
 
 HERE = pathlib.Path(__file__).resolve().parent
+EXPERT_THREADS = 4                       # n_jobs / thread_count of every expert (dftstack/experts2.py)
+
+
+def cpu_model():
+    try:
+        for line in open("/proc/cpuinfo"):
+            if line.lower().startswith("model name"):
+                return line.split(":", 1)[1].strip()
+    except OSError:
+        pass
+    return platform.processor() or platform.machine()
 
 
 def main(tasks, out_file):
+    cpu = cpu_model()
     mb = MatbenchBenchmark(autoload=False, subset=tasks)
     for task in mb.tasks:
         name = task.dataset_name
@@ -56,8 +72,13 @@ def main(tasks, out_file):
                 p = [bool(v) for v in (p >= meta["thresholds"]["stack_local"])]
             else:
                 p = [float(v) for v in p]
-            task.record(fold, p, params={"pipeline": "DFT-Stack (Amendment-2 frozen config)", "seed": SEED})
-            print(f"{name} fold {k}: recorded in {time.time() - t0:.0f} s", flush=True)
+            wall = time.time() - t0                # wall time of this fold (features are built once per task, above)
+            params = {"pipeline": "DFT-Stack (Amendment-2 frozen config)", "seed": SEED,
+                      "wall_time_s": round(wall, 1), "n_workers": 1, "threads_per_worker": EXPERT_THREADS,
+                      "cpu_threads_used": EXPERT_THREADS, "cpu_count": os.cpu_count(), "cpu_model": cpu, "gpu": "none",
+                      "expert_fit_seconds": {e: round(float(s), 1) for e, s in meta["expert_seconds"].items()}}
+            task.record(fold, p, params=params)
+            print(f"{name} fold {k}: recorded in {wall:.0f} s", flush=True)
     mb.add_metadata({"algorithm": "DFT-Stack"})
     mb.to_file(str(out_file))
     raw = pathlib.Path(out_file).read_bytes()

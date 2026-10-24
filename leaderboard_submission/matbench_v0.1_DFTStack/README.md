@@ -6,10 +6,15 @@ Matbench v0.1 composition tasks with nested cross-validation inside each officia
 See `info.json` for the full description and the external-data disclosure.
 
 ## Files
-- `results.json.gz`: recorded benchmark (4 tasks x 5 folds; classification recorded as hard labels).
-- `info.json`: metadata, references, notes, pinned requirements.
-- `run_submission.py`: reproduces the run and records every fold with `task.record`, then writes
-  `results_rerun.json.gz` (`python run_submission.py [task ...]`).
+- `results.json.gz`: recorded benchmark (4 tasks x 5 folds; classification recorded as hard labels). The
+  `parameters` of every fold carry the compute of the original run: `wall_time_s`, `n_workers`,
+  `threads_per_worker`, `cpu_threads_used`, `cpu_model`, `gpu`, `expert_fit_seconds` (per expert), `pipeline`, `seed`.
+- `info.json`: metadata, references, notes (fold use stated exactly, prior-run disclosure, labels variant,
+  imputation note), pinned requirements.
+- `run_submission.py`: reproduces the run and records every fold with `task.record` (with the same per-fold
+  compute fields, measured on the rerun machine), then writes `results_rerun.json.gz`
+  (`python run_submission.py [task ...]`). `results_rerun.json.gz` is only the output name of such a user rerun;
+  it is not shipped in this folder, and no complete independent rerun has been performed so far.
 - `dftstack/`: verbatim copies of the frozen research modules (pipeline, experts, feature blocks, DFT
   feature builder, frozen configuration). Their docstrings refer to the analysis plan and design logs, which are
   in the research repository (https://github.com/bhaskargurram-ai/matbench-composition-stack).
