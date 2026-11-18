@@ -1,0 +1,41 @@
+[matbench_expt_gap] fold 4: n_train=3684 n_test=920; block sets ['F_min', 'F_all']; subsets 4
+  [matbench_expt_gap] fold 4 F_min: ncols=271; NaN cells in train rows of the imputed blocks=36; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'cat_F1', 'et_F1', 'et_F2', 'et_frac', 'hurdle_lgbm_F2_exp', 'hurdle_lgbm_F2_median', 'hurdle_et_F1_exp', 'krr_frac', 'krr_magpie', 'knn_frac', 'mlp_F1']
+    tuned lgbm_F2_tuned: 0.3529 in 406s (20 trials)
+    expert lgbm_F2_tuned: 221s, OOF 0.3529
+    expert xgb_F2: 108s, OOF 0.3579
+    expert cat_F1: 220s, OOF 0.3620
+    expert et_F1: 78s, OOF 0.3385
+    expert et_F2: 78s, OOF 0.3385
+    expert et_frac: 706s, OOF 0.4854
+    expert hurdle_lgbm_F2_exp: 273s, OOF 0.2930
+    expert hurdle_lgbm_F2_median: 672s, OOF 0.2955
+    expert hurdle_et_F1_exp: 90s, OOF 0.3450
+    expert krr_frac: 184s, OOF 0.5418
+    expert krr_magpie: 225s, OOF 0.4931
+    expert knn_frac: 18s, OOF 0.5196
+    expert mlp_F1: 100s, OOF 0.4803
+    candidate F_min|hurdle=off|et_frac=in: stack OOF 0.33880
+    candidate F_min|hurdle=off|et_frac=out: stack OOF 0.33880
+    candidate F_min|hurdle=on|et_frac=in: stack OOF 0.29339
+    candidate F_min|hurdle=on|et_frac=out: stack OOF 0.29339
+    cache F_all/cat_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/et_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/et_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/hurdle_et_F1_exp: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/krr_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/krr_magpie: copied from A4:F_min of this fold: identical inputs (132 columns)
+    cache F_all/knn_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/mlp_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+  [matbench_expt_gap] fold 4 F_all: ncols=973; NaN cells in train rows of the imputed blocks=2210; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'et_F2', 'hurdle_lgbm_F2_exp', 'hurdle_lgbm_F2_median']
+    tuned lgbm_F2_tuned: 0.3483 in 2270s (20 trials)
+    expert lgbm_F2_tuned: 162s, OOF 0.3483
+    expert xgb_F2: 186s, OOF 0.3533
+    expert et_F2: 291s, OOF 0.3396
+    expert hurdle_lgbm_F2_exp: 503s, OOF 0.2811
+    expert hurdle_lgbm_F2_median: 536s, OOF 0.2795
+    candidate F_all|hurdle=off|et_frac=in: stack OOF 0.33830
+    candidate F_all|hurdle=off|et_frac=out: stack OOF 0.33830
+    candidate F_all|hurdle=on|et_frac=in: stack OOF 0.27942
+    candidate F_all|hurdle=on|et_frac=out: stack OOF 0.27942
+[matbench_expt_gap] fold 4: selected F_all|hurdle=on|et_frac=in (stack OOF 0.27942) -> cfg={'n_trials': 20, 'hurdle': True, 'drop_experts': []}
+[matbench_expt_gap] fold 4: done in 7378s; selected=F_all|hurdle=on|et_frac=in; weights={'hurdle_lgbm_F2_exp': 0.379, 'hurdle_lgbm_F2_median': 0.621}

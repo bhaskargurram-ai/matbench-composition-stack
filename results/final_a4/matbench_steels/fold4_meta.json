@@ -1,0 +1,262 @@
+{
+ "experts": [
+  "lgbm_F2_tuned",
+  "xgb_F2",
+  "cat_F1",
+  "et_F1",
+  "et_F2",
+  "et_frac",
+  "krr_frac",
+  "krr_magpie",
+  "knn_frac",
+  "mlp_F1"
+ ],
+ "expert_seconds": {
+  "lgbm_F2_tuned": 5.870691537857056,
+  "xgb_F2": 19.379207372665405,
+  "cat_F1": 129.37249088287354,
+  "et_F1": 8.516746282577515,
+  "et_F2": 8.609915971755981,
+  "et_frac": 175.28906416893005,
+  "krr_frac": 4.896480321884155,
+  "krr_magpie": 4.854473829269409,
+  "knn_frac": 1.9688444137573242,
+  "mlp_F1": 23.24406147003174
+ },
+ "tuned": {
+  "lgbm_F2_tuned": {
+   "params": {
+    "num_leaves": 11,
+    "learning_rate": 0.013467397778905904,
+    "n_estimators": 1074,
+    "min_child_samples": 2,
+    "colsample_bytree": 0.15409865231488845,
+    "subsample": 0.6708571921327972,
+    "reg_lambda": 0.28335566547394253,
+    "objective": "l2"
+   },
+   "value": 94.87955606553645,
+   "n_trials": 20,
+   "seconds": 257.47665214538574
+  }
+ },
+ "expert_oof_scores": {
+  "lgbm_F2_tuned": 94.87955606553645,
+  "xgb_F2": 98.68813896484376,
+  "cat_F1": 96.46302274294901,
+  "et_F1": 89.16538160000017,
+  "et_F2": 89.16538160000017,
+  "et_frac": 86.0061956000003,
+  "krr_frac": 194.44586244313746,
+  "krr_magpie": 115.98158778832556,
+  "knn_frac": 114.80096577593282,
+  "mlp_F1": 142.87304017721422
+ },
+ "best_single": "et_frac",
+ "stack_loss": "l1",
+ "stack_weights": {
+  "lgbm_F2_tuned": 0.0,
+  "xgb_F2": 0.0,
+  "cat_F1": 0.0,
+  "et_F1": 0.0,
+  "et_F2": 0.0813187986878758,
+  "et_frac": 0.8418268120640338,
+  "krr_frac": 0.0,
+  "krr_magpie": 0.0,
+  "knn_frac": 0.07685438924809053,
+  "mlp_F1": 0.0
+ },
+ "stack_oof_score": 85.83925505181931,
+ "sel_stack_local": {
+  "space": null,
+  "k": 10,
+  "hmult": 16.0,
+  "kappa": 2.0,
+  "alpha": 0.0,
+  "h": 13.74588320802374,
+  "score": 85.62146567602367,
+  "base_score": 85.83925505181931
+ },
+ "gate_stack_local": {
+  "selected_alpha": 0.25,
+  "uncorrected_oof": 85.83925505181931,
+  "honest_oof": 89.29968706802005,
+  "kept": false
+ },
+ "sel_single_local": {
+  "space": null,
+  "k": 10,
+  "hmult": 16.0,
+  "kappa": 2.0,
+  "alpha": 0.0,
+  "h": 13.74588320802374,
+  "score": 85.9451296204073,
+  "base_score": 86.0061956000003
+ },
+ "gate_single_local": {
+  "selected_alpha": 0.25,
+  "uncorrected_oof": 86.0061956000003,
+  "honest_oof": 89.81248025217062,
+  "kept": false
+ },
+ "imputation": {
+  "rule": "column medians of the fit's training rows only (experts4.Expert4)",
+  "selected_blockset_nan_cells_train": 0,
+  "selected_blockset_nan_cells_test": 0
+ },
+ "design_selection": {
+  "selected": "F_min|hurdle=off|et_frac=in",
+  "blockset": "F_min",
+  "subset": {
+   "hurdle": false,
+   "drop_experts": []
+  },
+  "cfg": {
+   "n_trials": 20,
+   "hurdle": false,
+   "drop_experts": []
+  },
+  "criterion": "cross-fitted OOF score of the uncorrected simplex stack on T_k (MAE / ROC-AUC); ties -> earlier candidate",
+  "candidates": [
+   {
+    "candidate": "F_min|hurdle=off|et_frac=in",
+    "blockset": "F_min",
+    "subset": {
+     "hurdle": false,
+     "drop_experts": []
+    },
+    "stack_oof_score": 85.83925505181931,
+    "experts": [
+     "lgbm_F2_tuned",
+     "xgb_F2",
+     "cat_F1",
+     "et_F1",
+     "et_F2",
+     "et_frac",
+     "krr_frac",
+     "krr_magpie",
+     "knn_frac",
+     "mlp_F1"
+    ],
+    "n_columns": 271
+   },
+   {
+    "candidate": "F_all|hurdle=off|et_frac=in",
+    "blockset": "F_all",
+    "subset": {
+     "hurdle": false,
+     "drop_experts": []
+    },
+    "stack_oof_score": 85.99939681232316,
+    "experts": [
+     "lgbm_F2_tuned",
+     "xgb_F2",
+     "cat_F1",
+     "et_F1",
+     "et_F2",
+     "et_frac",
+     "krr_frac",
+     "krr_magpie",
+     "knn_frac",
+     "mlp_F1"
+    ],
+    "n_columns": 973
+   }
+  ],
+  "dropped_for_budget": []
+ },
+ "compute": {
+  "selection_job": {
+   "host": "DESKTOP-CMVPHF5",
+   "cpu_model": "Intel(R) Core(TM) i7-14650HX",
+   "cpu_count": 24,
+   "cpu_affinity": 24,
+   "threads_per_worker": 4,
+   "n_workers": 5,
+   "platform": "Windows-11-10.0.26200-SP0",
+   "python": "3.12.10",
+   "wall_s": 1157.0
+  },
+  "expert_fits": {
+   "F_min": {
+    "cache_provenance": {
+     "lgbm_F2_tuned": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "xgb_F2": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "cat_F1": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "et_F1": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "et_F2": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "et_frac": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "krr_frac": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "krr_magpie": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "knn_frac": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "mlp_F1": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)"
+    },
+    "fit_info": {
+     "runs": [
+      {
+       "host": "DESKTOP-CMVPHF5",
+       "cpu_model": "Intel(R) Core(TM) i7-14650HX",
+       "cpu_count": 24,
+       "cpu_affinity": 24,
+       "threads_per_worker": 4,
+       "n_workers": 5,
+       "platform": "Windows-11-10.0.26200-SP0",
+       "python": "3.12.10",
+       "fitted_here": [
+        "lgbm_F2_tuned",
+        "xgb_F2",
+        "cat_F1",
+        "et_F1",
+        "et_F2",
+        "et_frac",
+        "krr_frac",
+        "krr_magpie",
+        "knn_frac",
+        "mlp_F1"
+       ],
+       "wall_s": 655.5,
+       "n_trials": 20,
+       "finished": "2026-11-18 10:55:18"
+      }
+     ]
+    }
+   },
+   "F_all": {
+    "cache_provenance": {
+     "cat_F1": "copied from A4:F_min of this fold: identical inputs (271 columns)",
+     "et_F1": "copied from A4:F_min of this fold: identical inputs (271 columns)",
+     "et_frac": "copied from A4:F_min of this fold: identical inputs (118 columns)",
+     "krr_frac": "copied from A4:F_min of this fold: identical inputs (118 columns)",
+     "krr_magpie": "copied from A4:F_min of this fold: identical inputs (132 columns)",
+     "knn_frac": "copied from A4:F_min of this fold: identical inputs (118 columns)",
+     "mlp_F1": "copied from A4:F_min of this fold: identical inputs (271 columns)",
+     "lgbm_F2_tuned": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "xgb_F2": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)",
+     "et_F2": "fitted here (DESKTOP-CMVPHF5, Intel(R) Core(TM) i7-14650HX)"
+    },
+    "fit_info": {
+     "runs": [
+      {
+       "host": "DESKTOP-CMVPHF5",
+       "cpu_model": "Intel(R) Core(TM) i7-14650HX",
+       "cpu_count": 24,
+       "cpu_affinity": 24,
+       "threads_per_worker": 4,
+       "n_workers": 5,
+       "platform": "Windows-11-10.0.26200-SP0",
+       "python": "3.12.10",
+       "fitted_here": [
+        "lgbm_F2_tuned",
+        "xgb_F2",
+        "et_F2"
+       ],
+       "wall_s": 489.8,
+       "n_trials": 20,
+       "finished": "2026-11-18 11:03:28"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

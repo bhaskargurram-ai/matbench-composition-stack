@@ -1,0 +1,29 @@
+[matbench_expt_is_metal] fold 4: n_train=3937 n_test=984; block sets ['F_min', 'F_all']; subsets 1
+  [matbench_expt_is_metal] fold 4 F_min: ncols=271; NaN cells in train rows of the imputed blocks=24; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'cat_F1', 'et_F1', 'et_F2', 'et_frac', 'svc_frac', 'svc_magpie', 'knn_frac', 'mlp_F1']
+    tuned lgbm_F2_tuned: 0.9810 in 602s (20 trials)
+    expert lgbm_F2_tuned: 53s, OOF 0.9811
+    expert xgb_F2: 37s, OOF 0.9797
+    expert cat_F1: 214s, OOF 0.9803
+    expert et_F1: 70s, OOF 0.9797
+    expert et_F2: 74s, OOF 0.9797
+    expert et_frac: 656s, OOF 0.9455
+    expert svc_frac: 21s, OOF 0.9448
+    expert svc_magpie: 21s, OOF 0.9567
+    expert knn_frac: 15s, OOF 0.9353
+    expert mlp_F1: 58s, OOF 0.9671
+    candidate F_min|hurdle=off|et_frac=in: stack OOF 0.98193
+    cache F_all/cat_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/et_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/et_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/svc_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/svc_magpie: copied from A4:F_min of this fold: identical inputs (132 columns)
+    cache F_all/knn_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/mlp_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+  [matbench_expt_is_metal] fold 4 F_all: ncols=973; NaN cells in train rows of the imputed blocks=2513; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'et_F2']
+    tuned lgbm_F2_tuned: 0.9835 in 1744s (20 trials)
+    expert lgbm_F2_tuned: 147s, OOF 0.9834
+    expert xgb_F2: 286s, OOF 0.9827
+    expert et_F2: 248s, OOF 0.9816
+    candidate F_all|hurdle=off|et_frac=in: stack OOF 0.98366
+[matbench_expt_is_metal] fold 4: selected F_all|hurdle=off|et_frac=in (stack OOF 0.98366) -> cfg={'n_trials': 20, 'hurdle': False, 'drop_experts': []}
+[matbench_expt_is_metal] fold 4: done in 4313s; selected=F_all|hurdle=off|et_frac=in; weights={'lgbm_F2_tuned': 0.212, 'xgb_F2': 0.19, 'cat_F1': 0.165, 'et_F2': 0.361, 'et_frac': 0.0, 'svc_frac': 0.0, 'svc_magpie': 0.001, 'mlp_F1': 0.07}

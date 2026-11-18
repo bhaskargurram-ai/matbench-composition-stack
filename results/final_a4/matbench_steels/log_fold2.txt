@@ -1,0 +1,29 @@
+[matbench_steels] fold 2: n_train=250 n_test=62; block sets ['F_min', 'F_all']; subsets 1
+  [matbench_steels] fold 2 F_min: ncols=271; NaN cells in train rows of the imputed blocks=0; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'cat_F1', 'et_F1', 'et_F2', 'et_frac', 'krr_frac', 'krr_magpie', 'knn_frac', 'mlp_F1']
+    tuned lgbm_F2_tuned: 98.5162 in 87s (20 trials)
+    expert lgbm_F2_tuned: 7s, OOF 98.5162
+    expert xgb_F2: 18s, OOF 103.6109
+    expert cat_F1: 124s, OOF 96.1413
+    expert et_F1: 9s, OOF 93.0319
+    expert et_F2: 8s, OOF 93.0319
+    expert et_frac: 156s, OOF 88.7148
+    expert krr_frac: 4s, OOF 158.2882
+    expert krr_magpie: 4s, OOF 101.1642
+    expert knn_frac: 1s, OOF 109.6382
+    expert mlp_F1: 19s, OOF 165.5573
+    candidate F_min|hurdle=off|et_frac=in: stack OOF 87.99433
+    cache F_all/cat_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/et_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/et_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/krr_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/krr_magpie: copied from A4:F_min of this fold: identical inputs (132 columns)
+    cache F_all/knn_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/mlp_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+  [matbench_steels] fold 2 F_all: ncols=973; NaN cells in train rows of the imputed blocks=0; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'et_F2']
+    tuned lgbm_F2_tuned: 100.4161 in 360s (20 trials)
+    expert lgbm_F2_tuned: 18s, OOF 100.4161
+    expert xgb_F2: 136s, OOF 103.9745
+    expert et_F2: 19s, OOF 94.8726
+    candidate F_all|hurdle=off|et_frac=in: stack OOF 87.99433
+[matbench_steels] fold 2: selected F_all|hurdle=off|et_frac=in (stack OOF 87.99433) -> cfg={'n_trials': 20, 'hurdle': False, 'drop_experts': []}
+[matbench_steels] fold 2: done in 1004s; selected=F_all|hurdle=off|et_frac=in; weights={'et_frac': 0.778, 'krr_magpie': 0.222}

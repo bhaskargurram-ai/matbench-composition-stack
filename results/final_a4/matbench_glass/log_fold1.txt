@@ -1,0 +1,29 @@
+[matbench_glass] fold 1: n_train=4544 n_test=1136; block sets ['F_min', 'F_all']; subsets 1
+  [matbench_glass] fold 1 F_min: ncols=271; NaN cells in train rows of the imputed blocks=48; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'cat_F1', 'et_F1', 'et_F2', 'et_frac', 'svc_frac', 'svc_magpie', 'knn_frac', 'mlp_F1']
+    tuned lgbm_F2_tuned: 0.9489 in 2544s (20 trials)
+    expert lgbm_F2_tuned: 232s, OOF 0.9489
+    expert xgb_F2: 34s, OOF 0.9462
+    expert cat_F1: 131s, OOF 0.9430
+    expert et_F1: 45s, OOF 0.9506
+    expert et_F2: 45s, OOF 0.9506
+    expert et_frac: 328s, OOF 0.9417
+    expert svc_frac: 35s, OOF 0.8717
+    expert svc_magpie: 31s, OOF 0.9018
+    expert knn_frac: 19s, OOF 0.9005
+    expert mlp_F1: 92s, OOF 0.9005
+    candidate F_min|hurdle=off|et_frac=in: stack OOF 0.95203
+    cache F_all/cat_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/et_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+    cache F_all/et_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/svc_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/svc_magpie: copied from A4:F_min of this fold: identical inputs (132 columns)
+    cache F_all/knn_frac: copied from A4:F_min of this fold: identical inputs (118 columns)
+    cache F_all/mlp_F1: copied from A4:F_min of this fold: identical inputs (271 columns)
+  [matbench_glass] fold 1 F_all: ncols=973; NaN cells in train rows of the imputed blocks=150; to fit here: ['lgbm_F2_tuned', 'xgb_F2', 'et_F2']
+    tuned lgbm_F2_tuned: 0.9542 in 1653s (20 trials)
+    expert lgbm_F2_tuned: 44s, OOF 0.9542
+    expert xgb_F2: 206s, OOF 0.9529
+    expert et_F2: 343s, OOF 0.9550
+    candidate F_all|hurdle=off|et_frac=in: stack OOF 0.95570
+[matbench_glass] fold 1: selected F_all|hurdle=off|et_frac=in (stack OOF 0.95570) -> cfg={'n_trials': 20, 'hurdle': False, 'drop_experts': []}
+[matbench_glass] fold 1: done in 5831s; selected=F_all|hurdle=off|et_frac=in; weights={'lgbm_F2_tuned': 0.187, 'xgb_F2': 0.066, 'cat_F1': 0.038, 'et_F1': 0.015, 'et_F2': 0.49, 'et_frac': 0.205, 'svc_frac': 0.0, 'svc_magpie': 0.0}
