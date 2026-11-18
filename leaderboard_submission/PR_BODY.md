@@ -50,4 +50,5 @@ job wall time in total; no cached fit of an earlier run reused. Per-fold wall ti
 per-expert fit seconds are in the `parameters` of every fold in `results.json.gz`.
 
 ## Paper and code
-Manuscript under review at Computational Materials Science (no DOI or preprint yet). Research repository: https://github.com/bhaskargurram-ai/matbench-composition-stack
+No published paper or preprint is associated with this entry. Research repository (analysis plan with all
+amendments, freeze hashes, per-fold predictions): https://github.com/bhaskargurram-ai/matbench-composition-stack

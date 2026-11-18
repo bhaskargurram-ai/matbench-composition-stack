@@ -43,11 +43,6 @@ BIB = [
     "Mark Asta and Kristin A. Persson and G. Jeffrey Snyder and Ian Foster and Anubhav Jain},\n"
     "  title = {Matminer: An open source toolkit for materials data mining},\n  journal = {Computational Materials Science},\n"
     "  year = {2018},\n  volume = {152},\n  pages = {60--69},\n  doi = {10.1016/j.commatsci.2018.05.018}\n}",
-    "@unpublished{gurram_stack_inreview,\n  author = {Bhaskar Gurram},\n"
-    "  title = {Reusing computed density functional theory data to predict experimentally measured materials properties from composition: a pre-registered validation case study},\n"
-    "  note = {Under review at Computational Materials Science. Placeholder entry: no DOI or preprint identifier yet. The "
-    "manuscript reports this composition-only pipeline next to a DFT-informed variant that is not part of this entry},\n"
-    "  year = {2026}\n}",
 ]
 
 
@@ -223,7 +218,7 @@ def main():
         "selected_candidate, candidate_inner_cv_scores, imputation). "
         f"Cells that are missing before imputation, per task: {nan_txt}. A descriptor column is dropped only if it is "
         "missing in every row of the task (it then has no value anywhere). "
-        "PRIOR RUNS ON THE OFFICIAL FOLDS, all pre-registered, each scored once, all reported in the manuscript and the "
+        "PRIOR RUNS ON THE OFFICIAL FOLDS, all pre-registered, each scored once, all reported in the "
         "research repository (board metric: MAE for steels and expt_gap, balanced accuracy for expt_is_metal and glass). "
         f"(1) Amendment 1 (2026-10-18; composition-only, smaller expert pool): {txt('A1')}. "
         f"(2) Amendment 2 (2026-10-19; USED EXTERNAL DATA: Materials Project PBE DFT band gaps and formation energies "
@@ -334,7 +329,8 @@ job wall time in total; no cached fit of an earlier run reused. Per-fold wall ti
 per-expert fit seconds are in the `parameters` of every fold in `results.json.gz`.
 
 ## Paper and code
-Manuscript under review at Computational Materials Science (no DOI or preprint yet). Research repository: {REPO}
+No published paper or preprint is associated with this entry. Research repository (analysis plan with all
+amendments, freeze hashes, per-fold predictions): {REPO}
 """, encoding="utf-8")
     print("built", SUB)
     for t in TASKS:
